@@ -1,0 +1,17 @@
+filename = 'walljump-1.20.1-1.3.5-forge.jar'
+name = 'Wall-Jump TXF'
+side = ''
+x-prismlauncher-loaders = [ 'neoforge', 'forge' ]
+x-prismlauncher-mc-versions = [ '1.20', '1.20.1' ]
+x-prismlauncher-release-type = 'release'
+x-prismlauncher-version-number = 'Wall-Jump TXF 1.20.1-1.3.5-forge'
+
+[download]
+hash = 'fc6217ce60f2f523ad345cd87b111ac9216f82bf'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
+
+[update.curseforge]
+file-id = 6584381
+project-id = 909143

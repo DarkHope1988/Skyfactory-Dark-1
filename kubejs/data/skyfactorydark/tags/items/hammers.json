@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "#forge:tools/hammers",
+    "#exdeorum:hammers"
+  ]
+}

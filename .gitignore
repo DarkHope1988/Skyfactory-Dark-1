@@ -1,0 +1,22 @@
+# ===== Minecraft / Prism Runtime (nicht versionieren) =====
+
+# Logs (ändern sich ständig)
+logs/
+*.log
+
+# Crash Reports (ändern sich ständig)
+crash-reports/
+
+# Cache / temporäre Dateien
+cache/
+*.tmp
+
+# Weltstände / Saves (normalerweise NICHT ins Modpack)
+saves/
+
+# Spieler-/Client-spezifische Daten
+options.txt
+servers.dat
+
+# Java Crash Dumps
+hs_err_pid*

@@ -1,0 +1,17 @@
+filename = 'twerkcropgrowth-2.1.0.jar'
+name = 'Twerk Crop Growth'
+side = 'server'
+x-prismlauncher-loaders = [ 'forge' ]
+x-prismlauncher-mc-versions = [ '1.20.1' ]
+x-prismlauncher-release-type = 'release'
+x-prismlauncher-version-number = 'twerkcropgrowth-2.1.0.jar'
+
+[download]
+hash = '647a14ad4faa14bc749b95d51cd36f225a84ba4b'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
+
+[update.curseforge]
+file-id = 4595181
+project-id = 873147
