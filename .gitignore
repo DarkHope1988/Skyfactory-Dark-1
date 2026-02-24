@@ -22,3 +22,6 @@ servers.dat
 
 # Java Crash Dumps
 hs_err_pid*
+usercache.json
+config/jei/world/local/Skyfactory_Dark1_Basistest/bookmarks.ini
+config/jei/world/local/Skyfactory_Dark1_Basistest/lookupHistory.ini
