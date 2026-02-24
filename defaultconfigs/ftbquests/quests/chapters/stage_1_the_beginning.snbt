@@ -9,6 +9,7 @@
 	quests: [
 		{
 			id: "C100000000000111"
+			dependencies: ["B100000000000122"]
 			rewards: [{ id: "C100000000000211" type: "xp" xp: 6 }]
 			tasks: [{ count: 24L id: "C100000000000311" item: { Count: 24, id: "kubejs:organic_dust" } type: "item" }]
 			title: "01 | Organic Dust aufbauen"
@@ -17,6 +18,7 @@
 		}
 		{
 			id: "C100000000000112"
+			dependencies: ["C100000000000111"]
 			rewards: [{ id: "C100000000000212" type: "xp" xp: 6 }]
 			tasks: [{ count: 8L id: "C100000000000312" item: { Count: 8, id: "kubejs:compost_pile" } type: "item" }]
 			title: "02 | Compost Pile herstellen"
@@ -25,6 +27,7 @@
 		}
 		{
 			id: "C100000000000113"
+			dependencies: ["C100000000000112"]
 			rewards: [{ id: "C100000000000213" type: "xp" xp: 6 }]
 			tasks: [{ count: 8L id: "C100000000000313" item: { Count: 8, id: "kubejs:compost_pulp" } type: "item" }]
 			title: "03 | Compost Pulp herstellen"
@@ -33,6 +36,7 @@
 		}
 		{
 			id: "C100000000000114"
+			dependencies: ["C100000000000113"]
 			rewards: [{ id: "C100000000000214" type: "xp" xp: 6 }]
 			tasks: [{ count: 8L id: "C100000000000314" item: { Count: 8, id: "minecraft:dirt" } type: "item" }]
 			title: "04 | Dirt-Loop starten"
@@ -41,6 +45,7 @@
 		}
 		{
 			id: "C100000000000115"
+			dependencies: ["C100000000000114"]
 			rewards: [{ id: "C100000000000215" type: "xp" xp: 8 }]
 			tasks: [{ count: 16L id: "C100000000000315" item: { Count: 16, id: "kubejs:packed_soil" } type: "item" }]
 			title: "05 | Packed Soil produzieren"
@@ -49,6 +54,7 @@
 		}
 		{
 			id: "C100000000000116"
+			dependencies: ["C100000000000115"]
 			rewards: [{ id: "C100000000000216" type: "xp" xp: 8 }]
 			tasks: [{ id: "C100000000000316" item: "kubejs:crude_mallet" type: "item" }]
 			title: "06 | Crude Mallet bauen"
@@ -57,6 +63,7 @@
 		}
 		{
 			id: "C100000000000117"
+			dependencies: ["C100000000000116"]
 			rewards: [{ id: "C100000000000217" type: "xp" xp: 10 }]
 			tasks: [{ count: 24L id: "C100000000000317" item: { Count: 24, id: "kubejs:stone_grit" } type: "item" }]
 			title: "07 | Stone Grit farmen"
@@ -65,6 +72,7 @@
 		}
 		{
 			id: "C100000000000118"
+			dependencies: ["C100000000000117"]
 			rewards: [{ id: "C100000000000218" type: "xp" xp: 10 }]
 			tasks: [{ count: 16L id: "C100000000000318" item: { Count: 16, id: "minecraft:cobblestone" } type: "item" }]
 			title: "08 | Cobblestone sichern"
@@ -73,6 +81,7 @@
 		}
 		{
 			id: "C100000000000119"
+			dependencies: ["C100000000000118"]
 			rewards: [{ id: "C100000000000219" type: "xp" xp: 10 }]
 			tasks: [{ id: "C100000000000319" item: "minecraft:furnace" type: "item" }]
 			title: "09 | Ersten Ofen bauen"
@@ -81,6 +90,7 @@
 		}
 		{
 			id: "C100000000000120"
+			dependencies: ["C100000000000119"]
 			rewards: [{ id: "C100000000000220" type: "xp" xp: 15 }]
 			tasks: [{ id: "C100000000000320" item: "minecraft:stone_pickaxe" type: "item" }]
 			title: "10 | Stage 1 Abschluss: Steinwerkzeug"
@@ -89,6 +99,7 @@
 		}
 		{
 			id: "C100000000000121"
+			dependencies: ["C100000000000115"]
 			rewards: [{ id: "C100000000000221" type: "xp" xp: 8 }]
 			tasks: [
 				{ count: 12L id: "C100000000000321" item: { Count: 12, id: "kubejs:organic_fiber" } type: "item" }

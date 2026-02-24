@@ -16,21 +16,21 @@ StartupEvents.registry('item', event => {
   event.create('tree_bark').displayName('Baumrinde').maxStackSize(64);
   event.create('organic_rod').displayName('Organischer Stab').maxDamage(96);
   event.create('sprout_mash').displayName('Keim-Brei').maxStackSize(64).food(food => {
-    food.hunger(3);
-    food.saturation(0.4);
+    food.hunger(2);
+    food.saturation(0.2);
   });
   event.create('survival_ration').displayName('Ueberlebensration').maxStackSize(64).food(food => {
-    food.hunger(6);
-    food.saturation(0.7);
+    food.hunger(4);
+    food.saturation(0.5);
   });
   event.create('raw_forage').displayName('Rohes Forage').maxStackSize(64);
   event.create('dried_forage').displayName('Getrocknetes Forage').maxStackSize(64).food(food => {
     food.hunger(5);
-    food.saturation(0.6);
+    food.saturation(0.7);
   });
   event.create('worm_bait').displayName('Wurmkoeder').maxStackSize(64);
   event.create('protein_cake').displayName('Protein-Kuchen').maxStackSize(64).food(food => {
-    food.hunger(8);
+    food.hunger(7);
     food.saturation(0.9);
   });
 

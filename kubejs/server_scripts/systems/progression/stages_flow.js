@@ -22,6 +22,7 @@ PlayerEvents.loggedIn(event => {
   const player = event.player;
   grant(player, STAGES.STAGE_0_WELCOME);
   if (global.sfdSyncStageDisplays) global.sfdSyncStageDisplays(player);
+  if (global.sfdApplyStageMobUnlocks) global.sfdApplyStageMobUnlocks(player);
 
   if (!player.stages) return;
   const active = [];
@@ -35,20 +36,23 @@ PlayerEvents.loggedIn(event => {
 ItemEvents.crafted(event => {
   const player = event.player;
   const craftedId = String(event.item.id);
+  let stageChanged = false;
 
-  if (
-    craftedId === 'kubejs:crude_mallet' ||
-    craftedId === 'exdeorum:crook' ||
-    craftedId === 'exdeorum:bone_crook'
-  ) {
-    grant(player, STAGES.STAGE_1_BEGINNING);
+  // Stage 1 should begin after true Stage-0 completion milestone.
+  if (craftedId === 'minecraft:crafting_table') {
+    stageChanged = grant(player, STAGES.STAGE_1_BEGINNING) || stageChanged;
   }
 
-  if (craftedId === 'minecraft:cobblestone' || craftedId === 'minecraft:stone') {
-    grant(player, STAGES.STAGE_2_STONE);
+  // Stage 2 starts when player actually reaches stone tools.
+  if (craftedId === 'minecraft:stone_pickaxe') {
+    stageChanged = grant(player, STAGES.STAGE_2_STONE) || stageChanged;
   }
 
   if (craftedId === 'minecraft:furnace' || craftedId === 'minecraft:blast_furnace') {
-    grant(player, STAGES.STAGE_3_HEAT);
+    stageChanged = grant(player, STAGES.STAGE_3_HEAT) || stageChanged;
+  }
+
+  if (stageChanged && global.sfdApplyStageMobUnlocks) {
+    global.sfdApplyStageMobUnlocks(player);
   }
 });

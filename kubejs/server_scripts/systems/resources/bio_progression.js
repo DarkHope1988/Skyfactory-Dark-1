@@ -27,7 +27,18 @@ function sfdDamageTool(player, damage) {
   if (!player || player.creativeMode) return;
   const held = player.mainHandItem;
   if (!held || held.empty) return;
-  held.damageValue = held.damageValue + damage;
+
+  const max = Number(held.maxDamage || 0);
+  const current = Number(held.damageValue || 0);
+  const next = current + damage;
+
+  if (max > 0 && next >= max) {
+    // Prevent negative/overflow durability behavior: consume the broken tool.
+    held.count = held.count - 1;
+    return;
+  }
+
+  held.damageValue = next;
 }
 
 BlockEvents.rightClicked(event => {
