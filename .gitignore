@@ -13,8 +13,10 @@ cache/
 
 # Weltstände / Saves (normalerweise NICHT ins Modpack)
 saves/
+config/jei/world/local/Skyfactory_Dark1_Basistest/*.*
 
 # Spieler-/Client-spezifische Daten
+usercache.json
 options.txt
 servers.dat
 
