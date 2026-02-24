@@ -3,20 +3,20 @@
 	default_quest_shape: "square"
 	filename: "stage_3_heat"
 	group: ""
-	id: "5F7443D810377FED"
+	id: "4AD955F4E3693CC7"
 	order_index: 3
 	quest_links: [ ]
 	quests: [
 		{
-			id: "07ED5F95E7A3928B"
+			id: "0867FD49BCCE7D65"
 			rewards: [{
-				id: "5802276B85B5DBFE"
+				id: "6B3C8CC35DC690C2"
 				type: "xp"
 				xp: 5
 			}]
 			tasks: [{
 				count: 8L
-				id: "53707265C918C320"
+				id: "41E9177F58EA097F"
 				item: { Count: 8, id: "minecraft:charcoal" }
 				type: "item"
 			}]
@@ -25,15 +25,15 @@
 			y: 0.0d
 		}
 		{
-			id: "2940EF2DC834DE59"
+			id: "081136C3D27F9FB7"
 			rewards: [{
-				id: "33E1FF7CD68D7E42"
+				id: "212CF3744AE59076"
 				type: "xp"
 				xp: 5
 			}]
 			tasks: [{
 				count: 8L
-				id: "60475343387B9BAD"
+				id: "206465EC0109C53F"
 				item: { Count: 8, id: "minecraft:glass" }
 				type: "item"
 			}]
@@ -42,15 +42,15 @@
 			y: 0.0d
 		}
 		{
-			id: "791E676DE566DE20"
+			id: "716DB29BBF827B61"
 			rewards: [{
-				id: "45D1A9EFAF903FED"
+				id: "00C50D72EB5CBBDA"
 				type: "xp"
 				xp: 5
 			}]
 			tasks: [{
 				count: 8L
-				id: "5EF5B747DC3115E3"
+				id: "5F4391899A2658CB"
 				item: { Count: 8, id: "minecraft:iron_ingot" }
 				type: "item"
 			}]
@@ -59,14 +59,14 @@
 			y: 0.0d
 		}
 		{
-			id: "534DC2E906B21582"
+			id: "21878107CBB920FB"
 			rewards: [{
-				id: "3C9B8DC064BBFAE1"
+				id: "29D0BA7180869E30"
 				type: "xp"
 				xp: 5
 			}]
 			tasks: [{
-				id: "25DFF987B902FE96"
+				id: "648CDDD746E7B7CE"
 				item: "minecraft:bucket"
 				type: "item"
 			}]
@@ -75,14 +75,14 @@
 			y: 0.0d
 		}
 		{
-			id: "36D3F12729836E81"
+			id: "42798CD018D79293"
 			rewards: [{
-				id: "547FECF6676026E5"
+				id: "00F5D21AF1E4A0CE"
 				type: "xp"
 				xp: 10
 			}]
 			tasks: [{
-				id: "4615C1CD938CDE10"
+				id: "1927C8B3913B99C7"
 				item: "minecraft:blast_furnace"
 				type: "item"
 			}]

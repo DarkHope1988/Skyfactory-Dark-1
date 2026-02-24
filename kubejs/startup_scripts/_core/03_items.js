@@ -5,10 +5,23 @@
 
 StartupEvents.registry('item', event => {
   // ---------------------------
+  // Stage-0 Bio Loop (new core)
+  // ---------------------------
+  event.create('wood_shavings').displayName('Baumspaene').maxStackSize(64);
+  event.create('leaf_threads').displayName('Laubfaeden').maxStackSize(64);
+  event.create('leaf_bundle').displayName('Blaetterbuendel').maxStackSize(64);
+  event.create('earth_clump').displayName('Erdklumpen').maxStackSize(64);
+  event.create('worm').displayName('Wurm').maxStackSize(64);
+  event.create('dried_worm').displayName('Getrockneter Wurm').maxStackSize(64);
+  event.create('tree_bark').displayName('Baumrinde').maxStackSize(64);
+  event.create('organic_rod').displayName('Organischer Stab').maxDamage(96);
+
+  // ---------------------------
   // Organic / Soil / Stone Chain (Early Game)
   // ---------------------------
   event.create('organic_dust').displayName('Organic Dust').maxStackSize(64);
   event.create('resin_fragment').displayName('Resin Fragment').maxStackSize(64);
+  event.create('leaf_shreds').displayName('Leaf Shreds').maxStackSize(64);
 
   event.create('compost_pile').displayName('Compost Pile').maxStackSize(64);
   event.create('compost_pulp').displayName('Compost Pulp').maxStackSize(64);

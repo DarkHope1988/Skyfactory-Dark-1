@@ -1,61 +1,58 @@
-# ATM10 Intake Backlog
+# ATM10 Intake Backlog - Tier + Branch Model
 
-Ziel: ATM10-Mods kontrolliert und stage-basiert in Skyfactory Dark aufnehmen.
+## Ziel
+ATM10-Mods werden nicht nur gesammelt, sondern in ein klares Tier+Branch-System integriert.
 
-## Status-Legende
+## Status
 1. `Backlog`
 2. `Review`
 3. `Ready`
 4. `Integrated`
 5. `Blocked`
 
-## Intake-Template (pro Mod ausfuellen)
+## Intake-Template (Pflicht pro Mod)
 1. Mod Name:
-2. Kategorie (`Core Tech`, `Magic`, `Storage`, `Automation`, `QoL`, `World`):
-3. Ziel-Stage (Entry):
-4. Hard Gates (wichtige Rezepte):
-5. Soft Gates (Quest/Tooltip/Hints):
-6. Abhaengigkeiten:
-7. Konflikt-Risiko:
-8. Geplanter Nutzen im Pack:
-9. Testfaelle:
-10. Status:
+2. Rolle (`Core`, `Branch`, `Side`, `Endgame`):
+3. Haupt-Tier Entry (`Early`, `Stone`, `Mid`, `Late`, `End`):
+4. Branch (`Power`, `Magic`, `Automation`, `Challenge`, `None`):
+5. Branch-Tier Entry (`Early`, `Mid`, `Late`, `End`, `None`):
+6. Hard Gates:
+7. Soft Gates:
+8. Synergien:
+9. Konfliktrisiko:
+10. Testfaelle:
+11. Status:
 
-## Priorisierte Kandidaten - Sprint 1 (erste 20)
-1. `appliedenergistics2` | Kategorie: `Storage` | Entry: Stage 8 | Status: Review
-2. `megacells` (geplant) | Kategorie: `Storage` | Entry: Stage 10 | Status: Backlog
-3. `fluxnetworks` | Kategorie: `Core Tech` | Entry: Stage 8 | Status: Review
-4. `powah` (geplant) | Kategorie: `Core Tech` | Entry: Stage 7 | Status: Backlog
-5. `mekanism` (geplant) | Kategorie: `Advanced Processing` | Entry: Stage 9 | Status: Backlog
-6. `industrial-foregoing` | Kategorie: `Automation` | Entry: Stage 10 | Status: Review
-7. `rftoolsbase` + `rftoolsutility` | Kategorie: `Automation` | Entry: Stage 9 | Status: Backlog
-8. `hostileneuralnetworks` | Kategorie: `Mob/Resource Systems` | Entry: Stage 10 | Status: Review
-9. `mob_grinding_utils` | Kategorie: `Mob/Resource Systems` | Entry: Stage 9 | Status: Review
-10. `laserio` | Kategorie: `Logistics/Automation` | Entry: Stage 9 | Status: Backlog
-11. `thermal_foundation` | Kategorie: `Core Tech` | Entry: Stage 7 | Status: Backlog
-12. `thermal_expansion` | Kategorie: `Advanced Processing` | Entry: Stage 9 | Status: Backlog
-13. `enderio` | Kategorie: `Automation` | Entry: Stage 10 | Status: Review
-14. `draconic-evolution` | Kategorie: `Endgame` | Entry: Stage 14 | Status: Backlog
-15. `botania` | Kategorie: `Magic` | Entry: Stage 11 | Status: Review
-16. `ars_nouveau` | Kategorie: `Magic` | Entry: Stage 11 | Status: Backlog
-17. `occultism` | Kategorie: `Magic` | Entry: Stage 12 | Status: Backlog
-18. `mysticalagriculture` | Kategorie: `Resource Expansion` | Entry: Stage 11 | Status: Review
-19. `buildinggadgets2` | Kategorie: `QoL` | Entry: Stage 9 | Status: Backlog
-20. `sophisticatedstorage` + `sophisticatedbackpacks` | Kategorie: `QoL/Storage` | Entry: Stage 6 | Status: Review
+## Priorisierte Kandidaten (V2)
+1. `appliedenergistics2` | Rolle: Branch | Main: Late | Branch: Automation | Branch-Tier: Late | Status: Review
+2. `fluxnetworks` | Rolle: Branch | Main: Mid | Branch: Power | Branch-Tier: Mid | Status: Review
+3. `powah` (geplant) | Rolle: Branch | Main: Mid | Branch: Power | Branch-Tier: Early | Status: Backlog
+4. `mekanism` (geplant) | Rolle: Core | Main: Late | Branch: Automation | Branch-Tier: Late | Status: Backlog
+5. `industrial-foregoing` | Rolle: Branch | Main: Late | Branch: Automation | Branch-Tier: Mid | Status: Review
+6. `enderio` | Rolle: Branch | Main: Late | Branch: Automation | Branch-Tier: Late | Status: Review
+7. `thermal_foundation` | Rolle: Core | Main: Mid | Branch: Power | Branch-Tier: Early | Status: Backlog
+8. `thermal_expansion` | Rolle: Branch | Main: Mid | Branch: Power | Branch-Tier: Mid | Status: Backlog
+9. `botania` | Rolle: Branch | Main: Mid | Branch: Magic | Branch-Tier: Early | Status: Review
+10. `ars_nouveau` | Rolle: Branch | Main: Mid | Branch: Magic | Branch-Tier: Mid | Status: Backlog
+11. `occultism` | Rolle: Branch | Main: Late | Branch: Magic | Branch-Tier: Late | Status: Backlog
+12. `mysticalagriculture` | Rolle: Branch | Main: Late | Branch: Magic | Branch-Tier: Mid | Status: Review
+13. `hostileneuralnetworks` | Rolle: Branch | Main: Late | Branch: Challenge | Branch-Tier: Mid | Status: Review
+14. `mob_grinding_utils` | Rolle: Branch | Main: Mid | Branch: Automation | Branch-Tier: Early | Status: Review
+15. `draconic-evolution` | Rolle: Endgame | Main: End | Branch: Power | Branch-Tier: End | Status: Backlog
+16. `sophisticatedstorage` | Rolle: Side | Main: Mid | Branch: None | Branch-Tier: None | Status: Review
+17. `sophisticatedbackpacks` | Rolle: Side | Main: Mid | Branch: None | Branch-Tier: None | Status: Review
+18. `buildinggadgets2` | Rolle: Side | Main: Late | Branch: None | Branch-Tier: None | Status: Backlog
+19. `rftoolsbase` + `rftoolsutility` | Rolle: Branch | Main: Late | Branch: Automation | Branch-Tier: Late | Status: Backlog
+20. `laserio` | Rolle: Branch | Main: Late | Branch: Automation | Branch-Tier: Late | Status: Backlog
 
-## Wave-B Fokus (Stage 4-6)
-1. Create bleibt Mainline fuer Stage 4-6.
-2. `sophisticatedstorage` als Midgame-Bridge zu digitalem Storage.
-3. `mob_grinding_utils` als kontrollierter Mob-Loop ab Stage 6.
-4. Noch keine High-Tech-Digitalisierung vor Stage 7.
+## Integrationsregeln
+1. Keine Mod ohne Tier+Branch-Zuordnung.
+2. Keine Mod ohne Questline.
+3. Kein Branch darf den Hauptpfad skippen.
+4. Endgame-Mods brauchen Cross-Branch-Rezepte.
 
-## Wave-C Fokus (Stage 7-10)
-1. Power-Schicht (`powah` oder `thermal`-Pfad) freischalten.
-2. Digital Storage (`ae2`) als zentraler Meilenstein in Stage 8.
-3. Advanced Processing mit `mekanism`/`thermal` kontrolliert staffeln.
-4. Erste grossskalige Automation (`industrial-foregoing`, `enderio`) ab Stage 10.
-
-## Regel fuer neue Mod-Aufnahmen
-1. Keine Aufnahme ohne ausgefuelltes Intake-Template.
-2. Keine Freigabe ohne Stage-Zuordnung und Testfaelle.
-3. Keine Questlose Mod im Hauptpfad.
+## Naechste Intake-Aktionen
+1. Power Early Paket finalisieren (1-2 Mods).
+2. Magic Early Paket finalisieren (1-2 Mods).
+3. Automation Early Paket finalisieren (1-2 Mods).
+4. Danach Stage-/Quest-Mapping in konkrete Chapters ueberfuehren.

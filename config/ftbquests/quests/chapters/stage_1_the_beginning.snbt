@@ -3,19 +3,19 @@
 	default_quest_shape: "square"
 	filename: "stage_1_the_beginning"
 	group: ""
-	id: "502148F91C9099FD"
+	id: "35B5D42299DEDD08"
 	order_index: 1
 	quest_links: [ ]
 	quests: [
 		{
-			id: "636B89CD5D45E611"
+			id: "5BD58FE4CE0CA40E"
 			rewards: [{
-				id: "3A31D99CCA36CA15"
+				id: "068651295D34965B"
 				type: "xp"
 				xp: 5
 			}]
 			tasks: [{
-				id: "5DEDB25E66480568"
+				id: "4E73E5691F65AF8A"
 				item: {
 					Count: 1
 					id: "kubejs:crude_mallet"
@@ -30,15 +30,15 @@
 			y: 0.0d
 		}
 		{
-			id: "10074A42A20DDDA4"
+			id: "1BF0AA04A867B6D7"
 			rewards: [{
-				id: "610C312A7CE0CDAF"
+				id: "22AF4C61FCAB25C5"
 				type: "xp"
 				xp: 5
 			}]
 			tasks: [{
 				count: 8L
-				id: "61441101E87B7AB6"
+				id: "301F99D873BE9291"
 				item: { Count: 8, id: "kubejs:organic_fiber" }
 				type: "item"
 			}]
@@ -47,15 +47,15 @@
 			y: 0.0d
 		}
 		{
-			id: "004D762C46B20B04"
+			id: "39328D01399E72EE"
 			rewards: [{
-				id: "6969438ACCDACC37"
+				id: "06D0987775D26A52"
 				type: "xp"
 				xp: 5
 			}]
 			tasks: [{
 				count: 4L
-				id: "463361A85B8173D0"
+				id: "69B039B9C9E0B8A0"
 				item: { Count: 4, id: "kubejs:raw_soil_chunk" }
 				type: "item"
 			}]
@@ -64,15 +64,15 @@
 			y: 0.0d
 		}
 		{
-			id: "145A013C8AB38B19"
+			id: "752EFB75A05EBFA1"
 			rewards: [{
-				id: "26BF504187D59642"
+				id: "1DD098CDF667EE0C"
 				type: "xp"
 				xp: 5
 			}]
 			tasks: [{
 				count: 4L
-				id: "2BA541CC9EFE4F34"
+				id: "6677AC9DB74715DD"
 				item: { Count: 4, id: "minecraft:dirt" }
 				type: "item"
 			}]
@@ -81,15 +81,15 @@
 			y: 0.0d
 		}
 		{
-			id: "326C833844E5452B"
+			id: "12E8934AA92847F2"
 			rewards: [{
-				id: "6343F3E2178681DE"
+				id: "5D9FAC5F78CBE5AB"
 				type: "xp"
 				xp: 5
 			}]
 			tasks: [{
 				count: 4L
-				id: "0295EB7236AB9E30"
+				id: "47911688F4D79239"
 				item: { Count: 4, id: "kubejs:pebble_cluster" }
 				type: "item"
 			}]
@@ -98,15 +98,15 @@
 			y: 0.0d
 		}
 		{
-			id: "692329D9F65FAAC1"
+			id: "7C976E3EDF3DF433"
 			rewards: [{
-				id: "7F1B64400056F555"
+				id: "53D7A6683FB492CD"
 				type: "xp"
 				xp: 10
 			}]
 			tasks: [{
 				count: 8L
-				id: "0C17396C070941F4"
+				id: "636C59502B66C9CE"
 				item: { Count: 8, id: "minecraft:string" }
 				type: "item"
 			}]

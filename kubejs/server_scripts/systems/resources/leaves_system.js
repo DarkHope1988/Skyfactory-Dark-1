@@ -1,28 +1,29 @@
-// kubejs/server_scripts/systems/resources/leaves_system.js
-// Skyfactory Dark - Leaves System (baseline)
-//
-// Ziel:
-// - Ohne Crook: Vanilla bleibt (Saplings/Sticks/Äpfel etc.)
-// - Mit Crook: Ex Deorum "silk_worm" & optional String von Leaves wird entfernt
-//              + unsere Pack-Ressourcen droppen.
-//
-// Wichtig:
-// - Wir entfernen NUR die ExDeorum-Drops (wenn Crook genutzt wird), nicht Vanilla.
+// Skyfactory Dark - Leaves System (Stage-0 Bio Loop)
 
 LootJS.modifiers(event => {
-  // Crook -> kein ExDeorum Silk Worm / String von Leaves
-  // + Organic Dust + Resin Fragment
   event
     .addBlockLootModifier('#minecraft:leaves')
-    .matchMainHand('#skyfactorydark:harvest_tools')
-    .removeLoot('exdeorum:silk_worm')
-    .removeLoot('minecraft:string')
-    .randomChance(0.16)
-    .addLoot('kubejs:organic_dust');
+    .removeLoot('minecraft:stick')
+    .removeLoot('minecraft:apple')
+    .removeLoot('#minecraft:saplings');
 
+  // Main early drop.
+  event
+    .addBlockLootModifier('#minecraft:leaves')
+    .addLoot('kubejs:leaf_threads');
+
+  // Sapling sustain.
+  event
+    .addBlockLootModifier('#minecraft:leaves')
+    .randomChance(0.14)
+    .addLoot('minecraft:oak_sapling');
+
+  // Slight crook bonus for saplings.
   event
     .addBlockLootModifier('#minecraft:leaves')
     .matchMainHand('#skyfactorydark:harvest_tools')
-    .randomChance(0.04)
-    .addLoot('kubejs:resin_fragment');
+    .removeLoot('minecraft:string')
+    .removeLoot('minecraft:stick')
+    .randomChance(0.20)
+    .addLoot('minecraft:oak_sapling');
 });

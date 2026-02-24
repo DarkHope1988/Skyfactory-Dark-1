@@ -1,92 +1,48 @@
-// kubejs/client_scripts/_core/10_tooltips.js
-// Skyfactory Dark - Tooltips (early guide)
-//
-// Kleine Ingame-Hilfe, damit der Progress klar bleibt,
-// ohne dass wir schon ein komplettes Quest-Book bauen müssen.
+// Skyfactory Dark - Stage-0 Bio Loop tooltips
 
 ItemEvents.tooltip(event => {
-
-  event.add('kubejs:organic_dust', [
-    Text.gold('Source:'),
-    Text.gray('Leaves + Crook'),
-    Text.aqua('Use:'),
-    Text.darkGray('2x2 -> Compost Pile'),
-    Text.darkGray('Cross -> Compost Pulp')
+  event.add('kubejs:leaf_threads', [
+    Text.gold('Quelle:'),
+    Text.gray('Droppt aus Blaettern'),
+    Text.aqua('Nutzen:'),
+    Text.darkGray('4x -> Blaetterbuendel')
   ]);
 
-  event.add('kubejs:compost_pile', [
-    Text.gold('Source:'),
-    Text.gray('4x Organic Dust (2x2)'),
-    Text.aqua('Use:'),
-    Text.darkGray('2x2 -> Dirt')
+  event.add('kubejs:wood_shavings', [
+    Text.gold('Quelle:'),
+    Text.gray('Droppt aus Staemmen'),
+    Text.aqua('Nutzen:'),
+    Text.darkGray('Erde/Wurm-Loop und Organischer Stab')
   ]);
 
-  event.add('kubejs:compost_pulp', [
-    Text.gold('Source:'),
-    Text.gray('4x Organic Dust (cross pattern)'),
-    Text.aqua('Use:'),
-    Text.darkGray('With Dirt -> Packed Soil')
+  event.add('kubejs:earth_block', [
+    Text.gold('Wichtig:'),
+    Text.gray('Abbauen fuer Erdklumpen + Wurm-Chance')
   ]);
 
-  event.add('kubejs:packed_soil', [
-    Text.gold('Source:'),
-    Text.gray('Dirt + Compost Pulp'),
-    Text.aqua('Use:'),
-    Text.darkGray('Break with Mallet -> Stone Grit / Fiber / Pebbles')
+  event.add('kubejs:worm', [
+    Text.gold('Nutzen:'),
+    Text.gray('Auf Erdblock oder Baumrindenblock verwenden')
   ]);
 
-  event.add('kubejs:stone_grit', [
-    Text.gold('Source:'),
-    Text.gray('Packed Soil with Mallet'),
-    Text.aqua('Use:'),
-    Text.darkGray('2x2 -> Cobblestone')
+  event.add('kubejs:dried_worm', [
+    Text.gold('Nutzen:'),
+    Text.gray('Mit Baumspaenen zum Organischen Stab craften')
   ]);
 
-  event.add('kubejs:pebble_cluster', [
-    Text.gold('Source:'),
-    Text.gray('Packed Soil with Mallet (bonus drop)'),
-    Text.aqua('Use:'),
-    Text.darkGray('4x -> Gravel')
+  event.add('kubejs:resin_fragment', [
+    Text.gold('Nutzen:'),
+    Text.gray('2x Stick oder Behandlung von Hohlstamm')
   ]);
 
-  event.add('kubejs:organic_fiber', [
-    Text.gold('Source:'),
-    Text.gray('Dirt/Packed Soil processing with Mallet'),
-    Text.aqua('Use:'),
-    Text.darkGray('Craft into String')
+  event.add('kubejs:organic_rod', [
+    Text.gold('Nutzen:'),
+    Text.gray('Stamm entrinden, Wurmholz bearbeiten'),
+    Text.darkGray('Schluessel fuer ersten Planken-Progress')
   ]);
 
-  event.add('kubejs:raw_soil_chunk', [
-    Text.gold('Source:'),
-    Text.gray('Dirt processing with Mallet'),
-    Text.aqua('Use:'),
-    Text.darkGray('4x -> Dirt')
+  event.add('minecraft:crafting_table', [
+    Text.gold('Freischaltung:'),
+    Text.gray('3x Eichenbretter + 1x Organischer Stab')
   ]);
-
-  event.add('kubejs:crude_mallet', [
-    Text.gold('Use:'),
-    Text.gray('Main tool for Dirt/Packed Soil progression'),
-    Text.darkGray('Tag: skyfactorydark:mallets / crushing_tools')
-  ]);
-
-  event.add('exdeorum:crook', [
-    Text.gold('Use:'),
-    Text.gray('Harvest leaves for Organic Dust loop')
-  ]);
-
-  event.add('minecraft:dirt', [
-    Text.gold('Skyfactory Dark:'),
-    Text.gray('Process with Mallet for early resources')
-  ]);
-
-  event.add('minecraft:cobblestone', [
-    Text.gold('Source:'),
-    Text.gray('4x Stone Grit (2x2)')
-  ]);
-
-  event.add('minecraft:string', [
-    Text.gold('Source:'),
-    Text.gray('3x Organic Fiber -> String')
-  ]);
-
 });

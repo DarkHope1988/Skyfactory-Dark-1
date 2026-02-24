@@ -1,117 +1,76 @@
-// kubejs/server_scripts/recipes/custom/organic_processing.js
-// Skyfactory Dark - Organic Chain (v1)
-//
-// Progress-Idee (Early Game):
-// Leaves + Crook -> Organic Dust / Resin Fragment
-//   -> (2x2) Compost Pile
-//   -> (Cross) Compost Pulp  (separates from Compost Pile recipe; no conflict)
-//   -> Dirt + Compost Pulp -> Packed Soil (Investment Block)
-// Packed Soil + Mallet -> Stone Grit / Pebble Cluster / Organic Fiber
-//
-// Hinweis:
-// - IDs bewusst stabil halten, damit wir später "Maschinen" hinzufügen können,
-//   ohne alles neu zu benennen.
+// Skyfactory Dark - Organic Processing (Stage-0 Bio Loop)
 
 ServerEvents.recipes(event => {
-
-  // -------------------------------------------------
-  // 1) 2x2 Organic Dust -> Compost Pile
-  // -------------------------------------------------
-  event.shaped('kubejs:compost_pile', [
-    'DD',
-    'DD'
+  // Leaf threads -> leaf bundles.
+  event.shaped('kubejs:leaf_bundle', [
+    'LL',
+    'LL'
   ], {
-    D: 'kubejs:organic_dust'
+    L: 'kubejs:leaf_threads'
   });
 
-  // -------------------------------------------------
-  // 2) Cross-Pattern Organic Dust -> Compost Pulp
-  // Pattern:
-  //  0 D 0
-  //  D 0 D
-  //  0 D 0
-  // (genau 4 Dust, aber anderes Layout als 2x2)
-  // -------------------------------------------------
-  event.shaped('kubejs:compost_pulp', [
-    ' D ',
-    'D D',
-    ' D '
-  ], {
-    D: 'kubejs:organic_dust'
-  });
+  // Leaf bundle + wood shavings -> first earth block.
+  event.shapeless('kubejs:earth_block', [
+    'kubejs:leaf_bundle',
+    'kubejs:wood_shavings'
+  ]);
 
-  // -------------------------------------------------
-  // 3) Compost Pile -> Dirt (langsamer als vorher, aber nicht quälend)
-  // 2x2 Compost Pile = 1 Dirt
-  // -------------------------------------------------
-  event.shaped('minecraft:dirt', [
+  // Earth clumps can be compressed back into earth blocks.
+  event.shaped('kubejs:earth_block', [
     'CC',
     'CC'
   ], {
-    C: 'kubejs:compost_pile'
+    C: 'kubejs:earth_clump'
   });
 
-  // -------------------------------------------------
-  // 4) Resin Fragment -> Sticks (Utility)
-  // -------------------------------------------------
+  // Tree bark -> placeable bark block.
+  event.shaped('kubejs:bark_block', [
+    'BB',
+    'BB'
+  ], {
+    B: 'kubejs:tree_bark'
+  });
+
+  // Dried worm + wood shavings => organic rod (OX / XO).
+  event.shaped('kubejs:organic_rod', [
+    'DW',
+    'WD'
+  ], {
+    D: 'kubejs:dried_worm',
+    W: 'kubejs:wood_shavings'
+  });
+
+  // Old items remain craftable for compatibility with existing content,
+  // but no longer part of the core opening loop.
+  event.shapeless('kubejs:organic_dust', [
+    'kubejs:leaf_threads',
+    'kubejs:leaf_threads',
+    'kubejs:leaf_threads',
+    'kubejs:leaf_threads'
+  ]);
+
+  event.shapeless('kubejs:resin_fragment', [
+    'kubejs:wood_shavings',
+    'kubejs:leaf_threads'
+  ]);
+
+  // Resin has direct early utility.
   event.shapeless(Item.of('minecraft:stick', 2), [
     'kubejs:resin_fragment'
   ]);
 
-  // -------------------------------------------------
-  // 4b) Organic Fiber -> String
-  // Damit Fiber direkt einen klaren Zweck in der Early-Phase hat.
-  // -------------------------------------------------
-  event.shaped('minecraft:string', [
-    'FF ',
-    ' F ',
-    '   '
-  ], {
-    F: 'kubejs:organic_fiber'
-  });
+  // Optional resin path for treated wood conversion.
+  event.shapeless('kubejs:treated_hollow_bark_block', [
+    'kubejs:hollow_bark_block',
+    'kubejs:resin_fragment'
+  ]);
 
-  // -------------------------------------------------
-  // 4c) Rohboden-Recycling
-  // 4 Raw Soil Chunks -> 1 Dirt (langsamer "Rettungsanker").
-  // -------------------------------------------------
-  event.shaped('minecraft:dirt', [
-    'RR',
-    'RR'
+  // Workbench unlock: still 2x2 craftable, but gated behind first plank loop.
+  event.shaped('minecraft:crafting_table', [
+    'PO',
+    'PP'
   ], {
-    R: 'kubejs:raw_soil_chunk'
-  });
-
-  // -------------------------------------------------
-  // 5) Packed Soil (Investment Block)
-  // 4 Dirt + 4 Compost Pulp -> 4 Packed Soil
-  // (Das zwingt dich, erstmal "richtige" Dirt zu investieren.)
-  // -------------------------------------------------
-  event.shaped('4x kubejs:packed_soil', [
-    'DCD',
-    'CDC',
-    'DCD'
-  ], {
-    D: 'minecraft:dirt',
-    C: 'kubejs:compost_pulp'
-  });
-
-  // -------------------------------------------------
-  // 6) Crude Mallet
-  // Sehr früh craftbar, aber nicht kostenlos:
-  // - Sticks sind okay (Resin->Sticks gibt dir früh welche)
-  // - Resin als "Bindemittel"
-  // - Organic Fiber kommt aus Packed Soil (also: erst investieren!)
-  //
-  // Ergebnis: Du musst mindestens 1-2 Packed Soil farmen,
-  // bevor du "richtig" Stone Grit farmen kannst.
-  // -------------------------------------------------
-  event.shaped('kubejs:crude_mallet', [
-    ' RR',
-    ' SR',
-    'S  '
-  ], {
-    S: 'minecraft:stick',
-    R: 'kubejs:resin_fragment'
-  });
-
+    P: 'minecraft:oak_planks',
+    O: 'kubejs:organic_rod'
+  }).id('kubejs:stage0/workbench_unlock');
 });
