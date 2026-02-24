@@ -15,6 +15,7 @@ PlayerEvents.loggedIn(event => {
   player.give(Item.of('minecraft:oak_sapling', 1))
   player.give(Item.of('minecraft:dirt', 1))
   player.give(Item.of('minecraft:apple', 2))
+  player.give(Item.of('exdeorum:crook', 1))
 
   // A small quality-of-life: a few sticks to craft first tools.
   player.give(Item.of('minecraft:stick', 4))

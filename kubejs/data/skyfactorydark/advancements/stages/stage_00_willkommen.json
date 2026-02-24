@@ -1,0 +1,22 @@
+{
+  "display": {
+    "icon": {
+      "item": "exdeorum:crook"
+    },
+    "title": "00 Stage 0 - Willkommen",
+    "description": "Ankommen, ueberleben und den ersten Loop starten.",
+    "background": "minecraft:textures/block/deepslate_tiles.png",
+    "x": 0.0,
+    "y": 0.0,
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "manual_unlock": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}
+

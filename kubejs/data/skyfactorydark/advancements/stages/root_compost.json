@@ -1,0 +1,29 @@
+{
+  "parent": "skyfactorydark:stages/root_dust",
+  "display": {
+    "icon": {
+      "item": "kubejs:compost_pile"
+    },
+    "title": "Compost Chain",
+    "description": "Convert organic dust into compost.",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "has_compost_pile": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "kubejs:compost_pile"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
+

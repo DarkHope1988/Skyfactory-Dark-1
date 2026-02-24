@@ -17,6 +17,13 @@ LootJS.modifiers(event => {
     .addBlockLootModifier('minecraft:dirt')
     .matchMainHand('#skyfactorydark:crushing_tools')
     .removeLoot('minecraft:dirt')
+    .randomChance(0.45)
+    .addLoot('kubejs:raw_soil_chunk');
+
+  event
+    .addBlockLootModifier('minecraft:dirt')
+    .matchMainHand('#skyfactorydark:crushing_tools')
+    .removeLoot('minecraft:dirt')
 
     // Hauptdrop: Organic Fiber
     // ~70% sorgt dafür, dass man nach ein paar Stacks Leaves/Dirt direkt "etwas" hat,

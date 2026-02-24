@@ -1,0 +1,22 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:cobblestone"
+    },
+    "title": "02 Stage 2 - Stone",
+    "description": "Stabilisiere die erste erneuerbare Steinproduktion.",
+    "background": "minecraft:textures/block/cobbled_deepslate.png",
+    "x": 4.0,
+    "y": 0.0,
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "manual_unlock": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}
+

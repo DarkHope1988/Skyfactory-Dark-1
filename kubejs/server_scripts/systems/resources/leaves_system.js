@@ -17,12 +17,12 @@ LootJS.modifiers(event => {
     .matchMainHand('#skyfactorydark:harvest_tools')
     .removeLoot('exdeorum:silk_worm')
     .removeLoot('minecraft:string')
-    .randomChance(0.10)
+    .randomChance(0.16)
     .addLoot('kubejs:organic_dust');
 
   event
     .addBlockLootModifier('#minecraft:leaves')
     .matchMainHand('#skyfactorydark:harvest_tools')
-    .randomChance(0.01)
+    .randomChance(0.04)
     .addLoot('kubejs:resin_fragment');
 });

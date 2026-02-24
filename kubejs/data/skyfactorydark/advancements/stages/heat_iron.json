@@ -1,0 +1,29 @@
+{
+  "parent": "skyfactorydark:stages/heat_glass",
+  "display": {
+    "icon": {
+      "item": "minecraft:iron_ingot"
+    },
+    "title": "Metal Entry",
+    "description": "Acquire your first iron ingot.",
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "has_iron": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:iron_ingot"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
+

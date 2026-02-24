@@ -1,0 +1,22 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:nether_star"
+    },
+    "title": "06 Stage 6 - Endgame",
+    "description": "Finale Ziele, Optimierung und Langzeitfortschritt.",
+    "background": "minecraft:textures/block/obsidian.png",
+    "x": 12.0,
+    "y": 0.0,
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "manual_unlock": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}
+

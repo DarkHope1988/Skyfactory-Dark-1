@@ -1,0 +1,29 @@
+{
+  "parent": "skyfactorydark:stages/stage_01_the_beginning",
+  "display": {
+    "icon": {
+      "item": "kubejs:crude_mallet"
+    },
+    "title": "Crude Mallet",
+    "description": "Craft the mallet used for progression crushing.",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "has_mallet": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "kubejs:crude_mallet"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
+

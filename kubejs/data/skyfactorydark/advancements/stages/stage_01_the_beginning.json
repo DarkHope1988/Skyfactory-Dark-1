@@ -1,0 +1,22 @@
+{
+  "display": {
+    "icon": {
+      "item": "kubejs:crude_mallet"
+    },
+    "title": "01 Stage 1 - The Beginning",
+    "description": "Baue die ersten Werkzeuge und den Startkreislauf auf.",
+    "background": "minecraft:textures/block/stripped_oak_log.png",
+    "x": 2.0,
+    "y": 0.0,
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "manual_unlock": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}
+

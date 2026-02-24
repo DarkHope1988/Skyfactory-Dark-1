@@ -1,0 +1,29 @@
+{
+  "parent": "skyfactorydark:stages/heat_charcoal",
+  "display": {
+    "icon": {
+      "item": "minecraft:glass"
+    },
+    "title": "Glass Tier",
+    "description": "Smelt sand into glass as first heat processing milestone.",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "has_glass": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:glass"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
+

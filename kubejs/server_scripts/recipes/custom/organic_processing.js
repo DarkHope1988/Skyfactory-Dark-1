@@ -59,6 +59,29 @@ ServerEvents.recipes(event => {
   ]);
 
   // -------------------------------------------------
+  // 4b) Organic Fiber -> String
+  // Damit Fiber direkt einen klaren Zweck in der Early-Phase hat.
+  // -------------------------------------------------
+  event.shaped('minecraft:string', [
+    'FF ',
+    ' F ',
+    '   '
+  ], {
+    F: 'kubejs:organic_fiber'
+  });
+
+  // -------------------------------------------------
+  // 4c) Rohboden-Recycling
+  // 4 Raw Soil Chunks -> 1 Dirt (langsamer "Rettungsanker").
+  // -------------------------------------------------
+  event.shaped('minecraft:dirt', [
+    'RR',
+    'RR'
+  ], {
+    R: 'kubejs:raw_soil_chunk'
+  });
+
+  // -------------------------------------------------
   // 5) Packed Soil (Investment Block)
   // 4 Dirt + 4 Compost Pulp -> 4 Packed Soil
   // (Das zwingt dich, erstmal "richtige" Dirt zu investieren.)

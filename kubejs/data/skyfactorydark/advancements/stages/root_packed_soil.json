@@ -1,0 +1,29 @@
+{
+  "parent": "skyfactorydark:stages/root_compost",
+  "display": {
+    "icon": {
+      "item": "kubejs:packed_soil"
+    },
+    "title": "Packed Soil",
+    "description": "Create packed soil as your first investment block.",
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "has_packed_soil": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "kubejs:packed_soil"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
+

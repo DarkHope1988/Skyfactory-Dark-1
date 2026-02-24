@@ -1,0 +1,29 @@
+{
+  "parent": "skyfactorydark:stages/tools_mallet",
+  "display": {
+    "icon": {
+      "item": "kubejs:organic_fiber"
+    },
+    "title": "Fiber Output",
+    "description": "Get organic fiber from your crushing loop.",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "has_fiber": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "kubejs:organic_fiber"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
+
