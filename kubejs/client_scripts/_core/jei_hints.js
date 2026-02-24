@@ -132,4 +132,36 @@ JEIEvents.information(event => {
     '4x Stone Grit -> Cobblestone.',
     'Danach Furnace + Stone Tools.'
   ]);
+
+  // Food progression, sequential by complexity.
+  event.addItem('kubejs:sprout_mash', [
+    'FOOD A (Notfall):',
+    '2x Oak Sapling -> Sprout Mash.'
+  ]);
+
+  event.addItem('kubejs:survival_ration', [
+    'FOOD A+ (Upgrade):',
+    '2x Sprout Mash + Resin -> Survival Ration.'
+  ]);
+
+  event.addItem('kubejs:raw_forage', [
+    'FOOD B (Kochpfad):',
+    'Leaf Bundle + Wood Shavings + Sprout Mash.'
+  ]);
+
+  event.addItem('kubejs:dried_forage', [
+    'FOOD B+:',
+    'Campfire/Smoker: Raw Forage -> Dried Forage.'
+  ]);
+
+  event.addItem('kubejs:worm_bait', [
+    'FOOD C Vorbereitung:',
+    'Sapling + Resin -> Worm Bait.',
+    'Rechtsklick auf Earth Block fuer extra Wurmchance.'
+  ]);
+
+  event.addItem('kubejs:protein_cake', [
+    'FOOD C (stark):',
+    '2x Dried Worm + Dried Forage -> Protein Cake.'
+  ]);
 });

@@ -50,6 +50,19 @@ BlockEvents.rightClicked(event => {
     return;
   }
 
+  // Worm bait on earth -> accelerated worm generation.
+  if (itemId === 'kubejs:worm_bait' && blockId === 'kubejs:earth_block') {
+    if (Math.random() < 0.60) {
+      block.popItem(Item.of('kubejs:worm', 1));
+      level.spawnParticles('minecraft:happy_villager', true, block.x + 0.5, block.y + 1, block.z + 0.5, 8, 0.2, 0.2, 0.2, 0.01);
+    } else {
+      level.spawnParticles('minecraft:smoke', true, block.x + 0.5, block.y + 1, block.z + 0.5, 6, 0.2, 0.2, 0.2, 0.01);
+    }
+    sfdConsumeHandItem(player);
+    event.cancel();
+    return;
+  }
+
   // Wood shavings on wormy earth -> rare dried worms.
   if (itemId === 'kubejs:wood_shavings' && blockId === 'kubejs:wormy_earth_block') {
     const drySuccess = Math.random() < SFD.shavingsDryWormChance;

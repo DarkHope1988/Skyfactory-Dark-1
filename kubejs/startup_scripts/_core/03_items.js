@@ -15,6 +15,24 @@ StartupEvents.registry('item', event => {
   event.create('dried_worm').displayName('Getrockneter Wurm').maxStackSize(64);
   event.create('tree_bark').displayName('Baumrinde').maxStackSize(64);
   event.create('organic_rod').displayName('Organischer Stab').maxDamage(96);
+  event.create('sprout_mash').displayName('Keim-Brei').maxStackSize(64).food(food => {
+    food.hunger(3);
+    food.saturation(0.4);
+  });
+  event.create('survival_ration').displayName('Ueberlebensration').maxStackSize(64).food(food => {
+    food.hunger(6);
+    food.saturation(0.7);
+  });
+  event.create('raw_forage').displayName('Rohes Forage').maxStackSize(64);
+  event.create('dried_forage').displayName('Getrocknetes Forage').maxStackSize(64).food(food => {
+    food.hunger(5);
+    food.saturation(0.6);
+  });
+  event.create('worm_bait').displayName('Wurmkoeder').maxStackSize(64);
+  event.create('protein_cake').displayName('Protein-Kuchen').maxStackSize(64).food(food => {
+    food.hunger(8);
+    food.saturation(0.9);
+  });
 
   // ---------------------------
   // Organic / Soil / Stone Chain (Early Game)
