@@ -1,39 +1,68 @@
 // kubejs/server_scripts/recipes/custom/organic_processing.js
-// Skyfactory Dark - Organic → Soil → Stone (baseline)
+// Skyfactory Dark - Organic Chain (v1)
 //
-// Ziel:
-// 1) Leaves (Crook) → Organic Dust / Resin Fragment (kommt aus LootJS)
-// 2) Organic Dust → Compost Pulp (Cross-Rezept, verlangsamt Early Game)
-// 3) Compost Pulp + Dirt → Packed Soil (Block)
-// 4) Packed Soil wird mit Mallet zerlegt (LootJS) → Stone Grit / Pebbles / Fiber
+// Progress-Idee (Early Game):
+// Leaves + Crook -> Organic Dust / Resin Fragment
+//   -> (2x2) Compost Pile
+//   -> (Cross) Compost Pulp  (separates from Compost Pile recipe; no conflict)
+//   -> Dirt + Compost Pulp -> Packed Soil (Investment Block)
+// Packed Soil + Mallet -> Stone Grit / Pebble Cluster / Organic Fiber
 //
-// Wichtig:
-// - Wir halten die IDs stabil (kubejs:organic_dust etc.)
-// - Das Rezept für Compost Pulp ist absichtlich NICHT das klassische 2x2,
-//   damit Dirt→Stone nicht zu schnell wird.
+// Hinweis:
+// - IDs bewusst stabil halten, damit wir später "Maschinen" hinzufügen können,
+//   ohne alles neu zu benennen.
 
 ServerEvents.recipes(event => {
 
-  // ------------------------------------------------
-  // 1) Organic Dust -> Compost Pulp (Cross / 5 Dust)
+  // -------------------------------------------------
+  // 1) 2x2 Organic Dust -> Compost Pile
+  // -------------------------------------------------
+  event.shaped('kubejs:compost_pile', [
+    'DD',
+    'DD'
+  ], {
+    D: 'kubejs:organic_dust'
+  });
+
+  // -------------------------------------------------
+  // 2) Cross-Pattern Organic Dust -> Compost Pulp
   // Pattern:
-  //  _ D _
-  //  D D D
-  //  _ D _
-  // -> 1 Compost Pulp
-  // ------------------------------------------------
+  //  0 D 0
+  //  D 0 D
+  //  0 D 0
+  // (genau 4 Dust, aber anderes Layout als 2x2)
+  // -------------------------------------------------
   event.shaped('kubejs:compost_pulp', [
     ' D ',
-    'DDD',
+    'D D',
     ' D '
   ], {
     D: 'kubejs:organic_dust'
   });
 
-  // ------------------------------------------------
-  // 2) Compost Pulp + Dirt -> Packed Soil (4 Blocks)
-  // 4x Dirt + 4x Compost Pulp -> 4x Packed Soil
-  // ------------------------------------------------
+  // -------------------------------------------------
+  // 3) Compost Pile -> Dirt (langsamer als vorher, aber nicht quälend)
+  // 2x2 Compost Pile = 1 Dirt
+  // -------------------------------------------------
+  event.shaped('minecraft:dirt', [
+    'CC',
+    'CC'
+  ], {
+    C: 'kubejs:compost_pile'
+  });
+
+  // -------------------------------------------------
+  // 4) Resin Fragment -> Sticks (Utility)
+  // -------------------------------------------------
+  event.shapeless(Item.of('minecraft:stick', 2), [
+    'kubejs:resin_fragment'
+  ]);
+
+  // -------------------------------------------------
+  // 5) Packed Soil (Investment Block)
+  // 4 Dirt + 4 Compost Pulp -> 4 Packed Soil
+  // (Das zwingt dich, erstmal "richtige" Dirt zu investieren.)
+  // -------------------------------------------------
   event.shaped('4x kubejs:packed_soil', [
     'DCD',
     'CDC',
@@ -43,22 +72,23 @@ ServerEvents.recipes(event => {
     C: 'kubejs:compost_pulp'
   });
 
-  // ------------------------------------------------
-  // 3) Mini-Utility: Resin Fragment -> Sticks
-  // ------------------------------------------------
-  event.shapeless(Item.of('minecraft:stick', 2), [
-    'kubejs:resin_fragment'
-  ]);
-
-  // ------------------------------------------------
-  // 4) Stone Grit -> Cobblestone (langsamer Step)
-  // 3x3 Grit -> 1 Cobblestone
-  // ------------------------------------------------
-  event.shaped('minecraft:cobblestone', [
-    'GGG',
-    'GGG',
-    'GGG'
+  // -------------------------------------------------
+  // 6) Crude Mallet
+  // Sehr früh craftbar, aber nicht kostenlos:
+  // - Sticks sind okay (Resin->Sticks gibt dir früh welche)
+  // - Resin als "Bindemittel"
+  // - Organic Fiber kommt aus Packed Soil (also: erst investieren!)
+  //
+  // Ergebnis: Du musst mindestens 1-2 Packed Soil farmen,
+  // bevor du "richtig" Stone Grit farmen kannst.
+  // -------------------------------------------------
+  event.shaped('kubejs:crude_mallet', [
+    ' RR',
+    ' SR',
+    'S  '
   ], {
-    G: 'kubejs:stone_grit'
+    S: 'minecraft:stick',
+    R: 'kubejs:resin_fragment'
   });
+
 });
