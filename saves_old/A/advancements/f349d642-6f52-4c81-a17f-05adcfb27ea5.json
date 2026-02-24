@@ -1,0 +1,119 @@
+{
+  "minecraft:recipes/decorations/ladder": {
+    "criteria": {
+      "has_stick": "2026-02-24 17:24:08 +0100"
+    },
+    "done": true
+  },
+  "minecraft:recipes/misc/white_dye": {
+    "criteria": {
+      "has_bone_meal": "2026-02-24 17:28:01 +0100"
+    },
+    "done": true
+  },
+  "skyfactorydark:stages/root_crook": {
+    "criteria": {
+      "has_crook": "2026-02-24 17:24:08 +0100"
+    },
+    "done": true
+  },
+  "create:recipes/misc/crafting/tree_fertilizer": {
+    "criteria": {
+      "has_item": "2026-02-24 17:28:01 +0100"
+    },
+    "done": true
+  },
+  "create:root": {
+    "criteria": {
+      "0": "2026-02-24 17:24:08 +0100"
+    },
+    "done": true
+  },
+  "minecraft:recipes/tools/wooden_axe": {
+    "criteria": {
+      "has_stick": "2026-02-24 17:24:08 +0100"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/crafting_table": {
+    "criteria": {
+      "unlock_right_away": "2026-02-24 17:24:11 +0100"
+    },
+    "done": true
+  },
+  "exdeorum:core/crook": {
+    "criteria": {
+      "craft_crook": "2026-02-24 17:24:08 +0100"
+    },
+    "done": true
+  },
+  "skyfactorydark:stages/stage_00_willkommen": {
+    "criteria": {
+      "manual_unlock": "2026-02-24 17:24:08 +0100"
+    },
+    "done": true
+  },
+  "create:recipes/misc/crafting/appliances/tree_fertilizer": {
+    "criteria": {
+      "has_item": "2026-02-24 17:28:01 +0100"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/campfire": {
+    "criteria": {
+      "has_stick": "2026-02-24 17:24:08 +0100"
+    },
+    "done": true
+  },
+  "minecraft:recipes/tools/wooden_hoe": {
+    "criteria": {
+      "has_stick": "2026-02-24 17:24:08 +0100"
+    },
+    "done": true
+  },
+  "minecraft:recipes/tools/wooden_pickaxe": {
+    "criteria": {
+      "has_stick": "2026-02-24 17:24:08 +0100"
+    },
+    "done": true
+  },
+  "minecraft:recipes/tools/wooden_shovel": {
+    "criteria": {
+      "has_stick": "2026-02-24 17:24:08 +0100"
+    },
+    "done": true
+  },
+  "exdeorum:recipes/tools/crook": {
+    "criteria": {
+      "has_item": "2026-02-24 17:24:08 +0100"
+    },
+    "done": true
+  },
+  "minecraft:recipes/combat/wooden_sword": {
+    "criteria": {
+      "has_stick": "2026-02-24 17:24:08 +0100"
+    },
+    "done": true
+  },
+  "minecraft:adventure/adventuring_time": {
+    "criteria": {
+      "minecraft:snowy_taiga": "2026-02-24 17:24:12 +0100",
+      "minecraft:frozen_ocean": "2026-02-24 17:24:36 +0100",
+      "minecraft:snowy_beach": "2026-02-24 17:24:29 +0100"
+    },
+    "done": false
+  },
+  "exdeorum:core/root": {
+    "criteria": {
+      "in_void_world": "2026-02-24 17:24:08 +0100"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/bone_block": {
+    "criteria": {
+      "has_bone_meal": "2026-02-24 17:28:01 +0100"
+    },
+    "done": true
+  },
+  "DataVersion": 3465
+}

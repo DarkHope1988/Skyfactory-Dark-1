@@ -1,0 +1,14 @@
+{
+	version: 1
+	uuid: "f349d6426f524c81a17f05adcfb27ea5"
+	name: "DarkHope88#f349d642"
+	lock: false
+	rewards_blocked: false
+	task_progress: { }
+	started: { }
+	completed: { }
+	repeatable: { }
+	completion_count: { }
+	claimed_rewards: { }
+	player_data: { }
+}

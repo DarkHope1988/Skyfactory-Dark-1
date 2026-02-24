@@ -1,0 +1,101 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: "square"
+	filename: "stage_2_stone"
+	group: ""
+	id: "0E8C886CB808E195"
+	order_index: 2
+	quest_links: [ ]
+	quests: [
+		{
+			id: "18B4618A0A367B60"
+			rewards: [{
+				id: "0C6DEFC6A262BED1"
+				type: "xp"
+				xp: 5
+			}]
+			tasks: [{
+				count: 16L
+				id: "33DF41D03E3E1917"
+				item: { Count: 16, id: "kubejs:stone_grit" }
+				type: "item"
+			}]
+			title: "Stone Grit Sammeln"
+			x: 1.0d
+			y: 0.0d
+		}
+		{
+			id: "1AA58A0017DFD525"
+			rewards: [{
+				id: "2A49E340BFDF0174"
+				type: "xp"
+				xp: 5
+			}]
+			tasks: [{
+				count: 16L
+				id: "31E2C5D577E50A3F"
+				item: { Count: 16, id: "minecraft:cobblestone" }
+				type: "item"
+			}]
+			title: "Cobblestone Loop"
+			x: 3.0d
+			y: 0.0d
+		}
+		{
+			id: "433BA1F04F1610C8"
+			rewards: [{
+				id: "3269250C70C0F576"
+				type: "xp"
+				xp: 5
+			}]
+			tasks: [{
+				count: 8L
+				id: "2235A18F6A030459"
+				item: { Count: 8, id: "minecraft:gravel" }
+				type: "item"
+			}]
+			title: "Nebenprodukt Gravel"
+			x: 5.0d
+			y: 0.0d
+		}
+		{
+			id: "156F3036BF860B53"
+			rewards: [{
+				id: "3EB3BECEA99F635F"
+				type: "xp"
+				xp: 5
+			}]
+			tasks: [{
+				id: "572AF105C2241CCE"
+				item: "minecraft:furnace"
+				type: "item"
+			}]
+			title: "Ofen bereit"
+			x: 7.0d
+			y: 0.0d
+		}
+		{
+			id: "5ED31871D2D8BD89"
+			rewards: [{
+				id: "76C696EDF45EDF62"
+				type: "xp"
+				xp: 10
+			}]
+			tasks: [{
+				id: "0EAAA1BBDF729E15"
+				item: {
+					Count: 1
+					id: "minecraft:stone_pickaxe"
+					tag: {
+						Damage: 0
+					}
+				}
+				type: "item"
+			}]
+			title: "Steinwerkzeug"
+			x: 9.0d
+			y: 0.0d
+		}
+	]
+	title: "02 Stage 2 - Stone"
+}

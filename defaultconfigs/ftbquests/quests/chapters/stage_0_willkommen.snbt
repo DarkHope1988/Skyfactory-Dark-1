@@ -1,0 +1,130 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: "square"
+	filename: "stage_0_willkommen"
+	group: ""
+	id: "A100000000000001"
+	order_index: 0
+	quest_links: [ ]
+	quests: [
+		{
+			id: "A100000000000101"
+			rewards: [{
+				id: "A100000000000201"
+				type: "xp"
+				xp: 5
+			}]
+			tasks: [{
+				count: 8L
+				id: "A100000000000301"
+				item: { Count: 8, id: "minecraft:oak_log" }
+				type: "item"
+			}]
+			title: "Holz sichern"
+			x: 1.0d
+			y: 0.0d
+		}
+		{
+			id: "A100000000000102"
+			rewards: [{
+				id: "A100000000000202"
+				type: "xp"
+				xp: 5
+			}]
+			tasks: [{
+				id: "A100000000000302"
+				item: "exdeorum:crook"
+				type: "item"
+			}]
+			title: "Crook bereit"
+			x: 3.0d
+			y: 0.0d
+		}
+		{
+			id: "A100000000000103"
+			rewards: [{
+				id: "A100000000000203"
+				type: "xp"
+				xp: 5
+			}]
+			tasks: [{
+				count: 16L
+				id: "A100000000000303"
+				item: { Count: 16, id: "kubejs:organic_dust" }
+				type: "item"
+			}]
+			title: "Organic Dust Farm"
+			x: 5.0d
+			y: 0.0d
+		}
+		{
+			id: "A100000000000104"
+			rewards: [{
+				id: "A100000000000204"
+				type: "xp"
+				xp: 5
+			}]
+			tasks: [{
+				count: 4L
+				id: "A100000000000304"
+				item: { Count: 4, id: "kubejs:resin_fragment" }
+				type: "item"
+			}]
+			title: "Resin sichern"
+			x: 7.0d
+			y: 0.0d
+		}
+		{
+			id: "A100000000000105"
+			rewards: [{
+				id: "A100000000000205"
+				type: "xp"
+				xp: 5
+			}]
+			tasks: [{
+				count: 4L
+				id: "A100000000000305"
+				item: { Count: 4, id: "kubejs:compost_pile" }
+				type: "item"
+			}]
+			title: "Compost Pile"
+			x: 9.0d
+			y: 0.0d
+		}
+		{
+			id: "A100000000000106"
+			rewards: [{
+				id: "A100000000000206"
+				type: "xp"
+				xp: 5
+			}]
+			tasks: [{
+				count: 4L
+				id: "A100000000000306"
+				item: { Count: 4, id: "kubejs:compost_pulp" }
+				type: "item"
+			}]
+			title: "Compost Pulp"
+			x: 11.0d
+			y: 0.0d
+		}
+		{
+			id: "A100000000000107"
+			rewards: [{
+				id: "A100000000000207"
+				type: "xp"
+				xp: 10
+			}]
+			tasks: [{
+				count: 8L
+				id: "A100000000000307"
+				item: { Count: 8, id: "kubejs:packed_soil" }
+				type: "item"
+			}]
+			title: "Stage 0 Abschluss"
+			x: 13.0d
+			y: 0.0d
+		}
+	]
+	title: "00 Stage 0 - Willkommen"
+}

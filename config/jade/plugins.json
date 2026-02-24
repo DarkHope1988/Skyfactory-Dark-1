@@ -64,5 +64,8 @@
     "coordinates": false,
     "registry_name": "OFF",
     "mod_name": true
+  },
+  "balm": {
+    "jade": true
   }
 }

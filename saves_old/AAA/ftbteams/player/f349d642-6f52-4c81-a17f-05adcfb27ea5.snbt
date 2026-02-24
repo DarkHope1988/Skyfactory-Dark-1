@@ -1,0 +1,17 @@
+{
+	id: "f349d642-6f52-4c81-a17f-05adcfb27ea5"
+	type: "player"
+	player_name: "DarkHope88"
+	ranks: {
+		f349d642-6f52-4c81-a17f-05adcfb27ea5: "owner"
+	}
+	properties: {
+		"ftbteams:display_name": "DarkHope88"
+		"ftbteams:description": ""
+		"ftbteams:color": "#59FFBD"
+		"ftbteams:free_to_join": 0b
+		"ftbteams:max_msg_history_size": 1000
+	}
+	message_history: [ ]
+	extra: { }
+}

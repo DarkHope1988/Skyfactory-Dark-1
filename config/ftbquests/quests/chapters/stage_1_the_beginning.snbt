@@ -1,0 +1,119 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: "square"
+	filename: "stage_1_the_beginning"
+	group: ""
+	id: "502148F91C9099FD"
+	order_index: 1
+	quest_links: [ ]
+	quests: [
+		{
+			id: "636B89CD5D45E611"
+			rewards: [{
+				id: "3A31D99CCA36CA15"
+				type: "xp"
+				xp: 5
+			}]
+			tasks: [{
+				id: "5DEDB25E66480568"
+				item: {
+					Count: 1
+					id: "kubejs:crude_mallet"
+					tag: {
+						Damage: 0
+					}
+				}
+				type: "item"
+			}]
+			title: "Crude Mallet"
+			x: 1.0d
+			y: 0.0d
+		}
+		{
+			id: "10074A42A20DDDA4"
+			rewards: [{
+				id: "610C312A7CE0CDAF"
+				type: "xp"
+				xp: 5
+			}]
+			tasks: [{
+				count: 8L
+				id: "61441101E87B7AB6"
+				item: { Count: 8, id: "kubejs:organic_fiber" }
+				type: "item"
+			}]
+			title: "Fiber Produktion"
+			x: 3.0d
+			y: 0.0d
+		}
+		{
+			id: "004D762C46B20B04"
+			rewards: [{
+				id: "6969438ACCDACC37"
+				type: "xp"
+				xp: 5
+			}]
+			tasks: [{
+				count: 4L
+				id: "463361A85B8173D0"
+				item: { Count: 4, id: "kubejs:raw_soil_chunk" }
+				type: "item"
+			}]
+			title: "Raw Soil sammeln"
+			x: 5.0d
+			y: 0.0d
+		}
+		{
+			id: "145A013C8AB38B19"
+			rewards: [{
+				id: "26BF504187D59642"
+				type: "xp"
+				xp: 5
+			}]
+			tasks: [{
+				count: 4L
+				id: "2BA541CC9EFE4F34"
+				item: { Count: 4, id: "minecraft:dirt" }
+				type: "item"
+			}]
+			title: "Dirt Rueckgewinnung"
+			x: 7.0d
+			y: 0.0d
+		}
+		{
+			id: "326C833844E5452B"
+			rewards: [{
+				id: "6343F3E2178681DE"
+				type: "xp"
+				xp: 5
+			}]
+			tasks: [{
+				count: 4L
+				id: "0295EB7236AB9E30"
+				item: { Count: 4, id: "kubejs:pebble_cluster" }
+				type: "item"
+			}]
+			title: "Pebble Cluster"
+			x: 9.0d
+			y: 0.0d
+		}
+		{
+			id: "692329D9F65FAAC1"
+			rewards: [{
+				id: "7F1B64400056F555"
+				type: "xp"
+				xp: 10
+			}]
+			tasks: [{
+				count: 8L
+				id: "0C17396C070941F4"
+				item: { Count: 8, id: "minecraft:string" }
+				type: "item"
+			}]
+			title: "String Produktion"
+			x: 11.0d
+			y: 0.0d
+		}
+	]
+	title: "01 Stage 1 - The Beginning"
+}

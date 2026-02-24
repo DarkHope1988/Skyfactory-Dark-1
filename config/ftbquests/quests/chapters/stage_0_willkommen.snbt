@@ -1,0 +1,136 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: "square"
+	filename: "stage_0_willkommen"
+	group: ""
+	id: "4D51785794247FD1"
+	order_index: 0
+	quest_links: [ ]
+	quests: [
+		{
+			id: "6E25814F2D36BEBD"
+			rewards: [{
+				id: "5484538B4B984371"
+				type: "xp"
+				xp: 5
+			}]
+			tasks: [{
+				count: 8L
+				id: "48753B24547AC85D"
+				item: { Count: 8, id: "minecraft:oak_log" }
+				type: "item"
+			}]
+			title: "Holz sichern"
+			x: 1.0d
+			y: 0.0d
+		}
+		{
+			id: "2C9075A7D305794F"
+			rewards: [{
+				id: "2790D3A56854E419"
+				type: "xp"
+				xp: 5
+			}]
+			tasks: [{
+				id: "39E0BC858172120A"
+				item: {
+					Count: 1
+					id: "exdeorum:crook"
+					tag: {
+						Damage: 0
+					}
+				}
+				type: "item"
+			}]
+			title: "Crook bereit"
+			x: 3.0d
+			y: 0.0d
+		}
+		{
+			id: "30215E1091775DD5"
+			rewards: [{
+				id: "608B10C08716275A"
+				type: "xp"
+				xp: 5
+			}]
+			tasks: [{
+				count: 16L
+				id: "05777D32692ACB00"
+				item: { Count: 16, id: "kubejs:organic_dust" }
+				type: "item"
+			}]
+			title: "Organic Dust Farm"
+			x: 5.0d
+			y: 0.0d
+		}
+		{
+			id: "6D3B614721C39240"
+			rewards: [{
+				id: "2D17108994AC15AC"
+				type: "xp"
+				xp: 5
+			}]
+			tasks: [{
+				count: 4L
+				id: "6426B0ABBE4F6A5F"
+				item: { Count: 4, id: "kubejs:resin_fragment" }
+				type: "item"
+			}]
+			title: "Resin sichern"
+			x: 7.0d
+			y: 0.0d
+		}
+		{
+			id: "6B425D5F2AB2518B"
+			rewards: [{
+				id: "75156F5AD058C958"
+				type: "xp"
+				xp: 5
+			}]
+			tasks: [{
+				count: 4L
+				id: "677BFF7F8C4782AE"
+				item: { Count: 4, id: "kubejs:compost_pile" }
+				type: "item"
+			}]
+			title: "Compost Pile"
+			x: 9.0d
+			y: 0.0d
+		}
+		{
+			id: "319B8342ACD2FA17"
+			rewards: [{
+				id: "71C22A21A56D51BD"
+				type: "xp"
+				xp: 5
+			}]
+			tasks: [{
+				count: 4L
+				id: "17462DC46755D05F"
+				item: { Count: 4, id: "kubejs:compost_pulp" }
+				type: "item"
+			}]
+			title: "Compost Pulp"
+			x: 11.0d
+			y: 0.0d
+		}
+		{
+			id: "5D64C9742A90B5F1"
+			rewards: [{
+				id: "3A9FB372E3252733"
+				type: "xp"
+				xp: 10
+			}]
+			tasks: [{
+				count: 8L
+				id: "2E214DD6B72E8199"
+				item: { Count: 8, id: "kubejs:packed_soil" }
+				type: "item"
+			}]
+			title: "Stage 0 Abschluss"
+			x: 13.0d
+			y: 0.0d
+		}
+	]
+	title: "00 Stage 0 - Willkommen"
+}
