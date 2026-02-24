@@ -41,7 +41,7 @@ ServerEvents.recipes(event => {
   });
 
   // Old items remain craftable for compatibility with existing content,
-  // but no longer part of the core opening loop.
+  // and become the Stage-1 bridge into stone progression.
   event.shapeless('kubejs:organic_dust', [
     'kubejs:leaf_threads',
     'kubejs:leaf_threads',
@@ -53,6 +53,63 @@ ServerEvents.recipes(event => {
     'kubejs:wood_shavings',
     'kubejs:leaf_threads'
   ]);
+
+  // Stage 1 unlock chain (after first workbench).
+  event.shaped('kubejs:compost_pile', [
+    'DDD',
+    'D D',
+    'DDD'
+  ], {
+    D: 'kubejs:organic_dust'
+  });
+
+  event.shaped('kubejs:compost_pulp', [
+    ' D ',
+    'DRD',
+    ' D '
+  ], {
+    D: 'kubejs:organic_dust',
+    R: 'kubejs:resin_fragment'
+  });
+
+  event.shaped('minecraft:dirt', [
+    'CC',
+    'CC'
+  ], {
+    C: 'kubejs:compost_pile'
+  });
+
+  event.shaped('4x kubejs:packed_soil', [
+    'DCD',
+    'CDC',
+    'DCD'
+  ], {
+    D: 'minecraft:dirt',
+    C: 'kubejs:compost_pulp'
+  });
+
+  event.shaped('kubejs:crude_mallet', [
+    ' RR',
+    ' SR',
+    'S  '
+  ], {
+    S: 'minecraft:stick',
+    R: 'kubejs:resin_fragment'
+  });
+
+  event.shaped('minecraft:string', [
+    'FF',
+    'FF'
+  ], {
+    F: 'kubejs:organic_fiber'
+  });
+
+  event.shaped('minecraft:dirt', [
+    'RR',
+    'RR'
+  ], {
+    R: 'kubejs:raw_soil_chunk'
+  });
 
   // Resin has direct early utility.
   event.shapeless(Item.of('minecraft:stick', 2), [

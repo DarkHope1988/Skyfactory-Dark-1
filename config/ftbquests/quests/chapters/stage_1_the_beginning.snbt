@@ -3,19 +3,104 @@
 	default_quest_shape: "square"
 	filename: "stage_1_the_beginning"
 	group: ""
-	id: "35B5D42299DEDD08"
-	order_index: 1
+	id: "4F3148DF9D621915"
+	order_index: 0
 	quest_links: [ ]
 	quests: [
 		{
-			id: "5BD58FE4CE0CA40E"
+			id: "1F7EB01EA11C8A55"
 			rewards: [{
-				id: "068651295D34965B"
+				id: "5B46124945D35837"
 				type: "xp"
-				xp: 5
+				xp: 6
 			}]
 			tasks: [{
-				id: "4E73E5691F65AF8A"
+				count: 24L
+				id: "49D7E2EBCB677E6F"
+				item: { Count: 24, id: "kubejs:organic_dust" }
+				type: "item"
+			}]
+			title: "01 | Organic Dust aufbauen"
+			x: 1.0d
+			y: 0.0d
+		}
+		{
+			id: "655D65646334B9F9"
+			rewards: [{
+				id: "2495584C7D561CC8"
+				type: "xp"
+				xp: 6
+			}]
+			tasks: [{
+				count: 8L
+				id: "1FF29877986BE7F4"
+				item: { Count: 8, id: "kubejs:compost_pile" }
+				type: "item"
+			}]
+			title: "02 | Compost Pile herstellen"
+			x: 3.0d
+			y: 0.0d
+		}
+		{
+			id: "5EB34754A06A6266"
+			rewards: [{
+				id: "772ADDC7EA62DEC9"
+				type: "xp"
+				xp: 6
+			}]
+			tasks: [{
+				count: 8L
+				id: "36CBBC034B64DC0D"
+				item: { Count: 8, id: "kubejs:compost_pulp" }
+				type: "item"
+			}]
+			title: "03 | Compost Pulp herstellen"
+			x: 5.0d
+			y: 0.0d
+		}
+		{
+			id: "5265EDAB04E88302"
+			rewards: [{
+				id: "23896CE5F617A396"
+				type: "xp"
+				xp: 6
+			}]
+			tasks: [{
+				count: 8L
+				id: "6B00E830C071D0B9"
+				item: { Count: 8, id: "minecraft:dirt" }
+				type: "item"
+			}]
+			title: "04 | Dirt-Loop starten"
+			x: 7.0d
+			y: 0.0d
+		}
+		{
+			id: "024746BE956664F9"
+			rewards: [{
+				id: "237D406BD699E5F9"
+				type: "xp"
+				xp: 8
+			}]
+			tasks: [{
+				count: 16L
+				id: "5FD9D4943A1402BC"
+				item: { Count: 16, id: "kubejs:packed_soil" }
+				type: "item"
+			}]
+			title: "05 | Packed Soil produzieren"
+			x: 9.0d
+			y: 0.0d
+		}
+		{
+			id: "1AED37C64762C178"
+			rewards: [{
+				id: "679611B307AE8AD9"
+				type: "xp"
+				xp: 8
+			}]
+			tasks: [{
+				id: "392803535C0BD1CC"
 				item: {
 					Count: 1
 					id: "kubejs:crude_mallet"
@@ -25,94 +110,106 @@
 				}
 				type: "item"
 			}]
-			title: "Crude Mallet"
-			x: 1.0d
+			title: "06 | Crude Mallet bauen"
+			x: 11.0d
 			y: 0.0d
 		}
 		{
-			id: "1BF0AA04A867B6D7"
+			id: "2633CA6A1E9E59E7"
 			rewards: [{
-				id: "22AF4C61FCAB25C5"
-				type: "xp"
-				xp: 5
-			}]
-			tasks: [{
-				count: 8L
-				id: "301F99D873BE9291"
-				item: { Count: 8, id: "kubejs:organic_fiber" }
-				type: "item"
-			}]
-			title: "Fiber Produktion"
-			x: 3.0d
-			y: 0.0d
-		}
-		{
-			id: "39328D01399E72EE"
-			rewards: [{
-				id: "06D0987775D26A52"
-				type: "xp"
-				xp: 5
-			}]
-			tasks: [{
-				count: 4L
-				id: "69B039B9C9E0B8A0"
-				item: { Count: 4, id: "kubejs:raw_soil_chunk" }
-				type: "item"
-			}]
-			title: "Raw Soil sammeln"
-			x: 5.0d
-			y: 0.0d
-		}
-		{
-			id: "752EFB75A05EBFA1"
-			rewards: [{
-				id: "1DD098CDF667EE0C"
-				type: "xp"
-				xp: 5
-			}]
-			tasks: [{
-				count: 4L
-				id: "6677AC9DB74715DD"
-				item: { Count: 4, id: "minecraft:dirt" }
-				type: "item"
-			}]
-			title: "Dirt Rueckgewinnung"
-			x: 7.0d
-			y: 0.0d
-		}
-		{
-			id: "12E8934AA92847F2"
-			rewards: [{
-				id: "5D9FAC5F78CBE5AB"
-				type: "xp"
-				xp: 5
-			}]
-			tasks: [{
-				count: 4L
-				id: "47911688F4D79239"
-				item: { Count: 4, id: "kubejs:pebble_cluster" }
-				type: "item"
-			}]
-			title: "Pebble Cluster"
-			x: 9.0d
-			y: 0.0d
-		}
-		{
-			id: "7C976E3EDF3DF433"
-			rewards: [{
-				id: "53D7A6683FB492CD"
+				id: "151B6FAA8173B4BE"
 				type: "xp"
 				xp: 10
 			}]
 			tasks: [{
-				count: 8L
-				id: "636C59502B66C9CE"
-				item: { Count: 8, id: "minecraft:string" }
+				count: 24L
+				id: "379FCAB130DCE710"
+				item: { Count: 24, id: "kubejs:stone_grit" }
 				type: "item"
 			}]
-			title: "String Produktion"
-			x: 11.0d
+			title: "07 | Stone Grit farmen"
+			x: 13.0d
 			y: 0.0d
+		}
+		{
+			id: "66E53D7C3A450879"
+			rewards: [{
+				id: "532C5601C7B149F5"
+				type: "xp"
+				xp: 10
+			}]
+			tasks: [{
+				count: 16L
+				id: "06C0AC78AA97F0BC"
+				item: { Count: 16, id: "minecraft:cobblestone" }
+				type: "item"
+			}]
+			title: "08 | Cobblestone sichern"
+			x: 15.0d
+			y: 0.0d
+		}
+		{
+			id: "529B852F6EAE1308"
+			rewards: [{
+				id: "4788153308C8168E"
+				type: "xp"
+				xp: 10
+			}]
+			tasks: [{
+				id: "2AEDF5FB5B397F28"
+				item: "minecraft:furnace"
+				type: "item"
+			}]
+			title: "09 | Ersten Ofen bauen"
+			x: 17.0d
+			y: 0.0d
+		}
+		{
+			id: "54DE8EA3B392BA74"
+			rewards: [{
+				id: "3D6FC5950FBA82E2"
+				type: "xp"
+				xp: 15
+			}]
+			tasks: [{
+				id: "64339875B526A2D2"
+				item: {
+					Count: 1
+					id: "minecraft:stone_pickaxe"
+					tag: {
+						Damage: 0
+					}
+				}
+				type: "item"
+			}]
+			title: "10 | Stage 1 Abschluss: Steinwerkzeug"
+			x: 19.0d
+			y: 0.0d
+		}
+		{
+			id: "46BBD3D55AEFE684"
+			rewards: [{
+				id: "28A1001B63DAAE28"
+				type: "xp"
+				xp: 8
+			}]
+			tasks: [
+				{
+					count: 12L
+					id: "0A8851F86A36DCA6"
+					item: { Count: 12, id: "kubejs:organic_fiber" }
+					type: "item"
+				}
+				{
+					count: 8L
+					id: "461A3A9505DA5588"
+					item: { Count: 8, id: "minecraft:string" }
+					type: "item"
+				}
+			]
+			title: "TIPP | Wenn festgesteckt: Fiber -> String"
+			x: 13.0d
+			y: 2.0d
 		}
 	]
 	title: "01 Stage 1 - The Beginning"

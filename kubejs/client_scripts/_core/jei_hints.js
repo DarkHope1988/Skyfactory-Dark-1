@@ -91,4 +91,45 @@ JEIEvents.information(event => {
     'STAGE-0 ZIEL:',
     '3x Oak Planks + 1x Organic Rod.'
   ]);
+
+  event.addItem('kubejs:organic_dust', [
+    'STAGE 1 START:',
+    '4x Leaf Threads -> Organic Dust.',
+    'Nutzen: Compost Pile / Compost Pulp.'
+  ]);
+
+  event.addItem('kubejs:compost_pile', [
+    'WORKBENCH REZEPT:',
+    '8x Organic Dust (Ring) -> Compost Pile.',
+    '4x Compost Pile -> 1x Dirt.'
+  ]);
+
+  event.addItem('kubejs:compost_pulp', [
+    'WORKBENCH REZEPT:',
+    'Organic Dust + Resin (Kreuz) -> Compost Pulp.',
+    'Mit Dirt zusammen fuer Packed Soil.'
+  ]);
+
+  event.addItem('kubejs:packed_soil', [
+    'WORKBENCH REZEPT:',
+    'Dirt + Compost Pulp -> Packed Soil.',
+    'Mit Crude Mallet abbauen fuer Stone Grit.'
+  ]);
+
+  event.addItem('kubejs:crude_mallet', [
+    'WORKBENCH REZEPT:',
+    'Stick + Resin.',
+    'Werkzeug fuer Dirt/Packed Soil Verarbeitung.'
+  ]);
+
+  event.addItem('kubejs:stone_grit', [
+    'DROP: Mallet auf Packed Soil.',
+    '4x -> Cobblestone.'
+  ]);
+
+  event.addItem('minecraft:cobblestone', [
+    'STAGE-1 KERN:',
+    '4x Stone Grit -> Cobblestone.',
+    'Danach Furnace + Stone Tools.'
+  ]);
 });
