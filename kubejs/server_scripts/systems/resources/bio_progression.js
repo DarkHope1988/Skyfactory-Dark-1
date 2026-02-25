@@ -41,12 +41,178 @@ function sfdDamageTool(player, damage) {
   held.damageValue = next;
 }
 
+function sfdIsBioPodest(blockId) {
+  return String(blockId || '') === 'kubejs:bio_podest';
+}
+
+function sfdPodestKey(level, block) {
+  return `${String(level.dimension)}:${block.x},${block.y},${block.z}`;
+}
+
+function sfdPopAbove(level, block, item) {
+  const above = level.getBlock(block.x, block.y + 1, block.z);
+  if (above && above.id) {
+    above.popItem(item);
+    return;
+  }
+  block.popItem(item);
+}
+
+if (!global.sfdBioPodestSlots) global.sfdBioPodestSlots = {};
+
 BlockEvents.rightClicked(event => {
   const { player, item, block, level, hand } = event;
   if (hand !== 'MAIN_HAND' || !player || !item || item.empty) return;
 
   const itemId = String(item.id);
   const blockId = String(block.id);
+
+  // Stage-0 Podest (Trapdoor): item "einlegen" wie Slot und direkt dort verarbeiten.
+  if (sfdIsBioPodest(blockId)) {
+    const key = sfdPodestKey(level, block);
+    const slots = global.sfdBioPodestSlots || {};
+    const stored = slots[key];
+
+    // 1) Slot befuellen (wie Item-Frame), wenn leer.
+    if (!stored) {
+      let toStore = null;
+      if (itemId === 'kubejs:earth_block' || itemId === 'minecraft:dirt') toStore = 'kubejs:earth_block';
+      else if (itemId === 'kubejs:bark_block') toStore = 'kubejs:bark_block';
+      else if (itemId === 'kubejs:wormy_bark_block') toStore = 'kubejs:wormy_bark_block';
+      else if (itemId === 'kubejs:hollow_bark_block') toStore = 'kubejs:hollow_bark_block';
+      else if (itemId === 'kubejs:treated_hollow_bark_block') toStore = 'kubejs:treated_hollow_bark_block';
+      else if (itemId.endsWith('_log')) toStore = itemId;
+
+      if (toStore) {
+        slots[key] = toStore;
+        global.sfdBioPodestSlots = slots;
+        sfdConsumeHandItem(player);
+        level.spawnParticles('minecraft:happy_villager', true, block.x + 0.5, block.y + 0.2, block.z + 0.5, 6, 0.2, 0.05, 0.2, 0.01);
+        player.tell(`[SF-DARK] Podest geladen: ${toStore.replace('minecraft:', '').replace('kubejs:', '')}`);
+        event.cancel();
+        return;
+      }
+    }
+
+    // 2) Wurm auf Slot-Ziel.
+    if (itemId === 'kubejs:worm') {
+      if (stored === 'kubejs:earth_block') {
+        if (Math.random() < SFD.wormToWormyEarthChance) {
+          slots[key] = 'kubejs:wormy_earth_block';
+          level.spawnParticles('minecraft:happy_villager', true, block.x + 0.5, block.y + 0.2, block.z + 0.5, 10, 0.2, 0.05, 0.2, 0.01);
+        } else {
+          level.spawnParticles('minecraft:smoke', true, block.x + 0.5, block.y + 0.2, block.z + 0.5, 6, 0.2, 0.05, 0.2, 0.01);
+        }
+        global.sfdBioPodestSlots = slots;
+        sfdConsumeHandItem(player);
+      } else if (stored === 'kubejs:bark_block') {
+        if (Math.random() < SFD.wormToWormyBarkChance) {
+          slots[key] = 'kubejs:wormy_bark_block';
+          level.spawnParticles('minecraft:happy_villager', true, block.x + 0.5, block.y + 0.2, block.z + 0.5, 10, 0.2, 0.05, 0.2, 0.01);
+        } else {
+          level.spawnParticles('minecraft:smoke', true, block.x + 0.5, block.y + 0.2, block.z + 0.5, 6, 0.2, 0.05, 0.2, 0.01);
+        }
+        global.sfdBioPodestSlots = slots;
+        sfdConsumeHandItem(player);
+      } else {
+        level.spawnParticles('minecraft:smoke', true, block.x + 0.5, block.y + 0.2, block.z + 0.5, 4, 0.2, 0.05, 0.2, 0.01);
+      }
+      event.cancel();
+      return;
+    }
+
+    // 3) Baumspaene auf Slot-Ziel.
+    if (itemId === 'kubejs:wood_shavings') {
+      // Finalschritt Earth-Loop: verbraucht den Block (kein Ruecksetzen auf Earth).
+      if (stored === 'kubejs:wormy_earth_block') {
+        const drySuccess = Math.random() < SFD.shavingsDryWormChance;
+        if (drySuccess) {
+          const amount = Math.random() < 0.5 ? 1 : 2;
+          sfdPopAbove(level, block, Item.of('kubejs:dried_worm', amount));
+          level.spawnParticles('minecraft:ash', true, block.x + 0.5, block.y + 0.2, block.z + 0.5, 10, 0.2, 0.05, 0.2, 0.01);
+        } else {
+          level.spawnParticles('minecraft:smoke', true, block.x + 0.5, block.y + 0.2, block.z + 0.5, 4, 0.2, 0.05, 0.2, 0.01);
+        }
+        delete slots[key];
+        global.sfdBioPodestSlots = slots;
+        sfdConsumeHandItem(player);
+      } else if (stored === 'kubejs:hollow_bark_block') {
+        slots[key] = 'kubejs:treated_hollow_bark_block';
+        global.sfdBioPodestSlots = slots;
+        sfdConsumeHandItem(player);
+        level.spawnParticles('minecraft:happy_villager', true, block.x + 0.5, block.y + 0.2, block.z + 0.5, 8, 0.2, 0.05, 0.2, 0.01);
+      } else {
+        level.spawnParticles('minecraft:smoke', true, block.x + 0.5, block.y + 0.2, block.z + 0.5, 4, 0.2, 0.05, 0.2, 0.01);
+      }
+      event.cancel();
+      return;
+    }
+
+    // 4) Organic Rod auf Slot-Ziel.
+    if (itemId === 'kubejs:organic_rod') {
+      if (stored && stored.endsWith('_log') && SFD.strippedLogMap[stored]) {
+        const stripped = SFD.strippedLogMap[stored];
+        sfdPopAbove(level, block, Item.of(stripped, 1));
+        sfdPopAbove(level, block, Item.of('kubejs:tree_bark', 1));
+        delete slots[key];
+        global.sfdBioPodestSlots = slots;
+        sfdDamageTool(player, 1);
+        level.spawnParticles('minecraft:crit', true, block.x + 0.5, block.y + 0.2, block.z + 0.5, 8, 0.2, 0.05, 0.2, 0.01);
+        event.cancel();
+        return;
+      }
+
+      if (stored === 'kubejs:wormy_bark_block') {
+        slots[key] = 'kubejs:hollow_bark_block';
+        if (Math.random() < 0.20) sfdPopAbove(level, block, Item.of('kubejs:dried_worm', 1));
+        global.sfdBioPodestSlots = slots;
+        sfdDamageTool(player, 1);
+        level.spawnParticles('minecraft:happy_villager', true, block.x + 0.5, block.y + 0.2, block.z + 0.5, 8, 0.2, 0.05, 0.2, 0.01);
+        event.cancel();
+        return;
+      }
+
+      // Harvest Schritt im Podest fuer Bark-Chain.
+      if (stored === 'kubejs:hollow_bark_block') {
+        if (Math.random() < 0.66) sfdPopAbove(level, block, Item.of('minecraft:oak_planks', 1));
+        if (Math.random() < 0.70) sfdPopAbove(level, block, Item.of('kubejs:tree_bark', 1));
+        delete slots[key];
+        global.sfdBioPodestSlots = slots;
+        sfdDamageTool(player, 1);
+        level.spawnParticles('minecraft:crit', true, block.x + 0.5, block.y + 0.2, block.z + 0.5, 8, 0.2, 0.05, 0.2, 0.01);
+        event.cancel();
+        return;
+      }
+
+      if (stored === 'kubejs:treated_hollow_bark_block') {
+        sfdPopAbove(level, block, Item.of('minecraft:oak_planks', 1));
+        sfdPopAbove(level, block, Item.of('kubejs:tree_bark', 1));
+        delete slots[key];
+        global.sfdBioPodestSlots = slots;
+        sfdDamageTool(player, 1);
+        level.spawnParticles('minecraft:crit', true, block.x + 0.5, block.y + 0.2, block.z + 0.5, 8, 0.2, 0.05, 0.2, 0.01);
+        event.cancel();
+        return;
+      }
+
+      // Fallback: Slot-Inhalt entnehmen.
+      if (!stored) {
+        level.spawnParticles('minecraft:smoke', true, block.x + 0.5, block.y + 0.2, block.z + 0.5, 4, 0.2, 0.05, 0.2, 0.01);
+        event.cancel();
+        return;
+      }
+      sfdPopAbove(level, block, Item.of(stored, 1));
+      delete slots[key];
+      global.sfdBioPodestSlots = slots;
+      level.spawnParticles('minecraft:crit', true, block.x + 0.5, block.y + 0.2, block.z + 0.5, 8, 0.2, 0.05, 0.2, 0.01);
+      event.cancel();
+      return;
+    }
+
+    // Kein Auf-/Zuklappen im Stage-0 Podestmodus.
+    event.cancel();
+    return;
+  }
 
   // Worm on dirt -> chance for wormy earth.
   if (itemId === 'kubejs:worm' && blockId === 'kubejs:earth_block') {
@@ -80,11 +246,11 @@ BlockEvents.rightClicked(event => {
     if (drySuccess) {
       const amount = Math.random() < 0.5 ? 1 : 2;
       block.popItem(Item.of('kubejs:dried_worm', amount));
-      block.set('kubejs:earth_block');
       level.spawnParticles('minecraft:ash', true, block.x + 0.5, block.y + 1, block.z + 0.5, 10, 0.2, 0.2, 0.2, 0.01);
     } else {
       level.spawnParticles('minecraft:smoke', true, block.x + 0.5, block.y + 1, block.z + 0.5, 4, 0.2, 0.2, 0.2, 0.01);
     }
+    block.set('minecraft:air');
     sfdConsumeHandItem(player);
     event.cancel();
     return;
@@ -130,6 +296,48 @@ BlockEvents.rightClicked(event => {
     sfdConsumeHandItem(player);
     event.cancel();
   }
+});
+
+BlockEvents.broken(event => {
+  const { block, level } = event;
+  const blockId = String(block.id);
+  if (!sfdIsBioPodest(blockId)) return;
+
+  const key = sfdPodestKey(level, block);
+  const slots = global.sfdBioPodestSlots || {};
+  const stored = slots[key];
+  if (!stored) return;
+
+  sfdPopAbove(level, block, Item.of(stored, 1));
+  delete slots[key];
+  global.sfdBioPodestSlots = slots;
+});
+
+// Progressions-Bloecke sollen nicht als freie Bau-Bloecke genutzt werden.
+// Erlaubt nur auf Bau-Erdblock oder Bio-Podest.
+BlockEvents.placed(event => {
+  const { block, level, player } = event;
+  if (!block || !level || !player) return;
+
+  const placedId = String(block.id);
+  const restricted = {
+    'kubejs:earth_block': true,
+    'kubejs:wormy_earth_block': true,
+    'kubejs:bark_block': true,
+    'kubejs:wormy_bark_block': true,
+    'kubejs:hollow_bark_block': true,
+    'kubejs:treated_hollow_bark_block': true
+  };
+  if (!restricted[placedId]) return;
+
+  const below = level.getBlock(block.x, block.y - 1, block.z);
+  const belowId = String(below.id || '');
+  const allowedBase = belowId === 'kubejs:builder_earth_block' || belowId === 'kubejs:bio_podest';
+  if (allowedBase) return;
+
+  block.set('minecraft:air');
+  block.popItem(Item.of(placedId, 1));
+  player.tell('[SF-DARK] Dieser Block darf nur auf Bau-Erdblock oder Bio-Podest platziert werden.');
 });
 
 LootJS.modifiers(event => {

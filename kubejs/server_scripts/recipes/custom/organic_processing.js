@@ -89,10 +89,38 @@ ServerEvents.recipes(event => {
   });
 
   // Alternative fuer Plattformbau:
-  // gleicher Aufwand wie Earth, aber besserer Bau-Output.
-  event.shapeless('4x kubejs:builder_earth_block', [
-    'kubejs:earth_block'
-  ]);
+  // 4x Earth -> 4x Bau-Erdblock (kein Materialgewinn, aber klare Trennung).
+  event.shaped('4x kubejs:builder_earth_block', [
+    'EE',
+    'EE'
+  ], {
+    E: 'kubejs:earth_block'
+  });
+
+  // Stage-0 Arbeitspodest (eigener Block), 2x2 craftbar.
+  event.shaped('kubejs:bio_podest', [
+    'BB',
+    'BB'
+  ], {
+    B: 'kubejs:builder_earth_block'
+  }).id('kubejs:stage0/bio_podest_trapdoor');
+
+  // Stage-0 "Beutel" als tragbares Item.
+  event.shaped(
+    Item.of(
+      'minecraft:bundle',
+      '{display:{Name:\'{"text":"Bio-Beutel","italic":false,"color":"gold"}\'}}'
+    ),
+    [
+      'RR',
+      'WP'
+    ],
+    {
+      R: 'kubejs:organic_rod',
+      W: 'kubejs:dried_worm',
+      P: 'kubejs:packed_soil'
+    }
+  ).id('kubejs:stage0/bio_beutel_9slot');
 
   event.shaped('kubejs:crude_mallet', [
     ' RR',

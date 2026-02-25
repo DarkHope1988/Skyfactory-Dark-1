@@ -22,7 +22,7 @@ ItemEvents.tooltip(event => {
 
   event.add('kubejs:builder_earth_block', [
     Text.gold('Baupfad:'),
-    Text.gray('Teurer Plattform-Block'),
+    Text.gray('Plattform-Block (4 Earth -> 4 Bau-Erdblock)'),
     Text.darkGray('Earth-Progress bleibt dadurch verfuegbar')
   ]);
 
@@ -50,5 +50,15 @@ ItemEvents.tooltip(event => {
   event.add('minecraft:crafting_table', [
     Text.gold('Freischaltung:'),
     Text.gray('3x Eichenbretter + 1x Organischer Stab')
+  ]);
+
+  event.add('kubejs:bio_podest', [
+    Text.gold('Bio-Podest:'),
+    Text.gray('Earth/Dirt einlegen, dann Wurm/Baumspaene direkt darauf nutzen')
+  ]);
+
+  event.add('minecraft:bundle', [
+    Text.gold('Bio-Beutel (Stage 0):'),
+    Text.gray('Tragbarer frueher Speicher (Rechtsklick in die Luft)')
   ]);
 });

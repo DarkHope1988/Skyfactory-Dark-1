@@ -81,4 +81,14 @@ StartupEvents.registry('block', event => {
     .resistance(1.0)
     .soundType('gravel')
     .requiresTool(false);
+
+  // Stage-0 Arbeits-Podest (eigener Block, kein Trapdoor-Mechanik-Block).
+  event
+    .create('bio_podest')
+    .displayName('Bio-Podest')
+    .material('wood')
+    .hardness(0.8)
+    .resistance(1.2)
+    .soundType('wood')
+    .requiresTool(false);
 });

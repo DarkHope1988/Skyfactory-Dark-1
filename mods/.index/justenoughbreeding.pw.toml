@@ -1,0 +1,17 @@
+filename = 'justenoughbreeding-forge-1.20-1.20.1-2.5.0.jar'
+name = 'Just Enough Breeding (JEBr)'
+side = 'server'
+x-prismlauncher-loaders = [ 'neoforge', 'forge' ]
+x-prismlauncher-mc-versions = [ '1.20', '1.20.1' ]
+x-prismlauncher-release-type = 'release'
+x-prismlauncher-version-number = 'justenoughbreeding-forge-1.20-1.20.1-2.5.0.jar'
+
+[download]
+hash = '10e9ddf2dffcf108af00651ccb6dc91a574e6d85'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
+
+[update.curseforge]
+file-id = 7391750
+project-id = 899386

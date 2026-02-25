@@ -35,7 +35,8 @@ JEIEvents.information(event => {
   event.addItem('kubejs:wormy_earth_block', [
     'ENTSTEHT: Wurm auf Earth Block.',
     'Rechtsklick mit Wood Shavings:',
-    'Ca. 20% auf 1-2 Dried Worm, sonst Fehlschlag.'
+    'Ca. 20% auf 1-2 Dried Worm, sonst Fehlschlag.',
+    'Finalschritt: Block wird dabei verbraucht.'
   ]);
 
   event.addItem('kubejs:dried_worm', [
@@ -79,7 +80,17 @@ JEIEvents.information(event => {
   event.addItem('kubejs:organic_rod', [
     'HAUPTTOOL STAGE 0:',
     '- Stamm rechtsklicken -> Tree Bark',
-    '- Wormy Bark rechtsklicken -> Hollow Bark'
+    '- Wormy Bark rechtsklicken -> Hollow Bark',
+    '- Auf Bio-Podest: Slot-Inhalt entnehmen'
+  ]);
+
+  event.addItem('kubejs:bio_podest', [
+    'BIO-PODEST:',
+    '1) Rechtsklick mit Earth Block ODER Dirt -> in Podest-Slot einlegen.',
+    '2) Rechtsklick mit Wurm -> Chance auf Wormy Earth im Slot.',
+    '3) Rechtsklick mit Baumspaenen -> Chance auf Dried Worm.',
+    '4) Organic Rod auf Podest -> Slot-Inhalt ausgeben.',
+    'Dient als frueher Arbeits-Shortcut.'
   ]);
 
   event.addItem('minecraft:oak_planks', [
@@ -116,9 +127,15 @@ JEIEvents.information(event => {
     'Mit Crude Mallet abbauen fuer Stone Grit.'
   ]);
 
+  event.addItem('minecraft:bundle', [
+    'STAGE-0 BIO-BEUTEL (TRAGBAR):',
+    'Rezept: 2x Organic Rod + 1x Packed Soil + 1x Dried Worm.',
+    'Rechtsklick in der Luft: tragbarer frueher Speicher.'
+  ]);
+
   event.addItem('kubejs:builder_earth_block', [
     'PLATTFORM-PFAD:',
-    '1x Earth Block -> 4x Bau-Erdblock.',
+    '4x Earth Block -> 4x Bau-Erdblock.',
     'Nutze diesen Block zum Bauen,',
     'damit normale Earth Bloecke fuer Progress bleiben.'
   ]);
