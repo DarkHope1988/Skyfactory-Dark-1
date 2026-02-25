@@ -1,1 +1,1 @@
-// Deprecated: replaced by kubejs:bio_growth_paste (right-click growth item).
+// Deprecated: replaced by sfd_comets:bio_growth_paste (mod item).

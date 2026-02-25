@@ -1,4 +1,4 @@
-// Skyfactory Dark - Logs System (Stage-0 Bio Loop)
+﻿// Skyfactory Dark - Logs System (Stage-0 Bio Loop)
 
 LootJS.modifiers(event => {
   event
@@ -10,5 +10,6 @@ LootJS.modifiers(event => {
   // Core opener: logs become wood shavings instead of wood progression.
   event
     .addBlockLootModifier('#minecraft:logs')
-    .addLoot('kubejs:wood_shavings');
+    .addLoot('sfd_comets:wood_shavings');
 });
+

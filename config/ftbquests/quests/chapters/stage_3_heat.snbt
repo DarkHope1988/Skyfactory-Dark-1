@@ -1,4 +1,4 @@
-{
+﻿{
 	default_hide_dependency_lines: false
 	default_quest_shape: "square"
 	filename: "stage_3_heat"
@@ -12,70 +12,75 @@
 			rewards: [{
 				id: "5D02C28DD30DC655"
 				type: "xp"
-				xp: 5
+				xp: 6
 			}]
 			tasks: [{
-				count: 8L
+				count: 12L
 				id: "2794F36608C14562"
-				item: { Count: 8, id: "minecraft:charcoal" }
+				item: { Count: 12, id: "sfd_comets:bark_briquette" }
 				type: "item"
 			}]
-			title: "Fuel Setup"
+			title: "01 | Start: Bark Briquette Fuel Setup"
 			x: 1.0d
 			y: 0.0d
 		}
 		{
 			id: "417D19AD6288D345"
+			dependencies: ["5A078C2D4E2977F0"]
 			rewards: [{
 				id: "4258D79F12D47464"
 				type: "xp"
-				xp: 5
+				xp: 6
 			}]
 			tasks: [{
 				count: 8L
 				id: "0C3998CA3F10C239"
-				item: { Count: 8, id: "minecraft:glass" }
+				item: { Count: 8, id: "minecraft:charcoal" }
 				type: "item"
 			}]
-			title: "Glass Tier"
+			title: "02 | Naechster Schritt: Charcoal Vorrat"
 			x: 3.0d
 			y: 0.0d
 		}
 		{
 			id: "4F15454DBC035B8C"
+			dependencies: ["417D19AD6288D345"]
 			rewards: [{
 				id: "58C1F293F4650F88"
 				type: "xp"
-				xp: 5
+				xp: 8
 			}]
 			tasks: [{
 				count: 8L
 				id: "59A15F95530341D9"
-				item: { Count: 8, id: "minecraft:iron_ingot" }
+				item: { Count: 8, id: "minecraft:glass" }
 				type: "item"
 			}]
-			title: "Eisenproduktion"
+			title: "03 | Smelting-Linie: Glass herstellen"
 			x: 5.0d
 			y: 0.0d
 		}
 		{
 			id: "5C3F3771EF577E35"
+			dependencies: ["4F15454DBC035B8C"]
 			rewards: [{
 				id: "1C3AA477839A3031"
 				type: "xp"
-				xp: 5
+				xp: 8
 			}]
 			tasks: [{
+				count: 8L
 				id: "63EC83A27BEC010E"
-				item: "minecraft:bucket"
+				item: { Count: 8, id: "minecraft:iron_ingot" }
 				type: "item"
 			}]
-			title: "Erster Bucket"
+			title: "04 | Smelting-Linie: Eisenproduktion"
 			x: 7.0d
 			y: 0.0d
 		}
 		{
 			id: "56A69F21766741B6"
+			dependencies: ["5C3F3771EF577E35"]
 			rewards: [{
 				id: "0FEF58A8405E368A"
 				type: "xp"
@@ -83,13 +88,49 @@
 			}]
 			tasks: [{
 				id: "7A019291AB30D90E"
-				item: "minecraft:blast_furnace"
+				item: "minecraft:bucket"
 				type: "item"
 			}]
-			title: "Heat Tier Abschluss"
+			title: "05 | Utility: Erster Bucket"
 			x: 9.0d
 			y: 0.0d
 		}
+		{
+			id: "2D6E21A4D5CFA993"
+			dependencies: ["56A69F21766741B6"]
+			rewards: [{
+				id: "2A6F55B678FC4A06"
+				type: "xp"
+				xp: 12
+			}]
+			tasks: [{
+				id: "028A7A85C4B262C3"
+				item: "minecraft:blast_furnace"
+				type: "item"
+			}]
+			title: "06 | STAGE 3 ABSCHLUSS: Blast Furnace"
+			x: 11.0d
+			y: 0.0d
+		}
+		{
+			id: "1CC47EE933AB4A67"
+			dependencies: ["56A69F21766741B6"]
+			rewards: [{
+				id: "5D9FA84EE0EF50B0"
+				type: "xp"
+				xp: 8
+			}]
+			tasks: [{
+				count: 1L
+				id: "4DB79E3A6AF3B8D1"
+				item: { Count: 1, id: "minecraft:water_bucket" }
+				type: "item"
+			}]
+			title: "TIPP | Planetization Ziel: Erstes Wasser sichern"
+			x: 9.0d
+			y: 2.0d
+		}
 	]
-	title: "03 Stage 3 - Heat"
+	title: "03 Stage 3 - Heat and Utilities"
 }
+

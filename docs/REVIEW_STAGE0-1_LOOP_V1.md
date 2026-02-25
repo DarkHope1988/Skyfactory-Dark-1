@@ -19,7 +19,7 @@ Quelle: `kubejs/server_scripts/systems/resources/leaves_system.js`
 - Stick, Apple, Saplings (Vanilla table)
 
 2. Hauptdrop:
-- Jede Leaf gibt `kubejs:leaf_threads` (deterministisch)
+- Jede Leaf gibt `sfd_comets:leaf_threads` (deterministisch)
 
 3. Sapling Sustain:
 - Basischance: `0.14` (14%) auf `minecraft:oak_sapling`
@@ -122,4 +122,5 @@ Kernquellen:
 1. Sollen wir die Resin-Verbrauchsdichte in Stage 1 gezielt reduzieren oder bewusst als fruehen Entscheidungsdruck behalten?
 2. Sollen Side-Byproducts bereits in Stage 1 eingefuehrt werden oder erst mit Stage-2-Review?
 3. Soll die Stage-1 Exit-Condition in der SSOT bereits jetzt als harte Checkliste fixiert werden?
+
 

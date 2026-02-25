@@ -31,7 +31,7 @@ Quellen:
 - `kubejs/server_scripts/systems/world/world_rules.js`
 
 ## Heat-nahe Inhalte (bereits vorhanden)
-1. Fuel-System: `kubejs:bark_briquette` mit Burntime 50.
+1. Fuel-System: `sfd_comets:bark_briquette` mit Burntime 50.
 2. Food-Heat: Smoking/Campfire fuer `raw_forage -> dried_forage`.
 3. Advancements nach Stage 3 vorhanden:
 - `heat_charcoal`
@@ -140,4 +140,5 @@ Schritt 3 ist inhaltlich abgeschlossen:
 1. Triggerlage ist klar.
 2. World-Unlock-Wirkung ist klar.
 3. Hauptluecke ist nicht Technik, sondern fehlende Stage-3-Mechanikdichte und klare Heat-Inszenierung.
+
 

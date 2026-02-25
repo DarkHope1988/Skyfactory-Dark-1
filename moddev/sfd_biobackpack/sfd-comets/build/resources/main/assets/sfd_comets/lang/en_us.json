@@ -1,0 +1,10 @@
+{
+  "item.sfd_comets.bio_backpack": "Comet Field Pack",
+  "container.sfd_comets.bio_backpack": "Comet Field Pack",
+  "block.sfd_comets.bio_podest": "Comet Podest",
+  "container.sfd_comets.bio_podest": "Comet Podest",
+  "block.sfd_comets.comet_cache": "Comet Core",
+  "item.sfd_comets.comet_cache": "Comet Core",
+  "container.sfd_comets.comet_cache": "Comet Core Cache",
+  "item.sfd_comets.bio_growth_paste": "Bio Growth Paste"
+}

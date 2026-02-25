@@ -1,0 +1,24 @@
+modLoader = "javafml"
+loaderVersion = "[47,)"
+license = "All Rights Reserved"
+
+[[mods]]
+modId = "sfd_core"
+version = "0.1.0"
+displayName = "SFD Core"
+authors = "DarkHope88"
+description = "Shared world state and bridge API for SFD modules."
+
+[[dependencies.sfd_core]]
+modId = "forge"
+mandatory = true
+versionRange = "[47.4.10,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.sfd_core]]
+modId = "minecraft"
+mandatory = true
+versionRange = "[1.20.1,1.21)"
+ordering = "NONE"
+side = "BOTH"

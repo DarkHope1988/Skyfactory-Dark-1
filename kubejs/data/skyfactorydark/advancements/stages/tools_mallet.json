@@ -1,8 +1,8 @@
-{
+﻿{
   "parent": "skyfactorydark:stages/stage_01_the_beginning",
   "display": {
     "icon": {
-      "item": "kubejs:crude_mallet"
+      "item": "sfd_comets:crude_mallet"
     },
     "title": "Crude Mallet",
     "description": "Craft the mallet used for progression crushing.",
@@ -18,7 +18,7 @@
         "items": [
           {
             "items": [
-              "kubejs:crude_mallet"
+              "sfd_comets:crude_mallet"
             ]
           }
         ]
@@ -26,4 +26,5 @@
     }
   }
 }
+
 

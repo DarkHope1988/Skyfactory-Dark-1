@@ -6,7 +6,7 @@
 
   const defaultPolicy = Object.freeze({
     WEATHER_STAGE: 'sfd_stage_3_heat',
-    COMET_STAGE: 'sfd_stage_5_automation'
+    COMET_STAGE: 'sfd_stage_2_stone'
   });
 
   function getPolicy() {

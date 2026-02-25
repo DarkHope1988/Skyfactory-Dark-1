@@ -15,10 +15,6 @@ StartupEvents.registry('item', event => {
   event.create('dried_worm').displayName('Getrockneter Wurm').maxStackSize(64);
   event.create('tree_bark').displayName('Baumrinde').maxStackSize(64);
   event.create('organic_rod').displayName('Organischer Stab').maxDamage(96);
-  event.create('bio_growth_paste')
-    .displayName('Bio-Wachstumspaste')
-    .texture('minecraft:item/bone_meal')
-    .maxStackSize(64);
   event.create('sprout_mash').displayName('Keim-Brei').maxStackSize(64).food(food => {
     food.hunger(2);
     food.saturation(0.2);
@@ -55,6 +51,24 @@ StartupEvents.registry('item', event => {
   event.create('rough_stone_mix').displayName('Rough Stone Mix').maxStackSize(64);
   event.create('bark_briquette').displayName('Bark Briquette').maxStackSize(64);
   event.create('organic_fiber').displayName('Organic Fiber').maxStackSize(64);
+
+  // ---------------------------
+  // Planetization chain (comet -> microbes -> water -> atmosphere)
+  // ---------------------------
+  event.create('microbe_culture').displayName('Microbe Culture').maxStackSize(64);
+  event.create('hydro_seed').displayName('Hydro Seed').maxStackSize(64);
+  event.create('condensed_water_cell').displayName('Condensed Water Cell').maxStackSize(64);
+  event.create('atmo_filament').displayName('Atmospheric Filament').maxStackSize(64);
+  event.create('oxygen_matrix').displayName('Oxygen Matrix').maxStackSize(64);
+  event.create('meteoric_slag').displayName('Meteoric Slag').maxStackSize(64);
+  event.create('mineral_catalyst').displayName('Mineral Catalyst').maxStackSize(64);
+  event.create('raw_metal_lattice').displayName('Raw Metal Lattice').maxStackSize(64);
+  event.create('proto_iron_cluster').displayName('Proto Iron Cluster').maxStackSize(64);
+  event.create('proto_copper_cluster').displayName('Proto Copper Cluster').maxStackSize(64);
+  event.create('planetary_anchor').displayName('Planetary Anchor').maxStackSize(64);
+  event.create('dimensional_gateway_core').displayName('Dimensional Gateway Core').maxStackSize(64);
+  event.create('interdimensional_gateway_core').displayName('Interdimensional Gateway Core').maxStackSize(64);
+  event.create('gateway_attunement_map').displayName('Gateway Attunement Map').maxStackSize(1);
 
   // ---------------------------
   // Tools (pack-defined)

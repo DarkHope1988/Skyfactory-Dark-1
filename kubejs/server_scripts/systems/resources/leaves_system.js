@@ -1,4 +1,4 @@
-// Skyfactory Dark - Leaves System (Stage-0 Bio Loop)
+﻿// Skyfactory Dark - Leaves System (Stage-0 Bio Loop)
 
 LootJS.modifiers(event => {
   event
@@ -10,7 +10,7 @@ LootJS.modifiers(event => {
   // Main early drop.
   event
     .addBlockLootModifier('#minecraft:leaves')
-    .addLoot('kubejs:leaf_threads');
+    .addLoot('sfd_comets:leaf_threads');
 
   // Sapling sustain.
   event
@@ -27,3 +27,4 @@ LootJS.modifiers(event => {
     .randomChance(0.20)
     .addLoot('minecraft:oak_sapling');
 });
+

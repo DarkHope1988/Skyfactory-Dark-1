@@ -43,8 +43,8 @@ global.SFD_STAGE_ADVANCEMENTS = Object.freeze({
 // Design-side SSOT bridge: concise stage exits for drift checks.
 global.SFD_STAGE_EXIT_CONDITIONS = Object.freeze({
   sfd_stage_0_welcome: 'Orientation complete, ready to craft crafting table',
-  sfd_stage_1_beginning: 'Stable bio/earth/soil loop with reproducible dirt',
-  sfd_stage_2_stone: 'Reproducible cobble/stone loop plus fuel pre-stage',
+  sfd_stage_1_beginning: 'Stable bio/soil loop with first smelted stone',
+  sfd_stage_2_stone: 'Comet cache progression started and stone loop stable',
   sfd_stage_3_heat: 'First stable heat logistics (fuel + smelt core loop)',
   sfd_stage_4_machines: '',
   sfd_stage_5_automation: '',

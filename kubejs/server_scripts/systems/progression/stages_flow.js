@@ -23,7 +23,6 @@ const grant = (global.SFDStageManager && global.SFDStageManager.grant) || global
 function updateStageLootTier(player) {
   if (!player || !player.server || !player.stages) return;
   let tier = 0;
-  if (player.stages.has(STAGES.STAGE_1_BEGINNING)) tier = 1;
   if (player.stages.has(STAGES.STAGE_2_STONE)) tier = 2;
   if (player.stages.has(STAGES.STAGE_3_HEAT)) tier = 3;
   if (player.stages.has(STAGES.STAGE_4_MACHINES)) tier = 4;
@@ -31,10 +30,68 @@ function updateStageLootTier(player) {
   if (player.stages.has(STAGES.STAGE_6_ENDGAME)) tier = 6;
 
   try {
-    const Bridge = Java.loadClass('de.darkhope.sfd.biobackpack.api.SfdWorldStateBridge');
+    let Bridge = null;
+    try {
+      Bridge = Java.loadClass('de.darkhope.sfd.core.api.SfdWorldStateBridge');
+    } catch (e1) {
+      Bridge = Java.loadClass('de.darkhope.sfd.biobackpack.api.SfdWorldStateBridge');
+    }
     Bridge.setStageLootTier(player.server, tier);
   } catch (e) {
     // Keep progression robust even if mod bridge isn't available.
+  }
+}
+
+function getHighestActiveStage(player) {
+  if (!player || !player.stages) return null;
+  const ordered = [
+    STAGES.STAGE_6_ENDGAME,
+    STAGES.STAGE_5_AUTOMATION,
+    STAGES.STAGE_4_MACHINES,
+    STAGES.STAGE_3_HEAT,
+    STAGES.STAGE_2_STONE,
+    STAGES.STAGE_1_BEGINNING,
+    STAGES.STAGE_0_WELCOME
+  ];
+  for (const stage of ordered) {
+    if (stage && player.stages.has(stage)) return stage;
+  }
+  return null;
+}
+
+function updatePlanetizationState(player) {
+  if (!player || !player.server || !player.stages) return;
+  if (!global.SFDWorldState || !global.SFDPlanetizationProfile) return;
+
+  const highest = getHighestActiveStage(player);
+  const profile = global.SFDPlanetizationProfile.stageUnlocks || {};
+  const data = highest ? profile[highest] : null;
+  const statusEnum = global.SFD_PLANET_STATUS || {};
+
+  if (!data) {
+    if (global.SFDWorldState.setPlanetStatus) {
+      global.SFDWorldState.setPlanetStatus(player.server, statusEnum.STERILE || 'sterile');
+    }
+    return;
+  }
+
+  if (global.SFDWorldState.setCometUnlocked && data.cometEnabled !== undefined) {
+    global.SFDWorldState.setCometUnlocked(player.server, data.cometEnabled === true);
+  }
+  if (global.SFDWorldState.setWaterCycleUnlocked && data.waterCycleUnlocked !== undefined) {
+    global.SFDWorldState.setWaterCycleUnlocked(player.server, data.waterCycleUnlocked === true);
+  }
+  if (global.SFDWorldState.setAtmosphereUnlocked && data.atmosphereUnlocked !== undefined) {
+    global.SFDWorldState.setAtmosphereUnlocked(player.server, data.atmosphereUnlocked === true);
+  }
+  if (global.SFDWorldState.setPlanetaryStabilized && data.planetaryStabilized !== undefined) {
+    global.SFDWorldState.setPlanetaryStabilized(player.server, data.planetaryStabilized === true);
+  }
+  if (global.SFDWorldState.setPlanetStatus) {
+    global.SFDWorldState.setPlanetStatus(
+      player.server,
+      data.planetStatus || statusEnum.STERILE || 'sterile'
+    );
   }
 }
 
@@ -45,6 +102,7 @@ PlayerEvents.loggedIn(event => {
   if (global.sfdApplyStageMobUnlocks) global.sfdApplyStageMobUnlocks(player);
   if (global.sfdApplyWorldUnlockPolicy) global.sfdApplyWorldUnlockPolicy(player);
   updateStageLootTier(player);
+  updatePlanetizationState(player);
 
   if (!player.stages) return;
   const active = [];
@@ -85,6 +143,7 @@ ItemEvents.crafted(event => {
   }
   if (stageChanged) {
     updateStageLootTier(player);
+    updatePlanetizationState(player);
   }
 });
 
@@ -103,4 +162,5 @@ PlayerEvents.inventoryChanged(event => {
   if (global.sfdApplyStageMobUnlocks) global.sfdApplyStageMobUnlocks(player);
   if (global.sfdApplyWorldUnlockPolicy) global.sfdApplyWorldUnlockPolicy(player);
   updateStageLootTier(player);
+  updatePlanetizationState(player);
 });

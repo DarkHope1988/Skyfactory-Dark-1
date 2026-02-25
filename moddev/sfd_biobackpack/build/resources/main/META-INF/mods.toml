@@ -5,9 +5,9 @@ license = "All Rights Reserved"
 [[mods]]
 modId = "sfd_biobackpack"
 version = "0.1.0"
-displayName = "SFD Bio Backpack"
+displayName = "SFD Comet Systems"
 authors = "DarkHope88"
-description = "Early-game 9-slot bio backpack for Skyfactory Dark."
+description = "Comet-driven world progression systems for Skyfactory Dark."
 
 [[dependencies.sfd_biobackpack]]
 modId = "forge"

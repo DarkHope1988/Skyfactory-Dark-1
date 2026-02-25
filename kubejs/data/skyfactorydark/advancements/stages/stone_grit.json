@@ -1,8 +1,8 @@
-{
+﻿{
   "parent": "skyfactorydark:stages/stage_02_stone",
   "display": {
     "icon": {
-      "item": "kubejs:stone_grit"
+      "item": "sfd_comets:stone_grit"
     },
     "title": "Stone Grit",
     "description": "Obtain your first stone grit.",
@@ -18,7 +18,7 @@
         "items": [
           {
             "items": [
-              "kubejs:stone_grit"
+              "sfd_comets:stone_grit"
             ]
           }
         ]
@@ -26,4 +26,5 @@
     }
   }
 }
+
 

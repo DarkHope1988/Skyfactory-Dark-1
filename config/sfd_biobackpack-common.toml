@@ -67,9 +67,18 @@
 	#How many random loot stacks are inserted into impact chest.
 	#Range: 1 ~ 27
 	impact_chest_loot_stacks = 4
-	#Distance used by /sfdstate impacttest in look direction.
-	#Range: 1 ~ 64
-	impact_test_distance_blocks = 6
+	#Max raycast distance used by /sfdstate impacttest.
+	#Range: 1 ~ 1024
+	impact_test_distance_blocks = 256
+	#Initial world stability value for new worlds.
+	#Range: 0 ~ 100
+	world_stability_start_value = 100
+	#Stability loss per comet impact.
+	#Range: 0 ~ 100
+	world_stability_impact_damage = 4
+	#Passive stability regeneration per minute.
+	#Range: 0 ~ 100
+	world_stability_regen_per_minute = 1
 
 [logging]
 	log_world_rules_enabled = true

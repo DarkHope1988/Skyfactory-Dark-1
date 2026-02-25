@@ -1,4 +1,4 @@
-{
+﻿{
 	default_hide_dependency_lines: false
 	default_quest_shape: "square"
 	filename: "stage_1_the_beginning"
@@ -17,15 +17,16 @@
 			tasks: [{
 				count: 24L
 				id: "76BD038B186DCDB9"
-				item: { Count: 24, id: "kubejs:organic_dust" }
+				item: { Count: 24, id: "sfd_comets:organic_dust" }
 				type: "item"
 			}]
-			title: "01 | Organic Dust aufbauen"
+			title: "01 | Start: Organic Dust aufbauen"
 			x: 1.0d
 			y: 0.0d
 		}
 		{
 			id: "4EB48012850A77CD"
+			dependencies: ["493C0ACEA9E4793F"]
 			rewards: [{
 				id: "128A2058A6F003C0"
 				type: "xp"
@@ -34,15 +35,16 @@
 			tasks: [{
 				count: 8L
 				id: "4FE465A431A993C6"
-				item: { Count: 8, id: "kubejs:compost_pile" }
+				item: { Count: 8, id: "sfd_comets:compost_pile" }
 				type: "item"
 			}]
-			title: "02 | Compost Pile herstellen"
+			title: "02 | Naechster Schritt: Compost Pile herstellen"
 			x: 3.0d
 			y: 0.0d
 		}
 		{
 			id: "5A604F737EFA7D83"
+			dependencies: ["4EB48012850A77CD"]
 			rewards: [{
 				id: "2B2111083947311B"
 				type: "xp"
@@ -51,15 +53,16 @@
 			tasks: [{
 				count: 8L
 				id: "69EA64E316AB939E"
-				item: { Count: 8, id: "kubejs:compost_pulp" }
+				item: { Count: 8, id: "sfd_comets:compost_pulp" }
 				type: "item"
 			}]
-			title: "03 | Compost Pulp herstellen"
+			title: "03 | Naechster Schritt: Compost Pulp herstellen"
 			x: 5.0d
 			y: 0.0d
 		}
 		{
 			id: "49A97C0E1FEBFB18"
+			dependencies: ["5A604F737EFA7D83"]
 			rewards: [{
 				id: "4ABC6003ADF427A4"
 				type: "xp"
@@ -71,12 +74,13 @@
 				item: { Count: 8, id: "minecraft:dirt" }
 				type: "item"
 			}]
-			title: "04 | Dirt-Loop starten"
+			title: "04 | Dirt-Loop stabilisieren"
 			x: 7.0d
 			y: 0.0d
 		}
 		{
 			id: "28F0DF4849B3FC84"
+			dependencies: ["49A97C0E1FEBFB18"]
 			rewards: [{
 				id: "41B3F94B7CFA8029"
 				type: "xp"
@@ -94,6 +98,7 @@
 		}
 		{
 			id: "5E63EDD2F6B54C70"
+			dependencies: ["28F0DF4849B3FC84"]
 			rewards: [{
 				id: "752D91BBB379E741"
 				type: "xp"
@@ -103,19 +108,20 @@
 				id: "6CF7300B7175A292"
 				item: {
 					Count: 1
-					id: "kubejs:crude_mallet"
+					id: "sfd_comets:crude_mallet"
 					tag: {
 						Damage: 0
 					}
 				}
 				type: "item"
 			}]
-			title: "06 | Crude Mallet bauen"
+			title: "06 | Tool: Crude Mallet bauen"
 			x: 11.0d
 			y: 0.0d
 		}
 		{
 			id: "5E7DE86E79CEAAC5"
+			dependencies: ["5E63EDD2F6B54C70"]
 			rewards: [{
 				id: "4F843974C9A74CF5"
 				type: "xp"
@@ -124,15 +130,16 @@
 			tasks: [{
 				count: 24L
 				id: "4F52390A6EC2BF46"
-				item: { Count: 24, id: "kubejs:stone_grit" }
+				item: { Count: 24, id: "sfd_comets:stone_grit" }
 				type: "item"
 			}]
-			title: "07 | Stone Grit farmen"
+			title: "07 | Farmen: Stone Grit"
 			x: 13.0d
 			y: 0.0d
 		}
 		{
 			id: "5A62A1FEB65A307F"
+			dependencies: ["5E7DE86E79CEAAC5"]
 			rewards: [{
 				id: "69CB903496292805"
 				type: "xp"
@@ -144,28 +151,31 @@
 				item: { Count: 16, id: "minecraft:cobblestone" }
 				type: "item"
 			}]
-			title: "08 | Cobblestone sichern"
+			title: "08 | Zwischenziel: Cobblestone sichern"
 			x: 15.0d
 			y: 0.0d
 		}
 		{
 			id: "6CD221FA7098A659"
+			dependencies: ["5A62A1FEB65A307F"]
 			rewards: [{
 				id: "3D681C425D7E57E2"
 				type: "xp"
 				xp: 10
 			}]
 			tasks: [{
+				count: 12L
 				id: "42C883D023400004"
-				item: "minecraft:furnace"
+				item: { Count: 12, id: "sfd_comets:bark_briquette" }
 				type: "item"
 			}]
-			title: "09 | Ersten Ofen bauen"
+			title: "09 | Fuel vorbereiten: Bark Briquette"
 			x: 17.0d
 			y: 0.0d
 		}
 		{
 			id: "3609517A7FC8F760"
+			dependencies: ["6CD221FA7098A659"]
 			rewards: [{
 				id: "0E77800E0F7F173F"
 				type: "xp"
@@ -173,21 +183,16 @@
 			}]
 			tasks: [{
 				id: "4BD41CEB21095996"
-				item: {
-					Count: 1
-					id: "minecraft:stone_pickaxe"
-					tag: {
-						Damage: 0
-					}
-				}
+				item: { Count: 8, id: "minecraft:stone" }
 				type: "item"
 			}]
-			title: "10 | Stage 1 Abschluss: Steinwerkzeug"
+			title: "10 | STAGE 1 ABSCHLUSS: Gebrannten Stein sichern"
 			x: 19.0d
 			y: 0.0d
 		}
 		{
 			id: "334B3FDE3173C6E8"
+			dependencies: ["5E63EDD2F6B54C70"]
 			rewards: [{
 				id: "73780DAB5A03E0E9"
 				type: "xp"
@@ -197,7 +202,7 @@
 				{
 					count: 12L
 					id: "25A1446D447678B9"
-					item: { Count: 12, id: "kubejs:organic_fiber" }
+					item: { Count: 12, id: "sfd_comets:organic_fiber" }
 					type: "item"
 				}
 				{
@@ -207,12 +212,13 @@
 					type: "item"
 				}
 			]
-			title: "TIPP | Wenn festgesteckt: Fiber -> String"
+			title: "TIPP | Fallback: Fiber -> String"
 			x: 11.0d
 			y: 2.0d
 		}
 		{
 			id: "1B4368E89EBE8C49"
+			dependencies: ["5A604F737EFA7D83"]
 			rewards: [{
 				id: "2849203AD9EDC522"
 				type: "xp"
@@ -222,20 +228,21 @@
 				{
 					count: 16L
 					id: "5E453806E95C4042"
-					item: { Count: 16, id: "kubejs:organic_dust" }
+					item: { Count: 16, id: "sfd_comets:organic_dust" }
 					type: "item"
 				}
 				{
 					count: 6L
 					id: "2E5099E841E93181"
-					item: { Count: 6, id: "kubejs:resin_fragment" }
+					item: { Count: 6, id: "sfd_comets:resin_fragment" }
 					type: "item"
 				}
 			]
-			title: "TIPP | Dust + Resin Reserve"
+			title: "TIPP | Reserve: Dust + Resin"
 			x: 5.0d
 			y: 2.0d
 		}
 	]
 	title: "01 Stage 1 - The Beginning"
 }
+

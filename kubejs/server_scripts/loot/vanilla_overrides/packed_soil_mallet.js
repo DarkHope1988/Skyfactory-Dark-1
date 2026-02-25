@@ -1,21 +1,21 @@
-// kubejs/server_scripts/loot/vanilla_overrides/packed_soil_mallet.js
+﻿// kubejs/server_scripts/loot/vanilla_overrides/packed_soil_mallet.js
 // Skyfactory Dark - Packed Soil Break Logic (baseline)
 //
 // Idee:
 // - Packed Soil ist der Early-Game "Investment Block".
 // - Ohne Mallet: Block dropt sich selbst (kein Fortschritt).
-// - Mit Mallet (Tag skyfactorydark:mallets): Block zerfällt in "Grit / Pebbles / Fiber".
+// - Mit Mallet (Tag skyfactorydark:mallets): Block zerfÃ¤llt in "Grit / Pebbles / Fiber".
 //
 // Balancing (Start):
 // - ~1-2 Stone Grit pro Block im Schnitt (nicht garantiert)
 // - selten Pebble Cluster als "Bonus"
-// - selten Organic Fiber (für spätere Chains)
+// - selten Organic Fiber (fÃ¼r spÃ¤tere Chains)
 
 LootJS.modifiers(event => {
 
   // --------------------------------------------
   // 1) Default: Ohne Mallet soll Packed Soil sich selbst droppen
-  // (Das macht Vanilla schon. Wir müssen hier nichts ändern.)
+  // (Das macht Vanilla schon. Wir mÃ¼ssen hier nichts Ã¤ndern.)
   // --------------------------------------------
 
   // --------------------------------------------
@@ -35,26 +35,27 @@ LootJS.modifiers(event => {
     .addBlockLootModifier('kubejs:packed_soil')
     .matchMainHand(mallet)
     .randomChance(0.65)
-    .addLoot('kubejs:stone_grit');
+    .addLoot('sfd_comets:stone_grit');
 
   // Stone Grit Bonus: 15% -> +1 (damit manchmal 2 rauskommen)
   event
     .addBlockLootModifier('kubejs:packed_soil')
     .matchMainHand(mallet)
     .randomChance(0.15)
-    .addLoot('kubejs:stone_grit');
+    .addLoot('sfd_comets:stone_grit');
 
-  // Pebble Cluster: 10% -> 1 (später wichtig, aber kein Muss)
+  // Pebble Cluster: 10% -> 1 (spÃ¤ter wichtig, aber kein Muss)
   event
     .addBlockLootModifier('kubejs:packed_soil')
     .matchMainHand(mallet)
     .randomChance(0.10)
-    .addLoot('kubejs:pebble_cluster');
+    .addLoot('sfd_comets:pebble_cluster');
 
   // Organic Fiber: 08% -> 1
   event
     .addBlockLootModifier('kubejs:packed_soil')
     .matchMainHand(mallet)
     .randomChance(0.08)
-    .addLoot('kubejs:organic_fiber');
+    .addLoot('sfd_comets:organic_fiber');
 });
+

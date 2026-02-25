@@ -8,3 +8,9 @@ Load order contract (do not reorder without reason):
 4. `03_stage_manager.js`
 
 Other files in this folder should start at `10_...` and must only consume these APIs.
+
+Current data profiles:
+- `13_planetization_profile.js` = staged world/planet transformation SSOT bridge.
+- `14_comet_loot_profile.js` = comet tier loot profile (tier 2+ start).
+- `15_system_config.js` = central runtime knobs (comet, ore chain, hud, gateway).
+- `16_ore_chain_profile.js` = custom ore unlock bridge profile.

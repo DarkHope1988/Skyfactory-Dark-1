@@ -1,4 +1,4 @@
-{
+﻿{
 	default_hide_dependency_lines: false
 	default_quest_shape: "square"
 	filename: "stage_2_stone"
@@ -12,90 +12,195 @@
 			rewards: [{
 				id: "7CA872F26814094B"
 				type: "xp"
-				xp: 5
+				xp: 6
 			}]
 			tasks: [{
 				count: 16L
 				id: "7CC9BF9B850AE58B"
-				item: { Count: 16, id: "kubejs:stone_grit" }
+				item: { Count: 16, id: "minecraft:cobblestone" }
 				type: "item"
 			}]
-			title: "Stone Grit Sammeln"
+			title: "01 | Start: Steinbasis sichern"
 			x: 1.0d
 			y: 0.0d
 		}
 		{
 			id: "6C1B37E697E4F3BE"
+			dependencies: ["64D7C49CC77C9063"]
 			rewards: [{
 				id: "18D72F053293D467"
 				type: "xp"
-				xp: 5
+				xp: 8
 			}]
 			tasks: [{
-				count: 16L
 				id: "533D412C49A16F36"
-				item: { Count: 16, id: "minecraft:cobblestone" }
+				item: "sfd_comets:comet_cache"
 				type: "item"
 			}]
-			title: "Cobblestone Loop"
+			title: "02 | Naechster Schritt: Ersten Comet Cache bergen"
 			x: 3.0d
 			y: 0.0d
 		}
 		{
 			id: "3BEE8CD52B8444BB"
+			dependencies: ["6C1B37E697E4F3BE"]
 			rewards: [{
 				id: "67119F6A5EBCDB22"
 				type: "xp"
-				xp: 5
+				xp: 8
 			}]
 			tasks: [{
-				count: 8L
+				count: 6L
 				id: "6A64D6C3151B3A36"
-				item: { Count: 8, id: "minecraft:gravel" }
+				item: { Count: 6, id: "sfd_comets:microbe_culture" }
 				type: "item"
 			}]
-			title: "Nebenprodukt Gravel"
+			title: "03 | Comet-Bio: Microbe Culture"
 			x: 5.0d
 			y: 0.0d
 		}
 		{
 			id: "0117CE1C2863E20B"
+			dependencies: ["3BEE8CD52B8444BB"]
 			rewards: [{
 				id: "7AD1E2228F748332"
 				type: "xp"
-				xp: 5
+				xp: 10
 			}]
 			tasks: [{
+				count: 8L
 				id: "515443713A5BD7ED"
-				item: "minecraft:furnace"
+				item: { Count: 8, id: "sfd_comets:meteoric_slag" }
 				type: "item"
 			}]
-			title: "Ofen bereit"
+			title: "04 | Comet-Erz: Meteoric Slag"
 			x: 7.0d
 			y: 0.0d
 		}
 		{
 			id: "37575A27F38470DD"
+			dependencies: ["0117CE1C2863E20B"]
 			rewards: [{
 				id: "2C13E145BE9CF782"
 				type: "xp"
 				xp: 10
 			}]
 			tasks: [{
+				count: 6L
 				id: "3161247477971D81"
-				item: {
-					Count: 1
-					id: "minecraft:stone_pickaxe"
-					tag: {
-						Damage: 0
-					}
-				}
+				item: { Count: 6, id: "sfd_comets:mineral_catalyst" }
 				type: "item"
 			}]
-			title: "Steinwerkzeug"
+			title: "05 | Ore-Chain: Mineral Catalyst"
 			x: 9.0d
 			y: 0.0d
 		}
+		{
+			id: "2F5D79F4B8A21E70"
+			dependencies: ["37575A27F38470DD"]
+			rewards: [{
+				id: "12B0E2F9A38D4C51"
+				type: "xp"
+				xp: 10
+			}]
+			tasks: [{
+				count: 4L
+				id: "2A67A3834C5E6B8D"
+				item: { Count: 4, id: "sfd_comets:raw_metal_lattice" }
+				type: "item"
+			}]
+			title: "06 | Ore-Chain: Raw Metal Lattice"
+			x: 11.0d
+			y: 0.0d
+		}
+		{
+			id: "6A4EFC93B64A1A2D"
+			dependencies: ["2F5D79F4B8A21E70"]
+			rewards: [{
+				id: "5F2D2E8A7F8C1A45"
+				type: "xp"
+				xp: 12
+			}]
+			tasks: [
+				{
+					count: 3L
+					id: "1E5C9A4DB33F90A1"
+					item: { Count: 3, id: "sfd_comets:proto_iron_cluster" }
+					type: "item"
+				}
+				{
+					count: 3L
+					id: "4A8CFF2B510D7B24"
+					item: { Count: 3, id: "sfd_comets:proto_copper_cluster" }
+					type: "item"
+				}
+			]
+			title: "07 | Ore-Chain: Proto Cluster sichern"
+			x: 13.0d
+			y: 0.0d
+		}
+		{
+			id: "31F0C8A4E98B6D44"
+			dependencies: ["6A4EFC93B64A1A2D"]
+			rewards: [{
+				id: "7D0E5F4BC19A274E"
+				type: "xp"
+				xp: 12
+			}]
+			tasks: [
+				{
+					count: 2L
+					id: "53B3A4D3CC9A406B"
+					item: { Count: 2, id: "sfd_comets:hydro_seed" }
+					type: "item"
+				}
+				{
+					count: 2L
+					id: "32EA8B9625E174F3"
+					item: { Count: 2, id: "sfd_comets:condensed_water_cell" }
+					type: "item"
+				}
+			]
+			title: "08 | Planetization: Hydro Seed + Water Cells"
+			x: 15.0d
+			y: 0.0d
+		}
+		{
+			id: "4E1BA39D2D8EF8F0"
+			dependencies: ["31F0C8A4E98B6D44"]
+			rewards: [{
+				id: "1F7E0A224A6D12EE"
+				type: "xp"
+				xp: 15
+			}]
+			tasks: [{
+				id: "2FF1A8D97C83AEE5"
+				item: "sfd_comets:oxygen_matrix"
+				type: "item"
+			}]
+			title: "09 | STAGE 2 ABSCHLUSS: Oxygen Matrix"
+			x: 17.0d
+			y: 0.0d
+		}
+		{
+			id: "0A51C775E89EF004"
+			dependencies: ["31F0C8A4E98B6D44"]
+			rewards: [{
+				id: "29EDC8A3C118FF31"
+				type: "xp"
+				xp: 8
+			}]
+			tasks: [{
+				count: 6L
+				id: "4B54AD9705E12E8B"
+				item: { Count: 6, id: "sfd_comets:bark_briquette" }
+				type: "item"
+			}]
+			title: "TIPP | Naechster Schritt Stage 3: Fuel vorbereiten"
+			x: 13.0d
+			y: 2.0d
+		}
 	]
-	title: "02 Stage 2 - Stone"
+	title: "02 Stage 2 - Comets and Stone"
 }
+

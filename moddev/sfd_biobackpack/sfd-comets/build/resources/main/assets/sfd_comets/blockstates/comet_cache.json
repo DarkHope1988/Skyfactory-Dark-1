@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "sfd_comets:block/comet_cache"
+    }
+  }
+}

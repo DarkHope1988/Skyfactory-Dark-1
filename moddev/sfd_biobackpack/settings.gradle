@@ -6,4 +6,8 @@ pluginManagement {
     }
 }
 
-rootProject.name = 'sfd_biobackpack'
+rootProject.name = 'sfd_systems'
+
+include 'sfd-core'
+include 'sfd-comets'
+include 'sfd-planetization'

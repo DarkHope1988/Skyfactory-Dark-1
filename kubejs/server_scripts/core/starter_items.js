@@ -24,5 +24,5 @@ PlayerEvents.loggedIn(event => {
 
   // Minimal start: exactly one sapling + infinite bonemeal-effect item.
   player.give(Item.of('minecraft:oak_sapling', 1));
-  player.give(Item.of('kubejs:bio_growth_paste', 1));
+  player.give(Item.of('sfd_comets:bio_growth_paste', 1));
 });

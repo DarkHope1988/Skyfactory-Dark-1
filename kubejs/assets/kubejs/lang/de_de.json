@@ -1,0 +1,21 @@
+{
+  "item.kubejs.microbe_culture": "Mikrobenkultur",
+  "item.kubejs.hydro_seed": "Hydro-Saat",
+  "item.kubejs.condensed_water_cell": "Kondensierte Wasserzelle",
+  "item.kubejs.atmo_filament": "Atmosphaerenfilament",
+  "item.kubejs.oxygen_matrix": "Sauerstoffmatrix",
+  "item.kubejs.meteoric_slag": "Meteoritschlacke",
+  "item.kubejs.mineral_catalyst": "Mineralkatalysator",
+  "item.kubejs.raw_metal_lattice": "Rohmetall-Gitter",
+  "item.kubejs.proto_iron_cluster": "Proto-Eisencluster",
+  "item.kubejs.proto_copper_cluster": "Proto-Kupfercluster",
+  "item.kubejs.planetary_anchor": "Planetarer Anker",
+  "item.kubejs.dimensional_gateway_core": "Dimensionaler Gateway-Kern",
+  "item.kubejs.interdimensional_gateway_core": "Interdimensionaler Gateway-Kern",
+  "item.kubejs.gateway_attunement_map": "Gateway-Abstimmungskarte",
+  "sfd.planet.status.sterile": "Steril",
+  "sfd.planet.status.seeded": "Besiedelt",
+  "sfd.planet.status.hydrated": "Hydriert",
+  "sfd.planet.status.breathable": "Atembar",
+  "sfd.planet.status.stable": "Stabil"
+}

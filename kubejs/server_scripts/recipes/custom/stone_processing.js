@@ -1,9 +1,9 @@
-// kubejs/server_scripts/recipes/custom/stone_processing.js
+﻿// kubejs/server_scripts/recipes/custom/stone_processing.js
 // Skyfactory Dark - Stone Chain (v1)
 //
 // Ziel:
 // - Stone Grit ist dein erster "Stein-Ersatz" aus Packed Soil.
-// - Cobblestone soll NICHT in 2 Minuten verfügbar sein,
+// - Cobblestone soll NICHT in 2 Minuten verfÃ¼gbar sein,
 //   aber auch nicht ewig dauern.
 //
 // Balancing (Start):
@@ -12,28 +12,28 @@
 
 ServerEvents.recipes(event => {
   // Stabilizer route: early deterministic conversion, but still resource-expensive.
-  event.shaped('kubejs:pebble_cluster', [
+  event.shaped('sfd_comets:pebble_cluster', [
     'RRR',
     'R R',
     'RRR'
   ], {
-    R: 'kubejs:raw_soil_chunk'
+    R: 'sfd_comets:raw_soil_chunk'
   });
 
   // Mid Stage-1 route toward Stone: chunk + pebble -> grit.
-  event.shapeless('kubejs:stone_grit', [
-    'kubejs:raw_soil_chunk',
-    'kubejs:raw_soil_chunk',
-    'kubejs:pebble_cluster'
+  event.shapeless('sfd_comets:stone_grit', [
+    'sfd_comets:raw_soil_chunk',
+    'sfd_comets:raw_soil_chunk',
+    'sfd_comets:pebble_cluster'
   ]);
 
   // Structured Stone process:
   // grit + previous-stage biomass creates a stone-ready blend.
-  event.shapeless('2x kubejs:rough_stone_mix', [
-    'kubejs:stone_grit',
-    'kubejs:stone_grit',
-    'kubejs:raw_soil_chunk',
-    'kubejs:compost_pulp'
+  event.shapeless('2x sfd_comets:rough_stone_mix', [
+    'sfd_comets:stone_grit',
+    'sfd_comets:stone_grit',
+    'sfd_comets:raw_soil_chunk',
+    'sfd_comets:compost_pulp'
   ]);
 
   // Processed blend route (more planned than pure grit compression).
@@ -41,7 +41,7 @@ ServerEvents.recipes(event => {
     'MM',
     'MM'
   ], {
-    M: 'kubejs:rough_stone_mix'
+    M: 'sfd_comets:rough_stone_mix'
   }).id('kubejs:stone/rough_mix_to_cobble');
 
   // 4x Stone Grit -> 1 Cobblestone (2x2)
@@ -49,7 +49,7 @@ ServerEvents.recipes(event => {
     'GG',
     'GG'
   ], {
-    G: 'kubejs:stone_grit'
+    G: 'sfd_comets:stone_grit'
   }).id('kubejs:stone/grit_to_cobble');
 
   // First Stone-age podest upgrade component.
@@ -59,15 +59,16 @@ ServerEvents.recipes(event => {
     'CCC'
   ], {
     C: 'minecraft:cobblestone',
-    R: 'kubejs:resin_fragment'
+    R: 'sfd_comets:resin_fragment'
   }).id('kubejs:stone/podest_stone_base');
 
-  // Optional: Pebble Cluster -> Gravel (später nützlich)
+  // Optional: Pebble Cluster -> Gravel (spÃ¤ter nÃ¼tzlich)
   event.shaped('minecraft:gravel', [
     'PP',
     'PP'
   ], {
-    P: 'kubejs:pebble_cluster'
+    P: 'sfd_comets:pebble_cluster'
   });
 
 });
+

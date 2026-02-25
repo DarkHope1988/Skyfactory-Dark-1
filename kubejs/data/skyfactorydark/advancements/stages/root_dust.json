@@ -1,8 +1,8 @@
-{
+﻿{
   "parent": "skyfactorydark:stages/stage_00_willkommen",
   "display": {
     "icon": {
-      "item": "kubejs:organic_dust"
+      "item": "sfd_comets:organic_dust"
     },
     "title": "First Organic Dust",
     "description": "Harvest leaves with a crook and get organic dust.",
@@ -18,7 +18,7 @@
         "items": [
           {
             "items": [
-              "kubejs:organic_dust"
+              "sfd_comets:organic_dust"
             ]
           }
         ]
@@ -26,4 +26,5 @@
     }
   }
 }
+
 

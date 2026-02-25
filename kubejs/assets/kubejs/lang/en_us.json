@@ -1,3 +1,22 @@
 {
-  "item.kubejs.example": "Example"
+  "item.kubejs.example": "Example",
+  "item.kubejs.microbe_culture": "Microbe Culture",
+  "item.kubejs.hydro_seed": "Hydro Seed",
+  "item.kubejs.condensed_water_cell": "Condensed Water Cell",
+  "item.kubejs.atmo_filament": "Atmospheric Filament",
+  "item.kubejs.oxygen_matrix": "Oxygen Matrix",
+  "item.kubejs.meteoric_slag": "Meteoric Slag",
+  "item.kubejs.mineral_catalyst": "Mineral Catalyst",
+  "item.kubejs.raw_metal_lattice": "Raw Metal Lattice",
+  "item.kubejs.proto_iron_cluster": "Proto Iron Cluster",
+  "item.kubejs.proto_copper_cluster": "Proto Copper Cluster",
+  "item.kubejs.planetary_anchor": "Planetary Anchor",
+  "item.kubejs.dimensional_gateway_core": "Dimensional Gateway Core",
+  "item.kubejs.interdimensional_gateway_core": "Interdimensional Gateway Core",
+  "item.kubejs.gateway_attunement_map": "Gateway Attunement Map",
+  "sfd.planet.status.sterile": "Sterile",
+  "sfd.planet.status.seeded": "Seeded",
+  "sfd.planet.status.hydrated": "Hydrated",
+  "sfd.planet.status.breathable": "Breathable",
+  "sfd.planet.status.stable": "Stable"
 }

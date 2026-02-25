@@ -1,9 +1,9 @@
-# Skyfactory Dark 1 – Technische Repository-Analyse
+﻿# Skyfactory Dark 1 â€“ Technische Repository-Analyse
 
 ## 1) Scope & Methode
-Diese Analyse basiert ausschließlich auf den im Repository vorhandenen Dateien (Mods-Verzeichnis, Konfigurationsdateien, KubeJS-Skripte, Datendateien).
+Diese Analyse basiert ausschlieÃŸlich auf den im Repository vorhandenen Dateien (Mods-Verzeichnis, Konfigurationsdateien, KubeJS-Skripte, Datendateien).
 
-Geprüfte Hauptquellen:
+GeprÃ¼fte Hauptquellen:
 - `mods/*.jar` (inkl. `META-INF/mods.toml` und Mixin-Konfigurationsdateien)
 - `config/*.toml|json` und `defaultconfigs/**`
 - `kubejs/**` (startup/server/client scripts, tags, assets)
@@ -14,12 +14,12 @@ Geprüfte Hauptquellen:
 ## 2) Plattform: Minecraft-Version & Modloader
 
 ### Minecraft/Forge-Basis
-- Alle Mod-JARs sind Forge-Builds für **Minecraft 1.20.1** (Dateinamen + Dependency-Constraints in `mods.toml`).
-- Forge-Mindestanforderungen aus den installierten Mods liegen überwiegend im Bereich **Forge 47.x** (z. B. `create` `forge [47.1.3,)`, `ftblibrary` `forge [47.3,)`, `appleskin` `forge [47.0.12,)`).
+- Alle Mod-JARs sind Forge-Builds fÃ¼r **Minecraft 1.20.1** (Dateinamen + Dependency-Constraints in `mods.toml`).
+- Forge-Mindestanforderungen aus den installierten Mods liegen Ã¼berwiegend im Bereich **Forge 47.x** (z. B. `create` `forge [47.1.3,)`, `ftblibrary` `forge [47.3,)`, `appleskin` `forge [47.0.12,)`).
 
 ### Nachweisstand
-- Das Repository enthält **keine dedizierte Modpack-Manifestdatei** (z. B. CurseForge `manifest.json`/Modrinth `index.json`) und **keine server.properties mit Forge-Version-Pin**.
-- Damit ist aus dem Repository nur eine **Mindestkompatibilität**, aber kein einzelner exakt gepinnter Forge-Build ableitbar.
+- Das Repository enthÃ¤lt **keine dedizierte Modpack-Manifestdatei** (z. B. CurseForge `manifest.json`/Modrinth `index.json`) und **keine server.properties mit Forge-Version-Pin**.
+- Damit ist aus dem Repository nur eine **MindestkompatibilitÃ¤t**, aber kein einzelner exakt gepinnter Forge-Build ableitbar.
 
 ---
 
@@ -53,26 +53,26 @@ Geprüfte Hauptquellen:
 ## 4) Dependency-Analyse (Required/Optional)
 
 ### Harte Dependencies (Auszug)
-- `gamestages` benötigt `bookshelf`.
-- `kubejs` benötigt `rhino` und `architectury`.
-- `lootjs` benötigt `kubejs`.
-- FTB-Stack: `ftbquests` benötigt `ftblibrary` + `ftbteams` + `architectury`.
-- `create` benötigt `forge`, `minecraft` sowie ModIDs `flywheel` und `ponder` (durch den Create-Build bereitgestellt).
+- `gamestages` benÃ¶tigt `bookshelf`.
+- `kubejs` benÃ¶tigt `rhino` und `architectury`.
+- `lootjs` benÃ¶tigt `kubejs`.
+- FTB-Stack: `ftbquests` benÃ¶tigt `ftblibrary` + `ftbteams` + `architectury`.
+- `create` benÃ¶tigt `forge`, `minecraft` sowie ModIDs `flywheel` und `ponder` (durch den Create-Build bereitgestellt).
 
 ### Optionale Dependencies (Auszug)
 - `kubejs`: optional `jei`.
 - `create`: optional `jei` (Client).
 - `ftbquests`: optional `itemfilters`.
 
-### Aufgelöste/ungeklärte Punkte rein aus Repo
+### AufgelÃ¶ste/ungeklÃ¤rte Punkte rein aus Repo
 - `itemfilters` ist nicht im `mods/`-Ordner vorhanden (optional, daher kein harter Fehler).
-- Die in KubeJS vorbereiteten Integrationsordner für `appliedenergistics2`, `botania`, `tconstruct` enthalten nur Kommentar-Platzhalter; entsprechende Mod-JARs sind aktuell nicht installiert.
+- Die in KubeJS vorbereiteten Integrationsordner fÃ¼r `appliedenergistics2`, `botania`, `tconstruct` enthalten nur Kommentar-Platzhalter; entsprechende Mod-JARs sind aktuell nicht installiert.
 
 ---
 
 ## 5) KubeJS-/Script-Architektur & Wechselwirkungen
 
-## Tatsächlich aktive Progressionslogik
+## TatsÃ¤chlich aktive Progressionslogik
 - **Startup-Registrierung** eigener Items/Blocks in `startup_scripts/_core/03_items.js` und `04_blocks.js`.
 - **Early-Game-Ressourcenloop**:
   1. Leaves + Crook-Tag => `organic_dust` / `resin_fragment` (`leaves_system.js`)
@@ -85,14 +85,14 @@ Geprüfte Hauptquellen:
 
 ## Tag-Verkabelung
 - `#skyfactorydark:harvest_tools` nutzt aktuell nur `#exdeorum:crooks` (`replace=true`).
-- `#skyfactorydark:mallets` und `#skyfactorydark:crushing_tools` enthalten `kubejs:crude_mallet`.
+- `#skyfactorydark:mallets` und `#skyfactorydark:crushing_tools` enthalten `sfd_comets:crude_mallet`.
 
 ## Platzhalter ohne Funktionslogik
 Mehrere Dateien enthalten nur Kommentare (z. B. `systems/progression/*`, `recipes/compat/*`, `mods/*/{gating,recipes}.js`, `recipes/vanilla/*`).
 
 ---
 
-## 6) Konfigurationsüberschneidungen / Konflikt-Risiken
+## 6) KonfigurationsÃ¼berschneidungen / Konflikt-Risiken
 
 ### Ex Deorum vs. KubeJS-Loot
 - Ex Deorum ist aktiv und konfiguriert Void World als Standard.
@@ -105,7 +105,7 @@ Mehrere Dateien enthalten nur Kommentare (z. B. `systems/progression/*`, `recipe
 
 ### Client-/Server-Trennung
 - Eindeutig clientseitig: `*-client.toml`, `journeymap/**`, `kubejs/client_scripts/**`.
-- Eindeutig server/common: `kubejs/server_scripts/**`, `exdeorum-common.toml`, Loot/Recipe-Änderungen.
+- Eindeutig server/common: `kubejs/server_scripts/**`, `exdeorum-common.toml`, Loot/Recipe-Ã„nderungen.
 
 ---
 
@@ -116,33 +116,33 @@ Mixin-Konfigurationen sind u. a. vorhanden in:
 - BetterF3, Bookshelf, Jade, Architectury, Create, FTB Library, FTB Ultimine, JourneyMap, KubeJS, LootJS, Rhino, WallJump.
 
 ### Nachweisbare Konflikte?
-- Aus statischer Repository-Sicht sind **keine direkten Konflikte eindeutig beweisbar**, da konkrete Target-Class-Kollisionen typischerweise über Laufzeit-Logs/Crashreports (`latest.log`, Mixin apply errors) sichtbar werden.
+- Aus statischer Repository-Sicht sind **keine direkten Konflikte eindeutig beweisbar**, da konkrete Target-Class-Kollisionen typischerweise Ã¼ber Laufzeit-Logs/Crashreports (`latest.log`, Mixin apply errors) sichtbar werden.
 - Im Repository liegen aktuell keine solchen Crashreports/Logs mit Mixin-Fehlern vor.
 
 ---
 
 ## 8) Datapacks, Resourcepacks, weitere Inhalte
 
-- Datapack-ähnliche Inhalte via `kubejs/data/skyfactorydark/tags/items/*.json` (Custom Item-Tags).
-- KubeJS-Assets (`kubejs/assets/kubejs/**`) für Modelle, Blockstates, Sprache.
-- JourneyMap-Konfigurations- und Theme-Dateien vorhanden; zusätzlich lokale Kartendaten (`journeymap/data/sp/...`) im Repo.
+- Datapack-Ã¤hnliche Inhalte via `kubejs/data/skyfactorydark/tags/items/*.json` (Custom Item-Tags).
+- KubeJS-Assets (`kubejs/assets/kubejs/**`) fÃ¼r Modelle, Blockstates, Sprache.
+- JourneyMap-Konfigurations- und Theme-Dateien vorhanden; zusÃ¤tzlich lokale Kartendaten (`journeymap/data/sp/...`) im Repo.
 
-Hinweis: `local/**`, `journeymap/data/sp/**`, `usercache.json`, `usernamecache.json` sind laufzeit-/nutzerspezifische Artefakte und in Modpack-Repos üblicherweise optional bzw. oft auszuschließen.
+Hinweis: `local/**`, `journeymap/data/sp/**`, `usercache.json`, `usernamecache.json` sind laufzeit-/nutzerspezifische Artefakte und in Modpack-Repos Ã¼blicherweise optional bzw. oft auszuschlieÃŸen.
 
 ---
 
 ## 9) Load-Order (nachweisbar)
 
-- KubeJS `startup_scripts/_core` ist numerisch strukturiert (`00_...` bis `04_...`) für deterministische Reihenfolge.
+- KubeJS `startup_scripts/_core` ist numerisch strukturiert (`00_...` bis `04_...`) fÃ¼r deterministische Reihenfolge.
 - `server_scripts` folgen ebenfalls einer klaren Ordnerstruktur (`_core`, `systems`, `recipes`, `loot`, `mods`, `debug`).
-- Konkrete modübergreifende Forge-Loadorder ist im Repository nicht explizit gepinnt; die Auflösung erfolgt über Forge + Dependency-Graph.
+- Konkrete modÃ¼bergreifende Forge-Loadorder ist im Repository nicht explizit gepinnt; die AuflÃ¶sung erfolgt Ã¼ber Forge + Dependency-Graph.
 
 ---
 
 ## 10) Performance-relevante Punkte
 
 Nachweisbar im aktuellen Stand:
-- Ex Deorum fast-infested-leaves **deaktiviert** (`use_fast_infested_leaves=false`) – potenziell höhere Renderlast bei vielen infizierten Blättern.
+- Ex Deorum fast-infested-leaves **deaktiviert** (`use_fast_infested_leaves=false`) â€“ potenziell hÃ¶here Renderlast bei vielen infizierten BlÃ¤ttern.
 - Flywheel Backend auf `DEFAULT`, `limitUpdates=true`, WorkerThreads `-1` (auto).
 - Forge `alwaysSetupTerrainOffThread=false` (keine erzwungene Offthread-Chunk-Setup-Optimierung).
 
@@ -154,21 +154,22 @@ Nachweisbar im aktuellen Stand:
    - AE2/Botania/TConstruct/Create-Compat-Dateien existieren teils nur als Kommentare; aktuell keine aktive Integrationslogik.
 2. **Starker Early-Game-Eingriff in Ex Deorum Leaves-Drops**
    - Gewollt, aber balancekritisch.
-3. **Repo enthält Laufzeitartefakte**
-   - Lokale JourneyMap-Kacheln, Cache-Dateien, `local/`-Config können Versionshistorie verrauschen.
+3. **Repo enthÃ¤lt Laufzeitartefakte**
+   - Lokale JourneyMap-Kacheln, Cache-Dateien, `local/`-Config kÃ¶nnen Versionshistorie verrauschen.
 4. **Fehlende zentrale Manifestdatei**
-   - Erschwert reproduzierbares Pinning eines exakten Forge-Builds außerhalb der Mindest-Constraints.
+   - Erschwert reproduzierbares Pinning eines exakten Forge-Builds auÃŸerhalb der Mindest-Constraints.
 
 ---
 
-## 12) Empfohlene nächste technische Prüfschritte (ohne unbelegte Annahmen)
+## 12) Empfohlene nÃ¤chste technische PrÃ¼fschritte (ohne unbelegte Annahmen)
 
-1. Laufzeitvalidierung nach KubeJS-Änderungen:
-   - `logs/latest.log` auf KubeJS/LootJS/Mixin-Errors prüfen.
+1. Laufzeitvalidierung nach KubeJS-Ã„nderungen:
+   - `logs/latest.log` auf KubeJS/LootJS/Mixin-Errors prÃ¼fen.
 2. Server-Client-A/B-Test:
    - Neuer Weltstart (Void), Early Loop (Leaves->Dust->Packed Soil->Stone Grit) komplett durchspielen.
 3. JEI-Validierung:
-   - Sichtbarkeit aller custom Rezepte (`organic_processing`, `stone_processing`) prüfen.
-4. Falls später echte Mod-Integrationen aktiviert werden:
-   - Placeholder-Dateien in `kubejs/server_scripts/mods/*` nur zusammen mit real installierten Zielmods befüllen.
+   - Sichtbarkeit aller custom Rezepte (`organic_processing`, `stone_processing`) prÃ¼fen.
+4. Falls spÃ¤ter echte Mod-Integrationen aktiviert werden:
+   - Placeholder-Dateien in `kubejs/server_scripts/mods/*` nur zusammen mit real installierten Zielmods befÃ¼llen.
+
 

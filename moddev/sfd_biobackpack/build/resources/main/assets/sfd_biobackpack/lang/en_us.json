@@ -1,6 +1,6 @@
 {
-  "item.sfd_biobackpack.bio_backpack": "Bio Backpack",
-  "container.sfd_biobackpack.bio_backpack": "Bio Backpack",
-  "block.sfd_biobackpack.bio_podest": "Bio Podest",
-  "container.sfd_biobackpack.bio_podest": "Bio Podest"
+  "item.sfd_biobackpack.bio_backpack": "Comet Field Pack",
+  "container.sfd_biobackpack.bio_backpack": "Comet Field Pack",
+  "block.sfd_biobackpack.bio_podest": "Comet Bio Podest",
+  "container.sfd_biobackpack.bio_podest": "Comet Bio Podest"
 }

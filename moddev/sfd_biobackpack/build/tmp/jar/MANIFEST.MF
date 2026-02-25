@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Specification-Title: SFD Bio Backpack
+Specification-Title: SFD Comet Systems
 Specification-Vendor: DarkHope88
 Specification-Version: 1
 Implementation-Title: sfd_biobackpack

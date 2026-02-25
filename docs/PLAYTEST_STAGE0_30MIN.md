@@ -1,4 +1,4 @@
-# Stage 0 - 30 Minute Playtest
+﻿# Stage 0 - 30 Minute Playtest
 
 ## Goal
 Validate that the first 30 minutes are stable, readable, and not trivial.
@@ -14,7 +14,7 @@ Validate that the first 30 minutes are stable, readable, and not trivial.
 ## Core Loop To Test
 1. Grow tree with starter tools.
 2. Break leaves:
-   - Should drop `kubejs:leaf_shreds`.
+   - Should drop `sfd_comets:leaf_shreds`.
    - Should not drop sticks/apples as primary loop drops.
 3. Break logs:
    - Should not be a direct vanilla log progression.
@@ -35,3 +35,4 @@ Validate that the first 30 minutes are stable, readable, and not trivial.
 ## Known Temporary Design
 1. Infinite bone meal is currently implemented as inventory top-up.
 2. This will be replaced later by a dedicated growth mechanic item/system.
+

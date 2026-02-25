@@ -1,14 +1,14 @@
-// Skyfactory Dark - Stage-0 Bio Loop tooltips
+﻿// Skyfactory Dark - Stage-0 Bio Loop tooltips
 
 ItemEvents.tooltip(event => {
-  event.add('kubejs:leaf_threads', [
+  event.add('sfd_comets:leaf_threads', [
     Text.gold('Quelle:'),
     Text.gray('Droppt aus Blaettern'),
     Text.aqua('Nutzen:'),
     Text.darkGray('4x -> Blaetterbuendel')
   ]);
 
-  event.add('kubejs:wood_shavings', [
+  event.add('sfd_comets:wood_shavings', [
     Text.gold('Quelle:'),
     Text.gray('Droppt aus Staemmen'),
     Text.aqua('Nutzen:'),
@@ -26,34 +26,34 @@ ItemEvents.tooltip(event => {
     Text.darkGray('Earth-Progress bleibt dadurch verfuegbar')
   ]);
 
-  event.add('kubejs:worm', [
+  event.add('sfd_comets:worm', [
     Text.gold('Nutzen:'),
     Text.gray('Auf Erdblock oder Baumrindenblock verwenden')
   ]);
 
-  event.add('kubejs:dried_worm', [
+  event.add('sfd_comets:dried_worm', [
     Text.gold('Nutzen:'),
     Text.gray('Mit Baumspaenen zum Organischen Stab craften')
   ]);
 
-  event.add('kubejs:resin_fragment', [
+  event.add('sfd_comets:resin_fragment', [
     Text.gold('Nutzen:'),
     Text.gray('2x Stick oder Behandlung von Hohlstamm')
   ]);
 
-  event.add('kubejs:organic_rod', [
+  event.add('sfd_comets:organic_rod', [
     Text.gold('Nutzen:'),
     Text.gray('Stamm entrinden, Wurmholz bearbeiten'),
     Text.darkGray('Schluessel fuer ersten Planken-Progress')
   ]);
 
-  event.add('kubejs:bio_growth_paste', [
+  event.add('sfd_comets:bio_growth_paste', [
     Text.gold('Nutzen:'),
     Text.gray('Rechtsklick auf einen Block wie Knochenmehl'),
-    Text.darkGray('Dev-Setup: bleibt beim Benutzen erhalten')
+    Text.darkGray('Verbraucht sich nicht beim Benutzen')
   ]);
 
-  event.add('kubejs:bark_briquette', [
+  event.add('sfd_comets:bark_briquette', [
     Text.gold('Stage-1 Brennstoff:'),
     Text.gray('Burntime 50 Ticks pro Stueck'),
     Text.darkGray('Ca. 4 Stueck pro geschmolzenem Item')
@@ -77,12 +77,12 @@ ItemEvents.tooltip(event => {
     Text.darkGray('Beschleunigt die Podest-Verarbeitung')
   ]);
 
-  event.add('sfd_biobackpack:bio_podest', [
+  event.add('sfd_comets:bio_podest', [
     Text.gold('Bio-Podest (Mod):'),
     Text.gray('Echter 1-Slot Container, per Rechtsklick oeffnen')
   ]);
 
-  event.add('sfd_biobackpack:bio_backpack', [
+  event.add('sfd_comets:bio_backpack', [
     Text.gold('Bio-Beutel (Custom):'),
     Text.gray('Exakt 9 Slots, Rechtsklick in die Luft zum Oeffnen')
   ]);
@@ -92,7 +92,7 @@ ItemEvents.tooltip(event => {
     Text.gray('Aktuell gesperrt, spaetere Stage-Freischaltung')
   ]);
 
-  event.add('kubejs:rough_stone_mix', [
+  event.add('sfd_comets:rough_stone_mix', [
     Text.gold('Stone-Prozess:'),
     Text.gray('Zwischenprodukt fuer den stabilen Cobblestone-Loop')
   ]);
@@ -103,3 +103,4 @@ ItemEvents.tooltip(event => {
     Text.darkGray('Exit: stabile Heat-Logistik (Fuel + Smelt-Core-Loop)')
   ]);
 });
+

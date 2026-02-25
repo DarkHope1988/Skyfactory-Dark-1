@@ -1,7 +1,7 @@
-{
+﻿{
   "display": {
     "icon": {
-      "item": "kubejs:crude_mallet"
+      "item": "sfd_comets:crude_mallet"
     },
     "title": "01 Stage 1 - The Beginning",
     "description": "Trigger: Crafting Table. Exit: stabiler Bio/Earth/Soil-Loop mit reproduzierbarem Dirt.",
@@ -19,4 +19,5 @@
     }
   }
 }
+
 

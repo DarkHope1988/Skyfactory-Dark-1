@@ -1,0 +1,31 @@
+modLoader = "javafml"
+loaderVersion = "[47,)"
+license = "All Rights Reserved"
+
+[[mods]]
+modId = "sfd_comets"
+version = "0.1.0"
+displayName = "SFD Comet Systems"
+authors = "DarkHope88"
+description = "Comet controller, impact simulation and world event systems."
+
+[[dependencies.sfd_comets]]
+modId = "forge"
+mandatory = true
+versionRange = "[47.4.10,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.sfd_comets]]
+modId = "minecraft"
+mandatory = true
+versionRange = "[1.20.1,1.21)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.sfd_comets]]
+modId = "sfd_core"
+mandatory = true
+versionRange = "[0.1.0,)"
+ordering = "AFTER"
+side = "BOTH"
