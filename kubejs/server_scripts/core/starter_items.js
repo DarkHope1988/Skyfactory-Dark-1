@@ -7,11 +7,22 @@ PlayerEvents.loggedIn(event => {
   const player = event.player;
   const data = player.persistentData;
 
-  // Only run once per player.
-  if (data.skyfactoryDarkStarter === true) return;
-  data.skyfactoryDarkStarter = true;
+  // Force-remove Ex Deorum watering cans every login.
+  [
+    'exdeorum:wooden_watering_can',
+    'exdeorum:stone_watering_can',
+    'exdeorum:iron_watering_can',
+    'exdeorum:golden_watering_can',
+    'exdeorum:diamond_watering_can',
+    'exdeorum:netherite_watering_can',
+    'exdeorum:watering_can'
+  ].forEach(id => player.runCommandSilent(`clear @s ${id}`));
 
-  // Minimal start: sapling + one emergency slab.
+  // Only run once per player.
+  if (data.getBoolean('skyfactoryDarkStarter')) return;
+  data.putBoolean('skyfactoryDarkStarter', true);
+
+  // Minimal start: exactly one sapling + infinite bonemeal-effect item.
   player.give(Item.of('minecraft:oak_sapling', 1));
-  player.give(Item.of('minecraft:oak_slab', 1));
+  player.give(Item.of('kubejs:bio_growth_paste', 1));
 });

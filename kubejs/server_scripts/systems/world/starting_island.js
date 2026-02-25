@@ -45,8 +45,8 @@ PlayerEvents.loggedIn(event => {
   const safeY = global.sfdSpawnY;
 
   if (safeY === null || safeY === undefined) return;
-  if (data.sfdSpawnPinned === true) return;
-  data.sfdSpawnPinned = true;
+  if (data.getBoolean('sfdSpawnPinned')) return;
+  data.putBoolean('sfdSpawnPinned', true);
 
   player.runCommandSilent(`spawnpoint @s ${SFD_SPAWN_X} ${safeY} ${SFD_SPAWN_Z}`);
 

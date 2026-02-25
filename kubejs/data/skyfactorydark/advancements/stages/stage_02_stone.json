@@ -1,10 +1,10 @@
 {
   "display": {
     "icon": {
-      "item": "minecraft:cobblestone"
+      "item": "minecraft:stone"
     },
     "title": "02 Stage 2 - Stone",
-    "description": "Stabilisiere die erste erneuerbare Steinproduktion.",
+    "description": "Brenne den ersten Cobblestone zu Stone und schliesse Stage 1 sauber ab.",
     "background": "minecraft:textures/block/cobbled_deepslate.png",
     "x": 4.0,
     "y": 0.0,

@@ -52,6 +52,8 @@ StartupEvents.registry('item', event => {
 
   event.create('pebble_cluster').displayName('Pebble Cluster').maxStackSize(64);
   event.create('stone_grit').displayName('Stone Grit').maxStackSize(64);
+  event.create('rough_stone_mix').displayName('Rough Stone Mix').maxStackSize(64);
+  event.create('bark_briquette').displayName('Bark Briquette').maxStackSize(64);
   event.create('organic_fiber').displayName('Organic Fiber').maxStackSize(64);
 
   // ---------------------------

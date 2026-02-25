@@ -91,4 +91,15 @@ StartupEvents.registry('block', event => {
     .resistance(1.2)
     .soundType('wood')
     .requiresTool(false);
+
+  // Stone-age podest base upgrade:
+  // same functionality, but used as foundation for faster processing.
+  event
+    .create('podest_stone_base')
+    .displayName('Podest-Steinbasis')
+    .material('stone')
+    .hardness(1.4)
+    .resistance(2.0)
+    .soundType('stone')
+    .requiresTool(false);
 });

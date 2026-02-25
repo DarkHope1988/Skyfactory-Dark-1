@@ -40,6 +40,17 @@ global.SFD_STAGE_ADVANCEMENTS = Object.freeze({
   sfd_stage_6_endgame: 'skyfactorydark:stages/stage_06_endgame'
 });
 
+// Single source of truth for milestone-based stage unlocks.
+// Later stages are intentionally left empty until their systems are finalized.
+global.SFD_STAGE_CRAFT_MILESTONES = Object.freeze({
+  sfd_stage_1_beginning: ['minecraft:crafting_table'],
+  sfd_stage_2_stone: ['minecraft:stone'],
+  sfd_stage_3_heat: ['minecraft:blast_furnace'],
+  sfd_stage_4_machines: [],
+  sfd_stage_5_automation: [],
+  sfd_stage_6_endgame: []
+});
+
 global.sfdSyncStageDisplays = player => {
   if (!player || !player.stages) return;
   const map = global.SFD_STAGE_ADVANCEMENTS || {};
@@ -70,5 +81,20 @@ global.sfdGrantStage = (player, stage) => {
   const label = labelMap[stage] || stage;
   player.tell(`[SF-DARK] Stage unlocked: ${label}`);
   return true;
+};
+
+global.sfdUnlockStagesForCraft = (player, craftedId) => {
+  if (!player || !craftedId) return false;
+  const milestones = global.SFD_STAGE_CRAFT_MILESTONES || {};
+  let changed = false;
+
+  Object.keys(milestones).forEach(stage => {
+    const ids = milestones[stage] || [];
+    if (ids.includes(craftedId)) {
+      changed = global.sfdGrantStage(player, stage) || changed;
+    }
+  });
+
+  return changed;
 };
 

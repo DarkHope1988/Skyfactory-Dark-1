@@ -23,6 +23,7 @@ PlayerEvents.loggedIn(event => {
   grant(player, STAGES.STAGE_0_WELCOME);
   if (global.sfdSyncStageDisplays) global.sfdSyncStageDisplays(player);
   if (global.sfdApplyStageMobUnlocks) global.sfdApplyStageMobUnlocks(player);
+  if (global.sfdApplyWorldUnlockPolicy) global.sfdApplyWorldUnlockPolicy(player);
 
   if (!player.stages) return;
   const active = [];
@@ -38,21 +39,41 @@ ItemEvents.crafted(event => {
   const craftedId = String(event.item.id);
   let stageChanged = false;
 
-  // Stage 1 should begin after true Stage-0 completion milestone.
-  if (craftedId === 'minecraft:crafting_table') {
-    stageChanged = grant(player, STAGES.STAGE_1_BEGINNING) || stageChanged;
-  }
-
-  // Stage 2 starts when player actually reaches stone tools.
-  if (craftedId === 'minecraft:stone_pickaxe') {
-    stageChanged = grant(player, STAGES.STAGE_2_STONE) || stageChanged;
-  }
-
-  if (craftedId === 'minecraft:furnace' || craftedId === 'minecraft:blast_furnace') {
-    stageChanged = grant(player, STAGES.STAGE_3_HEAT) || stageChanged;
+  if (global.sfdUnlockStagesForCraft) {
+    stageChanged = global.sfdUnlockStagesForCraft(player, craftedId) || stageChanged;
+  } else {
+    // Fallback for minimal environments.
+    if (craftedId === 'minecraft:crafting_table') {
+      stageChanged = grant(player, STAGES.STAGE_1_BEGINNING) || stageChanged;
+    }
+    if (craftedId === 'minecraft:stone') {
+      stageChanged = grant(player, STAGES.STAGE_2_STONE) || stageChanged;
+    }
+    if (craftedId === 'minecraft:blast_furnace') {
+      stageChanged = grant(player, STAGES.STAGE_3_HEAT) || stageChanged;
+    }
   }
 
   if (stageChanged && global.sfdApplyStageMobUnlocks) {
     global.sfdApplyStageMobUnlocks(player);
   }
+  if (stageChanged && global.sfdApplyWorldUnlockPolicy) {
+    global.sfdApplyWorldUnlockPolicy(player);
+  }
+});
+
+// Smelting output enters inventory, so Stone-stage progression is checked here too.
+PlayerEvents.inventoryChanged(event => {
+  const player = event.player;
+  if (!player || !player.stages) return;
+
+  const changedId = String(event.item.id);
+  if (changedId !== 'minecraft:stone') return;
+
+  const stageChanged = grant(player, STAGES.STAGE_2_STONE);
+  if (!stageChanged) return;
+
+  if (global.sfdSyncStageDisplays) global.sfdSyncStageDisplays(player);
+  if (global.sfdApplyStageMobUnlocks) global.sfdApplyStageMobUnlocks(player);
+  if (global.sfdApplyWorldUnlockPolicy) global.sfdApplyWorldUnlockPolicy(player);
 });

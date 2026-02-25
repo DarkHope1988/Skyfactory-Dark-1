@@ -22,8 +22,16 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 public class BioPodestMenu extends AbstractContainerMenu {
   private static final int SLOT_COUNT = 3;
-  private static final ResourceLocation EARTH_ID = new ResourceLocation("kubejs", "earth_block");
-  private static final ResourceLocation WORM_ID = new ResourceLocation("kubejs", "worm");
+  private static final ResourceLocation EARTH_ID = new ResourceLocation("kubejs:earth_block");
+  private static final ResourceLocation WORMY_EARTH_ID = new ResourceLocation("kubejs:wormy_earth_block");
+  private static final ResourceLocation BARK_BLOCK_ID = new ResourceLocation("kubejs:bark_block");
+  private static final ResourceLocation WORMY_BARK_BLOCK_ID = new ResourceLocation("kubejs:wormy_bark_block");
+  private static final ResourceLocation HOLLOW_BARK_BLOCK_ID = new ResourceLocation("kubejs:hollow_bark_block");
+  private static final ResourceLocation TREATED_HOLLOW_BARK_BLOCK_ID = new ResourceLocation("kubejs:treated_hollow_bark_block");
+  private static final ResourceLocation WORM_ID = new ResourceLocation("kubejs:worm");
+  private static final ResourceLocation WOOD_SHAVINGS_ID = new ResourceLocation("kubejs:wood_shavings");
+  private static final ResourceLocation ORGANIC_ROD_ID = new ResourceLocation("kubejs:organic_rod");
+  private static final ResourceLocation RESIN_FRAGMENT_ID = new ResourceLocation("kubejs:resin_fragment");
   private final Container container;
   private final ContainerLevelAccess access;
   private final ContainerData data;
@@ -49,7 +57,7 @@ public class BioPodestMenu extends AbstractContainerMenu {
     addSlot(new Slot(container, BioPodestBlockEntity.SLOT_INPUT_EARTH, 27, 47) {
       @Override
       public boolean mayPlace(ItemStack stack) {
-        return isStackItem(stack, EARTH_ID);
+        return isBaseItem(stack);
       }
     });
 
@@ -57,7 +65,7 @@ public class BioPodestMenu extends AbstractContainerMenu {
     addSlot(new Slot(container, BioPodestBlockEntity.SLOT_INPUT_WORM, 76, 47) {
       @Override
       public boolean mayPlace(ItemStack stack) {
-        return isStackItem(stack, WORM_ID);
+        return isCatalystItem(stack);
       }
     });
 
@@ -111,11 +119,11 @@ public class BioPodestMenu extends AbstractContainerMenu {
         return ItemStack.EMPTY;
       }
     } else {
-      if (isStackItem(sourceStack, EARTH_ID)) {
+      if (isBaseItem(sourceStack)) {
         if (!moveItemStackTo(sourceStack, BioPodestBlockEntity.SLOT_INPUT_EARTH, BioPodestBlockEntity.SLOT_INPUT_EARTH + 1, false)) {
           return ItemStack.EMPTY;
         }
-      } else if (isStackItem(sourceStack, WORM_ID)) {
+      } else if (isCatalystItem(sourceStack)) {
         if (!moveItemStackTo(sourceStack, BioPodestBlockEntity.SLOT_INPUT_WORM, BioPodestBlockEntity.SLOT_INPUT_WORM + 1, false)) {
           return ItemStack.EMPTY;
         }
@@ -144,9 +152,26 @@ public class BioPodestMenu extends AbstractContainerMenu {
     return item != null && stack.is(item);
   }
 
+  private static boolean isBaseItem(ItemStack stack) {
+    return isStackItem(stack, EARTH_ID)
+        || isStackItem(stack, WORMY_EARTH_ID)
+        || isStackItem(stack, BARK_BLOCK_ID)
+        || isStackItem(stack, WORMY_BARK_BLOCK_ID)
+        || isStackItem(stack, HOLLOW_BARK_BLOCK_ID)
+        || isStackItem(stack, TREATED_HOLLOW_BARK_BLOCK_ID);
+  }
+
+  private static boolean isCatalystItem(ItemStack stack) {
+    return isStackItem(stack, WORM_ID)
+        || isStackItem(stack, WOOD_SHAVINGS_ID)
+        || isStackItem(stack, ORGANIC_ROD_ID)
+        || isStackItem(stack, RESIN_FRAGMENT_ID);
+  }
+
   public int getProgressScaled(int pixels) {
     int tick = data.get(0);
-    int max = BioPodestBlockEntity.getProcessIntervalTicks();
+    int max = data.get(1);
+    if (max <= 0) max = BioPodestBlockEntity.getProcessIntervalTicks();
     if (tick <= 0 || max <= 0) return 0;
     return Math.min(pixels, (tick * pixels) / max);
   }

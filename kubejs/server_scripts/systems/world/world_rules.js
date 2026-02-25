@@ -2,7 +2,7 @@
 // Sterile start:
 // - no natural hostile/NPC spawns
 // - weather locked to clear
-// NOTE: Weather can later be enabled by setting `global.sfdWeatherUnlocked = true`.
+// NOTE: Weather/comet progression is handled by systems/progression/world_unlocks.js.
 
 function sfdApplyBaseWorldRules(server) {
   server.runCommandSilent('gamerule doMobSpawning false');
@@ -37,17 +37,29 @@ function sfdEnsureMobControl() {
   };
 }
 
+function sfdIsWeatherUnlocked(server) {
+  if (global.sfdIsWeatherUnlocked) return global.sfdIsWeatherUnlocked(server);
+  return global.sfdWeatherUnlocked === true;
+}
+
+function sfdIsCometUnlocked(server) {
+  if (global.sfdIsCometUnlocked) return global.sfdIsCometUnlocked(server);
+  return false;
+}
+
 ServerEvents.loaded(event => {
   const server = event.server;
   sfdEnsureMobControl();
 
   sfdApplyBaseWorldRules(server);
-  if (global.sfdWeatherUnlocked !== true) {
+  if (!sfdIsWeatherUnlocked(server)) {
     server.runCommandSilent('weather clear 1000000');
   }
 
-  // Remove already existing phantoms from old sessions.
-  server.runCommandSilent('kill @e[type=minecraft:phantom]');
+  // Remove phantoms until comet progression is unlocked.
+  if (!sfdIsCometUnlocked(server)) {
+    server.runCommandSilent('kill @e[type=minecraft:phantom]');
+  }
 });
 
 ServerEvents.tick(event => {
@@ -57,12 +69,14 @@ ServerEvents.tick(event => {
 
   sfdApplyBaseWorldRules(server);
 
-  if (global.sfdWeatherUnlocked !== true) {
+  if (!sfdIsWeatherUnlocked(server)) {
     server.runCommandSilent('weather clear 1000000');
   }
 
-  // Keep phantom cleanup active in case any system still spawns them.
-  server.runCommandSilent('kill @e[type=minecraft:phantom]');
+  // Keep phantom cleanup active until comet progression is unlocked.
+  if (!sfdIsCometUnlocked(server)) {
+    server.runCommandSilent('kill @e[type=minecraft:phantom]');
+  }
 });
 
 EntityEvents.spawned(event => {
@@ -74,10 +88,14 @@ EntityEvents.spawned(event => {
   const typeId = String(entity.type);
   const category = String(entity.type.category || '');
 
-  // Never allow phantoms before weather/comet progression.
+  const server = entity.level && entity.level.server ? entity.level.server : null;
+
+  // Allow phantoms only after comet progression unlock.
   if (typeId === 'minecraft:phantom') {
-    event.cancel();
-    return;
+    if (!sfdIsCometUnlocked(server)) {
+      event.cancel();
+      return;
+    }
   }
 
   // Block hostile spawns in sterile early game.

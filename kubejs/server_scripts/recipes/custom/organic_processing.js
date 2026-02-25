@@ -88,6 +88,16 @@ ServerEvents.recipes(event => {
     C: 'kubejs:compost_pulp'
   });
 
+  // Stage-1 fuel path: bark processed into compact furnace fuel.
+  event.shaped('4x kubejs:bark_briquette', [
+    ' B ',
+    'BRB',
+    ' B '
+  ], {
+    B: 'kubejs:tree_bark',
+    R: 'kubejs:resin_fragment'
+  }).id('kubejs:stage1/bark_briquette');
+
   // Alternative fuer Plattformbau:
   // 4x Earth -> 4x Bau-Erdblock (kein Materialgewinn, aber klare Trennung).
   event.shaped('4x kubejs:builder_earth_block', [
@@ -97,13 +107,17 @@ ServerEvents.recipes(event => {
     E: 'kubejs:earth_block'
   });
 
-  // Stage-0 Arbeitspodest (eigener Block), 2x2 craftbar.
+  // Stage-0 Arbeitspodest (eigener Block), bewusst als 3x3-Rezept gebalanced.
   const podestId = Platform.isLoaded('sfd_biobackpack') ? 'sfd_biobackpack:bio_podest' : 'kubejs:bio_podest';
   event.shaped(podestId, [
-    'BB',
-    'BB'
+    'BRB',
+    'EOE',
+    'BBB'
   ], {
-    B: 'kubejs:builder_earth_block'
+    B: 'kubejs:builder_earth_block',
+    R: 'kubejs:resin_fragment',
+    E: 'kubejs:earth_block',
+    O: 'kubejs:organic_rod'
   }).id('kubejs:stage0/bio_podest_trapdoor');
 
   // Stage-0 Bio Backpack (custom addon mod item, exactly 9 slots).

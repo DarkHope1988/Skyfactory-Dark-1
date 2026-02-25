@@ -1,10 +1,10 @@
 {
   "display": {
     "icon": {
-      "item": "minecraft:furnace"
+      "item": "minecraft:blast_furnace"
     },
     "title": "03 Stage 3 - Heat",
-    "description": "Erreiche Ofen-Tier und starte thermische Verarbeitung.",
+    "description": "Skaliere die Hitzeverarbeitung mit dem Blast Furnace.",
     "background": "minecraft:textures/block/smooth_basalt.png",
     "x": 6.0,
     "y": 0.0,

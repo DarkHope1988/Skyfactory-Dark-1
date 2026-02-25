@@ -50,7 +50,13 @@ ItemEvents.tooltip(event => {
   event.add('kubejs:bio_growth_paste', [
     Text.gold('Nutzen:'),
     Text.gray('Rechtsklick auf einen Block wie Knochenmehl'),
-    Text.darkGray('Verbraucht sich pro erfolgreicher Anwendung')
+    Text.darkGray('Dev-Setup: bleibt beim Benutzen erhalten')
+  ]);
+
+  event.add('kubejs:bark_briquette', [
+    Text.gold('Stage-1 Brennstoff:'),
+    Text.gray('Burntime 50 Ticks pro Stueck'),
+    Text.darkGray('Ca. 4 Stueck pro geschmolzenem Item')
   ]);
 
   event.add('minecraft:crafting_table', [
@@ -62,6 +68,12 @@ ItemEvents.tooltip(event => {
     Text.gold('Bio-Podest:'),
     Text.gray('Earth/Dirt einlegen, dann Wurm/Baumspaene direkt darauf nutzen'),
     Text.darkGray('Leerhand = Slot anzeigen, Shift+Leerhand = Entnehmen')
+  ]);
+
+  event.add('kubejs:podest_stone_base', [
+    Text.gold('Stone-Upgrade:'),
+    Text.gray('Als Unterbau fuer das Bio-Podest verwenden'),
+    Text.darkGray('Beschleunigt die Podest-Verarbeitung')
   ]);
 
   event.add('sfd_biobackpack:bio_podest', [
@@ -77,5 +89,10 @@ ItemEvents.tooltip(event => {
   event.add('sophisticatedbackpacks:backpack', [
     Text.gold('Rucksack:'),
     Text.gray('Aktuell gesperrt, spaetere Stage-Freischaltung')
+  ]);
+
+  event.add('kubejs:rough_stone_mix', [
+    Text.gold('Stone-Prozess:'),
+    Text.gray('Zwischenprodukt fuer den stabilen Cobblestone-Loop')
   ]);
 });

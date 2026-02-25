@@ -165,14 +165,37 @@ JEIEvents.information(event => {
   ]);
 
   event.addItem('kubejs:stone_grit', [
+    'STONE START:',
     'DROP: Mallet auf Packed Soil.',
-    '4x -> Cobblestone.'
+    'ODER: Raw Soil Chunk + Pebble Cluster Pfad.',
+    'Weiter mit Rough Stone Mix fuer den stabilen Cobble-Loop.'
+  ]);
+
+  event.addItem('kubejs:rough_stone_mix', [
+    'STONE PROCESS (MID):',
+    '2x Stone Grit + Raw Soil Chunk + Compost Pulp -> 2x Rough Stone Mix.',
+    '4x Rough Stone Mix -> 2x Cobblestone.'
   ]);
 
   event.addItem('minecraft:cobblestone', [
-    'STAGE-1 KERN:',
-    '4x Stone Grit -> Cobblestone.',
-    'Danach Furnace + Stone Tools.'
+    'STONE MILESTONE:',
+    'Route A: 4x Stone Grit -> 1x Cobblestone.',
+    'Route B: Rough Stone Mix (prozessorientiert, effizienter).',
+    'Cobble ist nur Zwischenziel: Stage 2 gibt es erst mit gebranntem Stein.'
+  ]);
+
+  event.addItem('kubejs:bark_briquette', [
+    'STAGE-1 FUEL:',
+    'Rezept aus Baumrinde + Resin.',
+    'Burntime: 50 Ticks pro Stueck.',
+    'Richtwert: ca. 4 Briquettes fuer 1 Smelt im Ofen.'
+  ]);
+
+  event.addItem('kubejs:podest_stone_base', [
+    'PODEST UPGRADE (STONE):',
+    'Craft mit Cobblestone + Resin.',
+    'Stelle das Bio-Podest darauf:',
+    'Verarbeitung wird schneller als auf normalem Untergrund.'
   ]);
 
   // Food progression, sequential by complexity.
