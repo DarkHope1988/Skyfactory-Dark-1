@@ -106,7 +106,19 @@
 				{ count: 8L id: "C100000000000322" item: { Count: 8, id: "minecraft:string" } type: "item" }
 			]
 			title: "TIPP | Wenn festgesteckt: Fiber -> String"
-			x: 13.0d
+			x: 11.0d
+			y: 2.0d
+		}
+		{
+			id: "C100000000000122"
+			dependencies: ["C100000000000111"]
+			rewards: [{ id: "C100000000000222" type: "xp" xp: 6 }]
+			tasks: [
+				{ count: 16L id: "C100000000000323" item: { Count: 16, id: "kubejs:organic_dust" } type: "item" }
+				{ count: 6L id: "C100000000000324" item: { Count: 6, id: "kubejs:resin_fragment" } type: "item" }
+			]
+			title: "TIPP | Dust + Resin Reserve"
+			x: 5.0d
 			y: 2.0d
 		}
 	]

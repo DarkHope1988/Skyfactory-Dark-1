@@ -1,4 +1,4 @@
-// System: hostile mob unlock mapping
+﻿// System: hostile mob unlock mapping
 // Default state: no hostile mobs unlocked.
 //
 // Usage later:
@@ -16,15 +16,14 @@ const SFD_STAGES = global.SFD_STAGES || {
 };
 
 if (!global.sfdMobUnlocksByStage) {
-  global.sfdMobUnlocksByStage = {
-    [SFD_STAGES.STAGE_0_WELCOME]: [],
-    [SFD_STAGES.STAGE_1_BEGINNING]: [],
-    [SFD_STAGES.STAGE_2_STONE]: [],
-    [SFD_STAGES.STAGE_3_HEAT]: [],
-    [SFD_STAGES.STAGE_4_MACHINES]: [],
-    [SFD_STAGES.STAGE_5_AUTOMATION]: [],
-    [SFD_STAGES.STAGE_6_ENDGAME]: []
-  };
+  global.sfdMobUnlocksByStage = {};
+  global.sfdMobUnlocksByStage[SFD_STAGES.STAGE_0_WELCOME] = [];
+  global.sfdMobUnlocksByStage[SFD_STAGES.STAGE_1_BEGINNING] = [];
+  global.sfdMobUnlocksByStage[SFD_STAGES.STAGE_2_STONE] = [];
+  global.sfdMobUnlocksByStage[SFD_STAGES.STAGE_3_HEAT] = [];
+  global.sfdMobUnlocksByStage[SFD_STAGES.STAGE_4_MACHINES] = [];
+  global.sfdMobUnlocksByStage[SFD_STAGES.STAGE_5_AUTOMATION] = [];
+  global.sfdMobUnlocksByStage[SFD_STAGES.STAGE_6_ENDGAME] = [];
 }
 
 function sfdEnsureMobControlApi() {
@@ -52,4 +51,3 @@ global.sfdApplyStageMobUnlocks = player => {
 
   global.sfdAllowHostileMobs = unlockedAny;
 };
-

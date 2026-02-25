@@ -70,4 +70,15 @@ StartupEvents.registry('block', event => {
     .resistance(0.8)
     .soundType('gravel')
     .requiresTool(false);
+
+  // Teurer Baumaterial-Block:
+  // fuer Plattformbau, ohne den normalen Earth-Progress zu verbrauchen.
+  event
+    .create('builder_earth_block')
+    .displayName('Bau-Erdblock')
+    .material('dirt')
+    .hardness(0.8)
+    .resistance(1.0)
+    .soundType('gravel')
+    .requiresTool(false);
 });

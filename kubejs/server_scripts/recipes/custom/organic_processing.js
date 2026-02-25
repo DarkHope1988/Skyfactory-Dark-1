@@ -88,6 +88,12 @@ ServerEvents.recipes(event => {
     C: 'kubejs:compost_pulp'
   });
 
+  // Alternative fuer Plattformbau:
+  // gleicher Aufwand wie Earth, aber besserer Bau-Output.
+  event.shapeless('4x kubejs:builder_earth_block', [
+    'kubejs:earth_block'
+  ]);
+
   event.shaped('kubejs:crude_mallet', [
     ' RR',
     ' SR',

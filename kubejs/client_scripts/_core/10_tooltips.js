@@ -20,6 +20,12 @@ ItemEvents.tooltip(event => {
     Text.gray('Abbauen fuer Erdklumpen + Wurm-Chance')
   ]);
 
+  event.add('kubejs:builder_earth_block', [
+    Text.gold('Baupfad:'),
+    Text.gray('Teurer Plattform-Block'),
+    Text.darkGray('Earth-Progress bleibt dadurch verfuegbar')
+  ]);
+
   event.add('kubejs:worm', [
     Text.gold('Nutzen:'),
     Text.gray('Auf Erdblock oder Baumrindenblock verwenden')

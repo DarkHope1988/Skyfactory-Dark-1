@@ -116,6 +116,13 @@ JEIEvents.information(event => {
     'Mit Crude Mallet abbauen fuer Stone Grit.'
   ]);
 
+  event.addItem('kubejs:builder_earth_block', [
+    'PLATTFORM-PFAD:',
+    '1x Earth Block -> 4x Bau-Erdblock.',
+    'Nutze diesen Block zum Bauen,',
+    'damit normale Earth Bloecke fuer Progress bleiben.'
+  ]);
+
   event.addItem('kubejs:crude_mallet', [
     'WORKBENCH REZEPT:',
     'Stick + Resin.',

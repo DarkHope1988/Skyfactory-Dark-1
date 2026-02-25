@@ -1,181 +1,354 @@
-﻿{
+{
 	default_hide_dependency_lines: false
 	default_quest_shape: "square"
 	filename: "stage_0_willkommen"
 	group: ""
-	id: "B100000000000001"
+	id: "0A9C45B69B856943"
 	order_index: 0
 	quest_links: [ ]
 	quests: [
 		{
-			id: "B100000000000111"
-			rewards: [{ id: "B100000000000211" type: "xp" xp: 5 }]
-			tasks: [{ count: 32L id: "B100000000000311" item: { Count: 32, id: "kubejs:leaf_threads" } type: "item" }]
+			id: "7CDA1B4C97F472CA"
+			rewards: [{
+				id: "5F523B60351C8C48"
+				type: "xp"
+				xp: 5
+			}]
+			tasks: [{
+				count: 32L
+				id: "32C390B61705F134"
+				item: { Count: 32, id: "kubejs:leaf_threads" }
+				type: "item"
+			}]
 			title: "01 | Laubfaeden sammeln"
 			x: 1.0d
 			y: 0.0d
 		}
 		{
-			id: "B100000000000112"
-			dependencies: ["B100000000000111"]
-			rewards: [{ id: "B100000000000212" type: "xp" xp: 5 }]
-			tasks: [{ count: 24L id: "B100000000000312" item: { Count: 24, id: "kubejs:wood_shavings" } type: "item" }]
+			id: "44086415C8EC0AC9"
+			rewards: [{
+				id: "7489A032FEFBE602"
+				type: "xp"
+				xp: 5
+			}]
+			tasks: [{
+				count: 24L
+				id: "68D89296E0754859"
+				item: { Count: 24, id: "kubejs:wood_shavings" }
+				type: "item"
+			}]
 			title: "02 | Baumspaene sammeln"
 			x: 3.0d
 			y: 0.0d
 		}
 		{
-			id: "B100000000000113"
-			dependencies: ["B100000000000112"]
-			rewards: [{ id: "B100000000000213" type: "xp" xp: 5 }]
-			tasks: [{ count: 8L id: "B100000000000313" item: { Count: 8, id: "kubejs:leaf_bundle" } type: "item" }]
+			id: "015704E925D43456"
+			rewards: [{
+				id: "56BECD31EC0E5C4A"
+				type: "xp"
+				xp: 5
+			}]
+			tasks: [{
+				count: 8L
+				id: "431656B24D684E95"
+				item: { Count: 8, id: "kubejs:leaf_bundle" }
+				type: "item"
+			}]
 			title: "03 | Blaetterbuendel craften"
 			x: 5.0d
 			y: 0.0d
 		}
 		{
-			id: "B100000000000114"
-			dependencies: ["B100000000000113"]
-			rewards: [{ id: "B100000000000214" type: "xp" xp: 5 }]
-			tasks: [{ count: 4L id: "B100000000000314" item: { Count: 4, id: "kubejs:earth_block" } type: "item" }]
+			id: "0DAEACE5157BBA10"
+			rewards: [{
+				id: "721FAEA81A5B6F31"
+				type: "xp"
+				xp: 5
+			}]
+			tasks: [{
+				count: 4L
+				id: "0AC3ED3AE5383E32"
+				item: { Count: 4, id: "kubejs:earth_block" }
+				type: "item"
+			}]
 			title: "04 | Erdblock herstellen"
 			x: 7.0d
 			y: 0.0d
 		}
 		{
-			id: "B100000000000115"
-			dependencies: ["B100000000000114"]
-			rewards: [{ id: "B100000000000215" type: "xp" xp: 5 }]
-			tasks: [{ count: 12L id: "B100000000000315" item: { Count: 12, id: "kubejs:earth_clump" } type: "item" }]
+			id: "6DA41FBF41922A63"
+			rewards: [{
+				id: "59227643642A087F"
+				type: "xp"
+				xp: 5
+			}]
+			tasks: [{
+				count: 12L
+				id: "4BB0233FBB3DAE86"
+				item: { Count: 12, id: "kubejs:earth_clump" }
+				type: "item"
+			}]
 			title: "05 | Erdklumpen farmen"
 			x: 9.0d
 			y: 0.0d
 		}
 		{
-			id: "B100000000000116"
-			dependencies: ["B100000000000115"]
-			rewards: [{ id: "B100000000000216" type: "xp" xp: 8 }]
-			tasks: [{ count: 4L id: "B100000000000316" item: { Count: 4, id: "kubejs:worm" } type: "item" }]
+			id: "101D6FCFB76F6935"
+			rewards: [{
+				id: "47F00CC371DAC66B"
+				type: "xp"
+				xp: 8
+			}]
+			tasks: [{
+				count: 4L
+				id: "38E44CB6F87C588A"
+				item: { Count: 4, id: "kubejs:worm" }
+				type: "item"
+			}]
 			title: "06 | Wuermer sichern"
 			x: 11.0d
 			y: 0.0d
 		}
 		{
-			id: "B100000000000117"
-			dependencies: ["B100000000000116"]
-			rewards: [{ id: "B100000000000217" type: "xp" xp: 8 }]
-			tasks: [{ count: 4L id: "B100000000000317" item: { Count: 4, id: "kubejs:dried_worm" } type: "item" }]
+			id: "6C73AE405BE8F96F"
+			rewards: [{
+				id: "513FFE65C10729E8"
+				type: "xp"
+				xp: 8
+			}]
+			tasks: [{
+				count: 4L
+				id: "26052C3FBBF0B0C4"
+				item: { Count: 4, id: "kubejs:dried_worm" }
+				type: "item"
+			}]
 			title: "07 | Wurm trocknen (Earth -> Wormy Earth)"
 			x: 13.0d
 			y: 0.0d
 		}
 		{
-			id: "B100000000000118"
-			dependencies: ["B100000000000117"]
-			rewards: [{ id: "B100000000000218" type: "xp" xp: 10 }]
-			tasks: [{ id: "B100000000000318" item: "kubejs:organic_rod" type: "item" }]
+			id: "104C0226013CE499"
+			rewards: [{
+				id: "755E0FC8E699170D"
+				type: "xp"
+				xp: 10
+			}]
+			tasks: [{
+				id: "71F229A22D4B7B09"
+				item: {
+					Count: 1
+					id: "kubejs:organic_rod"
+					tag: {
+						Damage: 0
+					}
+				}
+				type: "item"
+			}]
 			title: "08 | Organischen Stab craften"
 			x: 15.0d
 			y: 0.0d
 		}
 		{
-			id: "B100000000000119"
-			dependencies: ["B100000000000118"]
-			rewards: [{ id: "B100000000000219" type: "xp" xp: 10 }]
-			tasks: [{ count: 12L id: "B100000000000319" item: { Count: 12, id: "kubejs:tree_bark" } type: "item" }]
+			id: "3D43EC9EA27407B1"
+			rewards: [{
+				id: "525CA8B006A64C02"
+				type: "xp"
+				xp: 10
+			}]
+			tasks: [{
+				count: 12L
+				id: "17F91096DDDFFE2A"
+				item: { Count: 12, id: "kubejs:tree_bark" }
+				type: "item"
+			}]
 			title: "09 | Stamm entrinden -> Baumrinde"
 			x: 17.0d
 			y: 0.0d
 		}
 		{
-			id: "B100000000000120"
-			dependencies: ["B100000000000119"]
-			rewards: [{ id: "B100000000000220" type: "xp" xp: 10 }]
-			tasks: [{ count: 4L id: "B100000000000320" item: { Count: 4, id: "minecraft:oak_planks" } type: "item" }]
+			id: "0AE4248A213E2034"
+			rewards: [{
+				id: "744AED85EF68A633"
+				type: "xp"
+				xp: 10
+			}]
+			tasks: [{
+				count: 4L
+				id: "4B7FDC9D8804AA24"
+				item: { Count: 4, id: "minecraft:oak_planks" }
+				type: "item"
+			}]
 			title: "10 | Erste Bretter (Wormy/Hollow/Treated Bark)"
 			x: 19.0d
 			y: 0.0d
 		}
 		{
-			id: "B100000000000121"
-			dependencies: ["B100000000000115"]
-			rewards: [{ id: "B100000000000221" type: "xp" xp: 6 }]
-			tasks: [{ count: 4L id: "B100000000000321" item: { Count: 4, id: "kubejs:resin_fragment" } type: "item" }]
+			id: "348537121B09E93A"
+			rewards: [{
+				id: "565C7A06252ECF1F"
+				type: "xp"
+				xp: 6
+			}]
+			tasks: [{
+				count: 4L
+				id: "3A722EEE2D4CF938"
+				item: { Count: 4, id: "kubejs:resin_fragment" }
+				type: "item"
+			}]
 			title: "TIPP | Resin als Fallback sammeln"
-			x: 17.0d
+			x: 13.0d
 			y: 2.0d
 		}
 		{
-			id: "B100000000000122"
-			dependencies: ["B100000000000120"]
-			rewards: [{ id: "B100000000000222" type: "xp" xp: 25 }]
-			tasks: [{ id: "B100000000000322" item: "minecraft:crafting_table" type: "item" }]
+			id: "6D949A0BB9CDF972"
+			rewards: [{
+				id: "70107160587A4AAB"
+				type: "xp"
+				xp: 25
+			}]
+			tasks: [{
+				id: "43D4BB48A533A73E"
+				item: "minecraft:crafting_table"
+				type: "item"
+			}]
 			title: "11 | Stage 0 Abschluss: Werkbank freischalten"
 			x: 21.0d
 			y: 0.0d
 		}
 		{
-			id: "B100000000000124"
-			dependencies: ["B100000000000112"]
-			rewards: [{ id: "B100000000000224" type: "xp" xp: 6 }]
-			tasks: [{ count: 8L id: "B100000000000324" item: { Count: 8, id: "kubejs:sprout_mash" } type: "item" }]
+			id: "70330EB6443E5794"
+			rewards: [{
+				id: "3AE0F63336F87BC6"
+				type: "xp"
+				xp: 6
+			}]
+			tasks: [{
+				count: 8L
+				id: "5407D9DB508DADF1"
+				item: { Count: 8, id: "kubejs:sprout_mash" }
+				type: "item"
+			}]
 			title: "Food A | Notfallkost (Setzling -> Keim-Brei)"
-			x: 15.0d
-			y: -2.0d
+			x: 9.0d
+			y: -3.0d
 		}
 		{
-			id: "B100000000000125"
-			dependencies: ["B100000000000124"]
-			rewards: [{ id: "B100000000000225" type: "xp" xp: 6 }]
-			tasks: [{ count: 4L id: "B100000000000325" item: { Count: 4, id: "kubejs:survival_ration" } type: "item" }]
+			id: "09E9D9E347CFE7D2"
+			rewards: [{
+				id: "48309CF5C234D054"
+				type: "xp"
+				xp: 6
+			}]
+			tasks: [{
+				count: 4L
+				id: "40982E0A02581EA1"
+				item: { Count: 4, id: "kubejs:survival_ration" }
+				type: "item"
+			}]
 			title: "Food A+ | Ueberlebensration"
-			x: 17.0d
-			y: -2.0d
+			x: 11.0d
+			y: -3.0d
 		}
 		{
-			id: "B100000000000126"
-			dependencies: ["B100000000000124"]
-			rewards: [{ id: "B100000000000226" type: "xp" xp: 8 }]
-			tasks: [{ count: 4L id: "B100000000000326" item: { Count: 4, id: "kubejs:dried_forage" } type: "item" }]
+			id: "280D0D76175088CA"
+			rewards: [{
+				id: "05A560BF7FB0080A"
+				type: "xp"
+				xp: 8
+			}]
+			tasks: [{
+				count: 4L
+				id: "2EEEA42A30F0BCD6"
+				item: { Count: 4, id: "kubejs:dried_forage" }
+				type: "item"
+			}]
 			title: "Food B | Kochpfad (Forage trocknen)"
-			x: 19.0d
-			y: -2.0d
+			x: 13.0d
+			y: -3.0d
 		}
 		{
-			id: "B100000000000127"
-			dependencies: ["B100000000000121"]
-			rewards: [{ id: "B100000000000227" type: "xp" xp: 8 }]
-			tasks: [{ count: 4L id: "B100000000000327" item: { Count: 4, id: "kubejs:worm_bait" } type: "item" }]
+			id: "70E35373B9239459"
+			rewards: [{
+				id: "06314C32D8891A55"
+				type: "xp"
+				xp: 8
+			}]
+			tasks: [{
+				count: 4L
+				id: "00E41B9C591E11E1"
+				item: { Count: 4, id: "kubejs:worm_bait" }
+				type: "item"
+			}]
 			title: "Food C Vorbereitung | Wurmkoeder"
-			x: 21.0d
-			y: -2.0d
+			x: 15.0d
+			y: -3.0d
 		}
 		{
-			id: "B100000000000128"
-			dependencies: ["B100000000000127", "B100000000000126"]
-			rewards: [{ id: "B100000000000228" type: "xp" xp: 12 }]
-			tasks: [{ count: 2L id: "B100000000000328" item: { Count: 2, id: "kubejs:protein_cake" } type: "item" }]
+			id: "254F9CFBA4BA15DC"
+			rewards: [{
+				id: "1CC9874DE0B8AD43"
+				type: "xp"
+				xp: 12
+			}]
+			tasks: [{
+				count: 2L
+				id: "130D2EECCBD12AF4"
+				item: { Count: 2, id: "kubejs:protein_cake" }
+				type: "item"
+			}]
 			title: "Food C Abschluss | Protein-Kuchen"
-			x: 23.0d
-			y: -2.0d
+			x: 17.0d
+			y: -3.0d
 		}
 		{
-			id: "B100000000000123"
-			dependencies: ["B100000000000122"]
-			rewards: [{ id: "B100000000000223" type: "xp" xp: 35 }]
+			id: "040FF310E6EA5C2A"
+			rewards: [{
+				id: "1CC985BFF5582B65"
+				type: "xp"
+				xp: 35
+			}]
 			tasks: [
-				{ count: 96L id: "B100000000000391" item: { Count: 96, id: "kubejs:leaf_threads" } type: "item" }
-				{ count: 64L id: "B100000000000392" item: { Count: 64, id: "kubejs:wood_shavings" } type: "item" }
-				{ count: 24L id: "B100000000000393" item: { Count: 24, id: "kubejs:earth_clump" } type: "item" }
-				{ count: 10L id: "B100000000000394" item: { Count: 10, id: "kubejs:worm" } type: "item" }
-				{ count: 6L id: "B100000000000395" item: { Count: 6, id: "kubejs:dried_worm" } type: "item" }
-				{ count: 12L id: "B100000000000396" item: { Count: 12, id: "kubejs:tree_bark" } type: "item" }
+				{
+					count: 96L
+					id: "11035F0F1EF63A46"
+					item: { Count: 96, id: "kubejs:leaf_threads" }
+					type: "item"
+				}
+				{
+					count: 64L
+					id: "56EEB100D48D4B36"
+					item: { Count: 64, id: "kubejs:wood_shavings" }
+					type: "item"
+				}
+				{
+					count: 24L
+					id: "1CF294C2A8D2BE78"
+					item: { Count: 24, id: "kubejs:earth_clump" }
+					type: "item"
+				}
+				{
+					count: 10L
+					id: "0FE44A475BF3A0C4"
+					item: { Count: 10, id: "kubejs:worm" }
+					type: "item"
+				}
+				{
+					count: 6L
+					id: "08F50CEA33C20332"
+					item: { Count: 6, id: "kubejs:dried_worm" }
+					type: "item"
+				}
+				{
+					count: 12L
+					id: "4D1102359B61FB4A"
+					item: { Count: 12, id: "kubejs:tree_bark" }
+					type: "item"
+				}
 			]
 			title: "Challenge | 60-Minuten Bio Loop"
-			x: 21.0d
+			x: 23.0d
 			y: 2.0d
 		}
 	]
 	title: "00 Stage 0 - Willkommen"
 }
-

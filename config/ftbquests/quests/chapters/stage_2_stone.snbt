@@ -3,20 +3,20 @@
 	default_quest_shape: "square"
 	filename: "stage_2_stone"
 	group: ""
-	id: "4E728407F388F0AE"
-	order_index: 1
+	id: "23C738DFEBDAB347"
+	order_index: 2
 	quest_links: [ ]
 	quests: [
 		{
-			id: "43D66D01C4BE28A4"
+			id: "64D7C49CC77C9063"
 			rewards: [{
-				id: "1D2C1823618B0DF2"
+				id: "7CA872F26814094B"
 				type: "xp"
 				xp: 5
 			}]
 			tasks: [{
 				count: 16L
-				id: "1A209191A7C4DCBF"
+				id: "7CC9BF9B850AE58B"
 				item: { Count: 16, id: "kubejs:stone_grit" }
 				type: "item"
 			}]
@@ -25,15 +25,15 @@
 			y: 0.0d
 		}
 		{
-			id: "30028DABAE03D7ED"
+			id: "6C1B37E697E4F3BE"
 			rewards: [{
-				id: "3BD2E3A882A7CFB1"
+				id: "18D72F053293D467"
 				type: "xp"
 				xp: 5
 			}]
 			tasks: [{
 				count: 16L
-				id: "42FE92541301B6E6"
+				id: "533D412C49A16F36"
 				item: { Count: 16, id: "minecraft:cobblestone" }
 				type: "item"
 			}]
@@ -42,15 +42,15 @@
 			y: 0.0d
 		}
 		{
-			id: "46E817C4E061898A"
+			id: "3BEE8CD52B8444BB"
 			rewards: [{
-				id: "4EB48998D1FC73C8"
+				id: "67119F6A5EBCDB22"
 				type: "xp"
 				xp: 5
 			}]
 			tasks: [{
 				count: 8L
-				id: "0EDB923B636F78BF"
+				id: "6A64D6C3151B3A36"
 				item: { Count: 8, id: "minecraft:gravel" }
 				type: "item"
 			}]
@@ -59,14 +59,14 @@
 			y: 0.0d
 		}
 		{
-			id: "50CF61B76D5DBF88"
+			id: "0117CE1C2863E20B"
 			rewards: [{
-				id: "0866619CB1097879"
+				id: "7AD1E2228F748332"
 				type: "xp"
 				xp: 5
 			}]
 			tasks: [{
-				id: "3027F3D464692241"
+				id: "515443713A5BD7ED"
 				item: "minecraft:furnace"
 				type: "item"
 			}]
@@ -75,14 +75,14 @@
 			y: 0.0d
 		}
 		{
-			id: "63BC7B2181F3992E"
+			id: "37575A27F38470DD"
 			rewards: [{
-				id: "310A0F2C0F8AE6EE"
+				id: "2C13E145BE9CF782"
 				type: "xp"
 				xp: 10
 			}]
 			tasks: [{
-				id: "136E013E79C172A7"
+				id: "3161247477971D81"
 				item: {
 					Count: 1
 					id: "minecraft:stone_pickaxe"

@@ -1,4 +1,4 @@
-﻿{
+{
 	default_hide_dependency_lines: false
 	default_quest_shape: "square"
 	filename: "stage_0_willkommen"
@@ -102,7 +102,7 @@
 			rewards: [{ id: "B100000000000221" type: "xp" xp: 6 }]
 			tasks: [{ count: 4L id: "B100000000000321" item: { Count: 4, id: "kubejs:resin_fragment" } type: "item" }]
 			title: "TIPP | Resin als Fallback sammeln"
-			x: 17.0d
+			x: 13.0d
 			y: 2.0d
 		}
 		{
@@ -120,8 +120,8 @@
 			rewards: [{ id: "B100000000000224" type: "xp" xp: 6 }]
 			tasks: [{ count: 8L id: "B100000000000324" item: { Count: 8, id: "kubejs:sprout_mash" } type: "item" }]
 			title: "Food A | Notfallkost (Setzling -> Keim-Brei)"
-			x: 15.0d
-			y: -2.0d
+			x: 9.0d
+			y: -3.0d
 		}
 		{
 			id: "B100000000000125"
@@ -129,8 +129,8 @@
 			rewards: [{ id: "B100000000000225" type: "xp" xp: 6 }]
 			tasks: [{ count: 4L id: "B100000000000325" item: { Count: 4, id: "kubejs:survival_ration" } type: "item" }]
 			title: "Food A+ | Ueberlebensration"
-			x: 17.0d
-			y: -2.0d
+			x: 11.0d
+			y: -3.0d
 		}
 		{
 			id: "B100000000000126"
@@ -138,8 +138,8 @@
 			rewards: [{ id: "B100000000000226" type: "xp" xp: 8 }]
 			tasks: [{ count: 4L id: "B100000000000326" item: { Count: 4, id: "kubejs:dried_forage" } type: "item" }]
 			title: "Food B | Kochpfad (Forage trocknen)"
-			x: 19.0d
-			y: -2.0d
+			x: 13.0d
+			y: -3.0d
 		}
 		{
 			id: "B100000000000127"
@@ -147,8 +147,8 @@
 			rewards: [{ id: "B100000000000227" type: "xp" xp: 8 }]
 			tasks: [{ count: 4L id: "B100000000000327" item: { Count: 4, id: "kubejs:worm_bait" } type: "item" }]
 			title: "Food C Vorbereitung | Wurmkoeder"
-			x: 21.0d
-			y: -2.0d
+			x: 15.0d
+			y: -3.0d
 		}
 		{
 			id: "B100000000000128"
@@ -156,8 +156,8 @@
 			rewards: [{ id: "B100000000000228" type: "xp" xp: 12 }]
 			tasks: [{ count: 2L id: "B100000000000328" item: { Count: 2, id: "kubejs:protein_cake" } type: "item" }]
 			title: "Food C Abschluss | Protein-Kuchen"
-			x: 23.0d
-			y: -2.0d
+			x: 17.0d
+			y: -3.0d
 		}
 		{
 			id: "B100000000000123"
@@ -172,7 +172,7 @@
 				{ count: 12L id: "B100000000000396" item: { Count: 12, id: "kubejs:tree_bark" } type: "item" }
 			]
 			title: "Challenge | 60-Minuten Bio Loop"
-			x: 21.0d
+			x: 23.0d
 			y: 2.0d
 		}
 	]
