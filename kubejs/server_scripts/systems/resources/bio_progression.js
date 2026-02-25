@@ -2,7 +2,6 @@
 
 const SFD = {
   wormToWormyEarthChance: 0.28,
-  shavingsDryWormChance: 0.20,
   wormToWormyBarkChance: 0.34,
   strippedLogMap: {
     'minecraft:oak_log': 'minecraft:stripped_oak_log',
@@ -62,9 +61,10 @@ if (!global.sfdBioPodestSlots) global.sfdBioPodestSlots = {};
 
 BlockEvents.rightClicked(event => {
   const { player, item, block, level, hand } = event;
-  if (hand !== 'MAIN_HAND' || !player || !item || item.empty) return;
+  if (hand !== 'MAIN_HAND' || !player || !block || !level) return;
 
-  const itemId = String(item.id);
+  const hasItem = !!(item && !item.empty);
+  const itemId = hasItem ? String(item.id) : '';
   const blockId = String(block.id);
 
   // Stage-0 Podest (Trapdoor): item "einlegen" wie Slot und direkt dort verarbeiten.
@@ -72,6 +72,21 @@ BlockEvents.rightClicked(event => {
     const key = sfdPodestKey(level, block);
     const slots = global.sfdBioPodestSlots || {};
     const stored = slots[key];
+
+    // Empty-hand click = Slot status, Shift+Click = direct extraction.
+    if (!hasItem) {
+      if (player.crouching && stored) {
+        sfdPopAbove(level, block, Item.of(stored, 1));
+        delete slots[key];
+        global.sfdBioPodestSlots = slots;
+        level.spawnParticles('minecraft:crit', true, block.x + 0.5, block.y + 0.2, block.z + 0.5, 6, 0.2, 0.05, 0.2, 0.01);
+      } else {
+        const text = stored ? stored.replace('minecraft:', '').replace('kubejs:', '') : 'leer';
+        player.tell(`[SF-DARK] Podest-Slot: ${text}`);
+      }
+      event.cancel();
+      return;
+    }
 
     // 1) Slot befuellen (wie Item-Frame), wenn leer.
     if (!stored) {
@@ -123,16 +138,11 @@ BlockEvents.rightClicked(event => {
 
     // 3) Baumspaene auf Slot-Ziel.
     if (itemId === 'kubejs:wood_shavings') {
-      // Finalschritt Earth-Loop: verbraucht den Block (kein Ruecksetzen auf Earth).
+      // Finalschritt Earth-Loop: verbraucht den Block, gibt aber immer Getrockneten Wurm.
       if (stored === 'kubejs:wormy_earth_block') {
-        const drySuccess = Math.random() < SFD.shavingsDryWormChance;
-        if (drySuccess) {
-          const amount = Math.random() < 0.5 ? 1 : 2;
-          sfdPopAbove(level, block, Item.of('kubejs:dried_worm', amount));
-          level.spawnParticles('minecraft:ash', true, block.x + 0.5, block.y + 0.2, block.z + 0.5, 10, 0.2, 0.05, 0.2, 0.01);
-        } else {
-          level.spawnParticles('minecraft:smoke', true, block.x + 0.5, block.y + 0.2, block.z + 0.5, 4, 0.2, 0.05, 0.2, 0.01);
-        }
+        const amount = Math.random() < 0.5 ? 1 : 2;
+        sfdPopAbove(level, block, Item.of('kubejs:dried_worm', amount));
+        level.spawnParticles('minecraft:ash', true, block.x + 0.5, block.y + 0.2, block.z + 0.5, 10, 0.2, 0.05, 0.2, 0.01);
         delete slots[key];
         global.sfdBioPodestSlots = slots;
         sfdConsumeHandItem(player);
@@ -240,16 +250,11 @@ BlockEvents.rightClicked(event => {
     return;
   }
 
-  // Wood shavings on wormy earth -> rare dried worms.
+  // Wood shavings on wormy earth -> guaranteed dried worms.
   if (itemId === 'kubejs:wood_shavings' && blockId === 'kubejs:wormy_earth_block') {
-    const drySuccess = Math.random() < SFD.shavingsDryWormChance;
-    if (drySuccess) {
-      const amount = Math.random() < 0.5 ? 1 : 2;
-      block.popItem(Item.of('kubejs:dried_worm', amount));
-      level.spawnParticles('minecraft:ash', true, block.x + 0.5, block.y + 1, block.z + 0.5, 10, 0.2, 0.2, 0.2, 0.01);
-    } else {
-      level.spawnParticles('minecraft:smoke', true, block.x + 0.5, block.y + 1, block.z + 0.5, 4, 0.2, 0.2, 0.2, 0.01);
-    }
+    const amount = Math.random() < 0.5 ? 1 : 2;
+    block.popItem(Item.of('kubejs:dried_worm', amount));
+    level.spawnParticles('minecraft:ash', true, block.x + 0.5, block.y + 1, block.z + 0.5, 10, 0.2, 0.2, 0.2, 0.01);
     block.set('minecraft:air');
     sfdConsumeHandItem(player);
     event.cancel();

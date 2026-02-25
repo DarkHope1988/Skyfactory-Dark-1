@@ -10,10 +10,8 @@ PlayerEvents.loggedIn(event => {
   // Only run once per player.
   if (data.skyfactoryDarkStarter === true) return;
   data.skyfactoryDarkStarter = true;
-  data.skyfactoryDarkInfiniteBoneMeal = true;
 
-  // Minimal start: sapling + one emergency slab + temporary infinite bone meal.
+  // Minimal start: sapling + one emergency slab.
   player.give(Item.of('minecraft:oak_sapling', 1));
   player.give(Item.of('minecraft:oak_slab', 1));
-  player.give(Item.of('minecraft:bone_meal', 64));
 });

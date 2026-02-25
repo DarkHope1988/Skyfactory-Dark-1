@@ -98,29 +98,36 @@ ServerEvents.recipes(event => {
   });
 
   // Stage-0 Arbeitspodest (eigener Block), 2x2 craftbar.
-  event.shaped('kubejs:bio_podest', [
+  const podestId = Platform.isLoaded('sfd_biobackpack') ? 'sfd_biobackpack:bio_podest' : 'kubejs:bio_podest';
+  event.shaped(podestId, [
     'BB',
     'BB'
   ], {
     B: 'kubejs:builder_earth_block'
   }).id('kubejs:stage0/bio_podest_trapdoor');
 
-  // Stage-0 "Beutel" als tragbares Item.
-  event.shaped(
-    Item.of(
-      'minecraft:bundle',
-      '{display:{Name:\'{"text":"Bio-Beutel","italic":false,"color":"gold"}\'}}'
-    ),
-    [
+  // Stage-0 Bio Backpack (custom addon mod item, exactly 9 slots).
+  if (Platform.isLoaded('sfd_biobackpack')) {
+    event.shaped('sfd_biobackpack:bio_backpack', [
       'RR',
       'WP'
-    ],
-    {
+    ], {
       R: 'kubejs:organic_rod',
       W: 'kubejs:dried_worm',
       P: 'kubejs:packed_soil'
-    }
-  ).id('kubejs:stage0/bio_beutel_9slot');
+    }).id('kubejs:stage0/bio_beutel_9slot');
+  }
+
+  // Stage-0 Growth Paste: custom right-click growth item (bonemeal behavior).
+  event.shaped('2x kubejs:bio_growth_paste', [
+    'LR',
+    'DW'
+  ], {
+    L: 'kubejs:leaf_threads',
+    R: 'kubejs:resin_fragment',
+    D: 'kubejs:organic_dust',
+    W: 'kubejs:dried_worm'
+  }).id('kubejs:stage0/bio_growth_paste');
 
   event.shaped('kubejs:crude_mallet', [
     ' RR',

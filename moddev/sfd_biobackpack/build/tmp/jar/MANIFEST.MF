@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Specification-Title: SFD Bio Backpack
+Specification-Vendor: DarkHope88
+Specification-Version: 1
+Implementation-Title: sfd_biobackpack
+Implementation-Version: 0.1.0
+Implementation-Vendor: DarkHope88
+

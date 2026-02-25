@@ -15,6 +15,10 @@ StartupEvents.registry('item', event => {
   event.create('dried_worm').displayName('Getrockneter Wurm').maxStackSize(64);
   event.create('tree_bark').displayName('Baumrinde').maxStackSize(64);
   event.create('organic_rod').displayName('Organischer Stab').maxDamage(96);
+  event.create('bio_growth_paste')
+    .displayName('Bio-Wachstumspaste')
+    .texture('minecraft:item/bone_meal')
+    .maxStackSize(64);
   event.create('sprout_mash').displayName('Keim-Brei').maxStackSize(64).food(food => {
     food.hunger(2);
     food.saturation(0.2);

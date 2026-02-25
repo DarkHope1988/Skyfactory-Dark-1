@@ -47,6 +47,12 @@ ItemEvents.tooltip(event => {
     Text.darkGray('Schluessel fuer ersten Planken-Progress')
   ]);
 
+  event.add('kubejs:bio_growth_paste', [
+    Text.gold('Nutzen:'),
+    Text.gray('Rechtsklick auf einen Block wie Knochenmehl'),
+    Text.darkGray('Verbraucht sich pro erfolgreicher Anwendung')
+  ]);
+
   event.add('minecraft:crafting_table', [
     Text.gold('Freischaltung:'),
     Text.gray('3x Eichenbretter + 1x Organischer Stab')
@@ -54,11 +60,22 @@ ItemEvents.tooltip(event => {
 
   event.add('kubejs:bio_podest', [
     Text.gold('Bio-Podest:'),
-    Text.gray('Earth/Dirt einlegen, dann Wurm/Baumspaene direkt darauf nutzen')
+    Text.gray('Earth/Dirt einlegen, dann Wurm/Baumspaene direkt darauf nutzen'),
+    Text.darkGray('Leerhand = Slot anzeigen, Shift+Leerhand = Entnehmen')
   ]);
 
-  event.add('minecraft:bundle', [
-    Text.gold('Bio-Beutel (Stage 0):'),
-    Text.gray('Tragbarer frueher Speicher (Rechtsklick in die Luft)')
+  event.add('sfd_biobackpack:bio_podest', [
+    Text.gold('Bio-Podest (Mod):'),
+    Text.gray('Echter 1-Slot Container, per Rechtsklick oeffnen')
+  ]);
+
+  event.add('sfd_biobackpack:bio_backpack', [
+    Text.gold('Bio-Beutel (Custom):'),
+    Text.gray('Exakt 9 Slots, Rechtsklick in die Luft zum Oeffnen')
+  ]);
+
+  event.add('sophisticatedbackpacks:backpack', [
+    Text.gold('Rucksack:'),
+    Text.gray('Aktuell gesperrt, spaetere Stage-Freischaltung')
   ]);
 });

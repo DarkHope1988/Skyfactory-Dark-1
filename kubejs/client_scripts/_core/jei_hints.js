@@ -35,7 +35,7 @@ JEIEvents.information(event => {
   event.addItem('kubejs:wormy_earth_block', [
     'ENTSTEHT: Wurm auf Earth Block.',
     'Rechtsklick mit Wood Shavings:',
-    'Ca. 20% auf 1-2 Dried Worm, sonst Fehlschlag.',
+    'Garantiert 1-2 Dried Worm.',
     'Finalschritt: Block wird dabei verbraucht.'
   ]);
 
@@ -90,7 +90,14 @@ JEIEvents.information(event => {
     '2) Rechtsklick mit Wurm -> Chance auf Wormy Earth im Slot.',
     '3) Rechtsklick mit Baumspaenen -> Chance auf Dried Worm.',
     '4) Organic Rod auf Podest -> Slot-Inhalt ausgeben.',
+    'Leerhand-Klick zeigt Slotstatus, Shift+Leerhand entnimmt direkt.',
     'Dient als frueher Arbeits-Shortcut.'
+  ]);
+
+  event.addItem('sfd_biobackpack:bio_podest', [
+    'BIO-PODEST (MOD-BLOCK):',
+    'Hat einen echten 1-Slot Container.',
+    'Rechtsklick zum Oeffnen, Item direkt einlegen/entnehmen.'
   ]);
 
   event.addItem('minecraft:oak_planks', [
@@ -127,10 +134,21 @@ JEIEvents.information(event => {
     'Mit Crude Mallet abbauen fuer Stone Grit.'
   ]);
 
-  event.addItem('minecraft:bundle', [
-    'STAGE-0 BIO-BEUTEL (TRAGBAR):',
+  event.addItem('sfd_biobackpack:bio_backpack', [
+    'BIO-BEUTEL (EIGENE ID):',
     'Rezept: 2x Organic Rod + 1x Packed Soil + 1x Dried Worm.',
-    'Rechtsklick in der Luft: tragbarer frueher Speicher.'
+    'Exakt 9 Slots, Rechtsklick in der Luft zum Oeffnen.'
+  ]);
+
+  event.addItem('kubejs:bio_growth_paste', [
+    'BIO-WACHSTUMSPASTE:',
+    'Verhaelt sich wie Knochenmehl auf den angeklickten Block.',
+    'Verbraucht sich nur bei erfolgreicher Anwendung.'
+  ]);
+
+  event.addItem('sophisticatedbackpacks:backpack', [
+    'Sophisticated Backpacks bleiben aktuell gesperrt.',
+    'Freischaltung folgt spaeter ueber Stage-Progression.'
   ]);
 
   event.addItem('kubejs:builder_earth_block', [
