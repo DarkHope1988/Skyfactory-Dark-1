@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "rolls": 5,
+      "entries": [
+        { "type": "minecraft:item", "name": "minecraft:gold_ingot" },
+        { "type": "minecraft:item", "name": "minecraft:blaze_powder" },
+        { "type": "minecraft:item", "name": "minecraft:obsidian" },
+        { "type": "minecraft:item", "name": "minecraft:quartz" },
+        { "type": "minecraft:item", "name": "minecraft:amethyst_shard" }
+      ]
+    }
+  ]
+}

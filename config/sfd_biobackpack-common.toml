@@ -1,0 +1,86 @@
+
+[world_rules_port]
+	#Enable mod-side world-rules/weather/spawn control port.
+	enabled = true
+	#How often world rules and policies are enforced (ticks).
+	#Range: 20 ~ 24000
+	enforce_interval_ticks = 200
+	#Duration used when forcing clear weather while weather is locked.
+	#Range: 100 ~ 10000000
+	clear_weather_duration_ticks = 1000000
+	set_doMobSpawning_false = true
+	set_doTraderSpawning_false = true
+	set_doPatrolSpawning_false = true
+	set_doWeatherCycle_false = true
+	block_hostile_spawns = true
+	block_trader_entities = true
+	block_phantoms_until_comet_unlock = true
+
+[comet_controller]
+	heartbeat_enabled = true
+	#Range: 20 ~ 24000
+	heartbeat_interval_ticks = 6000
+	controller_enabled = true
+	#Range: 1 ~ 24000
+	controller_tick_interval = 20
+	#Range: 1 ~ 1000000
+	cooldown_ticks = 200
+	#Range: 1 ~ 1000000
+	warning_ticks = 200
+	#Range: 1 ~ 1000000
+	impact_ticks = 40
+	#Range: 1 ~ 1000000
+	recovery_ticks = 600
+	#Spawn lightning at the computed comet impact position when phase switches to impact.
+	impact_lightning_enabled = true
+	#Number of lightning bolts spawned on each impact event.
+	#Range: 1 ~ 16
+	impact_lightning_bolts = 1
+	#Minimum horizontal distance from player to impact target.
+	#Range: 0 ~ 2048
+	impact_target_min_radius_blocks = 8
+	#Maximum horizontal distance from player to impact target.
+	#Range: 0 ~ 2048
+	impact_target_max_radius_blocks = 32
+	#Master switch: allow comet impacts to deal real damage/effects.
+	impact_damage_enabled = false
+	#Allow impact to modify terrain blocks (crater).
+	impact_block_damage_enabled = false
+	#If true, lightning is real (damage/fire). If false, visual-only lightning.
+	impact_lightning_real = false
+	#Spawn an impact chest at the strike position.
+	impact_chest_enabled = true
+	#If true, impact chest is removed without item drops when broken.
+	impact_chest_no_drop = true
+	#Require solid support block below impact chest.
+	impact_chest_require_stable_support = true
+	#If target block is occupied, try one block above for chest.
+	impact_chest_fallback_to_above = true
+	#Create a small crater around spawned impact chests.
+	impact_crater_enabled = false
+	#Crater radius around impact chest.
+	#Range: 1 ~ 16
+	impact_crater_radius = 4
+	#Crater max depth in blocks.
+	#Range: 1 ~ 16
+	impact_crater_depth = 3
+	#How many random loot stacks are inserted into impact chest.
+	#Range: 1 ~ 27
+	impact_chest_loot_stacks = 4
+	#Distance used by /sfdstate impacttest in look direction.
+	#Range: 1 ~ 64
+	impact_test_distance_blocks = 6
+
+[logging]
+	log_world_rules_enabled = true
+	log_comet_heartbeat = false
+	log_comet_transitions = true
+	log_bridge_sync = true
+
+[debug_commands]
+	#Enable /sfdstate command for runtime testing of world-state flags.
+	enabled = true
+	#Required permission level for /sfdstate (2 = cheats/op commands in singleplayer).
+	#Range: 0 ~ 4
+	permission_level = 2
+

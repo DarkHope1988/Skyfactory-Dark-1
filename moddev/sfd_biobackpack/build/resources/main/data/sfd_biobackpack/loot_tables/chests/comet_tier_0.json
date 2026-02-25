@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "rolls": 3,
+      "entries": [
+        { "type": "minecraft:item", "name": "minecraft:stick" },
+        { "type": "minecraft:item", "name": "minecraft:oak_sapling" },
+        { "type": "minecraft:item", "name": "minecraft:bone_meal" },
+        { "type": "minecraft:item", "name": "minecraft:clay_ball" }
+      ]
+    }
+  ]
+}

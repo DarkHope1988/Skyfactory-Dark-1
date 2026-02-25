@@ -9,6 +9,7 @@
     WEATHER_UNLOCKED: 'sfd_weather_unlocked',
     COMET_UNLOCKED: 'sfd_comet_unlocked'
   });
+  let modBridgeClass = null;
 
   function getPersistentData(server) {
     if (!server || !server.persistentData) return null;
@@ -55,6 +56,35 @@
 
     // Keep flat mirror for compatibility with legacy scripts/tools.
     setLegacyFlat(server, key, normalized);
+
+    // Explicit bridge into mod-side world state (Phase-4 port).
+    syncModBridge(server, key, normalized);
+  }
+
+  function resolveModBridge() {
+    if (modBridgeClass) return modBridgeClass;
+    try {
+      modBridgeClass = Java.loadClass('de.darkhope.sfd.biobackpack.api.SfdWorldStateBridge');
+    } catch (e) {
+      modBridgeClass = null;
+    }
+    return modBridgeClass;
+  }
+
+  function syncModBridge(server, key, value) {
+    if (!server || !key) return;
+    const bridge = resolveModBridge();
+    if (!bridge) return;
+
+    try {
+      if (key === keys.WEATHER_UNLOCKED) {
+        bridge.setWeatherUnlocked(server, value === true);
+      } else if (key === keys.COMET_UNLOCKED) {
+        bridge.setCometUnlocked(server, value === true);
+      }
+    } catch (e) {
+      // Ignore bridge errors to keep KubeJS logic robust.
+    }
   }
 
   global.SFDWorldState = {

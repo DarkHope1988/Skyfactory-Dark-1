@@ -6,7 +6,19 @@ ServerEvents.loaded(event => {
   if (!server) return;
 
   if (global.SFDWorldState && global.SFDWorldState.isWeatherUnlocked) {
-    global.sfdWeatherUnlocked = global.SFDWorldState.isWeatherUnlocked(server);
+    const weatherUnlocked = global.SFDWorldState.isWeatherUnlocked(server);
+    const cometUnlocked = global.SFDWorldState.isCometUnlocked
+      ? global.SFDWorldState.isCometUnlocked(server)
+      : false;
+
+    global.sfdWeatherUnlocked = weatherUnlocked;
+    // Push current values once on load so mod-side state is in sync for existing saves.
+    if (global.SFDWorldState.setWeatherUnlocked) {
+      global.SFDWorldState.setWeatherUnlocked(server, weatherUnlocked);
+    }
+    if (global.SFDWorldState.setCometUnlocked) {
+      global.SFDWorldState.setCometUnlocked(server, cometUnlocked);
+    }
     return;
   }
 

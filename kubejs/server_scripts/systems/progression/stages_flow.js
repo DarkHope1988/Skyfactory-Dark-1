@@ -20,12 +20,31 @@ const grant = (global.SFDStageManager && global.SFDStageManager.grant) || global
   return true;
 });
 
+function updateStageLootTier(player) {
+  if (!player || !player.server || !player.stages) return;
+  let tier = 0;
+  if (player.stages.has(STAGES.STAGE_1_BEGINNING)) tier = 1;
+  if (player.stages.has(STAGES.STAGE_2_STONE)) tier = 2;
+  if (player.stages.has(STAGES.STAGE_3_HEAT)) tier = 3;
+  if (player.stages.has(STAGES.STAGE_4_MACHINES)) tier = 4;
+  if (player.stages.has(STAGES.STAGE_5_AUTOMATION)) tier = 5;
+  if (player.stages.has(STAGES.STAGE_6_ENDGAME)) tier = 6;
+
+  try {
+    const Bridge = Java.loadClass('de.darkhope.sfd.biobackpack.api.SfdWorldStateBridge');
+    Bridge.setStageLootTier(player.server, tier);
+  } catch (e) {
+    // Keep progression robust even if mod bridge isn't available.
+  }
+}
+
 PlayerEvents.loggedIn(event => {
   const player = event.player;
   grant(player, STAGES.STAGE_0_WELCOME);
   if (global.sfdSyncStageDisplays) global.sfdSyncStageDisplays(player);
   if (global.sfdApplyStageMobUnlocks) global.sfdApplyStageMobUnlocks(player);
   if (global.sfdApplyWorldUnlockPolicy) global.sfdApplyWorldUnlockPolicy(player);
+  updateStageLootTier(player);
 
   if (!player.stages) return;
   const active = [];
@@ -64,6 +83,9 @@ ItemEvents.crafted(event => {
   if (stageChanged && global.sfdApplyWorldUnlockPolicy) {
     global.sfdApplyWorldUnlockPolicy(player);
   }
+  if (stageChanged) {
+    updateStageLootTier(player);
+  }
 });
 
 // Smelting output enters inventory, so Stone-stage progression is checked here too.
@@ -80,4 +102,5 @@ PlayerEvents.inventoryChanged(event => {
   if (global.sfdSyncStageDisplays) global.sfdSyncStageDisplays(player);
   if (global.sfdApplyStageMobUnlocks) global.sfdApplyStageMobUnlocks(player);
   if (global.sfdApplyWorldUnlockPolicy) global.sfdApplyWorldUnlockPolicy(player);
+  updateStageLootTier(player);
 });
