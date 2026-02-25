@@ -5,7 +5,9 @@
 // 1) Set `global.sfdMobUnlocksByStage[stage] = ['minecraft:zombie', ...]`
 // 2) Keep stage flow unchanged; unlocks are applied automatically.
 
-const SFD_STAGES = global.SFD_STAGES || {
+const SFD_STAGES = (global.SFDStageManager && global.SFDStageManager.getStages())
+  || global.SFD_STAGES
+  || {
   STAGE_0_WELCOME: 'sfd_stage_0_welcome',
   STAGE_1_BEGINNING: 'sfd_stage_1_beginning',
   STAGE_2_STONE: 'sfd_stage_2_stone',

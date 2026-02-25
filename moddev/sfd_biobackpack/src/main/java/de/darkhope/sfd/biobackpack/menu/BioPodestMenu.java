@@ -43,7 +43,7 @@ public class BioPodestMenu extends AbstractContainerMenu {
   private BioPodestMenu(int windowId, Inventory playerInventory, BlockPos pos) {
     this(windowId, playerInventory, getContainer(playerInventory.player.level(), pos),
         ContainerLevelAccess.create(playerInventory.player.level(), pos),
-        new SimpleContainerData(1));
+        new SimpleContainerData(2));
   }
 
   public BioPodestMenu(int windowId, Inventory playerInventory, Container container, ContainerLevelAccess access, ContainerData data) {

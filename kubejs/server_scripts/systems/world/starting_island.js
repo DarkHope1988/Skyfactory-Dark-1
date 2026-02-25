@@ -13,7 +13,11 @@ function sfdFindSafeSpawnY(level) {
     const feet = level.getBlock(SFD_SPAWN_X, y, SFD_SPAWN_Z);
     const head = level.getBlock(SFD_SPAWN_X, y + 1, SFD_SPAWN_Z);
 
-    if (!below.isAir() && feet.isAir() && head.isAir()) {
+    const belowAir = String(below.id) === 'minecraft:air';
+    const feetAir = String(feet.id) === 'minecraft:air';
+    const headAir = String(head.id) === 'minecraft:air';
+
+    if (!belowAir && feetAir && headAir) {
       return y;
     }
   }
@@ -28,7 +32,7 @@ ServerEvents.loaded(event => {
 
   const safeY = sfdFindSafeSpawnY(level);
   if (safeY === null) {
-    global.sfdSpawnY = null;
+    global.sfdSpawnY = -1;
     console.info('[SF-DARK] Safe spawn at (0,*,0) not found. Keeping current world spawn.');
     return;
   }
@@ -44,7 +48,7 @@ PlayerEvents.loggedIn(event => {
   const data = player.persistentData;
   const safeY = global.sfdSpawnY;
 
-  if (safeY === null || safeY === undefined) return;
+  if (typeof safeY !== 'number' || safeY < 0) return;
   if (data.getBoolean('sfdSpawnPinned')) return;
   data.putBoolean('sfdSpawnPinned', true);
 

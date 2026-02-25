@@ -4,7 +4,7 @@
       "item": "minecraft:stone"
     },
     "title": "02 Stage 2 - Stone",
-    "description": "Brenne den ersten Cobblestone zu Stone und schliesse Stage 1 sauber ab.",
+    "description": "Trigger: Stone-Milestone. Exit: stabiler Cobble/Stone-Loop plus Fuel-Vorlauf fuer Heat.",
     "background": "minecraft:textures/block/cobbled_deepslate.png",
     "x": 4.0,
     "y": 0.0,

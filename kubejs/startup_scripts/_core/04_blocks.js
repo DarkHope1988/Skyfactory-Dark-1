@@ -9,7 +9,7 @@ StartupEvents.registry('block', event => {
   event
     .create('earth_block')
     .displayName('Erdblock')
-    .material('dirt')
+    .mapColor('dirt')
     .hardness(0.6)
     .resistance(0.6)
     .soundType('gravel')
@@ -18,7 +18,7 @@ StartupEvents.registry('block', event => {
   event
     .create('wormy_earth_block')
     .displayName('Wurmdurchzogener Erdblock')
-    .material('dirt')
+    .mapColor('dirt')
     .hardness(0.6)
     .resistance(0.6)
     .soundType('gravel')
@@ -27,7 +27,7 @@ StartupEvents.registry('block', event => {
   event
     .create('bark_block')
     .displayName('Baumrindenblock')
-    .material('wood')
+    .mapColor('wood')
     .hardness(0.8)
     .resistance(0.8)
     .soundType('wood')
@@ -36,7 +36,7 @@ StartupEvents.registry('block', event => {
   event
     .create('wormy_bark_block')
     .displayName('Wurmdurchfressener Baumstamm')
-    .material('wood')
+    .mapColor('wood')
     .hardness(0.8)
     .resistance(0.8)
     .soundType('wood')
@@ -45,7 +45,7 @@ StartupEvents.registry('block', event => {
   event
     .create('hollow_bark_block')
     .displayName('Durchloecherter Baumstamm')
-    .material('wood')
+    .mapColor('wood')
     .hardness(0.8)
     .resistance(0.8)
     .soundType('wood')
@@ -54,7 +54,7 @@ StartupEvents.registry('block', event => {
   event
     .create('treated_hollow_bark_block')
     .displayName('Behandelter Baumstamm')
-    .material('wood')
+    .mapColor('wood')
     .hardness(0.8)
     .resistance(0.8)
     .soundType('wood')
@@ -65,7 +65,7 @@ StartupEvents.registry('block', event => {
   event
     .create('packed_soil')
     .displayName('Packed Soil')
-    .material('dirt')
+    .mapColor('dirt')
     .hardness(0.8)
     .resistance(0.8)
     .soundType('gravel')
@@ -76,7 +76,7 @@ StartupEvents.registry('block', event => {
   event
     .create('builder_earth_block')
     .displayName('Bau-Erdblock')
-    .material('dirt')
+    .mapColor('dirt')
     .hardness(0.8)
     .resistance(1.0)
     .soundType('gravel')
@@ -86,7 +86,7 @@ StartupEvents.registry('block', event => {
   event
     .create('bio_podest')
     .displayName('Bio-Podest')
-    .material('wood')
+    .mapColor('wood')
     .hardness(0.8)
     .resistance(1.2)
     .soundType('wood')
@@ -97,7 +97,7 @@ StartupEvents.registry('block', event => {
   event
     .create('podest_stone_base')
     .displayName('Podest-Steinbasis')
-    .material('stone')
+    .mapColor('stone')
     .hardness(1.4)
     .resistance(2.0)
     .soundType('stone')

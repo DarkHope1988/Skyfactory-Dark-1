@@ -1,5 +1,8 @@
 // constants shared across server scripts
 
+global.SFD_STATE_ROOT_KEY = 'sfd';
+global.SFD_STATE_SCHEMA_VERSION = 1;
+
 global.SFD_WORLD_STATE_KEYS = Object.freeze({
   WEATHER_UNLOCKED: 'sfd_weather_unlocked',
   COMET_UNLOCKED: 'sfd_comet_unlocked'

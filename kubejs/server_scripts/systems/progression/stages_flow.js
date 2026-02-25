@@ -1,7 +1,9 @@
 // System: stage gates & unlock flow
 // Lightweight progression hooks that keep working even if GameStages is absent.
 
-const STAGES = global.SFD_STAGES || {
+const STAGES = (global.SFDStageManager && global.SFDStageManager.getStages())
+  || global.SFD_STAGES
+  || {
   STAGE_0_WELCOME: 'sfd_stage_0_welcome',
   STAGE_1_BEGINNING: 'sfd_stage_1_beginning',
   STAGE_2_STONE: 'sfd_stage_2_stone',
@@ -11,7 +13,7 @@ const STAGES = global.SFD_STAGES || {
   STAGE_6_ENDGAME: 'sfd_stage_6_endgame'
 };
 
-const grant = global.sfdGrantStage || ((player, stage) => {
+const grant = (global.SFDStageManager && global.SFDStageManager.grant) || global.sfdGrantStage || ((player, stage) => {
   if (!player || !player.stages || !stage) return false;
   if (player.stages.has(stage)) return false;
   player.stages.add(stage);
@@ -39,7 +41,9 @@ ItemEvents.crafted(event => {
   const craftedId = String(event.item.id);
   let stageChanged = false;
 
-  if (global.sfdUnlockStagesForCraft) {
+  if (global.SFDStageManager && global.SFDStageManager.unlockForCraft) {
+    stageChanged = global.SFDStageManager.unlockForCraft(player, craftedId) || stageChanged;
+  } else if (global.sfdUnlockStagesForCraft) {
     stageChanged = global.sfdUnlockStagesForCraft(player, craftedId) || stageChanged;
   } else {
     // Fallback for minimal environments.

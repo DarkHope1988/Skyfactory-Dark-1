@@ -136,7 +136,7 @@ Die zugehörigen JSON-Tags existieren unter `kubejs/data/skyfactorydark/tags/ite
 - Risiko: kein unmittelbarer Crash (weil keine aktive Logik), aber erhöhte Wartungskomplexität / unklare Roadmap.
 
 ### R3 – Inaktiv genutzte Basiskern-Dateien
-- `_core/00_constants.js`, `_core/01_helpers.js`, `_core/02_stages.js`, `_core/03_balance_rules.js` enthalten nur Kommentare.
+- `_core/00_constants.js`, `_core/10_helpers.js`, `_core/11_stages.js`, `_core/12_balance_rules.js` enthalten nur Kommentare.
 - Risiko: geringe technische Gefahr, aber potentielle Verwirrung bei Team-Onboarding.
 
 ### R4 – Repositorium enthält lokale Laufzeitdaten

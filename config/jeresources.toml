@@ -1,11 +1,11 @@
 disableLootManagerReloading = false
-hiddenTabs = []
+hiddenTabs = ["villager"]
 #Range: 1 ~ 4
 itemsPerRow = 4
 enchantsBlacklist = ["flimflam", "soulBound"]
 showDevData = false
 dimensionsBlacklist = [-11]
-diyData = true
+diyData = false
 #Range: 1 ~ 4
 itemsPerColumn = 4
 

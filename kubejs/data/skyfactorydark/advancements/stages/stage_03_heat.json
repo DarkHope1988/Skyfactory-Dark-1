@@ -4,7 +4,7 @@
       "item": "minecraft:blast_furnace"
     },
     "title": "03 Stage 3 - Heat",
-    "description": "Skaliere die Hitzeverarbeitung mit dem Blast Furnace.",
+    "description": "Trigger: Blast Furnace. Exit: stabile Heat-Logistik. World Unlock: Wetter wird freigegeben.",
     "background": "minecraft:textures/block/smooth_basalt.png",
     "x": 6.0,
     "y": 0.0,

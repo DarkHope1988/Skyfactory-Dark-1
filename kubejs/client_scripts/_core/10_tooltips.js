@@ -60,8 +60,9 @@ ItemEvents.tooltip(event => {
   ]);
 
   event.add('minecraft:crafting_table', [
-    Text.gold('Freischaltung:'),
-    Text.gray('3x Eichenbretter + 1x Organischer Stab')
+    Text.gold('Stage-1 Trigger:'),
+    Text.gray('Crafting Table craften'),
+    Text.darkGray('Baupfad: 3x Eichenbretter + 1x Organischer Stab')
   ]);
 
   event.add('kubejs:bio_podest', [
@@ -94,5 +95,11 @@ ItemEvents.tooltip(event => {
   event.add('kubejs:rough_stone_mix', [
     Text.gold('Stone-Prozess:'),
     Text.gray('Zwischenprodukt fuer den stabilen Cobblestone-Loop')
+  ]);
+
+  event.add('minecraft:blast_furnace', [
+    Text.gold('Stage-3 Trigger:'),
+    Text.gray('Blast Furnace craften'),
+    Text.darkGray('Exit: stabile Heat-Logistik (Fuel + Smelt-Core-Loop)')
   ]);
 });

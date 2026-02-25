@@ -1,55 +1,22 @@
-// System: world unlock state for weather/comet progression
-// Centralized API to keep progression state consistent across scripts.
-
-function sfdEnsureWorldStateApi() {
-  if (global.sfdGetWorldFlag && global.sfdSetWorldFlag) return;
-
-  const keys = global.SFD_WORLD_STATE_KEYS || {
-    WEATHER_UNLOCKED: 'sfd_weather_unlocked',
-    COMET_UNLOCKED: 'sfd_comet_unlocked'
-  };
-
-  global.sfdGetWorldFlag = (server, key) => {
-    if (!server || !server.persistentData || !key) return false;
-    return server.persistentData[key] === true;
-  };
-
-  global.sfdSetWorldFlag = (server, key, value) => {
-    if (!server || !server.persistentData || !key) return;
-    server.persistentData[key] = value === true;
-  };
-
-  global.sfdIsWeatherUnlocked = server => global.sfdGetWorldFlag(server, keys.WEATHER_UNLOCKED);
-  global.sfdIsCometUnlocked = server => global.sfdGetWorldFlag(server, keys.COMET_UNLOCKED);
-
-  global.sfdSetWeatherUnlocked = (server, unlocked) => {
-    global.sfdSetWorldFlag(server, keys.WEATHER_UNLOCKED, unlocked === true);
-    // Backward compatibility for older scripts.
-    global.sfdWeatherUnlocked = unlocked === true;
-  };
-
-  global.sfdSetCometUnlocked = (server, unlocked) => {
-    global.sfdSetWorldFlag(server, keys.COMET_UNLOCKED, unlocked === true);
-  };
-
-  global.sfdApplyWorldUnlockPolicy = player => {
-    if (!player || !player.server || !player.stages) return;
-    const policy = global.SFD_WORLD_UNLOCK_POLICY || {};
-    const weatherStage = policy.WEATHER_STAGE;
-    const cometStage = policy.COMET_STAGE;
-
-    if (weatherStage && player.stages.has(weatherStage)) {
-      global.sfdSetWeatherUnlocked(player.server, true);
-    }
-    if (cometStage && player.stages.has(cometStage)) {
-      global.sfdSetCometUnlocked(player.server, true);
-    }
-  };
-}
+// System: world unlock bridge
+// Phase-2 rule: world state stays in _core/01_world_state.js and policy stays in _core/02_unlock_policy.js.
 
 ServerEvents.loaded(event => {
-  sfdEnsureWorldStateApi();
-  // Sync legacy global for old checks.
-  global.sfdWeatherUnlocked = global.sfdIsWeatherUnlocked(event.server);
-});
+  const server = event.server;
+  if (!server) return;
 
+  if (global.SFDWorldState && global.SFDWorldState.isWeatherUnlocked) {
+    global.sfdWeatherUnlocked = global.SFDWorldState.isWeatherUnlocked(server);
+    return;
+  }
+
+  // Fallback for minimal environments without module load.
+  const keyMap = global.SFD_WORLD_STATE_KEYS || {};
+  const weatherKey = keyMap.WEATHER_UNLOCKED || 'sfd_weather_unlocked';
+  const rootKey = global.SFD_STATE_ROOT_KEY || 'sfd';
+  const pd = server.persistentData;
+  const namespacedKey = `${rootKey}__${weatherKey}`;
+  const rootValue = pd ? pd[namespacedKey] === true : false;
+  const legacyValue = pd ? pd[weatherKey] === true : false;
+  global.sfdWeatherUnlocked = rootValue || legacyValue;
+});

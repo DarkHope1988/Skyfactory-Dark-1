@@ -4,7 +4,7 @@
       "item": "kubejs:crude_mallet"
     },
     "title": "01 Stage 1 - The Beginning",
-    "description": "Baue die ersten Werkzeuge und den Startkreislauf auf.",
+    "description": "Trigger: Crafting Table. Exit: stabiler Bio/Earth/Soil-Loop mit reproduzierbarem Dirt.",
     "background": "minecraft:textures/block/stripped_oak_log.png",
     "x": 2.0,
     "y": 0.0,

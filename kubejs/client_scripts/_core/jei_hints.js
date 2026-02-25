@@ -106,8 +106,9 @@ JEIEvents.information(event => {
   ]);
 
   event.addItem('minecraft:crafting_table', [
-    'STAGE-0 ZIEL:',
-    '3x Oak Planks + 1x Organic Rod.'
+    'STAGE-1 TRIGGER:',
+    'Crafting Table craften.',
+    'Baupfad: 3x Oak Planks + 1x Organic Rod.'
   ]);
 
   event.addItem('kubejs:organic_dust', [
@@ -184,11 +185,24 @@ JEIEvents.information(event => {
     'Cobble ist nur Zwischenziel: Stage 2 gibt es erst mit gebranntem Stein.'
   ]);
 
+  event.addItem('minecraft:stone', [
+    'STAGE-2 TRIGGER:',
+    'Milestone auf Stone (Inventory/Craft-Pfad).',
+    'EXIT-ZIEL: Stabiler Cobble/Stone-Loop plus Fuel-Vorlauf.'
+  ]);
+
   event.addItem('kubejs:bark_briquette', [
     'STAGE-1 FUEL:',
     'Rezept aus Baumrinde + Resin.',
     'Burntime: 50 Ticks pro Stueck.',
     'Richtwert: ca. 4 Briquettes fuer 1 Smelt im Ofen.'
+  ]);
+
+  event.addItem('minecraft:blast_furnace', [
+    'STAGE-3 TRIGGER:',
+    'Blast Furnace craften.',
+    'EXIT-ZIEL: Erste stabile Heat-Logistik (Fuel + Smelt-Core-Loop).',
+    'WORLD UNLOCK: Wetter-Policy wird freigeschaltet.'
   ]);
 
   event.addItem('kubejs:podest_stone_base', [
