@@ -14,7 +14,7 @@ ServerEvents.recipes(event => {
     S: 'sfd_comets:meteoric_slag',
     M: 'sfd_comets:microbe_culture',
     R: 'minecraft:redstone'
-  }).id('kubejs:ore_chain/mineral_catalyst');
+  }).id('skyfactorydark:ore_chain/mineral_catalyst');
 
   event.shaped('sfd_comets:raw_metal_lattice', [
     'SCS',
@@ -24,7 +24,7 @@ ServerEvents.recipes(event => {
     S: 'sfd_comets:meteoric_slag',
     C: 'sfd_comets:mineral_catalyst',
     M: 'minecraft:quartz'
-  }).id('kubejs:ore_chain/raw_metal_lattice');
+  }).id('skyfactorydark:ore_chain/raw_metal_lattice');
 
   event.shaped('sfd_comets:proto_iron_cluster', [
     'LSL',
@@ -34,7 +34,7 @@ ServerEvents.recipes(event => {
     L: 'sfd_comets:raw_metal_lattice',
     S: 'sfd_comets:meteoric_slag',
     M: 'sfd_comets:mineral_catalyst'
-  }).id('kubejs:ore_chain/proto_iron_cluster');
+  }).id('skyfactorydark:ore_chain/proto_iron_cluster');
 
   event.shaped('sfd_comets:proto_copper_cluster', [
     'LML',
@@ -45,16 +45,16 @@ ServerEvents.recipes(event => {
     M: 'sfd_comets:mineral_catalyst',
     S: 'sfd_comets:meteoric_slag',
     C: 'minecraft:clay_ball'
-  }).id('kubejs:ore_chain/proto_copper_cluster');
+  }).id('skyfactorydark:ore_chain/proto_copper_cluster');
 
   event.shapeless(`${nuggetYield}x minecraft:iron_nugget`, [
     'sfd_comets:proto_iron_cluster',
     'sfd_comets:mineral_catalyst'
-  ]).id('kubejs:ore_chain/iron_nuggets_from_proto');
+  ]).id('skyfactorydark:ore_chain/iron_nuggets_from_proto');
 
   event.shapeless('3x minecraft:copper_ingot', [
     'sfd_comets:proto_copper_cluster',
     'sfd_comets:mineral_catalyst'
-  ]).id('kubejs:ore_chain/copper_from_proto');
+  ]).id('skyfactorydark:ore_chain/copper_from_proto');
 });
 

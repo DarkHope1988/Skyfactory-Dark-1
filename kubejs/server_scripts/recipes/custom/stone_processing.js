@@ -42,7 +42,7 @@ ServerEvents.recipes(event => {
     'MM'
   ], {
     M: 'sfd_comets:rough_stone_mix'
-  }).id('kubejs:stone/rough_mix_to_cobble');
+  }).id('skyfactorydark:stone/rough_mix_to_cobble');
 
   // 4x Stone Grit -> 1 Cobblestone (2x2)
   event.shaped('minecraft:cobblestone', [
@@ -50,7 +50,7 @@ ServerEvents.recipes(event => {
     'GG'
   ], {
     G: 'sfd_comets:stone_grit'
-  }).id('kubejs:stone/grit_to_cobble');
+  }).id('skyfactorydark:stone/grit_to_cobble');
 
   // First Stone-age podest upgrade component.
   event.shaped('sfd_comets:podest_stone_base', [
@@ -60,7 +60,7 @@ ServerEvents.recipes(event => {
   ], {
     C: 'minecraft:cobblestone',
     R: 'sfd_comets:resin_fragment'
-  }).id('kubejs:stone/podest_stone_base');
+  }).id('skyfactorydark:stone/podest_stone_base');
 
   // Optional: Pebble Cluster -> Gravel (spÃƒÂ¤ter nÃƒÂ¼tzlich)
   event.shaped('minecraft:gravel', [

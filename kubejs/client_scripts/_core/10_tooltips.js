@@ -15,12 +15,12 @@ ItemEvents.tooltip(event => {
     Text.darkGray('Erde/Wurm-Loop und Organischer Stab')
   ]);
 
-  event.add('kubejs:earth_block', [
+  event.add('sfd_comets:earth_block', [
     Text.gold('Wichtig:'),
     Text.gray('Abbauen fuer Erdklumpen + Wurm-Chance')
   ]);
 
-  event.add('kubejs:builder_earth_block', [
+  event.add('sfd_comets:builder_earth_block', [
     Text.gold('Baupfad:'),
     Text.gray('Plattform-Block (4 Earth -> 4 Bau-Erdblock)'),
     Text.darkGray('Earth-Progress bleibt dadurch verfuegbar')
@@ -50,7 +50,13 @@ ItemEvents.tooltip(event => {
   event.add('sfd_comets:bio_growth_paste', [
     Text.gold('Nutzen:'),
     Text.gray('Rechtsklick auf einen Block wie Knochenmehl'),
-    Text.darkGray('Verbraucht sich nicht beim Benutzen')
+    Text.darkGray('Verbraucht sich bei jeder Nutzung')
+  ]);
+
+  event.add('sfd_comets:bio_growth_paste_t2', [
+    Text.gold('Nutzen:'),
+    Text.gray('Wie Knochenmehl, aber als Haltbarkeits-Tool'),
+    Text.darkGray('8 Nutzungen pro Item')
   ]);
 
   event.add('sfd_comets:bark_briquette', [
@@ -65,13 +71,7 @@ ItemEvents.tooltip(event => {
     Text.darkGray('Baupfad: 3x Eichenbretter + 1x Organischer Stab')
   ]);
 
-  event.add('kubejs:bio_podest', [
-    Text.gold('Bio-Podest:'),
-    Text.gray('Earth/Dirt einlegen, dann Wurm/Baumspaene direkt darauf nutzen'),
-    Text.darkGray('Leerhand = Slot anzeigen, Shift+Leerhand = Entnehmen')
-  ]);
-
-  event.add('kubejs:podest_stone_base', [
+  event.add('sfd_comets:podest_stone_base', [
     Text.gold('Stone-Upgrade:'),
     Text.gray('Als Unterbau fuer das Bio-Podest verwenden'),
     Text.darkGray('Beschleunigt die Podest-Verarbeitung')

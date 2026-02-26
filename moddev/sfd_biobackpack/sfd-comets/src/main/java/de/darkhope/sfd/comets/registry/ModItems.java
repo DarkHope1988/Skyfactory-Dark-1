@@ -87,7 +87,22 @@ public class ModItems {
 
   public static final RegistryObject<Item> BIO_GROWTH_PASTE = ITEMS.register(
       "bio_growth_paste",
-      () -> new BioGrowthPasteItem(new Item.Properties())
+      () -> new BioGrowthPasteItem(new Item.Properties(), BioGrowthPasteItem.Mode.CONSUME)
+  );
+
+  public static final RegistryObject<Item> BIO_GROWTH_PASTE_ADMIN = ITEMS.register(
+      "bio_growth_paste_admin",
+      () -> new BioGrowthPasteItem(new Item.Properties().stacksTo(1), BioGrowthPasteItem.Mode.INFINITE)
+  );
+
+  public static final RegistryObject<Item> BIO_GROWTH_PASTE_T2 = ITEMS.register(
+      "bio_growth_paste_t2",
+      () -> new BioGrowthPasteItem(new Item.Properties().stacksTo(1).durability(8), BioGrowthPasteItem.Mode.CHARGES)
+  );
+
+  public static final RegistryObject<Item> BIO_GROWTH_PASTE_T3 = ITEMS.register(
+      "bio_growth_paste_t3",
+      () -> new BioGrowthPasteItem(new Item.Properties().stacksTo(1).durability(16), BioGrowthPasteItem.Mode.CHARGES)
   );
 
   private static RegistryObject<Item> simple(String id) {

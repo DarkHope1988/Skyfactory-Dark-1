@@ -18,7 +18,7 @@ ServerEvents.recipes(event => {
     O: 'sfd_comets:organic_dust',
     D: 'minecraft:bone_meal',
     C: 'sfd_comets:compost_pulp'
-  }).id('kubejs:planetization/microbe_culture');
+  }).id('skyfactorydark:planetization/microbe_culture');
 
   event.shaped('sfd_comets:hydro_seed', [
     ' M ',
@@ -28,7 +28,7 @@ ServerEvents.recipes(event => {
     M: 'sfd_comets:microbe_culture',
     C: 'minecraft:clay_ball',
     D: 'minecraft:copper_ingot'
-  }).id('kubejs:planetization/hydro_seed');
+  }).id('skyfactorydark:planetization/hydro_seed');
 
   event.shaped('sfd_comets:condensed_water_cell', [
     ' G ',
@@ -38,11 +38,11 @@ ServerEvents.recipes(event => {
     G: 'minecraft:glass_bottle',
     H: 'sfd_comets:hydro_seed',
     M: 'sfd_comets:microbe_culture'
-  }).id('kubejs:planetization/condensed_water_cell');
+  }).id('skyfactorydark:planetization/condensed_water_cell');
 
   // Controlled water conversion. Keep expensive to preserve progression pacing.
   event.shapeless('minecraft:water_bucket', waterRecipe)
-    .id('kubejs:planetization/water_bucket_from_cells');
+    .id('skyfactorydark:planetization/water_bucket_from_cells');
 
   event.shaped('sfd_comets:atmo_filament', [
     'OMO',
@@ -52,7 +52,7 @@ ServerEvents.recipes(event => {
     O: 'sfd_comets:organic_fiber',
     M: 'sfd_comets:microbe_culture',
     R: 'minecraft:redstone'
-  }).id('kubejs:planetization/atmo_filament');
+  }).id('skyfactorydark:planetization/atmo_filament');
 
   event.shaped('sfd_comets:oxygen_matrix', [
     ' A ',
@@ -62,7 +62,7 @@ ServerEvents.recipes(event => {
     A: 'sfd_comets:atmo_filament',
     L: 'minecraft:lapis_lazuli',
     C: 'sfd_comets:condensed_water_cell'
-  }).id('kubejs:planetization/oxygen_matrix');
+  }).id('skyfactorydark:planetization/oxygen_matrix');
 
   event.shaped('sfd_comets:planetary_anchor', [
     'OEO',
@@ -72,7 +72,7 @@ ServerEvents.recipes(event => {
     O: 'sfd_comets:oxygen_matrix',
     E: 'minecraft:ender_pearl',
     N: 'minecraft:netherite_scrap'
-  }).id('kubejs:planetization/planetary_anchor');
+  }).id('skyfactorydark:planetization/planetary_anchor');
 
   event.shaped('sfd_comets:dimensional_gateway_core', [
     'POP',
@@ -82,7 +82,7 @@ ServerEvents.recipes(event => {
     P: 'sfd_comets:planetary_anchor',
     O: 'sfd_comets:oxygen_matrix',
     E: 'minecraft:ender_eye'
-  }).id('kubejs:planetization/dimensional_gateway_core');
+  }).id('skyfactorydark:planetization/dimensional_gateway_core');
 
   event.shaped('sfd_comets:interdimensional_gateway_core', [
     'GDG',
@@ -92,11 +92,11 @@ ServerEvents.recipes(event => {
     G: 'sfd_comets:dimensional_gateway_core',
     D: 'minecraft:echo_shard',
     N: 'minecraft:nether_star'
-  }).id('kubejs:planetization/interdimensional_gateway_core');
+  }).id('skyfactorydark:planetization/interdimensional_gateway_core');
 
   event.shapeless('sfd_comets:gateway_attunement_map', [
     'sfd_comets:interdimensional_gateway_core',
     'minecraft:map'
-  ]).id('kubejs:planetization/gateway_attunement_map');
+  ]).id('skyfactorydark:planetization/gateway_attunement_map');
 });
 

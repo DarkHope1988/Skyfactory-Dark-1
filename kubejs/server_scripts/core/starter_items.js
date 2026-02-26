@@ -22,7 +22,8 @@ PlayerEvents.loggedIn(event => {
   if (data.getBoolean('skyfactoryDarkStarter')) return;
   data.putBoolean('skyfactoryDarkStarter', true);
 
-  // Minimal start: exactly one sapling + infinite bonemeal-effect item.
+  // Minimal start: sapling + growth paste + one builder earth block for safe standing space.
   player.give(Item.of('minecraft:oak_sapling', 1));
   player.give(Item.of('sfd_comets:bio_growth_paste', 1));
+  player.give(Item.of('sfd_comets:builder_earth_block', 1));
 });

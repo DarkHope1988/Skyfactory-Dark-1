@@ -1,6 +1,13 @@
 ﻿// Skyfactory Dark - Organic Processing (Stage-0 Bio Loop)
 
 ServerEvents.recipes(event => {
+  const hasItem = id => {
+    try {
+      return !Item.of(id).isEmpty();
+    } catch (e) {
+      return false;
+    }
+  };
   // Leaf threads -> leaf bundles.
   event.shaped('sfd_comets:leaf_bundle', [
     'LL',
@@ -96,7 +103,7 @@ ServerEvents.recipes(event => {
   ], {
     B: 'sfd_comets:tree_bark',
     R: 'sfd_comets:resin_fragment'
-  }).id('kubejs:stage1/bark_briquette');
+  }).id('skyfactorydark:stage1/bark_briquette');
 
   // Alternative fuer Plattformbau:
   // 4x Earth -> 4x Bau-Erdblock (kein Materialgewinn, aber klare Trennung).
@@ -118,7 +125,7 @@ ServerEvents.recipes(event => {
     R: 'sfd_comets:resin_fragment',
     E: 'sfd_comets:earth_block',
     O: 'sfd_comets:organic_rod'
-  }).id('kubejs:stage0/bio_podest_trapdoor');
+  }).id('skyfactorydark:stage0/bio_podest_trapdoor');
 
   // Stage-0 Bio Backpack (custom addon mod item, exactly 9 slots).
   if (Platform.isLoaded('sfd_comets')) {
@@ -129,7 +136,7 @@ ServerEvents.recipes(event => {
       R: 'sfd_comets:organic_rod',
       W: 'sfd_comets:dried_worm',
       P: 'sfd_comets:packed_soil'
-    }).id('kubejs:stage0/bio_beutel_9slot');
+    }).id('skyfactorydark:stage0/bio_beutel_9slot');
   }
 
   // Stage-0 Growth Paste: custom right-click growth item (bonemeal behavior).
@@ -141,7 +148,18 @@ ServerEvents.recipes(event => {
     R: 'sfd_comets:resin_fragment',
     D: 'sfd_comets:organic_dust',
     W: 'sfd_comets:dried_worm'
-  }).id('kubejs:stage0/bio_growth_paste');
+  }).id('skyfactorydark:stage0/bio_growth_paste');
+
+  // Tier-2 growth paste: 8 uses (durability-based).
+  // Guarded so recipe load does not hard-fail if the target item isn't present yet.
+  if (hasItem('sfd_comets:bio_growth_paste_t2')) {
+    event.shaped('sfd_comets:bio_growth_paste_t2', [
+      'PP',
+      'PP'
+    ], {
+      P: 'sfd_comets:bio_growth_paste'
+    }).id('skyfactorydark:stage1/bio_growth_paste_t2');
+  }
 
   event.shaped('sfd_comets:crude_mallet', [
     ' RR',
@@ -184,7 +202,7 @@ ServerEvents.recipes(event => {
   ], {
     P: 'minecraft:oak_planks',
     O: 'sfd_comets:organic_rod'
-  }).id('kubejs:stage0/workbench_unlock');
+  }).id('skyfactorydark:stage0/workbench_unlock');
 });
 
 

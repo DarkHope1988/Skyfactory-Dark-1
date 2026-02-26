@@ -3,6 +3,8 @@
 JEIEvents.hideItems(event => {
   // Technical world/impact container, intentionally not player-facing in JEI.
   event.hide('sfd_comets:comet_cache');
+  event.hide('sfd_comets:bio_growth_paste_admin');
+  event.hide('sfd_comets:bio_growth_paste_t3');
 });
 
 JEIEvents.information(event => {
@@ -140,7 +142,13 @@ JEIEvents.information(event => {
   event.addItem('sfd_comets:bio_growth_paste', [
     'BIO-WACHSTUMSPASTE:',
     'Verhaelt sich wie Knochenmehl auf den angeklickten Block.',
-    'Verbraucht sich nicht.'
+    'Verbraucht sich pro Nutzung.'
+  ]);
+
+  event.addItem('sfd_comets:bio_growth_paste_t2', [
+    'BIO-WACHSTUMSPASTE T2:',
+    'Upgrade aus 2x2 normaler Bio-Paste.',
+    'Hat 8 Nutzungen (haltbar).'
   ]);
 
   event.addItem('sophisticatedbackpacks:backpack', [
