@@ -10,13 +10,13 @@ ServerEvents.recipes(event => {
   });
 
   // Leaf bundle + wood shavings -> first earth block.
-  event.shapeless('kubejs:earth_block', [
+  event.shapeless('sfd_comets:earth_block', [
     'sfd_comets:leaf_bundle',
     'sfd_comets:wood_shavings'
   ]);
 
   // Earth clumps can be compressed back into earth blocks.
-  event.shaped('kubejs:earth_block', [
+  event.shaped('sfd_comets:earth_block', [
     'CC',
     'CC'
   ], {
@@ -24,7 +24,7 @@ ServerEvents.recipes(event => {
   });
 
   // Tree bark -> placeable bark block.
-  event.shaped('kubejs:bark_block', [
+  event.shaped('sfd_comets:bark_block', [
     'BB',
     'BB'
   ], {
@@ -79,7 +79,7 @@ ServerEvents.recipes(event => {
     C: 'sfd_comets:compost_pile'
   });
 
-  event.shaped('4x kubejs:packed_soil', [
+  event.shaped('4x sfd_comets:packed_soil', [
     'DCD',
     'CDC',
     'DCD'
@@ -100,23 +100,23 @@ ServerEvents.recipes(event => {
 
   // Alternative fuer Plattformbau:
   // 4x Earth -> 4x Bau-Erdblock (kein Materialgewinn, aber klare Trennung).
-  event.shaped('4x kubejs:builder_earth_block', [
+  event.shaped('4x sfd_comets:builder_earth_block', [
     'EE',
     'EE'
   ], {
-    E: 'kubejs:earth_block'
+    E: 'sfd_comets:earth_block'
   });
 
   // Stage-0 Arbeitspodest (eigener Block), bewusst als 3x3-Rezept gebalanced.
-  const podestId = Platform.isLoaded('sfd_comets') ? 'sfd_comets:bio_podest' : 'kubejs:bio_podest';
+  const podestId = Platform.isLoaded('sfd_comets') ? 'sfd_comets:bio_podest' : 'sfd_comets:bio_podest';
   event.shaped(podestId, [
     'BRB',
     'EOE',
     'BBB'
   ], {
-    B: 'kubejs:builder_earth_block',
+    B: 'sfd_comets:builder_earth_block',
     R: 'sfd_comets:resin_fragment',
-    E: 'kubejs:earth_block',
+    E: 'sfd_comets:earth_block',
     O: 'sfd_comets:organic_rod'
   }).id('kubejs:stage0/bio_podest_trapdoor');
 
@@ -128,7 +128,7 @@ ServerEvents.recipes(event => {
     ], {
       R: 'sfd_comets:organic_rod',
       W: 'sfd_comets:dried_worm',
-      P: 'kubejs:packed_soil'
+      P: 'sfd_comets:packed_soil'
     }).id('kubejs:stage0/bio_beutel_9slot');
   }
 
@@ -172,8 +172,8 @@ ServerEvents.recipes(event => {
   ]);
 
   // Optional resin path for treated wood conversion.
-  event.shapeless('kubejs:treated_hollow_bark_block', [
-    'kubejs:hollow_bark_block',
+  event.shapeless('sfd_comets:treated_hollow_bark_block', [
+    'sfd_comets:hollow_bark_block',
     'sfd_comets:resin_fragment'
   ]);
 
@@ -186,4 +186,5 @@ ServerEvents.recipes(event => {
     O: 'sfd_comets:organic_rod'
   }).id('kubejs:stage0/workbench_unlock');
 });
+
 

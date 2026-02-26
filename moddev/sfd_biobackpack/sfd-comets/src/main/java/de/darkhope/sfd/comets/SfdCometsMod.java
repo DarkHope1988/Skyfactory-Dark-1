@@ -9,6 +9,8 @@ import de.darkhope.sfd.comets.registry.ModBlockEntities;
 import de.darkhope.sfd.comets.registry.ModBlocks;
 import de.darkhope.sfd.comets.registry.ModItems;
 import de.darkhope.sfd.comets.registry.ModMenus;
+import de.darkhope.sfd.core.ids.SfdItemIds;
+import de.darkhope.sfd.core.migration.SfdItemIdMigration;
 import de.darkhope.sfd.core.world.SfdWorldStateData;
 import com.mojang.brigadier.arguments.BoolArgumentType;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
@@ -31,6 +33,7 @@ import net.minecraft.world.entity.animal.horse.TraderLlama;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.monster.Phantom;
 import net.minecraft.world.entity.npc.WanderingTrader;
+import net.minecraft.world.Container;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -46,6 +49,7 @@ import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.client.gui.screens.MenuScreens;
+import net.minecraft.world.level.Level;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.TickEvent;
@@ -61,6 +65,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
+import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -75,22 +80,40 @@ public class SfdCometsMod {
   private static final Logger LOGGER = LogManager.getLogger();
   private static final String WORLD_RULES_JVM_OVERRIDE_KEY = "sfd.port.worldrules";
   private static final FallbackLootEntry[] COMET_FALLBACK_LOOT = new FallbackLootEntry[]{
-      new FallbackLootEntry("kubejs:microbe_culture", 1, 2),
-      new FallbackLootEntry("kubejs:meteoric_slag", 1, 3),
-      new FallbackLootEntry("kubejs:mineral_catalyst", 1, 2),
-      new FallbackLootEntry("kubejs:raw_metal_lattice", 1, 2),
-      new FallbackLootEntry("kubejs:proto_iron_cluster", 1, 2),
-      new FallbackLootEntry("kubejs:proto_copper_cluster", 1, 2),
-      new FallbackLootEntry("kubejs:hydro_seed", 1, 2),
-      new FallbackLootEntry("kubejs:condensed_water_cell", 1, 2),
-      new FallbackLootEntry("kubejs:atmo_filament", 1, 2),
-      new FallbackLootEntry("kubejs:oxygen_matrix", 1, 2),
+      new FallbackLootEntry(SfdItemIds.MICROBE_CULTURE.toString(), 1, 2),
+      new FallbackLootEntry(SfdItemIds.METEORIC_SLAG.toString(), 1, 3),
+      new FallbackLootEntry(SfdItemIds.MINERAL_CATALYST.toString(), 1, 2),
+      new FallbackLootEntry(SfdItemIds.RAW_METAL_LATTICE.toString(), 1, 2),
+      new FallbackLootEntry(SfdItemIds.PROTO_IRON_CLUSTER.toString(), 1, 2),
+      new FallbackLootEntry(SfdItemIds.PROTO_COPPER_CLUSTER.toString(), 1, 2),
+      new FallbackLootEntry(SfdItemIds.HYDRO_SEED.toString(), 1, 2),
+      new FallbackLootEntry(SfdItemIds.CONDENSED_WATER_CELL.toString(), 1, 2),
+      new FallbackLootEntry(SfdItemIds.ATMO_FILAMENT.toString(), 1, 2),
+      new FallbackLootEntry(SfdItemIds.OXYGEN_MATRIX.toString(), 1, 2),
       new FallbackLootEntry("minecraft:bone_meal", 2, 12),
       new FallbackLootEntry("minecraft:clay_ball", 2, 10),
       new FallbackLootEntry("minecraft:redstone", 3, 12),
       new FallbackLootEntry("minecraft:quartz", 2, 8),
       new FallbackLootEntry("minecraft:iron_nugget", 4, 16),
       new FallbackLootEntry("minecraft:copper_ingot", 1, 4)
+  };
+  private static final String[] STAGE_IDS = new String[]{
+      "sfd_stage_0_welcome",
+      "sfd_stage_1_beginning",
+      "sfd_stage_2_stone",
+      "sfd_stage_3_heat",
+      "sfd_stage_4_machines",
+      "sfd_stage_5_automation",
+      "sfd_stage_6_endgame"
+  };
+  private static final String[] STAGE_ADVANCEMENTS = new String[]{
+      "skyfactorydark:stages/stage_00_willkommen",
+      "skyfactorydark:stages/stage_01_the_beginning",
+      "skyfactorydark:stages/stage_02_stone",
+      "skyfactorydark:stages/stage_03_heat",
+      "skyfactorydark:stages/stage_04_machines",
+      "skyfactorydark:stages/stage_05_automation",
+      "skyfactorydark:stages/stage_06_endgame"
   };
 
   public SfdCometsMod() {
@@ -105,11 +128,24 @@ public class SfdCometsMod {
   }
 
   private void buildCreativeTabContents(BuildCreativeModeTabContentsEvent event) {
+    // Put all SFD items in Ingredients so JEI can index the full registry set.
+    if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
+      ModItems.ITEMS.getEntries().forEach(item -> event.accept(item.get()));
+      return;
+    }
+
+    // Keep the most important utility entries visible in their thematic tabs too.
     if (event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
       event.accept(ModItems.BIO_BACKPACK.get());
+      event.accept(ModItems.ORGANIC_ROD.get());
+      event.accept(ModItems.CRUDE_MALLET.get());
+      event.accept(ModItems.BIO_GROWTH_PASTE.get());
+      return;
     }
+
     if (event.getTabKey() == CreativeModeTabs.FUNCTIONAL_BLOCKS) {
       event.accept(ModItems.BIO_PODEST.get());
+      event.accept(ModItems.COMET_CACHE.get());
     }
   }
 
@@ -206,6 +242,32 @@ public class SfdCometsMod {
   }
 
   @SubscribeEvent
+  public void onPlayerLoggedIn(PlayerEvent.PlayerLoggedInEvent event) {
+    if (!(event.getEntity() instanceof ServerPlayer player)) return;
+    int changed = migrateContainerItems(player.getInventory());
+    changed += migrateContainerItems(player.getEnderChestInventory());
+    if (changed > 0) {
+      LOGGER.info("[SFD] Migrated {} legacy item stacks for {}", changed, player.getGameProfile().getName());
+    }
+  }
+
+  private static int migrateContainerItems(Container container) {
+    int changed = 0;
+    for (int i = 0; i < container.getContainerSize(); i++) {
+      ItemStack source = container.getItem(i);
+      if (source.isEmpty()) continue;
+      ItemStack target = SfdItemIdMigration.remapIfNeeded(source);
+      if (target == source || ItemStack.isSameItemSameTags(source, target)) continue;
+      container.setItem(i, target);
+      changed++;
+    }
+    if (changed > 0) {
+      container.setChanged();
+    }
+    return changed;
+  }
+
+  @SubscribeEvent
   public void onBlockBreak(BlockEvent.BreakEvent event) {
     if (!(event.getLevel() instanceof ServerLevel serverLevel)) return;
 
@@ -239,6 +301,9 @@ public class SfdCometsMod {
             .then(Commands.literal("comet")
                 .then(Commands.argument("value", BoolArgumentType.bool())
                     .executes(ctx -> runSfdStateSetComet(ctx, BoolArgumentType.getBool(ctx, "value")))))
+            .then(Commands.literal("stage")
+                .then(Commands.argument("value", IntegerArgumentType.integer(0, 6))
+                    .executes(ctx -> runSfdStateSetStage(ctx, IntegerArgumentType.getInteger(ctx, "value")))))
             .then(Commands.literal("impacttest")
                 .executes(ctx -> runSfdImpactTest(ctx, null))
                 .then(Commands.argument("tier", IntegerArgumentType.integer(0, 6))
@@ -266,7 +331,8 @@ public class SfdCometsMod {
   }
 
   private static void enforceWorldStatePolicies(MinecraftServer server, SfdWorldStateData state) {
-    ServerLevel overworld = server.overworld();
+    ServerLevel overworld = server.getLevel(Level.OVERWORLD);
+    if (overworld == null) return;
 
     if (!state.isWeatherUnlocked()) {
       // Lock weather to clear until stage policy unlocks weather.
@@ -297,7 +363,8 @@ public class SfdCometsMod {
   }
 
   private static void prepareCometImpactTarget(MinecraftServer server, SfdWorldStateData state) {
-    ServerLevel overworld = server.overworld();
+    ServerLevel overworld = server.getLevel(Level.OVERWORLD);
+    if (overworld == null) return;
 
     List<ServerPlayer> players = server.getPlayerList()
         .getPlayers()
@@ -340,7 +407,8 @@ public class SfdCometsMod {
       return;
     }
 
-    ServerLevel overworld = server.overworld();
+    ServerLevel overworld = server.getLevel(Level.OVERWORLD);
+    if (overworld == null) return;
     if (!state.hasCometImpactTarget()) {
       prepareCometImpactTarget(server, state);
     }
@@ -417,7 +485,7 @@ public class SfdCometsMod {
     int stacks = getPositive(SfdConfig.COMET_IMPACT_CHEST_LOOT_STACKS.get());
     int rawTier = forcedTier != null ? Math.max(0, forcedTier) : SfdWorldStateData.get(level.getServer()).getStageLootTier();
     int tier = clampLootTier(rawTier);
-    ResourceLocation tableId = new ResourceLocation(MOD_ID, "chests/comet_tier_" + tier);
+    ResourceLocation tableId = ResourceLocation.fromNamespaceAndPath(MOD_ID, "chests/comet_tier_" + tier);
     LootTable table = level.getServer().getLootData().getLootTable(tableId);
     LootParams params = new LootParams.Builder(level)
         .withParameter(LootContextParams.ORIGIN, Vec3.atCenterOf(chestPos))
@@ -536,6 +604,54 @@ public class SfdCometsMod {
     return 1;
   }
 
+  private int runSfdStateSetStage(CommandContext<CommandSourceStack> ctx, int value) {
+    if (!(ctx.getSource().getEntity() instanceof ServerPlayer player)) {
+      ctx.getSource().sendFailure(Component.literal("[SFD] stage command is player-only"));
+      return 0;
+    }
+
+    int stageValue = Mth.clamp(value, 0, STAGE_IDS.length - 1);
+    CommandSourceStack playerSource = player.createCommandSourceStack().withSuppressedOutput();
+    MinecraftServer server = ctx.getSource().getServer();
+
+    // Keep GameStages and advancement visibility in sync.
+    for (int i = 0; i < STAGE_IDS.length; i++) {
+      boolean enable = i <= stageValue;
+      setPlayerStageByCommand(playerSource, STAGE_IDS[i], enable);
+      if (enable) {
+        server.getCommands().performPrefixedCommand(
+            playerSource,
+            "advancement grant @s only " + STAGE_ADVANCEMENTS[i]
+        );
+      } else {
+        server.getCommands().performPrefixedCommand(
+            playerSource,
+            "advancement revoke @s only " + STAGE_ADVANCEMENTS[i]
+        );
+      }
+    }
+
+    SfdWorldStateData state = SfdWorldStateData.get(server);
+    state.setStageLootTier(stageValue);
+    state.setCometUnlocked(stageValue >= 2);
+    state.setWeatherUnlocked(stageValue >= 3);
+
+    ctx.getSource().sendSuccess(
+        () -> Component.literal(
+            "[SFD] stage set to " + stageValue
+                + " | comet=" + state.isCometUnlocked()
+                + " | weather=" + state.isWeatherUnlocked()
+                + " | lootTier=" + state.getStageLootTier()
+        ),
+        true
+    );
+    ctx.getSource().sendSuccess(
+        () -> Component.literal("[SFD] If JEI still shows locked content: rejoin world once."),
+        false
+    );
+    return 1;
+  }
+
   private int runSfdStateResetPhase(CommandContext<CommandSourceStack> ctx) {
     MinecraftServer server = ctx.getSource().getServer();
     SfdWorldStateData state = SfdWorldStateData.get(server);
@@ -599,6 +715,15 @@ public class SfdCometsMod {
     return Mth.clamp(Math.max(0, tier), configuredMinTier, configuredMaxTier);
   }
 
+  private static void setPlayerStageByCommand(CommandSourceStack source, String stageId, boolean enable) {
+    if (stageId == null || stageId.isBlank()) return;
+    String op = enable ? "add" : "remove";
+    MinecraftServer server = source.getServer();
+    // Try common command names to stay compatible with different GameStages builds.
+    server.getCommands().performPrefixedCommand(source, "gamestage " + op + " @s " + stageId);
+    server.getCommands().performPrefixedCommand(source, "gamestages " + op + " @s " + stageId);
+  }
+
   @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
   public static class ClientEvents {
     @SubscribeEvent
@@ -618,7 +743,7 @@ public class SfdCometsMod {
       if (itemId == null || itemId.isBlank()) return ItemStack.EMPTY;
       ItemStack fallback = ItemStack.EMPTY;
       try {
-        var id = new ResourceLocation(itemId);
+        var id = ResourceLocation.parse(itemId);
         var item = ForgeRegistries.ITEMS.getValue(id);
         if (item == null || item == Items.AIR) return ItemStack.EMPTY;
         int min = Math.max(1, minCount);
@@ -631,5 +756,6 @@ public class SfdCometsMod {
     }
   }
 }
+
 
 

@@ -1,4 +1,4 @@
-﻿// Comet loot profile (SSOT bridge)
+// Comet loot profile (SSOT bridge)
 // Tier 0-1 intentionally empty. Comet progression starts at tier 2.
 
 (function () {

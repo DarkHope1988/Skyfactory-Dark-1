@@ -1,4 +1,4 @@
-﻿// Skyfactory Dark - Stage-0 Bio Loop tooltips
+// Skyfactory Dark - Stage-0 Bio Loop tooltips
 
 ItemEvents.tooltip(event => {
   event.add('sfd_comets:leaf_threads', [

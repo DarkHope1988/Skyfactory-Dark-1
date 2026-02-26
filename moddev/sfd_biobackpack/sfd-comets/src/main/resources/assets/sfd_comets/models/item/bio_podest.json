@@ -1,3 +1,6 @@
 {
-  "parent": "sfd_comets:block/bio_podest"
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "minecraft:block/composter_top"
+  }
 }

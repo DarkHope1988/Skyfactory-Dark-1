@@ -1,4 +1,4 @@
-﻿// Planetization profile (SSOT bridge)
+// Planetization profile (SSOT bridge)
 // Data-only profile for staged world transformation from sterile sky world
 // to water/air/stable planet conditions.
 

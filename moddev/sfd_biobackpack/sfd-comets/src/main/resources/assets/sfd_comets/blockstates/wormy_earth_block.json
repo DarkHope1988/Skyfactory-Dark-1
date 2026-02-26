@@ -1,0 +1,5 @@
+﻿{
+  "variants": {
+    "": { "model": "sfd_comets:block/wormy_earth_block" }
+  }
+}

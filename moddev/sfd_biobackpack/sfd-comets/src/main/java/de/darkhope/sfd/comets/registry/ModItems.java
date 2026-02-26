@@ -75,6 +75,16 @@ public class ModItems {
       () -> new BlockItem(ModBlocks.COMET_CACHE.get(), new Item.Properties())
   );
 
+  public static final RegistryObject<Item> EARTH_BLOCK = block("earth_block", ModBlocks.EARTH_BLOCK);
+  public static final RegistryObject<Item> WORMY_EARTH_BLOCK = block("wormy_earth_block", ModBlocks.WORMY_EARTH_BLOCK);
+  public static final RegistryObject<Item> BARK_BLOCK = block("bark_block", ModBlocks.BARK_BLOCK);
+  public static final RegistryObject<Item> WORMY_BARK_BLOCK = block("wormy_bark_block", ModBlocks.WORMY_BARK_BLOCK);
+  public static final RegistryObject<Item> HOLLOW_BARK_BLOCK = block("hollow_bark_block", ModBlocks.HOLLOW_BARK_BLOCK);
+  public static final RegistryObject<Item> TREATED_HOLLOW_BARK_BLOCK = block("treated_hollow_bark_block", ModBlocks.TREATED_HOLLOW_BARK_BLOCK);
+  public static final RegistryObject<Item> PACKED_SOIL = block("packed_soil", ModBlocks.PACKED_SOIL);
+  public static final RegistryObject<Item> BUILDER_EARTH_BLOCK = block("builder_earth_block", ModBlocks.BUILDER_EARTH_BLOCK);
+  public static final RegistryObject<Item> PODEST_STONE_BASE = block("podest_stone_base", ModBlocks.PODEST_STONE_BASE);
+
   public static final RegistryObject<Item> BIO_GROWTH_PASTE = ITEMS.register(
       "bio_growth_paste",
       () -> new BioGrowthPasteItem(new Item.Properties())
@@ -100,6 +110,10 @@ public class ModItems {
             )
         )
     );
+  }
+
+  private static RegistryObject<Item> block(String id, RegistryObject<net.minecraft.world.level.block.Block> block) {
+    return ITEMS.register(id, () -> new BlockItem(block.get(), new Item.Properties()));
   }
 
   private ModItems() {

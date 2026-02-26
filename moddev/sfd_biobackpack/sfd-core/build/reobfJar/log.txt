@@ -148,6 +148,12 @@ Writing Output: C:\Users\bigcr\AppData\Roaming\PrismLauncher\instances\1.20.1(1)
   de/darkhope/sfd/core/SfdCoreMod.class
   de/darkhope/sfd/core/api/
   de/darkhope/sfd/core/api/SfdWorldStateBridge.class
+  de/darkhope/sfd/core/ids/
+  de/darkhope/sfd/core/ids/SfdBlockIds.class
+  de/darkhope/sfd/core/ids/SfdItemIds.class
+  de/darkhope/sfd/core/ids/SfdMods.class
+  de/darkhope/sfd/core/migration/
+  de/darkhope/sfd/core/migration/SfdItemIdMigration.class
   de/darkhope/sfd/core/world/
   de/darkhope/sfd/core/world/SfdWorldStateData$CometTransition.class
   de/darkhope/sfd/core/world/SfdWorldStateData.class

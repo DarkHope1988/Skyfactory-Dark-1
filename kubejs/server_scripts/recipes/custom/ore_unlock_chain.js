@@ -1,4 +1,4 @@
-﻿// Skyfactory Dark - Ore unlock bridge chain
+// Skyfactory Dark - Ore unlock bridge chain
 // Comet tiers provide custom proto resources; this chain unlocks vanilla metals gradually.
 
 ServerEvents.recipes(event => {

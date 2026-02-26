@@ -4,13 +4,14 @@
     {
       "rolls": 5,
       "entries": [
-        { "type": "minecraft:item", "name": "kubejs:mineral_catalyst" },
-        { "type": "minecraft:item", "name": "kubejs:raw_metal_lattice" },
-        { "type": "minecraft:item", "name": "kubejs:hydro_seed" },
-        { "type": "minecraft:item", "name": "kubejs:condensed_water_cell" },
+        { "type": "minecraft:item", "name": "sfd_comets:mineral_catalyst" },
+        { "type": "minecraft:item", "name": "sfd_comets:raw_metal_lattice" },
+        { "type": "minecraft:item", "name": "sfd_comets:hydro_seed" },
+        { "type": "minecraft:item", "name": "sfd_comets:condensed_water_cell" },
         { "type": "minecraft:item", "name": "minecraft:quartz" },
         { "type": "minecraft:item", "name": "minecraft:redstone" }
       ]
     }
   ]
 }
+

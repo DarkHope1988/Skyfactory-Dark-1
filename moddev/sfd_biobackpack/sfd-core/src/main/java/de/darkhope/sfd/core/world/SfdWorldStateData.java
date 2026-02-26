@@ -4,7 +4,9 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.Tag;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.Mth;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.saveddata.SavedData;
 import net.minecraft.world.level.storage.DimensionDataStorage;
 
@@ -14,6 +16,8 @@ import java.util.Set;
 public class SfdWorldStateData extends SavedData {
   public static final String DATA_NAME = "sfd_world_state";
   public static final String ROOT_KEY = "sfd";
+  public static final String DATA_VERSION_KEY = "data_version";
+  public static final int CURRENT_DATA_VERSION = 2;
   public static final String WEATHER_UNLOCKED_KEY = "sfd_weather_unlocked";
   public static final String COMET_UNLOCKED_KEY = "sfd_comet_unlocked";
   public static final String COMET_PHASE_KEY = "sfd_comet_phase";
@@ -35,9 +39,14 @@ public class SfdWorldStateData extends SavedData {
   private final Set<Long> cometChestPositions = new HashSet<>();
   private int stageLootTier;
   private int worldStability = 100;
+  private int dataVersion = CURRENT_DATA_VERSION;
 
   public static SfdWorldStateData get(MinecraftServer server) {
-    DimensionDataStorage storage = server.overworld().getDataStorage();
+    ServerLevel overworld = server.getLevel(Level.OVERWORLD);
+    if (overworld == null) {
+      throw new IllegalStateException("Overworld is not available");
+    }
+    DimensionDataStorage storage = overworld.getDataStorage();
     return storage.computeIfAbsent(SfdWorldStateData::load, SfdWorldStateData::new, DATA_NAME);
   }
 
@@ -47,6 +56,9 @@ public class SfdWorldStateData extends SavedData {
     // Primary format: nested root object.
     if (tag.contains(ROOT_KEY, Tag.TAG_COMPOUND)) {
       CompoundTag root = tag.getCompound(ROOT_KEY);
+      data.dataVersion = root.contains(DATA_VERSION_KEY, Tag.TAG_INT)
+          ? root.getInt(DATA_VERSION_KEY)
+          : 1;
       data.weatherUnlocked = root.getBoolean(WEATHER_UNLOCKED_KEY);
       data.cometUnlocked = root.getBoolean(COMET_UNLOCKED_KEY);
       if (root.contains(COMET_PHASE_KEY, Tag.TAG_STRING)) {
@@ -71,10 +83,12 @@ public class SfdWorldStateData extends SavedData {
       if (root.contains(WORLD_STABILITY_KEY, Tag.TAG_INT)) {
         data.worldStability = root.getInt(WORLD_STABILITY_KEY);
       }
+      data.runDataMigrations();
       return data;
     }
 
     // Legacy fallback: flat keys.
+    data.dataVersion = 1;
     data.weatherUnlocked = tag.getBoolean(WEATHER_UNLOCKED_KEY);
     data.cometUnlocked = tag.getBoolean(COMET_UNLOCKED_KEY);
     if (tag.contains(COMET_PHASE_KEY, Tag.TAG_STRING)) {
@@ -99,12 +113,14 @@ public class SfdWorldStateData extends SavedData {
     if (tag.contains(WORLD_STABILITY_KEY, Tag.TAG_INT)) {
       data.worldStability = tag.getInt(WORLD_STABILITY_KEY);
     }
+    data.runDataMigrations();
     return data;
   }
 
   @Override
   public CompoundTag save(CompoundTag tag) {
     CompoundTag root = new CompoundTag();
+    root.putInt(DATA_VERSION_KEY, dataVersion);
     root.putBoolean(WEATHER_UNLOCKED_KEY, weatherUnlocked);
     root.putBoolean(COMET_UNLOCKED_KEY, cometUnlocked);
     root.putString(COMET_PHASE_KEY, cometPhase);
@@ -147,6 +163,23 @@ public class SfdWorldStateData extends SavedData {
     tag.putInt(STAGE_LOOT_TIER_KEY, stageLootTier);
     tag.putInt(WORLD_STABILITY_KEY, worldStability);
     return tag;
+  }
+
+  private void runDataMigrations() {
+    if (dataVersion < 2) {
+      // v2: clamp invalid values from legacy scripts and normalize defaults.
+      stageLootTier = Math.max(0, stageLootTier);
+      worldStability = Mth.clamp(worldStability, 0, 100);
+      if (cometPhase == null || cometPhase.isEmpty()) {
+        cometPhase = "cooldown";
+      }
+      cometPhaseTicks = Math.max(1, cometPhaseTicks);
+      dataVersion = 2;
+    }
+    if (dataVersion > CURRENT_DATA_VERSION) {
+      // Future save opened by older code: keep values, just avoid downgrade writes.
+      dataVersion = CURRENT_DATA_VERSION;
+    }
   }
 
   public boolean isWeatherUnlocked() {

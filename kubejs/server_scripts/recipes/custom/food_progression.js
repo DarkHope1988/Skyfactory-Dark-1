@@ -1,4 +1,4 @@
-﻿// Skyfactory Dark - Early food progression (3 paths, sequential utility)
+// Skyfactory Dark - Early food progression (3 paths, sequential utility)
 
 ServerEvents.recipes(event => {
   // Path A: Emergency food directly from saplings.

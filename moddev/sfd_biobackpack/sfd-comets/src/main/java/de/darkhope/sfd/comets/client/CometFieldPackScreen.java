@@ -9,7 +9,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 
 public class CometFieldPackScreen extends AbstractContainerScreen<CometFieldPackMenu> {
-  private static final ResourceLocation TEXTURE = new ResourceLocation("minecraft", "textures/gui/container/dispenser.png");
+  private static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath("minecraft", "textures/gui/container/dispenser.png");
 
   public CometFieldPackScreen(CometFieldPackMenu menu, Inventory playerInventory, Component title) {
     super(menu, playerInventory, title);

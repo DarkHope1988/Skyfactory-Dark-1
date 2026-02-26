@@ -1,4 +1,4 @@
-﻿// Client: JEI information for Stage-0 Bio Loop
+// Client: JEI information for Stage-0 Bio Loop
 
 JEIEvents.hideItems(event => {
   // Technical world/impact container, intentionally not player-facing in JEI.
@@ -21,7 +21,7 @@ JEIEvents.information(event => {
     'Wird fuer Earth/Wurm/Baumstamm-Behandlung genutzt.'
   ]);
 
-  event.addItem('kubejs:earth_block', [
+  event.addItem('sfd_comets:earth_block', [
     'SCHRITT 3: Craft aus Leaf Bundle + Wood Shavings.',
     'Abbauen -> Earth Clumps + Wurm-Chance.'
   ]);
@@ -54,7 +54,7 @@ JEIEvents.information(event => {
     '4x -> Bark Block.'
   ]);
 
-  event.addItem('kubejs:bark_block', [
+  event.addItem('sfd_comets:bark_block', [
     'CRAFT: 4x Tree Bark.',
     'Wurm-Rechtsklick -> Wormy Bark Block.'
   ]);
@@ -65,13 +65,13 @@ JEIEvents.information(event => {
     'Organic Rod-Rechtsklick -> Hollow Bark Block (besser).'
   ]);
 
-  event.addItem('kubejs:hollow_bark_block', [
+  event.addItem('sfd_comets:hollow_bark_block', [
     'ENTSTEHT: Organic Rod auf Wormy Bark.',
     'Abbauen: ca. 66% Plank-Chance.',
     'Mit Resin ODER Wood Shavings behandeln -> 100% Variante.'
   ]);
 
-  event.addItem('kubejs:treated_hollow_bark_block', [
+  event.addItem('sfd_comets:treated_hollow_bark_block', [
     'ENTSTEHT: Hollow Bark + Resin ODER Wood Shavings.',
     'Abbauen: 100% Oak Plank.'
   ]);
@@ -89,20 +89,11 @@ JEIEvents.information(event => {
     '- Auf Bio-Podest: Slot-Inhalt entnehmen'
   ]);
 
-  event.addItem('kubejs:bio_podest', [
-    'BIO-PODEST:',
-    '1) Rechtsklick mit Earth Block ODER Dirt -> in Podest-Slot einlegen.',
-    '2) Rechtsklick mit Wurm -> Chance auf Wormy Earth im Slot.',
-    '3) Rechtsklick mit Baumspaenen -> Chance auf Dried Worm.',
-    '4) Organic Rod auf Podest -> Slot-Inhalt ausgeben.',
-    'Leerhand-Klick zeigt Slotstatus, Shift+Leerhand entnimmt direkt.',
-    'Dient als frueher Arbeits-Shortcut.'
-  ]);
-
   event.addItem('sfd_comets:bio_podest', [
     'BIO-PODEST (MOD-BLOCK):',
     'Hat einen echten 1-Slot Container.',
-    'Rechtsklick zum Oeffnen, Item direkt einlegen/entnehmen.'
+    'Rechtsklick zum Oeffnen, Item direkt einlegen/entnehmen.',
+    'Podest-Logik ersetzt die alte KubeJS-Variante.'
   ]);
 
   event.addItem('minecraft:oak_planks', [
@@ -134,7 +125,7 @@ JEIEvents.information(event => {
     'Mit Dirt zusammen fuer Packed Soil.'
   ]);
 
-  event.addItem('kubejs:packed_soil', [
+  event.addItem('sfd_comets:packed_soil', [
     'WORKBENCH REZEPT:',
     'Dirt + Compost Pulp -> Packed Soil.',
     'Mit Crude Mallet abbauen fuer Stone Grit.'
@@ -157,7 +148,7 @@ JEIEvents.information(event => {
     'Freischaltung folgt spaeter ueber Stage-Progression.'
   ]);
 
-  event.addItem('kubejs:builder_earth_block', [
+  event.addItem('sfd_comets:builder_earth_block', [
     'PLATTFORM-PFAD:',
     '4x Earth Block -> 4x Bau-Erdblock.',
     'Nutze diesen Block zum Bauen,',
@@ -210,7 +201,7 @@ JEIEvents.information(event => {
     'WORLD UNLOCK: Wetter-Policy wird freigeschaltet.'
   ]);
 
-  event.addItem('kubejs:podest_stone_base', [
+  event.addItem('sfd_comets:podest_stone_base', [
     'PODEST UPGRADE (STONE):',
     'Craft mit Cobblestone + Resin.',
     'Stelle das Bio-Podest darauf:',

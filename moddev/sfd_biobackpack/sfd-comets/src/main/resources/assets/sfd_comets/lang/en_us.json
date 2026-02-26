@@ -47,4 +47,22 @@
     "item.sfd_comets.interdimensional_gateway_core":  "Interdimensional Gateway Core",
     "item.sfd_comets.gateway_attunement_map":  "Gateway Attunement Map",
     "item.sfd_comets.crude_mallet":  "Crude Mallet"
+    ,"block.sfd_comets.earth_block": "Earth Block"
+    ,"item.sfd_comets.earth_block": "Earth Block"
+    ,"block.sfd_comets.wormy_earth_block": "Wormy Earth Block"
+    ,"item.sfd_comets.wormy_earth_block": "Wormy Earth Block"
+    ,"block.sfd_comets.bark_block": "Bark Block"
+    ,"item.sfd_comets.bark_block": "Bark Block"
+    ,"block.sfd_comets.wormy_bark_block": "Wormy Bark Block"
+    ,"item.sfd_comets.wormy_bark_block": "Wormy Bark Block"
+    ,"block.sfd_comets.hollow_bark_block": "Hollow Bark Block"
+    ,"item.sfd_comets.hollow_bark_block": "Hollow Bark Block"
+    ,"block.sfd_comets.treated_hollow_bark_block": "Treated Hollow Bark Block"
+    ,"item.sfd_comets.treated_hollow_bark_block": "Treated Hollow Bark Block"
+    ,"block.sfd_comets.packed_soil": "Packed Soil"
+    ,"item.sfd_comets.packed_soil": "Packed Soil"
+    ,"block.sfd_comets.builder_earth_block": "Builder Earth Block"
+    ,"item.sfd_comets.builder_earth_block": "Builder Earth Block"
+    ,"block.sfd_comets.podest_stone_base": "Podest Stone Base"
+    ,"item.sfd_comets.podest_stone_base": "Podest Stone Base"
 }

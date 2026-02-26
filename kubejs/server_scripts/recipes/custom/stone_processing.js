@@ -3,7 +3,7 @@
 //
 // Ziel:
 // - Stone Grit ist dein erster "Stein-Ersatz" aus Packed Soil.
-// - Cobblestone soll NICHT in 2 Minuten verfÃ¼gbar sein,
+// - Cobblestone soll NICHT in 2 Minuten verfÃƒÂ¼gbar sein,
 //   aber auch nicht ewig dauern.
 //
 // Balancing (Start):
@@ -53,7 +53,7 @@ ServerEvents.recipes(event => {
   }).id('kubejs:stone/grit_to_cobble');
 
   // First Stone-age podest upgrade component.
-  event.shaped('kubejs:podest_stone_base', [
+  event.shaped('sfd_comets:podest_stone_base', [
     'CCC',
     'CRC',
     'CCC'
@@ -62,7 +62,7 @@ ServerEvents.recipes(event => {
     R: 'sfd_comets:resin_fragment'
   }).id('kubejs:stone/podest_stone_base');
 
-  // Optional: Pebble Cluster -> Gravel (spÃ¤ter nÃ¼tzlich)
+  // Optional: Pebble Cluster -> Gravel (spÃƒÂ¤ter nÃƒÂ¼tzlich)
   event.shaped('minecraft:gravel', [
     'PP',
     'PP'
@@ -71,4 +71,5 @@ ServerEvents.recipes(event => {
   });
 
 });
+
 

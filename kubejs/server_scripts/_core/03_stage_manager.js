@@ -1,4 +1,4 @@
-﻿// Stage Core Module
+// Stage Core Module
 // Provides a single manager facade for stage registry, triggers and grants.
 
 (function () {

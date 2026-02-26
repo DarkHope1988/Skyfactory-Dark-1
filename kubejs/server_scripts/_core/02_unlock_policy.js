@@ -1,4 +1,4 @@
-﻿// Unlock Policy Module
+// Unlock Policy Module
 // Applies stage-based world unlock policy in one place.
 
 (function () {

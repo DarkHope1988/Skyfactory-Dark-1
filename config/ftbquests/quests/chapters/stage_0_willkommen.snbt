@@ -1,4 +1,4 @@
-﻿{
+{
 	default_hide_dependency_lines: false
 	default_quest_shape: "square"
 	filename: "stage_0_willkommen"
@@ -71,7 +71,7 @@
 			tasks: [{
 				count: 4L
 				id: "0AC3ED3AE5383E32"
-				item: { Count: 4, id: "kubejs:earth_block" }
+				item: { Count: 4, id: "sfd_comets:earth_block" }
 				type: "item"
 			}]
 			title: "04 | Craft: Erdblock herstellen"
@@ -369,4 +369,5 @@
 	]
 	title: "00 Stage 0 - Willkommen"
 }
+
 

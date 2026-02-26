@@ -4,12 +4,13 @@
     {
       "rolls": 5,
       "entries": [
-        { "type": "minecraft:item", "name": "kubejs:microbe_culture" },
-        { "type": "minecraft:item", "name": "kubejs:meteoric_slag" },
-        { "type": "minecraft:item", "name": "kubejs:organic_dust" },
+        { "type": "minecraft:item", "name": "sfd_comets:microbe_culture" },
+        { "type": "minecraft:item", "name": "sfd_comets:meteoric_slag" },
+        { "type": "minecraft:item", "name": "sfd_comets:organic_dust" },
         { "type": "minecraft:item", "name": "minecraft:bone_meal" },
         { "type": "minecraft:item", "name": "minecraft:clay_ball" }
       ]
     }
   ]
 }
+

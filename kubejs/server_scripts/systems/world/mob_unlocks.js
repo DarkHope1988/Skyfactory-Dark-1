@@ -1,4 +1,4 @@
-﻿// System: hostile mob unlock mapping
+// System: hostile mob unlock mapping
 // Default state: no hostile mobs unlocked.
 //
 // Usage later:

@@ -1,4 +1,4 @@
-﻿{
+{
 	default_hide_dependency_lines: false
 	default_quest_shape: "square"
 	filename: "stage_1_the_beginning"
@@ -89,7 +89,7 @@
 			tasks: [{
 				count: 16L
 				id: "6CC89D24C13B5C88"
-				item: { Count: 16, id: "kubejs:packed_soil" }
+				item: { Count: 16, id: "sfd_comets:packed_soil" }
 				type: "item"
 			}]
 			title: "05 | Packed Soil produzieren"
@@ -245,4 +245,5 @@
 	]
 	title: "01 Stage 1 - The Beginning"
 }
+
 

@@ -2,6 +2,8 @@ package de.darkhope.sfd.comets.blockentity;
 
 import de.darkhope.sfd.comets.menu.CometPodestMenu;
 import de.darkhope.sfd.comets.registry.ModBlockEntities;
+import de.darkhope.sfd.core.ids.SfdBlockIds;
+import de.darkhope.sfd.core.ids.SfdItemIds;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
@@ -31,19 +33,19 @@ public class CometPodestBlockEntity extends BlockEntity implements Container, Me
   public static final int SLOT_OUTPUT = 2;
   // Base stage intentionally slow; later upgrades can reduce this again.
   private static final int PROCESS_INTERVAL_TICKS = 200;
-  private static final ResourceLocation EARTH_ID = new ResourceLocation("kubejs:earth_block");
-  private static final ResourceLocation WORM_ID = new ResourceLocation("kubejs:worm");
-  private static final ResourceLocation WORMY_EARTH_ID = new ResourceLocation("kubejs:wormy_earth_block");
-  private static final ResourceLocation WOOD_SHAVINGS_ID = new ResourceLocation("kubejs:wood_shavings");
-  private static final ResourceLocation DRIED_WORM_ID = new ResourceLocation("kubejs:dried_worm");
-  private static final ResourceLocation BARK_BLOCK_ID = new ResourceLocation("kubejs:bark_block");
-  private static final ResourceLocation WORMY_BARK_BLOCK_ID = new ResourceLocation("kubejs:wormy_bark_block");
-  private static final ResourceLocation HOLLOW_BARK_BLOCK_ID = new ResourceLocation("kubejs:hollow_bark_block");
-  private static final ResourceLocation TREATED_HOLLOW_BARK_BLOCK_ID = new ResourceLocation("kubejs:treated_hollow_bark_block");
-  private static final ResourceLocation ORGANIC_ROD_ID = new ResourceLocation("kubejs:organic_rod");
-  private static final ResourceLocation RESIN_FRAGMENT_ID = new ResourceLocation("kubejs:resin_fragment");
-  private static final ResourceLocation OAK_PLANKS_ID = new ResourceLocation("minecraft:oak_planks");
-  private static final ResourceLocation PODEST_STONE_BASE_ID = new ResourceLocation("kubejs:podest_stone_base");
+  private static final ResourceLocation EARTH_ID = SfdBlockIds.KUBEJS_EARTH_BLOCK;
+  private static final ResourceLocation WORM_ID = SfdItemIds.WORM;
+  private static final ResourceLocation WORMY_EARTH_ID = SfdBlockIds.KUBEJS_WORMY_EARTH_BLOCK;
+  private static final ResourceLocation WOOD_SHAVINGS_ID = SfdItemIds.WOOD_SHAVINGS;
+  private static final ResourceLocation DRIED_WORM_ID = SfdItemIds.DRIED_WORM;
+  private static final ResourceLocation BARK_BLOCK_ID = SfdBlockIds.KUBEJS_BARK_BLOCK;
+  private static final ResourceLocation WORMY_BARK_BLOCK_ID = SfdBlockIds.KUBEJS_WORMY_BARK_BLOCK;
+  private static final ResourceLocation HOLLOW_BARK_BLOCK_ID = SfdBlockIds.KUBEJS_HOLLOW_BARK_BLOCK;
+  private static final ResourceLocation TREATED_HOLLOW_BARK_BLOCK_ID = SfdBlockIds.KUBEJS_TREATED_HOLLOW_BARK_BLOCK;
+  private static final ResourceLocation ORGANIC_ROD_ID = SfdItemIds.ORGANIC_ROD;
+  private static final ResourceLocation RESIN_FRAGMENT_ID = SfdItemIds.RESIN_FRAGMENT;
+  private static final ResourceLocation OAK_PLANKS_ID = ResourceLocation.parse("minecraft:oak_planks");
+  private static final ResourceLocation PODEST_STONE_BASE_ID = SfdBlockIds.KUBEJS_PODEST_STONE_BASE;
 
   private final NonNullList<ItemStack> items = NonNullList.withSize(3, ItemStack.EMPTY);
   private int processTick = 0;
@@ -307,5 +309,6 @@ public class CometPodestBlockEntity extends BlockEntity implements Container, Me
     return PROCESS_INTERVAL_TICKS;
   }
 }
+
 
 

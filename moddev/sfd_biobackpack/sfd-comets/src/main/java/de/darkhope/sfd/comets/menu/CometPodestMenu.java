@@ -3,6 +3,8 @@ package de.darkhope.sfd.comets.menu;
 import de.darkhope.sfd.comets.blockentity.CometPodestBlockEntity;
 import de.darkhope.sfd.comets.registry.ModBlocks;
 import de.darkhope.sfd.comets.registry.ModMenus;
+import de.darkhope.sfd.core.ids.SfdBlockIds;
+import de.darkhope.sfd.core.ids.SfdItemIds;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.Container;
@@ -22,16 +24,16 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 public class CometPodestMenu extends AbstractContainerMenu {
   private static final int SLOT_COUNT = 3;
-  private static final ResourceLocation EARTH_ID = new ResourceLocation("kubejs:earth_block");
-  private static final ResourceLocation WORMY_EARTH_ID = new ResourceLocation("kubejs:wormy_earth_block");
-  private static final ResourceLocation BARK_BLOCK_ID = new ResourceLocation("kubejs:bark_block");
-  private static final ResourceLocation WORMY_BARK_BLOCK_ID = new ResourceLocation("kubejs:wormy_bark_block");
-  private static final ResourceLocation HOLLOW_BARK_BLOCK_ID = new ResourceLocation("kubejs:hollow_bark_block");
-  private static final ResourceLocation TREATED_HOLLOW_BARK_BLOCK_ID = new ResourceLocation("kubejs:treated_hollow_bark_block");
-  private static final ResourceLocation WORM_ID = new ResourceLocation("kubejs:worm");
-  private static final ResourceLocation WOOD_SHAVINGS_ID = new ResourceLocation("kubejs:wood_shavings");
-  private static final ResourceLocation ORGANIC_ROD_ID = new ResourceLocation("kubejs:organic_rod");
-  private static final ResourceLocation RESIN_FRAGMENT_ID = new ResourceLocation("kubejs:resin_fragment");
+  private static final ResourceLocation EARTH_ID = SfdBlockIds.KUBEJS_EARTH_BLOCK;
+  private static final ResourceLocation WORMY_EARTH_ID = SfdBlockIds.KUBEJS_WORMY_EARTH_BLOCK;
+  private static final ResourceLocation BARK_BLOCK_ID = SfdBlockIds.KUBEJS_BARK_BLOCK;
+  private static final ResourceLocation WORMY_BARK_BLOCK_ID = SfdBlockIds.KUBEJS_WORMY_BARK_BLOCK;
+  private static final ResourceLocation HOLLOW_BARK_BLOCK_ID = SfdBlockIds.KUBEJS_HOLLOW_BARK_BLOCK;
+  private static final ResourceLocation TREATED_HOLLOW_BARK_BLOCK_ID = SfdBlockIds.KUBEJS_TREATED_HOLLOW_BARK_BLOCK;
+  private static final ResourceLocation WORM_ID = SfdItemIds.WORM;
+  private static final ResourceLocation WOOD_SHAVINGS_ID = SfdItemIds.WOOD_SHAVINGS;
+  private static final ResourceLocation ORGANIC_ROD_ID = SfdItemIds.ORGANIC_ROD;
+  private static final ResourceLocation RESIN_FRAGMENT_ID = SfdItemIds.RESIN_FRAGMENT;
   private final Container container;
   private final ContainerLevelAccess access;
   private final ContainerData data;
@@ -176,5 +178,6 @@ public class CometPodestMenu extends AbstractContainerMenu {
     return Math.min(pixels, (tick * pixels) / max);
   }
 }
+
 
 

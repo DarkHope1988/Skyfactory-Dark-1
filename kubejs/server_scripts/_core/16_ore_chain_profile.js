@@ -1,4 +1,4 @@
-﻿// Ore unlock chain profile
+// Ore unlock chain profile
 // Defines custom meteor-derived resources that bridge into vanilla metals later.
 
 (function () {

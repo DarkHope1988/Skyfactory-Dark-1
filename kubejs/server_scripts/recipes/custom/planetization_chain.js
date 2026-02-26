@@ -1,4 +1,4 @@
-﻿// Skyfactory Dark - Planetization bootstrap chain
+// Skyfactory Dark - Planetization bootstrap chain
 // First playable step: comet-biotic materials lead into controlled water unlock items.
 
 ServerEvents.recipes(event => {

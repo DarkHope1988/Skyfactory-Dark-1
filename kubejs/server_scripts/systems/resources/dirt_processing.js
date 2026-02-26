@@ -1,4 +1,4 @@
-﻿// kubejs/server_scripts/systems/resources/dirt_processing.js
+// kubejs/server_scripts/systems/resources/dirt_processing.js
 // Skyfactory Dark - Dirt processing (baseline)
 //
 // Idee:

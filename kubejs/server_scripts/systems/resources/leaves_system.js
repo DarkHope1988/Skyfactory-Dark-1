@@ -1,4 +1,4 @@
-﻿// Skyfactory Dark - Leaves System (Stage-0 Bio Loop)
+// Skyfactory Dark - Leaves System (Stage-0 Bio Loop)
 
 LootJS.modifiers(event => {
   event
