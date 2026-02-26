@@ -40,6 +40,14 @@ ServerEvents.recipes(event => {
     M: 'sfd_comets:planet_microbe_culture'
   }).id('sfd_comets:planetization/condensed_water_cell');
 
+  // Stage-2 accessible glass bottle path (before vanilla sand/glass loops are stable).
+  event.shaped('2x minecraft:glass_bottle', [
+    ' M ',
+    'M M'
+  ], {
+    M: 'sfd_comets:comet_meteoric_slag'
+  }).id('sfd_comets:planetization/glass_bottle_from_meteoric_slag');
+
   // Controlled water conversion. Keep expensive to preserve progression pacing.
   event.shapeless('minecraft:water_bucket', waterRecipe)
     .id('sfd_comets:planetization/water_bucket_from_cells');

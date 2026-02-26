@@ -1,4 +1,5 @@
 {
+  "parent": "skyfactorydark:stages/stage_00_willkommen",
   "display": {
     "icon": {
       "item": "sfd_comets:tool_crude_mallet"
@@ -14,8 +15,17 @@
     "hidden": false
   },
   "criteria": {
-    "manual_unlock": {
-      "trigger": "minecraft:impossible"
+    "has_workbench": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:crafting_table"
+            ]
+          }
+        ]
+      }
     }
   }
 }

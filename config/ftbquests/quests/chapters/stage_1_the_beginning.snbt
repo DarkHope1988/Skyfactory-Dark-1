@@ -128,12 +128,12 @@
 				xp: 10
 			}]
 			tasks: [{
-				count: 24L
+				count: 8L
 				id: "4F52390A6EC2BF46"
-				item: { Count: 24, id: "sfd_comets:stone_grit" }
+				item: { Count: 8, id: "sfd_comets:stone_grit" }
 				type: "item"
 			}]
-			title: "07 | Farmen: Stone Grit"
+			title: "07 | Erste 8x Stone Grit"
 			x: 13.0d
 			y: 0.0d
 		}
@@ -146,12 +146,12 @@
 				xp: 10
 			}]
 			tasks: [{
-				count: 16L
+				count: 8L
 				id: "0E998484903C5529"
-				item: { Count: 16, id: "minecraft:cobblestone" }
+				item: { Count: 8, id: "minecraft:cobblestone" }
 				type: "item"
 			}]
-			title: "08 | Zwischenziel: Cobblestone sichern"
+			title: "08 | Cobblestone-Basis sichern"
 			x: 15.0d
 			y: 0.0d
 		}
@@ -164,9 +164,9 @@
 				xp: 10
 			}]
 			tasks: [{
-				count: 12L
+				count: 6L
 				id: "42C883D023400004"
-				item: { Count: 12, id: "sfd_comets:bio_bark_briquette" }
+				item: { Count: 6, id: "sfd_comets:bio_bark_briquette" }
 				type: "item"
 			}]
 			title: "09 | Fuel vorbereiten: Bark Briquette"
@@ -183,10 +183,10 @@
 			}]
 			tasks: [{
 				id: "4BD41CEB21095996"
-				item: { Count: 8, id: "minecraft:stone" }
+				item: { Count: 4, id: "minecraft:stone" }
 				type: "item"
 			}]
-			title: "10 | STAGE 1 ABSCHLUSS: Gebrannten Stein sichern"
+			title: "10 | STAGE 1 ABSCHLUSS: 4x Gebrannten Stein sichern"
 			x: 19.0d
 			y: 0.0d
 		}
@@ -240,6 +240,44 @@
 			]
 			title: "TIPP | Reserve: Dust + Resin"
 			x: 5.0d
+			y: 2.0d
+		}
+		{
+			id: "3C3E9A4BD8B24681"
+			dependencies: ["3609517A7FC8F760"]
+			rewards: [{
+				id: "47A2D57D5A154DAE"
+				type: "xp"
+				xp: 30
+			}]
+			tasks: [
+				{
+					count: 32L
+					id: "1F9D3A0E19294D2A"
+					item: { Count: 32, id: "sfd_comets:soil_packed_block" }
+					type: "item"
+				}
+				{
+					count: 32L
+					id: "7D2E6CF7A3F4428E"
+					item: { Count: 32, id: "sfd_comets:stone_grit" }
+					type: "item"
+				}
+				{
+					count: 24L
+					id: "2CC5DE20A0D24E95"
+					item: { Count: 24, id: "minecraft:cobblestone" }
+					type: "item"
+				}
+				{
+					count: 8L
+					id: "1B9951CD248F4C66"
+					item: { Count: 8, id: "minecraft:stone" }
+					type: "item"
+				}
+			]
+			title: "Challenge | 120-Minuten Stage-1 Ziel"
+			x: 21.0d
 			y: 2.0d
 		}
 	]

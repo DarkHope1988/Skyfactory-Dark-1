@@ -14,8 +14,17 @@
     "hidden": false
   },
   "criteria": {
-    "manual_unlock": {
-      "trigger": "minecraft:impossible"
+    "has_first_threads": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "sfd_comets:bio_leaf_threads"
+            ]
+          }
+        ]
+      }
     }
   }
 }

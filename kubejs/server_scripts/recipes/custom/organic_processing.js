@@ -114,6 +114,11 @@ ServerEvents.recipes(event => {
     E: 'sfd_comets:soil_earth_block'
   }).id('sfd_comets:stage0/builder_earth_block');
 
+  // Uncrafting: builder blocks are utility platform blocks, not progression sink.
+  event.shapeless('sfd_comets:soil_earth_block', [
+    'sfd_comets:soil_builder_block'
+  ]).id('sfd_comets:stage0/earth_block_from_builder_block');
+
   // Stage-0 Arbeitspodest (eigener Block), bewusst als 3x3-Rezept gebalanced.
   const podestId = Platform.isLoaded('sfd_comets') ? 'sfd_comets:machine_bio_podest' : 'sfd_comets:machine_bio_podest';
   event.shaped(podestId, [
@@ -188,6 +193,20 @@ ServerEvents.recipes(event => {
   event.shapeless(Item.of('minecraft:stick', 2), [
     'sfd_comets:bio_resin_fragment'
   ]).id('sfd_comets:stage0/sticks_from_resin');
+
+  // Alternative craft-focused wood path (reduces "only chop/replant" feeling).
+  event.shapeless('2x minecraft:oak_planks', [
+    'sfd_comets:bio_tree_bark',
+    'sfd_comets:bio_tree_bark',
+    'sfd_comets:bio_organic_fiber'
+  ]).id('sfd_comets:stage0/oak_planks_from_bark_fiber');
+
+  // Early building option in Stage 0.
+  event.shaped('6x minecraft:oak_slab', [
+    'PPP'
+  ], {
+    P: 'minecraft:oak_planks'
+  }).id('sfd_comets:stage0/oak_slab_early');
 
   // Optional resin path for treated wood conversion.
   event.shapeless('sfd_comets:bio_treated_hollow_bark_block', [

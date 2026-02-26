@@ -50,13 +50,28 @@ JEIEvents.information(event => {
     'BIO-PODEST (MOD-BLOCK):',
     '2 Eingänge + 3x3 Ausgabefeld.',
     'Verarbeitung stoppt nicht mehr durch vollen Einzel-Slot.',
-    'Stage-Gates laufen über StageLootTier (Config).'
+    'Stage-Gates laufen über StageLootTier (Config).',
+    'Gueltige Kern-Kombis:',
+    'Earth + Worm -> Wormy Earth',
+    'Earth + Worm Bait -> Worm',
+    'Wormy Earth + Wood Shavings -> Dried Worm',
+    'Wormy Earth + Crude Mallet -> Worm',
+    'Bark Block + Worm -> Wormy Bark',
+    'Wormy Bark + Organic Rod -> Hollow Bark',
+    'Hollow Bark + Wood Shavings -> Treated Hollow Bark',
+    'Treated Hollow Bark + Organic Rod -> Oak Planks'
   ]);
 
   event.addItem('sfd_comets:soil_earth_block', [
     'Earth + Worm -> Wormy Earth',
     `Chance: ${sfdPct(cfg.earthWormChance)} | Min-Tier: ${cfg.gateEarthWorm}`,
     failLine
+  ]);
+
+  event.addItem('sfd_comets:soil_builder_block', [
+    'Plattform-Block fuer sicheren Start.',
+    'Kein Progress-Verlust: kann direkt wieder zu Earth Block entcraftet werden.',
+    'Progressions-Bloecke nur auf Builder Block oder Bio-Podest platzieren.'
   ]);
 
   event.addItem('sfd_comets:bio_worm_bait', [
@@ -94,5 +109,11 @@ JEIEvents.information(event => {
     'Bio-Wachstumspaste T2:',
     'Upgrade aus 2x2 normaler Bio-Paste.',
     '8 Nutzungen (haltbar).'
+  ]);
+
+  event.addItem('minecraft:glass_bottle', [
+    'Stage-2 Pfad:',
+    'Kann aus Meteoric Slag gecraftet werden.',
+    'Wird fuer Condensed Water Cells benoetigt.'
   ]);
 });

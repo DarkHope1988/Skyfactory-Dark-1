@@ -1,4 +1,5 @@
 {
+  "parent": "skyfactorydark:stages/stage_01_the_beginning",
   "display": {
     "icon": {
       "item": "minecraft:stone"
@@ -14,8 +15,17 @@
     "hidden": false
   },
   "criteria": {
-    "manual_unlock": {
-      "trigger": "minecraft:impossible"
+    "has_stone": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:stone"
+            ]
+          }
+        ]
+      }
     }
   }
 }

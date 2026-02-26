@@ -21,9 +21,9 @@ global.SFD_WORLD_UNLOCK_POLICY = Object.freeze({
 });
 
 global.SFD_STAGE_TARGET_MINUTES = Object.freeze({
-  sfd_stage_0_welcome: 20,
-  sfd_stage_1_beginning: 30,
-  sfd_stage_2_stone: 45,
+  sfd_stage_0_welcome: 45,
+  sfd_stage_1_beginning: 120,
+  sfd_stage_2_stone: 90,
   sfd_stage_3_heat: 60,
   sfd_stage_4_machines: 90,
   sfd_stage_5_automation: 120,

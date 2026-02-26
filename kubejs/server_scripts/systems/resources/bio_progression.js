@@ -3,6 +3,14 @@
 const SFD = {
   wormToWormyEarthChance: 0.28,
   wormToWormyBarkChance: 0.34,
+  wormBaitToWormChance: 0.60,
+  wormyEarthMalletWormChance: 0.60,
+  failOutputEnabled: true,
+  failOutputChance: 0.35,
+  gateEarthWorm: 0,
+  gateEarthWormBait: 1,
+  gateWormyEarthWood: 0,
+  gateWormyEarthMallet: 1,
   strippedLogMap: {
     'minecraft:oak_log': 'minecraft:stripped_oak_log',
     'minecraft:spruce_log': 'minecraft:stripped_spruce_log',
@@ -14,6 +22,44 @@ const SFD = {
     'minecraft:cherry_log': 'minecraft:stripped_cherry_log'
   }
 };
+
+function sfdLoadBioConfig() {
+  try {
+    const C = Java.loadClass('de.darkhope.sfd.comets.config.SfdConfig');
+    SFD.wormToWormyEarthChance = Number(C.BIO_PODEST_EARTH_WORM_CHANCE.get());
+    SFD.wormBaitToWormChance = Number(C.BIO_PODEST_EARTH_WORM_BAIT_CHANCE.get());
+    SFD.wormyEarthMalletWormChance = Number(C.BIO_PODEST_WORMY_EARTH_MALLET_WORM_CHANCE.get());
+    SFD.failOutputEnabled = C.BIO_PODEST_FAIL_OUTPUT_ENABLED.get() === true;
+    SFD.failOutputChance = Number(C.BIO_PODEST_FAIL_OUTPUT_CHANCE.get());
+    SFD.gateEarthWorm = Number(C.BIO_PODEST_GATE_EARTH_WORM_MIN_TIER.get());
+    SFD.gateEarthWormBait = Number(C.BIO_PODEST_GATE_EARTH_WORM_BAIT_MIN_TIER.get());
+    SFD.gateWormyEarthWood = Number(C.BIO_PODEST_GATE_WORMY_EARTH_WOOD_MIN_TIER.get());
+    SFD.gateWormyEarthMallet = Number(C.BIO_PODEST_GATE_WORMY_EARTH_MALLET_MIN_TIER.get());
+  } catch (e) {
+    // Fallback to defaults above when Java config class is unavailable.
+  }
+}
+
+sfdLoadBioConfig();
+
+function sfdGetStageTier(player) {
+  if (!player || !player.stages) return 0;
+  const STAGES = (global.SFDStageManager && global.SFDStageManager.getStages && global.SFDStageManager.getStages())
+    || global.SFD_STAGES
+    || {};
+  let tier = 0;
+  if (STAGES.STAGE_1_BEGINNING && player.stages.has(STAGES.STAGE_1_BEGINNING)) tier = 1;
+  if (STAGES.STAGE_2_STONE && player.stages.has(STAGES.STAGE_2_STONE)) tier = 2;
+  if (STAGES.STAGE_3_HEAT && player.stages.has(STAGES.STAGE_3_HEAT)) tier = 3;
+  if (STAGES.STAGE_4_MACHINES && player.stages.has(STAGES.STAGE_4_MACHINES)) tier = 4;
+  if (STAGES.STAGE_5_AUTOMATION && player.stages.has(STAGES.STAGE_5_AUTOMATION)) tier = 5;
+  if (STAGES.STAGE_6_ENDGAME && player.stages.has(STAGES.STAGE_6_ENDGAME)) tier = 6;
+  return tier;
+}
+
+function sfdGateOk(player, requiredTier) {
+  return sfdGetStageTier(player) >= Number(requiredTier || 0);
+}
 
 function sfdConsumeHandItem(player) {
   if (player.creativeMode) return;
@@ -44,6 +90,8 @@ function sfdIsBioPodest(blockId) {
   return String(blockId || '') === 'sfd_comets:machine_bio_podest';
 }
 const SFD_USE_LEGACY_PODEST = !Platform.isLoaded('sfd_comets');
+// Force script fallback interactions even when mod is present, to keep Stage-0/1 usability stable.
+const SFD_USE_SCRIPT_PODEST_FALLBACK = true;
 
 function sfdPodestKey(level, block) {
   return `${String(level.dimension)}:${block.x},${block.y},${block.z}`;
@@ -69,7 +117,7 @@ BlockEvents.rightClicked(event => {
   const blockId = String(block.id);
 
   // Stage-0 Podest (Trapdoor): item "einlegen" wie Slot und direkt dort verarbeiten.
-  if (SFD_USE_LEGACY_PODEST && sfdIsBioPodest(blockId)) {
+  if ((SFD_USE_LEGACY_PODEST || SFD_USE_SCRIPT_PODEST_FALLBACK) && sfdIsBioPodest(blockId)) {
     const key = sfdPodestKey(level, block);
     const slots = global.sfdBioPodestSlots || {};
     const stored = slots[key];
@@ -112,11 +160,19 @@ BlockEvents.rightClicked(event => {
 
     // 2) Wurm auf Slot-Ziel.
     if (itemId === 'sfd_comets:bio_worm') {
+      if (!sfdGateOk(player, SFD.gateEarthWorm)) {
+        player.tell(`[SF-DARK] Diese Aktion wird erst ab Stage-Tier ${SFD.gateEarthWorm} freigeschaltet.`);
+        event.cancel();
+        return;
+      }
       if (stored === 'sfd_comets:soil_earth_block') {
         if (Math.random() < SFD.wormToWormyEarthChance) {
           slots[key] = 'sfd_comets:soil_wormy_earth_block';
           level.spawnParticles('minecraft:happy_villager', true, block.x + 0.5, block.y + 0.2, block.z + 0.5, 10, 0.2, 0.05, 0.2, 0.01);
         } else {
+          if (SFD.failOutputEnabled && Math.random() < SFD.failOutputChance) {
+            sfdPopAbove(level, block, Item.of('sfd_comets:soil_earth_clump', 1));
+          }
           level.spawnParticles('minecraft:smoke', true, block.x + 0.5, block.y + 0.2, block.z + 0.5, 6, 0.2, 0.05, 0.2, 0.01);
         }
         global.sfdBioPodestSlots = slots;
@@ -139,6 +195,11 @@ BlockEvents.rightClicked(event => {
 
     // 3) Baumspaene auf Slot-Ziel.
     if (itemId === 'sfd_comets:bio_wood_shavings') {
+      if (!sfdGateOk(player, SFD.gateWormyEarthWood) && stored === 'sfd_comets:soil_wormy_earth_block') {
+        player.tell(`[SF-DARK] Diese Aktion wird erst ab Stage-Tier ${SFD.gateWormyEarthWood} freigeschaltet.`);
+        event.cancel();
+        return;
+      }
       // Finalschritt Earth-Loop: verbraucht den Block, gibt aber immer Getrockneten Wurm.
       if (stored === 'sfd_comets:soil_wormy_earth_block') {
         const amount = Math.random() < 0.5 ? 1 : 2;
@@ -159,7 +220,27 @@ BlockEvents.rightClicked(event => {
       return;
     }
 
-    // 4) Organic Rod auf Slot-Ziel.
+    // 4) Crude Mallet shortcut route on wormy earth.
+    if (itemId === 'sfd_comets:tool_crude_mallet' && stored === 'sfd_comets:soil_wormy_earth_block') {
+      if (!sfdGateOk(player, SFD.gateWormyEarthMallet)) {
+        player.tell(`[SF-DARK] Diese Aktion wird erst ab Stage-Tier ${SFD.gateWormyEarthMallet} freigeschaltet.`);
+        event.cancel();
+        return;
+      }
+      if (Math.random() < SFD.wormyEarthMalletWormChance) {
+        sfdPopAbove(level, block, Item.of('sfd_comets:bio_worm', 1));
+      } else if (SFD.failOutputEnabled && Math.random() < SFD.failOutputChance) {
+        sfdPopAbove(level, block, Item.of('sfd_comets:soil_earth_clump', 1));
+      }
+      slots[key] = 'sfd_comets:soil_earth_block';
+      global.sfdBioPodestSlots = slots;
+      sfdDamageTool(player, 1);
+      level.spawnParticles('minecraft:smoke', true, block.x + 0.5, block.y + 0.2, block.z + 0.5, 6, 0.2, 0.05, 0.2, 0.01);
+      event.cancel();
+      return;
+    }
+
+    // 5) Organic Rod auf Slot-Ziel.
     if (itemId === 'sfd_comets:tool_organic_rod') {
       if (stored && stored.endsWith('_log') && SFD.strippedLogMap[stored]) {
         const stripped = SFD.strippedLogMap[stored];
@@ -227,10 +308,16 @@ BlockEvents.rightClicked(event => {
 
   // Worm on dirt -> chance for wormy earth.
   if (itemId === 'sfd_comets:bio_worm' && blockId === 'sfd_comets:soil_earth_block') {
+    if (!sfdGateOk(player, SFD.gateEarthWorm)) {
+      player.tell(`[SF-DARK] Diese Aktion wird erst ab Stage-Tier ${SFD.gateEarthWorm} freigeschaltet.`);
+      event.cancel();
+      return;
+    }
     if (Math.random() < SFD.wormToWormyEarthChance) {
       block.set('sfd_comets:soil_wormy_earth_block');
       level.spawnParticles('minecraft:happy_villager', true, block.x + 0.5, block.y + 1, block.z + 0.5, 10, 0.2, 0.2, 0.2, 0.01);
     } else {
+      if (SFD.failOutputEnabled && Math.random() < SFD.failOutputChance) block.popItem('sfd_comets:soil_earth_clump');
       level.spawnParticles('minecraft:smoke', true, block.x + 0.5, block.y + 1, block.z + 0.5, 6, 0.2, 0.2, 0.2, 0.01);
     }
     sfdConsumeHandItem(player);
@@ -240,10 +327,16 @@ BlockEvents.rightClicked(event => {
 
   // Worm bait on earth -> accelerated worm generation.
   if (itemId === 'sfd_comets:bio_worm_bait' && blockId === 'sfd_comets:soil_earth_block') {
-    if (Math.random() < 0.60) {
+    if (!sfdGateOk(player, SFD.gateEarthWormBait)) {
+      player.tell(`[SF-DARK] Diese Aktion wird erst ab Stage-Tier ${SFD.gateEarthWormBait} freigeschaltet.`);
+      event.cancel();
+      return;
+    }
+    if (Math.random() < SFD.wormBaitToWormChance) {
       block.popItem(Item.of('sfd_comets:bio_worm', 1));
       level.spawnParticles('minecraft:happy_villager', true, block.x + 0.5, block.y + 1, block.z + 0.5, 8, 0.2, 0.2, 0.2, 0.01);
     } else {
+      if (SFD.failOutputEnabled && Math.random() < SFD.failOutputChance) block.popItem('sfd_comets:soil_earth_clump');
       level.spawnParticles('minecraft:smoke', true, block.x + 0.5, block.y + 1, block.z + 0.5, 6, 0.2, 0.2, 0.2, 0.01);
     }
     sfdConsumeHandItem(player);
@@ -253,11 +346,34 @@ BlockEvents.rightClicked(event => {
 
   // Wood shavings on wormy earth -> guaranteed dried worms.
   if (itemId === 'sfd_comets:bio_wood_shavings' && blockId === 'sfd_comets:soil_wormy_earth_block') {
+    if (!sfdGateOk(player, SFD.gateWormyEarthWood)) {
+      player.tell(`[SF-DARK] Diese Aktion wird erst ab Stage-Tier ${SFD.gateWormyEarthWood} freigeschaltet.`);
+      event.cancel();
+      return;
+    }
     const amount = Math.random() < 0.5 ? 1 : 2;
     block.popItem(Item.of('sfd_comets:bio_dried_worm', amount));
     level.spawnParticles('minecraft:ash', true, block.x + 0.5, block.y + 1, block.z + 0.5, 10, 0.2, 0.2, 0.2, 0.01);
     block.set('minecraft:air');
     sfdConsumeHandItem(player);
+    event.cancel();
+    return;
+  }
+
+  // Crude mallet on wormy earth -> chance for worm, keep earth-state loop.
+  if (itemId === 'sfd_comets:tool_crude_mallet' && blockId === 'sfd_comets:soil_wormy_earth_block') {
+    if (!sfdGateOk(player, SFD.gateWormyEarthMallet)) {
+      player.tell(`[SF-DARK] Diese Aktion wird erst ab Stage-Tier ${SFD.gateWormyEarthMallet} freigeschaltet.`);
+      event.cancel();
+      return;
+    }
+    if (Math.random() < SFD.wormyEarthMalletWormChance) {
+      block.popItem('sfd_comets:bio_worm');
+    } else if (SFD.failOutputEnabled && Math.random() < SFD.failOutputChance) {
+      block.popItem('sfd_comets:soil_earth_clump');
+    }
+    block.set('sfd_comets:soil_earth_block');
+    sfdDamageTool(player, 1);
     event.cancel();
     return;
   }
@@ -307,7 +423,7 @@ BlockEvents.rightClicked(event => {
 BlockEvents.broken(event => {
   const { block, level } = event;
   const blockId = String(block.id);
-  if (!SFD_USE_LEGACY_PODEST) return;
+  if (!(SFD_USE_LEGACY_PODEST || SFD_USE_SCRIPT_PODEST_FALLBACK)) return;
   if (!sfdIsBioPodest(blockId)) return;
 
   const key = sfdPodestKey(level, block);

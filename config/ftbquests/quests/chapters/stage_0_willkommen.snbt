@@ -8,7 +8,39 @@
 	quest_links: [ ]
 	quests: [
 		{
+			id: "11A20E46FB2F4D01"
+			rewards: [{
+				id: "3C90B7E174BA4A11"
+				type: "xp"
+				xp: 3
+			}]
+			tasks: [
+				{
+					count: 1L
+					id: "2F0AA6D4E4F746B1"
+					item: { Count: 1, id: "minecraft:oak_sapling" }
+					type: "item"
+				}
+				{
+					count: 1L
+					id: "6E8C9B4C6D7A4412"
+					item: { Count: 1, id: "sfd_comets:bio_growth_paste_t1" }
+					type: "item"
+				}
+				{
+					count: 1L
+					id: "4D7C4AD13F7D4FE3"
+					item: { Count: 1, id: "sfd_comets:soil_builder_block" }
+					type: "item"
+				}
+			]
+			title: "00 | Guide-Check: Starter-Kit erhalten"
+			x: -1.0d
+			y: 0.0d
+		}
+		{
 			id: "7CDA1B4C97F472CA"
+			dependencies: ["11A20E46FB2F4D01"]
 			rewards: [{
 				id: "5F523B60351C8C48"
 				type: "xp"

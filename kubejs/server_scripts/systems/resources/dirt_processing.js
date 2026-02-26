@@ -17,7 +17,7 @@ LootJS.modifiers(event => {
     .addBlockLootModifier('minecraft:dirt')
     .matchMainHand('#skyfactorydark:crushing_tools')
     .removeLoot('minecraft:dirt')
-    .randomChance(0.45)
+    .randomChance(0.35)
     .addLoot('sfd_comets:soil_raw_chunk');
 
   event
@@ -28,7 +28,7 @@ LootJS.modifiers(event => {
     // Hauptdrop: Organic Fiber
     // ~70% sorgt dafÃ¼r, dass man nach ein paar Stacks Leaves/Dirt direkt "etwas" hat,
     // ohne dass es explodiert.
-    .randomChance(0.70)
+    .randomChance(0.55)
     .addLoot('sfd_comets:bio_organic_fiber');
 
   event
@@ -38,7 +38,7 @@ LootJS.modifiers(event => {
 
     // Seltener Drop: Stone Grit
     // ~12% -> Cobble ist ein echtes "Milestone", aber nicht 60 Minuten Grind.
-    .randomChance(0.12)
+    .randomChance(0.08)
     .addLoot('sfd_comets:stone_grit');
 
   // Winziger Trostdrop: 5% Dirt zurÃ¼ck (fÃ¼hlt sich weniger "bestrafend" an).
