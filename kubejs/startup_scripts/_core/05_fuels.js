@@ -3,7 +3,7 @@
 // Vanilla smelt = 200 ticks, bark briquette = 50 ticks -> ~4 per item.
 
 ItemEvents.modification(function (event) {
-  event.modify('sfd_comets:bark_briquette', function (item) {
+  event.modify('sfd_comets:bio_bark_briquette', function (item) {
     item.burnTime = 50;
   });
 });

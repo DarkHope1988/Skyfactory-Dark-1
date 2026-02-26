@@ -1,4 +1,4 @@
-﻿// kubejs/server_scripts/loot/vanilla_overrides/packed_soil_mallet.js
+// kubejs/server_scripts/loot/vanilla_overrides/packed_soil_mallet.js
 // Skyfactory Dark - Packed Soil Break Logic (baseline)
 //
 // Idee:
@@ -26,37 +26,37 @@ LootJS.modifiers(event => {
 
   // Entferne Self-Drop nur wenn Mallet in der Hand ist
   event
-    .addBlockLootModifier('sfd_comets:packed_soil')
+    .addBlockLootModifier('sfd_comets:soil_packed_block')
     .matchMainHand(mallet)
-    .removeLoot('sfd_comets:packed_soil');
+    .removeLoot('sfd_comets:soil_packed_block');
 
   // Stone Grit: 65% -> 1
   event
-    .addBlockLootModifier('sfd_comets:packed_soil')
+    .addBlockLootModifier('sfd_comets:soil_packed_block')
     .matchMainHand(mallet)
     .randomChance(0.65)
     .addLoot('sfd_comets:stone_grit');
 
   // Stone Grit Bonus: 15% -> +1 (damit manchmal 2 rauskommen)
   event
-    .addBlockLootModifier('sfd_comets:packed_soil')
+    .addBlockLootModifier('sfd_comets:soil_packed_block')
     .matchMainHand(mallet)
     .randomChance(0.15)
     .addLoot('sfd_comets:stone_grit');
 
   // Pebble Cluster: 10% -> 1 (spÃƒÂ¤ter wichtig, aber kein Muss)
   event
-    .addBlockLootModifier('sfd_comets:packed_soil')
+    .addBlockLootModifier('sfd_comets:soil_packed_block')
     .matchMainHand(mallet)
     .randomChance(0.10)
-    .addLoot('sfd_comets:pebble_cluster');
+    .addLoot('sfd_comets:stone_pebble_cluster');
 
   // Organic Fiber: 08% -> 1
   event
-    .addBlockLootModifier('sfd_comets:packed_soil')
+    .addBlockLootModifier('sfd_comets:soil_packed_block')
     .matchMainHand(mallet)
     .randomChance(0.08)
-    .addLoot('sfd_comets:organic_fiber');
+    .addLoot('sfd_comets:bio_organic_fiber');
 });
 
 

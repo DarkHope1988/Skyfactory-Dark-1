@@ -18,7 +18,7 @@ LootJS.modifiers(event => {
     .matchMainHand('#skyfactorydark:crushing_tools')
     .removeLoot('minecraft:dirt')
     .randomChance(0.45)
-    .addLoot('sfd_comets:raw_soil_chunk');
+    .addLoot('sfd_comets:soil_raw_chunk');
 
   event
     .addBlockLootModifier('minecraft:dirt')
@@ -29,7 +29,7 @@ LootJS.modifiers(event => {
     // ~70% sorgt dafÃ¼r, dass man nach ein paar Stacks Leaves/Dirt direkt "etwas" hat,
     // ohne dass es explodiert.
     .randomChance(0.70)
-    .addLoot('sfd_comets:organic_fiber');
+    .addLoot('sfd_comets:bio_organic_fiber');
 
   event
     .addBlockLootModifier('minecraft:dirt')

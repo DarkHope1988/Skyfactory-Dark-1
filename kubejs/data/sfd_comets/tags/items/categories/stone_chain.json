@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "sfd_comets:stone_pebble_cluster",
+    "sfd_comets:stone_grit",
+    "sfd_comets:stone_rough_mix",
+    "sfd_comets:stone_podest_base",
+    "sfd_comets:bio_bark_briquette",
+    "sfd_comets:bio_organic_fiber",
+    "sfd_comets:tool_crude_mallet"
+  ]
+}

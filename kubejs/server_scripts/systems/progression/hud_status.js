@@ -24,6 +24,7 @@
   ];
 
   const TARGET_MINUTES = global.SFD_STAGE_TARGET_MINUTES || {};
+  const UI_CFG = (global.SFDSystemConfig && global.SFDSystemConfig.ui) || {};
   const HUD_STAGE_KEY = 'sfd_hud_stage_id';
   const HUD_STAGE_START_MS = 'sfd_hud_stage_start_ms';
 
@@ -74,11 +75,30 @@
       planetStatus = String(global.SFDWorldState.getPlanetStatus(player.server) || 'sterile');
     }
     const statusLabel = planetStatus.charAt(0).toUpperCase() + planetStatus.slice(1);
+    const stageLabelMap = global.SFD_STAGE_LABELS || {};
+    const rawStageLabel = String(stageLabelMap[stageId] || stageId);
+    const stageLabel = rawStageLabel.replace('Stage ', 'S').replace(' - ', ': ');
 
-    if (targetMinutes > 0) {
-      return `[SF-DARK] Stabilitaet ${stability}% | Planet ${statusLabel} | ETA ~${remainingMinutes}m`;
+    const filled = Math.max(0, Math.min(10, Math.round(stability / 10)));
+    let bar = '[';
+    for (let i = 0; i < 10; i++) bar += i < filled ? '|' : '.';
+    bar += ']';
+
+    let stabilityClass = 'Kritisch';
+    if (stability >= 80) stabilityClass = 'Stabil';
+    else if (stability >= 50) stabilityClass = 'Fragil';
+
+    const chunks = [];
+    chunks.push(`[SFD] ${stageLabel}`);
+    chunks.push(`Stab ${bar} ${stability}% (${stabilityClass})`);
+
+    if (UI_CFG.showPlanetStatusInHud !== false) {
+      chunks.push(`Planet ${statusLabel}`);
     }
-    return `[SF-DARK] Stabilitaet ${stability}% | Planet ${statusLabel}`;
+    if (UI_CFG.showStageEtaInHud !== false && targetMinutes > 0) {
+      chunks.push(`ETA ${remainingMinutes}m`);
+    }
+    return chunks.join(' | ');
   }
 
   PlayerEvents.loggedIn(event => {

@@ -1,0 +1,16 @@
+{
+  "replace": false,
+  "values": [
+    "sfd_comets:bio_leaf_threads",
+    "sfd_comets:bio_leaf_bundle",
+    "sfd_comets:bio_wood_shavings",
+    "sfd_comets:bio_tree_bark",
+    "sfd_comets:bio_worm",
+    "sfd_comets:bio_dried_worm",
+    "sfd_comets:bio_worm_bait",
+    "sfd_comets:bio_resin_fragment",
+    "sfd_comets:tool_organic_rod",
+    "sfd_comets:bio_growth_paste_t1",
+    "sfd_comets:bio_growth_paste_t2"
+  ]
+}

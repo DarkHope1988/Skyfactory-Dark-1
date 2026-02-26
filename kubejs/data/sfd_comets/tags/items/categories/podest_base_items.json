@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "sfd_comets:soil_earth_block",
+    "sfd_comets:soil_wormy_earth_block",
+    "sfd_comets:bio_bark_block",
+    "sfd_comets:bio_wormy_bark_block",
+    "sfd_comets:bio_hollow_bark_block",
+    "sfd_comets:bio_treated_hollow_bark_block"
+  ]
+}

@@ -99,3 +99,60 @@
 	#Range: 0 ~ 4
 	permission_level = 2
 
+[machine_bio_podest]
+	#Default process interval for Bio Podest in ticks.
+	#Range: 1 ~ 24000
+	process_interval_ticks = 200
+	#Process interval when podest is placed on podest stone base.
+	#Range: 1 ~ 24000
+	process_interval_stone_base_ticks = 100
+	#Process interval when podest is placed on furnace/blast furnace/smoker.
+	#Range: 1 ~ 24000
+	process_interval_heat_base_ticks = 120
+	#Process interval when podest is placed on cobblestone/stone/stone bricks.
+	#Range: 1 ~ 24000
+	process_interval_stone_block_ticks = 160
+	#Chance for Earth + Worm -> Wormy Earth in Bio Podest.
+	#Range: 0.0 ~ 1.0
+	earth_worm_chance = 0.28
+	#Chance for Earth + Worm Bait -> Worm in Bio Podest.
+	#Range: 0.0 ~ 1.0
+	earth_worm_bait_chance = 0.6
+	#Chance for Wormy Earth + Crude Mallet -> Worm in Bio Podest.
+	#Range: 0.0 ~ 1.0
+	wormy_earth_mallet_worm_chance = 0.6
+	#Enable stage-tier gating for Bio Podest process rules.
+	stage_gates_enabled = true
+	#Min stage tier for Earth + Worm -> Wormy Earth.
+	#Range: 0 ~ 6
+	gate_earth_worm_min_tier = 0
+	#Min stage tier for Earth + Worm Bait -> Worm.
+	#Range: 0 ~ 6
+	gate_earth_worm_bait_min_tier = 1
+	#Min stage tier for Wormy Earth + Wood Shavings -> Dried Worm.
+	#Range: 0 ~ 6
+	gate_wormy_earth_wood_min_tier = 0
+	#Min stage tier for Wormy Earth + Crude Mallet -> Worm.
+	#Range: 0 ~ 6
+	gate_wormy_earth_mallet_min_tier = 1
+	#Min stage tier for Bark Block + Worm -> Wormy Bark Block.
+	#Range: 0 ~ 6
+	gate_bark_worm_min_tier = 0
+	#Min stage tier for Wormy Bark Block + Organic Rod -> Hollow Bark Block.
+	#Range: 0 ~ 6
+	gate_wormy_bark_rod_min_tier = 0
+	#Min stage tier for Hollow Bark Block + Resin/Wood Shavings -> Treated Hollow Bark Block.
+	#Range: 0 ~ 6
+	gate_hollow_bark_treat_min_tier = 0
+	#Min stage tier for Treated Hollow Bark Block + Organic Rod -> Oak Planks.
+	#Range: 0 ~ 6
+	gate_treated_bark_rod_min_tier = 0
+	#Enable consolation output on failed Bio Podest processes that define one.
+	fail_output_enabled = true
+	#Chance to emit fail output (e.g. Earth Clump) when a process roll fails.
+	#Range: 0.0 ~ 1.0
+	fail_output_chance = 0.35
+	#Stack count for fail output.
+	#Range: 1 ~ 16
+	fail_output_count = 1
+

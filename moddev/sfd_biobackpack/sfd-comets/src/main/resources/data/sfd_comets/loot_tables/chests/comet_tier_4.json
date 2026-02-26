@@ -4,10 +4,10 @@
     {
       "rolls": 6,
       "entries": [
-        { "type": "minecraft:item", "name": "sfd_comets:proto_iron_cluster" },
-        { "type": "minecraft:item", "name": "sfd_comets:proto_copper_cluster" },
-        { "type": "minecraft:item", "name": "sfd_comets:atmo_filament" },
-        { "type": "minecraft:item", "name": "sfd_comets:oxygen_matrix" },
+        { "type": "minecraft:item", "name": "sfd_comets:comet_proto_iron_cluster" },
+        { "type": "minecraft:item", "name": "sfd_comets:comet_proto_copper_cluster" },
+        { "type": "minecraft:item", "name": "sfd_comets:planet_atmo_filament" },
+        { "type": "minecraft:item", "name": "sfd_comets:planet_oxygen_matrix" },
         { "type": "minecraft:item", "name": "minecraft:ender_pearl" },
         { "type": "minecraft:item", "name": "minecraft:lapis_lazuli" }
       ]

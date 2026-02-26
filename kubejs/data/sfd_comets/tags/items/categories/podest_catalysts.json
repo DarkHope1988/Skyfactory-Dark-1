@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "sfd_comets:bio_worm",
+    "sfd_comets:bio_worm_bait",
+    "sfd_comets:bio_wood_shavings",
+    "sfd_comets:tool_organic_rod",
+    "sfd_comets:tool_crude_mallet",
+    "sfd_comets:bio_resin_fragment"
+  ]
+}

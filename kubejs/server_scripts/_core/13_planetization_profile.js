@@ -56,20 +56,20 @@
 
     // Future design IDs for custom resource loops.
     customResources: Object.freeze({
-      microbeCulture: 'sfd_comets:microbe_culture',
-      hydroSeed: 'sfd_comets:hydro_seed',
-      condensedWaterCell: 'sfd_comets:condensed_water_cell',
-      atmoFilament: 'sfd_comets:atmo_filament',
-      oxygenMatrix: 'sfd_comets:oxygen_matrix',
-      planetaryAnchor: 'sfd_comets:planetary_anchor'
+      microbeCulture: 'sfd_comets:planet_microbe_culture',
+      hydroSeed: 'sfd_comets:planet_hydro_seed',
+      condensedWaterCell: 'sfd_comets:planet_condensed_water_cell',
+      atmoFilament: 'sfd_comets:planet_atmo_filament',
+      oxygenMatrix: 'sfd_comets:planet_oxygen_matrix',
+      planetaryAnchor: 'sfd_comets:planet_anchor'
     }),
 
     // Optional integration mode for non-sky packs.
     gatewayMode: Object.freeze({
       enabledByDefault: false,
-      requiredEntryItem: 'sfd_comets:dimensional_gateway_core',
-      interdimensionalEntryItem: 'sfd_comets:interdimensional_gateway_core',
-      attunementItem: 'sfd_comets:gateway_attunement_map'
+      requiredEntryItem: 'sfd_comets:planet_gateway_core',
+      interdimensionalEntryItem: 'sfd_comets:planet_gateway_core_interdimensional',
+      attunementItem: 'sfd_comets:planet_gateway_attunement_map'
     })
   });
 })();

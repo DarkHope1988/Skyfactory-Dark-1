@@ -147,15 +147,6 @@ Conflicting propagated mapping for de/darkhope/sfd/comets/menu/CometFieldPackMen
 Conflicting propagated mapping for de/darkhope/sfd/comets/menu/CometFieldPackMenu/quickMoveStack(Lnet/minecraft/world/entity/player/Player;I)Lnet/minecraft/world/item/ItemStack; from net/minecraft/world/inventory/AbstractContainerMenu/quickMoveStack(Lnet/minecraft/world/entity/player/Player;I)Lnet/minecraft/world/item/ItemStack;: quickMoveStack -> m_7648_
 Conflicting propagated mapping for de/darkhope/sfd/comets/item/CometFieldPackItem/use(Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/InteractionHand;)Lnet/minecraft/world/InteractionResultHolder; from net/minecraft/world/item/Item/use(Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/InteractionHand;)Lnet/minecraft/world/InteractionResultHolder;: use -> m_7203_
 Conflicting propagated mapping for de/darkhope/sfd/comets/item/BioGrowthPasteItem/useOn(Lnet/minecraft/world/item/context/UseOnContext;)Lnet/minecraft/world/InteractionResult; from net/minecraft/world/item/Item/useOn(Lnet/minecraft/world/item/context/UseOnContext;)Lnet/minecraft/world/InteractionResult;: useOn -> m_6225_
-Conflicting propagated mapping for de/darkhope/sfd/comets/client/CometPodestScreen/render(Lnet/minecraft/client/gui/GuiGraphics;IIF)V from net/minecraft/client/gui/screens/inventory/AbstractContainerScreen/render(Lnet/minecraft/client/gui/GuiGraphics;IIF)V: render -> m_88315_
-Conflicting propagated mapping for de/darkhope/sfd/comets/client/CometCacheScreen/render(Lnet/minecraft/client/gui/GuiGraphics;IIF)V from net/minecraft/client/gui/screens/inventory/AbstractContainerScreen/render(Lnet/minecraft/client/gui/GuiGraphics;IIF)V: render -> m_88315_
-Conflicting propagated mapping for de/darkhope/sfd/comets/client/CometFieldPackScreen/render(Lnet/minecraft/client/gui/GuiGraphics;IIF)V from net/minecraft/client/gui/screens/inventory/AbstractContainerScreen/render(Lnet/minecraft/client/gui/GuiGraphics;IIF)V: render -> m_88315_
-Conflicting propagated mapping for de/darkhope/sfd/comets/client/CometPodestScreen/renderBg(Lnet/minecraft/client/gui/GuiGraphics;FII)V from net/minecraft/client/gui/screens/inventory/AbstractContainerScreen/renderBg(Lnet/minecraft/client/gui/GuiGraphics;FII)V: renderBg -> m_7286_
-Conflicting propagated mapping for de/darkhope/sfd/comets/client/CometCacheScreen/renderBg(Lnet/minecraft/client/gui/GuiGraphics;FII)V from net/minecraft/client/gui/screens/inventory/AbstractContainerScreen/renderBg(Lnet/minecraft/client/gui/GuiGraphics;FII)V: renderBg -> m_7286_
-Conflicting propagated mapping for de/darkhope/sfd/comets/client/CometFieldPackScreen/renderBg(Lnet/minecraft/client/gui/GuiGraphics;FII)V from net/minecraft/client/gui/screens/inventory/AbstractContainerScreen/renderBg(Lnet/minecraft/client/gui/GuiGraphics;FII)V: renderBg -> m_7286_
-Conflicting propagated mapping for de/darkhope/sfd/comets/menu/CometPodestMenu/removed(Lnet/minecraft/world/entity/player/Player;)V from net/minecraft/world/inventory/AbstractContainerMenu/removed(Lnet/minecraft/world/entity/player/Player;)V: removed -> m_6877_
-Conflicting propagated mapping for de/darkhope/sfd/comets/menu/CometPodestMenu/stillValid(Lnet/minecraft/world/entity/player/Player;)Z from net/minecraft/world/inventory/AbstractContainerMenu/stillValid(Lnet/minecraft/world/entity/player/Player;)Z: stillValid -> m_6875_
-Conflicting propagated mapping for de/darkhope/sfd/comets/menu/CometPodestMenu/quickMoveStack(Lnet/minecraft/world/entity/player/Player;I)Lnet/minecraft/world/item/ItemStack; from net/minecraft/world/inventory/AbstractContainerMenu/quickMoveStack(Lnet/minecraft/world/entity/player/Player;I)Lnet/minecraft/world/item/ItemStack;: quickMoveStack -> m_7648_
 Conflicting propagated mapping for de/darkhope/sfd/comets/blockentity/CometCacheBlockEntity/load(Lnet/minecraft/nbt/CompoundTag;)V from net/minecraft/world/level/block/entity/BlockEntity/load(Lnet/minecraft/nbt/CompoundTag;)V: load -> m_142466_
 Conflicting propagated mapping for de/darkhope/sfd/comets/blockentity/CometCacheBlockEntity/saveAdditional(Lnet/minecraft/nbt/CompoundTag;)V from net/minecraft/world/level/block/entity/BlockEntity/saveAdditional(Lnet/minecraft/nbt/CompoundTag;)V: saveAdditional -> m_183515_
 Conflicting propagated mapping for de/darkhope/sfd/comets/blockentity/CometPodestBlockEntity/load(Lnet/minecraft/nbt/CompoundTag;)V from net/minecraft/world/level/block/entity/BlockEntity/load(Lnet/minecraft/nbt/CompoundTag;)V: load -> m_142466_
@@ -165,50 +156,59 @@ Conflicting propagated mapping for de/darkhope/sfd/comets/blockentity/CometCache
 Conflicting propagated mapping for de/darkhope/sfd/comets/blockentity/CometCacheBlockEntity/removeItem(II)Lnet/minecraft/world/item/ItemStack; from net/minecraft/world/Container/removeItem(II)Lnet/minecraft/world/item/ItemStack;: removeItem -> m_7407_
 Conflicting propagated mapping for de/darkhope/sfd/comets/blockentity/CometCacheBlockEntity/getItem(I)Lnet/minecraft/world/item/ItemStack; from net/minecraft/world/Container/getItem(I)Lnet/minecraft/world/item/ItemStack;: getItem -> m_8020_
 Conflicting propagated mapping for de/darkhope/sfd/comets/blockentity/CometCacheBlockEntity/clearContent()V from net/minecraft/world/Clearable/clearContent()V: clearContent -> m_6211_
-Conflicting propagated mapping for de/darkhope/sfd/comets/blockentity/CometCacheBlockEntity/isEmpty()Z from net/minecraft/world/Container/isEmpty()Z: isEmpty -> m_7983_
-Conflicting propagated mapping for de/darkhope/sfd/comets/blockentity/CometCacheBlockEntity/removeItemNoUpdate(I)Lnet/minecraft/world/item/ItemStack; from net/minecraft/world/Container/removeItemNoUpdate(I)Lnet/minecraft/world/item/ItemStack;: removeItemNoUpdate -> m_8016_
-Conflicting propagated mapping for de/darkhope/sfd/comets/blockentity/CometCacheBlockEntity/stillValid(Lnet/minecraft/world/entity/player/Player;)Z from net/minecraft/world/Container/stillValid(Lnet/minecraft/world/entity/player/Player;)Z: stillValid -> m_6542_
 Conflicting propagated mapping for de/darkhope/sfd/comets/blockentity/CometPodestBlockEntity/getContainerSize()I from net/minecraft/world/Container/getContainerSize()I: getContainerSize -> m_6643_
 Conflicting propagated mapping for de/darkhope/sfd/comets/blockentity/CometPodestBlockEntity/setItem(ILnet/minecraft/world/item/ItemStack;)V from net/minecraft/world/Container/setItem(ILnet/minecraft/world/item/ItemStack;)V: setItem -> m_6836_
 Conflicting propagated mapping for de/darkhope/sfd/comets/blockentity/CometPodestBlockEntity/removeItem(II)Lnet/minecraft/world/item/ItemStack; from net/minecraft/world/Container/removeItem(II)Lnet/minecraft/world/item/ItemStack;: removeItem -> m_7407_
-Conflicting propagated mapping for de/darkhope/sfd/comets/blockentity/CometCacheBlockEntity/createMenu(ILnet/minecraft/world/entity/player/Inventory;Lnet/minecraft/world/entity/player/Player;)Lnet/minecraft/world/inventory/AbstractContainerMenu; from net/minecraft/world/inventory/MenuConstructor/createMenu(ILnet/minecraft/world/entity/player/Inventory;Lnet/minecraft/world/entity/player/Player;)Lnet/minecraft/world/inventory/AbstractContainerMenu;: createMenu -> m_7208_
 Conflicting propagated mapping for de/darkhope/sfd/comets/blockentity/CometPodestBlockEntity/getItem(I)Lnet/minecraft/world/item/ItemStack; from net/minecraft/world/Container/getItem(I)Lnet/minecraft/world/item/ItemStack;: getItem -> m_8020_
-Conflicting propagated mapping for de/darkhope/sfd/comets/blockentity/CometCacheBlockEntity/getDisplayName()Lnet/minecraft/network/chat/Component; from net/minecraft/world/MenuProvider/getDisplayName()Lnet/minecraft/network/chat/Component;: getDisplayName -> m_5446_
 Conflicting propagated mapping for de/darkhope/sfd/comets/blockentity/CometPodestBlockEntity/clearContent()V from net/minecraft/world/Clearable/clearContent()V: clearContent -> m_6211_
 Conflicting propagated mapping for de/darkhope/sfd/comets/blockentity/CometPodestBlockEntity/isEmpty()Z from net/minecraft/world/Container/isEmpty()Z: isEmpty -> m_7983_
+Conflicting propagated mapping for de/darkhope/sfd/comets/blockentity/CometCacheBlockEntity/isEmpty()Z from net/minecraft/world/Container/isEmpty()Z: isEmpty -> m_7983_
 Conflicting propagated mapping for de/darkhope/sfd/comets/blockentity/CometPodestBlockEntity/removeItemNoUpdate(I)Lnet/minecraft/world/item/ItemStack; from net/minecraft/world/Container/removeItemNoUpdate(I)Lnet/minecraft/world/item/ItemStack;: removeItemNoUpdate -> m_8016_
+Conflicting propagated mapping for de/darkhope/sfd/comets/blockentity/CometCacheBlockEntity/removeItemNoUpdate(I)Lnet/minecraft/world/item/ItemStack; from net/minecraft/world/Container/removeItemNoUpdate(I)Lnet/minecraft/world/item/ItemStack;: removeItemNoUpdate -> m_8016_
 Conflicting propagated mapping for de/darkhope/sfd/comets/blockentity/CometPodestBlockEntity/stillValid(Lnet/minecraft/world/entity/player/Player;)Z from net/minecraft/world/Container/stillValid(Lnet/minecraft/world/entity/player/Player;)Z: stillValid -> m_6542_
+Conflicting propagated mapping for de/darkhope/sfd/comets/blockentity/CometCacheBlockEntity/stillValid(Lnet/minecraft/world/entity/player/Player;)Z from net/minecraft/world/Container/stillValid(Lnet/minecraft/world/entity/player/Player;)Z: stillValid -> m_6542_
 Conflicting propagated mapping for de/darkhope/sfd/comets/blockentity/CometPodestBlockEntity/canPlaceItem(ILnet/minecraft/world/item/ItemStack;)Z from net/minecraft/world/Container/canPlaceItem(ILnet/minecraft/world/item/ItemStack;)Z: canPlaceItem -> m_7013_
 Conflicting propagated mapping for de/darkhope/sfd/comets/blockentity/CometPodestBlockEntity/createMenu(ILnet/minecraft/world/entity/player/Inventory;Lnet/minecraft/world/entity/player/Player;)Lnet/minecraft/world/inventory/AbstractContainerMenu; from net/minecraft/world/inventory/MenuConstructor/createMenu(ILnet/minecraft/world/entity/player/Inventory;Lnet/minecraft/world/entity/player/Player;)Lnet/minecraft/world/inventory/AbstractContainerMenu;: createMenu -> m_7208_
 Conflicting propagated mapping for de/darkhope/sfd/comets/blockentity/CometPodestBlockEntity/getDisplayName()Lnet/minecraft/network/chat/Component; from net/minecraft/world/MenuProvider/getDisplayName()Lnet/minecraft/network/chat/Component;: getDisplayName -> m_5446_
-Conflicting propagated mapping for de/darkhope/sfd/comets/block/CometCacheBlock/onRemove(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;Z)V from net/minecraft/world/level/block/state/BlockBehaviour/onRemove(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;Z)V: onRemove -> m_6810_
+Conflicting propagated mapping for de/darkhope/sfd/comets/blockentity/CometCacheBlockEntity/createMenu(ILnet/minecraft/world/entity/player/Inventory;Lnet/minecraft/world/entity/player/Player;)Lnet/minecraft/world/inventory/AbstractContainerMenu; from net/minecraft/world/inventory/MenuConstructor/createMenu(ILnet/minecraft/world/entity/player/Inventory;Lnet/minecraft/world/entity/player/Player;)Lnet/minecraft/world/inventory/AbstractContainerMenu;: createMenu -> m_7208_
+Conflicting propagated mapping for de/darkhope/sfd/comets/blockentity/CometCacheBlockEntity/getDisplayName()Lnet/minecraft/network/chat/Component; from net/minecraft/world/MenuProvider/getDisplayName()Lnet/minecraft/network/chat/Component;: getDisplayName -> m_5446_
+Conflicting propagated mapping for de/darkhope/sfd/comets/client/CometPodestScreen/render(Lnet/minecraft/client/gui/GuiGraphics;IIF)V from net/minecraft/client/gui/screens/inventory/AbstractContainerScreen/render(Lnet/minecraft/client/gui/GuiGraphics;IIF)V: render -> m_88315_
+Conflicting propagated mapping for de/darkhope/sfd/comets/client/CometPodestScreen/renderBg(Lnet/minecraft/client/gui/GuiGraphics;FII)V from net/minecraft/client/gui/screens/inventory/AbstractContainerScreen/renderBg(Lnet/minecraft/client/gui/GuiGraphics;FII)V: renderBg -> m_7286_
+Conflicting propagated mapping for de/darkhope/sfd/comets/client/CometFieldPackScreen/render(Lnet/minecraft/client/gui/GuiGraphics;IIF)V from net/minecraft/client/gui/screens/inventory/AbstractContainerScreen/render(Lnet/minecraft/client/gui/GuiGraphics;IIF)V: render -> m_88315_
+Conflicting propagated mapping for de/darkhope/sfd/comets/client/CometCacheScreen/render(Lnet/minecraft/client/gui/GuiGraphics;IIF)V from net/minecraft/client/gui/screens/inventory/AbstractContainerScreen/render(Lnet/minecraft/client/gui/GuiGraphics;IIF)V: render -> m_88315_
+Conflicting propagated mapping for de/darkhope/sfd/comets/client/CometFieldPackScreen/renderBg(Lnet/minecraft/client/gui/GuiGraphics;FII)V from net/minecraft/client/gui/screens/inventory/AbstractContainerScreen/renderBg(Lnet/minecraft/client/gui/GuiGraphics;FII)V: renderBg -> m_7286_
+Conflicting propagated mapping for de/darkhope/sfd/comets/client/CometCacheScreen/renderBg(Lnet/minecraft/client/gui/GuiGraphics;FII)V from net/minecraft/client/gui/screens/inventory/AbstractContainerScreen/renderBg(Lnet/minecraft/client/gui/GuiGraphics;FII)V: renderBg -> m_7286_
+Conflicting propagated mapping for de/darkhope/sfd/comets/menu/CometPodestMenu/removed(Lnet/minecraft/world/entity/player/Player;)V from net/minecraft/world/inventory/AbstractContainerMenu/removed(Lnet/minecraft/world/entity/player/Player;)V: removed -> m_6877_
+Conflicting propagated mapping for de/darkhope/sfd/comets/menu/CometPodestMenu/stillValid(Lnet/minecraft/world/entity/player/Player;)Z from net/minecraft/world/inventory/AbstractContainerMenu/stillValid(Lnet/minecraft/world/entity/player/Player;)Z: stillValid -> m_6875_
+Conflicting propagated mapping for de/darkhope/sfd/comets/menu/CometPodestMenu/quickMoveStack(Lnet/minecraft/world/entity/player/Player;I)Lnet/minecraft/world/item/ItemStack; from net/minecraft/world/inventory/AbstractContainerMenu/quickMoveStack(Lnet/minecraft/world/entity/player/Player;I)Lnet/minecraft/world/item/ItemStack;: quickMoveStack -> m_7648_
 Conflicting propagated mapping for de/darkhope/sfd/comets/block/CometPodestBlock/onRemove(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;Z)V from net/minecraft/world/level/block/state/BlockBehaviour/onRemove(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;Z)V: onRemove -> m_6810_
-Conflicting propagated mapping for de/darkhope/sfd/comets/block/CometCacheBlock/newBlockEntity(Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;)Lnet/minecraft/world/level/block/entity/BlockEntity; from net/minecraft/world/level/block/EntityBlock/newBlockEntity(Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;)Lnet/minecraft/world/level/block/entity/BlockEntity;: newBlockEntity -> m_142194_
 Conflicting propagated mapping for de/darkhope/sfd/comets/block/CometPodestBlock/getTicker(Lnet/minecraft/world/level/Level;Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/block/entity/BlockEntityType;)Lnet/minecraft/world/level/block/entity/BlockEntityTicker; from net/minecraft/world/level/block/EntityBlock/getTicker(Lnet/minecraft/world/level/Level;Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/block/entity/BlockEntityType;)Lnet/minecraft/world/level/block/entity/BlockEntityTicker;: getTicker -> m_142354_
+Conflicting propagated mapping for de/darkhope/sfd/comets/block/CometCacheBlock/onRemove(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;Z)V from net/minecraft/world/level/block/state/BlockBehaviour/onRemove(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;Z)V: onRemove -> m_6810_
 Conflicting propagated mapping for de/darkhope/sfd/comets/block/CometPodestBlock/newBlockEntity(Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;)Lnet/minecraft/world/level/block/entity/BlockEntity; from net/minecraft/world/level/block/EntityBlock/newBlockEntity(Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;)Lnet/minecraft/world/level/block/entity/BlockEntity;: newBlockEntity -> m_142194_
+Conflicting propagated mapping for de/darkhope/sfd/comets/block/CometCacheBlock/newBlockEntity(Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;)Lnet/minecraft/world/level/block/entity/BlockEntity; from net/minecraft/world/level/block/EntityBlock/newBlockEntity(Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;)Lnet/minecraft/world/level/block/entity/BlockEntity;: newBlockEntity -> m_142194_
 Conflicting propagated mapping for de/darkhope/sfd/comets/block/CometCacheBlock/getCollisionShape(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/BlockGetter;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/phys/shapes/CollisionContext;)Lnet/minecraft/world/phys/shapes/VoxelShape; from net/minecraft/world/level/block/state/BlockBehaviour/getCollisionShape(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/BlockGetter;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/phys/shapes/CollisionContext;)Lnet/minecraft/world/phys/shapes/VoxelShape;: getCollisionShape -> m_5939_
-Conflicting propagated mapping for de/darkhope/sfd/comets/block/CometCacheBlock/getRenderShape(Lnet/minecraft/world/level/block/state/BlockState;)Lnet/minecraft/world/level/block/RenderShape; from net/minecraft/world/level/block/BaseEntityBlock/getRenderShape(Lnet/minecraft/world/level/block/state/BlockState;)Lnet/minecraft/world/level/block/RenderShape;: getRenderShape -> m_7514_
 Conflicting propagated mapping for de/darkhope/sfd/comets/block/CometPodestBlock/getRenderShape(Lnet/minecraft/world/level/block/state/BlockState;)Lnet/minecraft/world/level/block/RenderShape; from net/minecraft/world/level/block/BaseEntityBlock/getRenderShape(Lnet/minecraft/world/level/block/state/BlockState;)Lnet/minecraft/world/level/block/RenderShape;: getRenderShape -> m_7514_
+Conflicting propagated mapping for de/darkhope/sfd/comets/block/CometCacheBlock/getRenderShape(Lnet/minecraft/world/level/block/state/BlockState;)Lnet/minecraft/world/level/block/RenderShape; from net/minecraft/world/level/block/BaseEntityBlock/getRenderShape(Lnet/minecraft/world/level/block/state/BlockState;)Lnet/minecraft/world/level/block/RenderShape;: getRenderShape -> m_7514_
 Conflicting propagated mapping for de/darkhope/sfd/comets/block/CometCacheBlock/getAnalogOutputSignal(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;)I from net/minecraft/world/level/block/state/BlockBehaviour/getAnalogOutputSignal(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;)I: getAnalogOutputSignal -> m_6782_
-Conflicting propagated mapping for de/darkhope/sfd/comets/block/CometCacheBlock/getLightBlock(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/BlockGetter;Lnet/minecraft/core/BlockPos;)I from net/minecraft/world/level/block/state/BlockBehaviour/getLightBlock(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/BlockGetter;Lnet/minecraft/core/BlockPos;)I: getLightBlock -> m_7753_
 Conflicting propagated mapping for de/darkhope/sfd/comets/block/CometPodestBlock/getAnalogOutputSignal(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;)I from net/minecraft/world/level/block/state/BlockBehaviour/getAnalogOutputSignal(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;)I: getAnalogOutputSignal -> m_6782_
+Conflicting propagated mapping for de/darkhope/sfd/comets/block/CometCacheBlock/getLightBlock(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/BlockGetter;Lnet/minecraft/core/BlockPos;)I from net/minecraft/world/level/block/state/BlockBehaviour/getLightBlock(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/BlockGetter;Lnet/minecraft/core/BlockPos;)I: getLightBlock -> m_7753_
+Conflicting propagated mapping for de/darkhope/sfd/comets/block/CometPodestBlock/hasAnalogOutputSignal(Lnet/minecraft/world/level/block/state/BlockState;)Z from net/minecraft/world/level/block/state/BlockBehaviour/hasAnalogOutputSignal(Lnet/minecraft/world/level/block/state/BlockState;)Z: hasAnalogOutputSignal -> m_7278_
 Conflicting propagated mapping for de/darkhope/sfd/comets/block/CometCacheBlock/getShape(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/BlockGetter;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/phys/shapes/CollisionContext;)Lnet/minecraft/world/phys/shapes/VoxelShape; from net/minecraft/world/level/block/state/BlockBehaviour/getShape(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/BlockGetter;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/phys/shapes/CollisionContext;)Lnet/minecraft/world/phys/shapes/VoxelShape;: getShape -> m_5940_
 Conflicting propagated mapping for de/darkhope/sfd/comets/block/CometCacheBlock/hasAnalogOutputSignal(Lnet/minecraft/world/level/block/state/BlockState;)Z from net/minecraft/world/level/block/state/BlockBehaviour/hasAnalogOutputSignal(Lnet/minecraft/world/level/block/state/BlockState;)Z: hasAnalogOutputSignal -> m_7278_
-Conflicting propagated mapping for de/darkhope/sfd/comets/block/CometPodestBlock/hasAnalogOutputSignal(Lnet/minecraft/world/level/block/state/BlockState;)Z from net/minecraft/world/level/block/state/BlockBehaviour/hasAnalogOutputSignal(Lnet/minecraft/world/level/block/state/BlockState;)Z: hasAnalogOutputSignal -> m_7278_
-Conflicting propagated mapping for de/darkhope/sfd/comets/block/CometCacheBlock/use(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/InteractionHand;Lnet/minecraft/world/phys/BlockHitResult;)Lnet/minecraft/world/InteractionResult; from net/minecraft/world/level/block/state/BlockBehaviour/use(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/InteractionHand;Lnet/minecraft/world/phys/BlockHitResult;)Lnet/minecraft/world/InteractionResult;: use -> m_6227_
 Conflicting propagated mapping for de/darkhope/sfd/comets/block/CometPodestBlock/use(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/InteractionHand;Lnet/minecraft/world/phys/BlockHitResult;)Lnet/minecraft/world/InteractionResult; from net/minecraft/world/level/block/state/BlockBehaviour/use(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/InteractionHand;Lnet/minecraft/world/phys/BlockHitResult;)Lnet/minecraft/world/InteractionResult;: use -> m_6227_
+Conflicting propagated mapping for de/darkhope/sfd/comets/block/CometCacheBlock/use(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/InteractionHand;Lnet/minecraft/world/phys/BlockHitResult;)Lnet/minecraft/world/InteractionResult; from net/minecraft/world/level/block/state/BlockBehaviour/use(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/InteractionHand;Lnet/minecraft/world/phys/BlockHitResult;)Lnet/minecraft/world/InteractionResult;: use -> m_6227_
 Conflicting propagated mapping for de/darkhope/sfd/comets/menu/CometFieldPackMenu$BackpackContainer/getContainerSize()I from net/minecraft/world/Container/getContainerSize()I: getContainerSize -> m_6643_
-Conflicting propagated mapping for de/darkhope/sfd/comets/menu/CometPodestMenu$1/mayPlace(Lnet/minecraft/world/item/ItemStack;)Z from net/minecraft/world/inventory/Slot/mayPlace(Lnet/minecraft/world/item/ItemStack;)Z: mayPlace -> m_5857_
 Conflicting propagated mapping for de/darkhope/sfd/comets/menu/CometFieldPackMenu$BackpackContainer/setItem(ILnet/minecraft/world/item/ItemStack;)V from net/minecraft/world/Container/setItem(ILnet/minecraft/world/item/ItemStack;)V: setItem -> m_6836_
 Conflicting propagated mapping for de/darkhope/sfd/comets/menu/CometFieldPackMenu$BackpackContainer/removeItem(II)Lnet/minecraft/world/item/ItemStack; from net/minecraft/world/Container/removeItem(II)Lnet/minecraft/world/item/ItemStack;: removeItem -> m_7407_
-Conflicting propagated mapping for de/darkhope/sfd/comets/menu/CometPodestMenu$2/mayPlace(Lnet/minecraft/world/item/ItemStack;)Z from net/minecraft/world/inventory/Slot/mayPlace(Lnet/minecraft/world/item/ItemStack;)Z: mayPlace -> m_5857_
 Conflicting propagated mapping for de/darkhope/sfd/comets/menu/CometFieldPackMenu$BackpackContainer/getItem(I)Lnet/minecraft/world/item/ItemStack; from net/minecraft/world/Container/getItem(I)Lnet/minecraft/world/item/ItemStack;: getItem -> m_8020_
 Conflicting propagated mapping for de/darkhope/sfd/comets/menu/CometFieldPackMenu$BackpackContainer/clearContent()V from net/minecraft/world/Clearable/clearContent()V: clearContent -> m_6211_
-Conflicting propagated mapping for de/darkhope/sfd/comets/menu/CometPodestMenu$3/mayPlace(Lnet/minecraft/world/item/ItemStack;)Z from net/minecraft/world/inventory/Slot/mayPlace(Lnet/minecraft/world/item/ItemStack;)Z: mayPlace -> m_5857_
 Conflicting propagated mapping for de/darkhope/sfd/comets/menu/CometFieldPackMenu$BackpackContainer/isEmpty()Z from net/minecraft/world/Container/isEmpty()Z: isEmpty -> m_7983_
 Conflicting propagated mapping for de/darkhope/sfd/comets/menu/CometFieldPackMenu$BackpackContainer/setChanged()V from net/minecraft/world/Container/setChanged()V: setChanged -> m_6596_
 Conflicting propagated mapping for de/darkhope/sfd/comets/menu/CometFieldPackMenu$BackpackContainer/removeItemNoUpdate(I)Lnet/minecraft/world/item/ItemStack; from net/minecraft/world/Container/removeItemNoUpdate(I)Lnet/minecraft/world/item/ItemStack;: removeItemNoUpdate -> m_8016_
 Conflicting propagated mapping for de/darkhope/sfd/comets/menu/CometFieldPackMenu$BackpackContainer/stillValid(Lnet/minecraft/world/entity/player/Player;)Z from net/minecraft/world/Container/stillValid(Lnet/minecraft/world/entity/player/Player;)Z: stillValid -> m_6542_
+Conflicting propagated mapping for de/darkhope/sfd/comets/menu/CometPodestMenu$2/mayPlace(Lnet/minecraft/world/item/ItemStack;)Z from net/minecraft/world/inventory/Slot/mayPlace(Lnet/minecraft/world/item/ItemStack;)Z: mayPlace -> m_5857_
+Conflicting propagated mapping for de/darkhope/sfd/comets/menu/CometPodestMenu$3/mayPlace(Lnet/minecraft/world/item/ItemStack;)Z from net/minecraft/world/inventory/Slot/mayPlace(Lnet/minecraft/world/item/ItemStack;)Z: mayPlace -> m_5857_
+Conflicting propagated mapping for de/darkhope/sfd/comets/menu/CometPodestMenu$1/mayPlace(Lnet/minecraft/world/item/ItemStack;)Z from net/minecraft/world/inventory/Slot/mayPlace(Lnet/minecraft/world/item/ItemStack;)Z: mayPlace -> m_5857_
 Conflicting propagated mapping for net/minecraftforge/network/IContainerFactory/create(ILnet/minecraft/world/entity/player/Inventory;)Lnet/minecraft/world/inventory/AbstractContainerMenu; from net/minecraft/world/inventory/MenuType$MenuSupplier/create(ILnet/minecraft/world/entity/player/Inventory;)Lnet/minecraft/world/inventory/AbstractContainerMenu;: create -> m_39994_
 Conflicting propagated mapping for de/darkhope/sfd/core/world/SfdWorldStateData/save(Lnet/minecraft/nbt/CompoundTag;)Lnet/minecraft/nbt/CompoundTag; from net/minecraft/world/level/saveddata/SavedData/save(Lnet/minecraft/nbt/CompoundTag;)Lnet/minecraft/nbt/CompoundTag;: save -> m_7176_
 Conflicting propagated mapping for net/minecraft/world/entity/LivingEntity/lambda$addAdditionalSaveData$3(Lnet/minecraft/nbt/CompoundTag;Lnet/minecraft/nbt/Tag;)V from net/minecraft/world/entity/player/Player/lambda$addAdditionalSaveData$3(Lnet/minecraft/nbt/CompoundTag;Lnet/minecraft/nbt/Tag;)V: lambda$addAdditionalSaveData$3 -> m_219754_
@@ -222,89 +222,90 @@ Writing Output: C:\Users\bigcr\AppData\Roaming\PrismLauncher\instances\1.20.1(1)
   assets/
   assets/sfd_comets/
   assets/sfd_comets/blockstates/
-  assets/sfd_comets/blockstates/bark_block.json
-  assets/sfd_comets/blockstates/bio_podest.json
-  assets/sfd_comets/blockstates/builder_earth_block.json
+  assets/sfd_comets/blockstates/bio_bark_block.json
+  assets/sfd_comets/blockstates/bio_hollow_bark_block.json
+  assets/sfd_comets/blockstates/bio_treated_hollow_bark_block.json
+  assets/sfd_comets/blockstates/bio_wormy_bark_block.json
   assets/sfd_comets/blockstates/comet_cache.json
-  assets/sfd_comets/blockstates/earth_block.json
-  assets/sfd_comets/blockstates/hollow_bark_block.json
-  assets/sfd_comets/blockstates/packed_soil.json
-  assets/sfd_comets/blockstates/podest_stone_base.json
-  assets/sfd_comets/blockstates/treated_hollow_bark_block.json
-  assets/sfd_comets/blockstates/wormy_bark_block.json
-  assets/sfd_comets/blockstates/wormy_earth_block.json
+  assets/sfd_comets/blockstates/machine_bio_podest.json
+  assets/sfd_comets/blockstates/soil_builder_block.json
+  assets/sfd_comets/blockstates/soil_earth_block.json
+  assets/sfd_comets/blockstates/soil_packed_block.json
+  assets/sfd_comets/blockstates/soil_wormy_earth_block.json
+  assets/sfd_comets/blockstates/stone_podest_base.json
   assets/sfd_comets/lang/
+  assets/sfd_comets/lang/de_de.json
   assets/sfd_comets/lang/en_us.json
   assets/sfd_comets/models/
   assets/sfd_comets/models/block/
-  assets/sfd_comets/models/block/bark_block.json
-  assets/sfd_comets/models/block/bio_podest.json
-  assets/sfd_comets/models/block/builder_earth_block.json
+  assets/sfd_comets/models/block/bio_bark_block.json
+  assets/sfd_comets/models/block/bio_hollow_bark_block.json
+  assets/sfd_comets/models/block/bio_treated_hollow_bark_block.json
+  assets/sfd_comets/models/block/bio_wormy_bark_block.json
   assets/sfd_comets/models/block/comet_cache.json
-  assets/sfd_comets/models/block/earth_block.json
-  assets/sfd_comets/models/block/hollow_bark_block.json
-  assets/sfd_comets/models/block/packed_soil.json
-  assets/sfd_comets/models/block/podest_stone_base.json
-  assets/sfd_comets/models/block/treated_hollow_bark_block.json
-  assets/sfd_comets/models/block/wormy_bark_block.json
-  assets/sfd_comets/models/block/wormy_earth_block.json
+  assets/sfd_comets/models/block/machine_bio_podest.json
+  assets/sfd_comets/models/block/soil_builder_block.json
+  assets/sfd_comets/models/block/soil_earth_block.json
+  assets/sfd_comets/models/block/soil_packed_block.json
+  assets/sfd_comets/models/block/soil_wormy_earth_block.json
+  assets/sfd_comets/models/block/stone_podest_base.json
   assets/sfd_comets/models/item/
-  assets/sfd_comets/models/item/atmo_filament.json
-  assets/sfd_comets/models/item/bark_block.json
-  assets/sfd_comets/models/item/bark_briquette.json
-  assets/sfd_comets/models/item/bio_backpack.json
-  assets/sfd_comets/models/item/bio_growth_paste.json
+  assets/sfd_comets/models/item/bio_bark_block.json
+  assets/sfd_comets/models/item/bio_bark_briquette.json
+  assets/sfd_comets/models/item/bio_compost_pile.json
+  assets/sfd_comets/models/item/bio_compost_pulp.json
+  assets/sfd_comets/models/item/bio_dried_worm.json
   assets/sfd_comets/models/item/bio_growth_paste_admin.json
+  assets/sfd_comets/models/item/bio_growth_paste_t1.json
   assets/sfd_comets/models/item/bio_growth_paste_t2.json
   assets/sfd_comets/models/item/bio_growth_paste_t3.json
-  assets/sfd_comets/models/item/bio_podest.json
-  assets/sfd_comets/models/item/builder_earth_block.json
+  assets/sfd_comets/models/item/bio_hollow_bark_block.json
+  assets/sfd_comets/models/item/bio_leaf_bundle.json
+  assets/sfd_comets/models/item/bio_leaf_shreds.json
+  assets/sfd_comets/models/item/bio_leaf_threads.json
+  assets/sfd_comets/models/item/bio_organic_dust.json
+  assets/sfd_comets/models/item/bio_organic_fiber.json
+  assets/sfd_comets/models/item/bio_resin_fragment.json
+  assets/sfd_comets/models/item/bio_treated_hollow_bark_block.json
+  assets/sfd_comets/models/item/bio_tree_bark.json
+  assets/sfd_comets/models/item/bio_wood_shavings.json
+  assets/sfd_comets/models/item/bio_worm.json
+  assets/sfd_comets/models/item/bio_worm_bait.json
+  assets/sfd_comets/models/item/bio_wormy_bark_block.json
   assets/sfd_comets/models/item/comet_cache.json
-  assets/sfd_comets/models/item/compost_pile.json
-  assets/sfd_comets/models/item/compost_pulp.json
-  assets/sfd_comets/models/item/condensed_water_cell.json
-  assets/sfd_comets/models/item/crude_mallet.json
-  assets/sfd_comets/models/item/dimensional_gateway_core.json
-  assets/sfd_comets/models/item/dried_forage.json
-  assets/sfd_comets/models/item/dried_worm.json
-  assets/sfd_comets/models/item/earth_block.json
-  assets/sfd_comets/models/item/earth_clump.json
-  assets/sfd_comets/models/item/gateway_attunement_map.json
-  assets/sfd_comets/models/item/hollow_bark_block.json
-  assets/sfd_comets/models/item/hydro_seed.json
-  assets/sfd_comets/models/item/interdimensional_gateway_core.json
-  assets/sfd_comets/models/item/leaf_bundle.json
-  assets/sfd_comets/models/item/leaf_shreds.json
-  assets/sfd_comets/models/item/leaf_threads.json
-  assets/sfd_comets/models/item/meteoric_slag.json
-  assets/sfd_comets/models/item/microbe_culture.json
-  assets/sfd_comets/models/item/mineral_catalyst.json
-  assets/sfd_comets/models/item/organic_dust.json
-  assets/sfd_comets/models/item/organic_fiber.json
-  assets/sfd_comets/models/item/organic_rod.json
-  assets/sfd_comets/models/item/oxygen_matrix.json
-  assets/sfd_comets/models/item/packed_soil.json
-  assets/sfd_comets/models/item/pebble_cluster.json
-  assets/sfd_comets/models/item/planetary_anchor.json
-  assets/sfd_comets/models/item/podest_stone_base.json
-  assets/sfd_comets/models/item/protein_cake.json
-  assets/sfd_comets/models/item/proto_copper_cluster.json
-  assets/sfd_comets/models/item/proto_iron_cluster.json
-  assets/sfd_comets/models/item/raw_forage.json
-  assets/sfd_comets/models/item/raw_metal_lattice.json
-  assets/sfd_comets/models/item/raw_soil_chunk.json
-  assets/sfd_comets/models/item/resin_fragment.json
-  assets/sfd_comets/models/item/rough_stone_mix.json
-  assets/sfd_comets/models/item/sprout_mash.json
+  assets/sfd_comets/models/item/comet_field_pack.json
+  assets/sfd_comets/models/item/comet_meteoric_slag.json
+  assets/sfd_comets/models/item/comet_mineral_catalyst.json
+  assets/sfd_comets/models/item/comet_proto_copper_cluster.json
+  assets/sfd_comets/models/item/comet_proto_iron_cluster.json
+  assets/sfd_comets/models/item/comet_raw_metal_lattice.json
+  assets/sfd_comets/models/item/food_dried_forage.json
+  assets/sfd_comets/models/item/food_protein_cake.json
+  assets/sfd_comets/models/item/food_raw_forage.json
+  assets/sfd_comets/models/item/food_sprout_mash.json
+  assets/sfd_comets/models/item/food_survival_ration.json
+  assets/sfd_comets/models/item/machine_bio_podest.json
+  assets/sfd_comets/models/item/planet_anchor.json
+  assets/sfd_comets/models/item/planet_atmo_filament.json
+  assets/sfd_comets/models/item/planet_condensed_water_cell.json
+  assets/sfd_comets/models/item/planet_gateway_attunement_map.json
+  assets/sfd_comets/models/item/planet_gateway_core.json
+  assets/sfd_comets/models/item/planet_gateway_core_interdimensional.json
+  assets/sfd_comets/models/item/planet_hydro_seed.json
+  assets/sfd_comets/models/item/planet_microbe_culture.json
+  assets/sfd_comets/models/item/planet_oxygen_matrix.json
+  assets/sfd_comets/models/item/soil_builder_block.json
+  assets/sfd_comets/models/item/soil_earth_block.json
+  assets/sfd_comets/models/item/soil_earth_clump.json
+  assets/sfd_comets/models/item/soil_packed_block.json
+  assets/sfd_comets/models/item/soil_raw_chunk.json
+  assets/sfd_comets/models/item/soil_wormy_earth_block.json
   assets/sfd_comets/models/item/stone_grit.json
-  assets/sfd_comets/models/item/survival_ration.json
-  assets/sfd_comets/models/item/treated_hollow_bark_block.json
-  assets/sfd_comets/models/item/tree_bark.json
-  assets/sfd_comets/models/item/wood_shavings.json
-  assets/sfd_comets/models/item/worm.json
-  assets/sfd_comets/models/item/worm_bait.json
-  assets/sfd_comets/models/item/wormy_bark_block.json
-  assets/sfd_comets/models/item/wormy_earth_block.json
+  assets/sfd_comets/models/item/stone_pebble_cluster.json
+  assets/sfd_comets/models/item/stone_podest_base.json
+  assets/sfd_comets/models/item/stone_rough_mix.json
+  assets/sfd_comets/models/item/tool_crude_mallet.json
+  assets/sfd_comets/models/item/tool_organic_rod.json
   data/
   data/sfd_comets/
   data/sfd_comets/loot_tables/

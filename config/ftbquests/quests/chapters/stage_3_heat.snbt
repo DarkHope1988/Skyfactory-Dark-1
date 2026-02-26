@@ -12,15 +12,15 @@
 			rewards: [{
 				id: "5D02C28DD30DC655"
 				type: "xp"
-				xp: 6
+				xp: 8
 			}]
 			tasks: [{
 				count: 12L
 				id: "2794F36608C14562"
-				item: { Count: 12, id: "sfd_comets:bark_briquette" }
+				item: { Count: 12, id: "sfd_comets:bio_bark_briquette" }
 				type: "item"
 			}]
-			title: "01 | Start: Bark Briquette Fuel Setup"
+			title: "01 | Start: Bark Briquette Fuel-Setup"
 			x: 1.0d
 			y: 0.0d
 		}
@@ -30,7 +30,7 @@
 			rewards: [{
 				id: "4258D79F12D47464"
 				type: "xp"
-				xp: 6
+				xp: 8
 			}]
 			tasks: [{
 				count: 8L
@@ -48,7 +48,7 @@
 			rewards: [{
 				id: "58C1F293F4650F88"
 				type: "xp"
-				xp: 8
+				xp: 10
 			}]
 			tasks: [{
 				count: 8L
@@ -66,7 +66,7 @@
 			rewards: [{
 				id: "1C3AA477839A3031"
 				type: "xp"
-				xp: 8
+				xp: 12
 			}]
 			tasks: [{
 				count: 8L
@@ -74,7 +74,7 @@
 				item: { Count: 8, id: "minecraft:iron_ingot" }
 				type: "item"
 			}]
-			title: "04 | Smelting-Linie: Eisenproduktion"
+			title: "04 | Smelting-Linie: Eisenproduktion stabilisieren"
 			x: 7.0d
 			y: 0.0d
 		}
@@ -91,7 +91,7 @@
 				item: "minecraft:bucket"
 				type: "item"
 			}]
-			title: "05 | Utility: Erster Bucket"
+			title: "05 | Utility: Ersten Bucket craften"
 			x: 9.0d
 			y: 0.0d
 		}
@@ -101,14 +101,14 @@
 			rewards: [{
 				id: "2A6F55B678FC4A06"
 				type: "xp"
-				xp: 12
+				xp: 18
 			}]
 			tasks: [{
 				id: "028A7A85C4B262C3"
 				item: "minecraft:blast_furnace"
 				type: "item"
 			}]
-			title: "06 | STAGE 3 ABSCHLUSS: Blast Furnace"
+			title: "06 | STAGE 3 ABSCHLUSS: Blast Furnace (Heat-Core aktiv)"
 			x: 11.0d
 			y: 0.0d
 		}
@@ -126,7 +126,7 @@
 				item: { Count: 1, id: "minecraft:water_bucket" }
 				type: "item"
 			}]
-			title: "TIPP | Planetization Ziel: Erstes Wasser sichern"
+			title: "TIPP | Planetization-Ziel: Erstes Wasser sichern"
 			x: 9.0d
 			y: 2.0d
 		}

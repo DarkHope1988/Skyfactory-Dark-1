@@ -17,7 +17,7 @@
 			tasks: [{
 				count: 32L
 				id: "32C390B61705F134"
-				item: { Count: 32, id: "sfd_comets:leaf_threads" }
+				item: { Count: 32, id: "sfd_comets:bio_leaf_threads" }
 				type: "item"
 			}]
 			title: "01 | Start: Laubfaeden sammeln"
@@ -35,7 +35,7 @@
 			tasks: [{
 				count: 24L
 				id: "68D89296E0754859"
-				item: { Count: 24, id: "sfd_comets:wood_shavings" }
+				item: { Count: 24, id: "sfd_comets:bio_wood_shavings" }
 				type: "item"
 			}]
 			title: "02 | Naechster Schritt: Baumspaene sammeln"
@@ -53,7 +53,7 @@
 			tasks: [{
 				count: 8L
 				id: "431656B24D684E95"
-				item: { Count: 8, id: "sfd_comets:leaf_bundle" }
+				item: { Count: 8, id: "sfd_comets:bio_leaf_bundle" }
 				type: "item"
 			}]
 			title: "03 | Craft: Blaetterbuendel"
@@ -71,7 +71,7 @@
 			tasks: [{
 				count: 4L
 				id: "0AC3ED3AE5383E32"
-				item: { Count: 4, id: "sfd_comets:earth_block" }
+				item: { Count: 4, id: "sfd_comets:soil_earth_block" }
 				type: "item"
 			}]
 			title: "04 | Craft: Erdblock herstellen"
@@ -89,7 +89,7 @@
 			tasks: [{
 				count: 12L
 				id: "4BB0233FBB3DAE86"
-				item: { Count: 12, id: "sfd_comets:earth_clump" }
+				item: { Count: 12, id: "sfd_comets:soil_earth_clump" }
 				type: "item"
 			}]
 			title: "05 | Farmen: Erdklumpen"
@@ -107,7 +107,7 @@
 			tasks: [{
 				count: 4L
 				id: "38E44CB6F87C588A"
-				item: { Count: 4, id: "sfd_comets:worm" }
+				item: { Count: 4, id: "sfd_comets:bio_worm" }
 				type: "item"
 			}]
 			title: "06 | Naechster Schritt: Wuermer sichern"
@@ -125,7 +125,7 @@
 			tasks: [{
 				count: 4L
 				id: "26052C3FBBF0B0C4"
-				item: { Count: 4, id: "sfd_comets:dried_worm" }
+				item: { Count: 4, id: "sfd_comets:bio_dried_worm" }
 				type: "item"
 			}]
 			title: "07 | Prozess: Wormy Earth -> Dried Worm"
@@ -144,7 +144,7 @@
 				id: "71F229A22D4B7B09"
 				item: {
 					Count: 1
-					id: "sfd_comets:organic_rod"
+					id: "sfd_comets:tool_organic_rod"
 					tag: {
 						Damage: 0
 					}
@@ -166,7 +166,7 @@
 			tasks: [{
 				count: 12L
 				id: "17F91096DDDFFE2A"
-				item: { Count: 12, id: "sfd_comets:tree_bark" }
+				item: { Count: 12, id: "sfd_comets:bio_tree_bark" }
 				type: "item"
 			}]
 			title: "09 | Tool nutzen: Stamm entrinden -> Baumrinde"
@@ -202,7 +202,7 @@
 			tasks: [{
 				count: 4L
 				id: "3A722EEE2D4CF938"
-				item: { Count: 4, id: "sfd_comets:resin_fragment" }
+				item: { Count: 4, id: "sfd_comets:bio_resin_fragment" }
 				type: "item"
 			}]
 			title: "TIPP | Fallback: Resin sammeln"
@@ -237,7 +237,7 @@
 			tasks: [{
 				count: 8L
 				id: "5407D9DB508DADF1"
-				item: { Count: 8, id: "sfd_comets:sprout_mash" }
+				item: { Count: 8, id: "sfd_comets:food_sprout_mash" }
 				type: "item"
 			}]
 			title: "Food A | Notfallkost (Setzling -> Keim-Brei)"
@@ -255,7 +255,7 @@
 			tasks: [{
 				count: 4L
 				id: "40982E0A02581EA1"
-				item: { Count: 4, id: "sfd_comets:survival_ration" }
+				item: { Count: 4, id: "sfd_comets:food_survival_ration" }
 				type: "item"
 			}]
 			title: "Food A+ | Ueberlebensration"
@@ -273,7 +273,7 @@
 			tasks: [{
 				count: 4L
 				id: "2EEEA42A30F0BCD6"
-				item: { Count: 4, id: "sfd_comets:dried_forage" }
+				item: { Count: 4, id: "sfd_comets:food_dried_forage" }
 				type: "item"
 			}]
 			title: "Food B | Kochpfad (Forage trocknen)"
@@ -291,7 +291,7 @@
 			tasks: [{
 				count: 4L
 				id: "00E41B9C591E11E1"
-				item: { Count: 4, id: "sfd_comets:worm_bait" }
+				item: { Count: 4, id: "sfd_comets:bio_worm_bait" }
 				type: "item"
 			}]
 			title: "Food C Vorbereitung | Wurmkoeder"
@@ -309,7 +309,7 @@
 			tasks: [{
 				count: 2L
 				id: "130D2EECCBD12AF4"
-				item: { Count: 2, id: "sfd_comets:protein_cake" }
+				item: { Count: 2, id: "sfd_comets:food_protein_cake" }
 				type: "item"
 			}]
 			title: "Food C Abschluss | Protein-Kuchen"
@@ -328,37 +328,37 @@
 				{
 					count: 96L
 					id: "11035F0F1EF63A46"
-					item: { Count: 96, id: "sfd_comets:leaf_threads" }
+					item: { Count: 96, id: "sfd_comets:bio_leaf_threads" }
 					type: "item"
 				}
 				{
 					count: 64L
 					id: "56EEB100D48D4B36"
-					item: { Count: 64, id: "sfd_comets:wood_shavings" }
+					item: { Count: 64, id: "sfd_comets:bio_wood_shavings" }
 					type: "item"
 				}
 				{
 					count: 24L
 					id: "1CF294C2A8D2BE78"
-					item: { Count: 24, id: "sfd_comets:earth_clump" }
+					item: { Count: 24, id: "sfd_comets:soil_earth_clump" }
 					type: "item"
 				}
 				{
 					count: 10L
 					id: "0FE44A475BF3A0C4"
-					item: { Count: 10, id: "sfd_comets:worm" }
+					item: { Count: 10, id: "sfd_comets:bio_worm" }
 					type: "item"
 				}
 				{
 					count: 6L
 					id: "08F50CEA33C20332"
-					item: { Count: 6, id: "sfd_comets:dried_worm" }
+					item: { Count: 6, id: "sfd_comets:bio_dried_worm" }
 					type: "item"
 				}
 				{
 					count: 12L
 					id: "4D1102359B61FB4A"
-					item: { Count: 12, id: "sfd_comets:tree_bark" }
+					item: { Count: 12, id: "sfd_comets:bio_tree_bark" }
 					type: "item"
 				}
 			]

@@ -4,9 +4,9 @@
     {
       "rolls": 5,
       "entries": [
-        { "type": "minecraft:item", "name": "sfd_comets:microbe_culture" },
-        { "type": "minecraft:item", "name": "sfd_comets:meteoric_slag" },
-        { "type": "minecraft:item", "name": "sfd_comets:organic_dust" },
+        { "type": "minecraft:item", "name": "sfd_comets:planet_microbe_culture" },
+        { "type": "minecraft:item", "name": "sfd_comets:comet_meteoric_slag" },
+        { "type": "minecraft:item", "name": "sfd_comets:bio_organic_dust" },
         { "type": "minecraft:item", "name": "minecraft:bone_meal" },
         { "type": "minecraft:item", "name": "minecraft:clay_ball" }
       ]

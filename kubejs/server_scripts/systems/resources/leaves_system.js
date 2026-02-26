@@ -10,7 +10,7 @@ LootJS.modifiers(event => {
   // Main early drop.
   event
     .addBlockLootModifier('#minecraft:leaves')
-    .addLoot('sfd_comets:leaf_threads');
+    .addLoot('sfd_comets:bio_leaf_threads');
 
   // Sapling sustain.
   event

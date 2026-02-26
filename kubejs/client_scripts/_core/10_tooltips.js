@@ -1,53 +1,54 @@
 // Skyfactory Dark - Stage-0 Bio Loop tooltips
 
 ItemEvents.tooltip(event => {
-  event.add('sfd_comets:leaf_threads', [
+  event.add('sfd_comets:bio_leaf_threads', [
     Text.gold('Quelle:'),
-    Text.gray('Droppt aus Blaettern'),
+    Text.gray('Droppt aus Blättern'),
     Text.aqua('Nutzen:'),
-    Text.darkGray('4x -> Blaetterbuendel')
+    Text.darkGray('4x -> Laubbündel')
   ]);
 
-  event.add('sfd_comets:wood_shavings', [
+  event.add('sfd_comets:bio_wood_shavings', [
     Text.gold('Quelle:'),
-    Text.gray('Droppt aus Staemmen'),
+    Text.gray('Droppt aus Stämmen'),
     Text.aqua('Nutzen:'),
     Text.darkGray('Erde/Wurm-Loop und Organischer Stab')
   ]);
 
-  event.add('sfd_comets:earth_block', [
+  event.add('sfd_comets:soil_earth_block', [
     Text.gold('Wichtig:'),
-    Text.gray('Abbauen fuer Erdklumpen + Wurm-Chance')
+    Text.gray('Abbauen für Erdklumpen + Wurm-Chance'),
+    Text.darkGray('Kategorie: Soil Chain')
   ]);
 
-  event.add('sfd_comets:builder_earth_block', [
+  event.add('sfd_comets:soil_builder_block', [
     Text.gold('Baupfad:'),
     Text.gray('Plattform-Block (4 Earth -> 4 Bau-Erdblock)'),
-    Text.darkGray('Earth-Progress bleibt dadurch verfuegbar')
+    Text.darkGray('Earth-Progress bleibt dadurch verfügbar')
   ]);
 
-  event.add('sfd_comets:worm', [
+  event.add('sfd_comets:bio_worm', [
     Text.gold('Nutzen:'),
     Text.gray('Auf Erdblock oder Baumrindenblock verwenden')
   ]);
 
-  event.add('sfd_comets:dried_worm', [
+  event.add('sfd_comets:bio_dried_worm', [
     Text.gold('Nutzen:'),
     Text.gray('Mit Baumspaenen zum Organischen Stab craften')
   ]);
 
-  event.add('sfd_comets:resin_fragment', [
+  event.add('sfd_comets:bio_resin_fragment', [
     Text.gold('Nutzen:'),
     Text.gray('2x Stick oder Behandlung von Hohlstamm')
   ]);
 
-  event.add('sfd_comets:organic_rod', [
+  event.add('sfd_comets:tool_organic_rod', [
     Text.gold('Nutzen:'),
     Text.gray('Stamm entrinden, Wurmholz bearbeiten'),
-    Text.darkGray('Schluessel fuer ersten Planken-Progress')
+    Text.darkGray('Schlüssel für ersten Planken-Progress')
   ]);
 
-  event.add('sfd_comets:bio_growth_paste', [
+  event.add('sfd_comets:bio_growth_paste_t1', [
     Text.gold('Nutzen:'),
     Text.gray('Rechtsklick auf einen Block wie Knochenmehl'),
     Text.darkGray('Verbraucht sich bei jeder Nutzung')
@@ -59,10 +60,10 @@ ItemEvents.tooltip(event => {
     Text.darkGray('8 Nutzungen pro Item')
   ]);
 
-  event.add('sfd_comets:bark_briquette', [
+  event.add('sfd_comets:bio_bark_briquette', [
     Text.gold('Stage-1 Brennstoff:'),
-    Text.gray('Burntime 50 Ticks pro Stueck'),
-    Text.darkGray('Ca. 4 Stueck pro geschmolzenem Item')
+    Text.gray('Burntime 50 Ticks pro Stück'),
+    Text.darkGray('Ca. 4 Stück pro geschmolzenem Item')
   ]);
 
   event.add('minecraft:crafting_table', [
@@ -71,30 +72,33 @@ ItemEvents.tooltip(event => {
     Text.darkGray('Baupfad: 3x Eichenbretter + 1x Organischer Stab')
   ]);
 
-  event.add('sfd_comets:podest_stone_base', [
+  event.add('sfd_comets:stone_podest_base', [
     Text.gold('Stone-Upgrade:'),
-    Text.gray('Als Unterbau fuer das Bio-Podest verwenden'),
+    Text.gray('Als Unterbau für das Bio-Podest verwenden'),
     Text.darkGray('Beschleunigt die Podest-Verarbeitung')
   ]);
 
-  event.add('sfd_comets:bio_podest', [
+  event.add('sfd_comets:machine_bio_podest', [
     Text.gold('Bio-Podest (Mod):'),
-    Text.gray('Echter 1-Slot Container, per Rechtsklick oeffnen')
+    Text.gray('2 Eingänge + 3x3 Ausgabefeld, per Rechtsklick öffnen'),
+    Text.darkGray('Stage-Gates + Chancen kommen aus der Mod-Config'),
+    Text.darkGray('Kategorie: Podest Core')
   ]);
 
-  event.add('sfd_comets:bio_backpack', [
+  event.add('sfd_comets:comet_field_pack', [
     Text.gold('Bio-Beutel (Custom):'),
-    Text.gray('Exakt 9 Slots, Rechtsklick in die Luft zum Oeffnen')
+    Text.gray('Exakt 9 Slots, Rechtsklick in die Luft zum Öffnen')
   ]);
 
   event.add('sophisticatedbackpacks:backpack', [
     Text.gold('Rucksack:'),
-    Text.gray('Aktuell gesperrt, spaetere Stage-Freischaltung')
+    Text.gray('Aktuell gesperrt, spätere Stage-Freischaltung')
   ]);
 
-  event.add('sfd_comets:rough_stone_mix', [
+  event.add('sfd_comets:stone_rough_mix', [
     Text.gold('Stone-Prozess:'),
-    Text.gray('Zwischenprodukt fuer den stabilen Cobblestone-Loop')
+    Text.gray('Zwischenprodukt für den stabilen Cobblestone-Loop'),
+    Text.darkGray('Kategorie: Stone Chain')
   ]);
 
   event.add('minecraft:blast_furnace', [

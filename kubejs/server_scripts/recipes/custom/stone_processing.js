@@ -1,4 +1,4 @@
-﻿// kubejs/server_scripts/recipes/custom/stone_processing.js
+// kubejs/server_scripts/recipes/custom/stone_processing.js
 // Skyfactory Dark - Stone Chain (v1)
 //
 // Ziel:
@@ -12,37 +12,37 @@
 
 ServerEvents.recipes(event => {
   // Stabilizer route: early deterministic conversion, but still resource-expensive.
-  event.shaped('sfd_comets:pebble_cluster', [
+  event.shaped('sfd_comets:stone_pebble_cluster', [
     'RRR',
     'R R',
     'RRR'
   ], {
-    R: 'sfd_comets:raw_soil_chunk'
-  });
+    R: 'sfd_comets:soil_raw_chunk'
+  }).id('sfd_comets:stone/pebble_cluster');
 
   // Mid Stage-1 route toward Stone: chunk + pebble -> grit.
   event.shapeless('sfd_comets:stone_grit', [
-    'sfd_comets:raw_soil_chunk',
-    'sfd_comets:raw_soil_chunk',
-    'sfd_comets:pebble_cluster'
-  ]);
+    'sfd_comets:soil_raw_chunk',
+    'sfd_comets:soil_raw_chunk',
+    'sfd_comets:stone_pebble_cluster'
+  ]).id('sfd_comets:stone/stone_grit');
 
   // Structured Stone process:
   // grit + previous-stage biomass creates a stone-ready blend.
-  event.shapeless('2x sfd_comets:rough_stone_mix', [
+  event.shapeless('2x sfd_comets:stone_rough_mix', [
     'sfd_comets:stone_grit',
     'sfd_comets:stone_grit',
-    'sfd_comets:raw_soil_chunk',
-    'sfd_comets:compost_pulp'
-  ]);
+    'sfd_comets:soil_raw_chunk',
+    'sfd_comets:bio_compost_pulp'
+  ]).id('sfd_comets:stone/rough_stone_mix');
 
   // Processed blend route (more planned than pure grit compression).
   event.shaped('2x minecraft:cobblestone', [
     'MM',
     'MM'
   ], {
-    M: 'sfd_comets:rough_stone_mix'
-  }).id('skyfactorydark:stone/rough_mix_to_cobble');
+    M: 'sfd_comets:stone_rough_mix'
+  }).id('sfd_comets:stone/rough_mix_to_cobble');
 
   // 4x Stone Grit -> 1 Cobblestone (2x2)
   event.shaped('minecraft:cobblestone', [
@@ -50,26 +50,27 @@ ServerEvents.recipes(event => {
     'GG'
   ], {
     G: 'sfd_comets:stone_grit'
-  }).id('skyfactorydark:stone/grit_to_cobble');
+  }).id('sfd_comets:stone/grit_to_cobble');
 
   // First Stone-age podest upgrade component.
-  event.shaped('sfd_comets:podest_stone_base', [
+  event.shaped('sfd_comets:stone_podest_base', [
     'CCC',
     'CRC',
     'CCC'
   ], {
     C: 'minecraft:cobblestone',
-    R: 'sfd_comets:resin_fragment'
-  }).id('skyfactorydark:stone/podest_stone_base');
+    R: 'sfd_comets:bio_resin_fragment'
+  }).id('sfd_comets:stone/podest_stone_base');
 
   // Optional: Pebble Cluster -> Gravel (spÃƒÂ¤ter nÃƒÂ¼tzlich)
   event.shaped('minecraft:gravel', [
     'PP',
     'PP'
   ], {
-    P: 'sfd_comets:pebble_cluster'
-  });
+    P: 'sfd_comets:stone_pebble_cluster'
+  }).id('sfd_comets:stone/pebble_to_gravel');
 
 });
+
 
 

@@ -2,7 +2,7 @@
   "parent": "skyfactorydark:stages/tools_mallet",
   "display": {
     "icon": {
-      "item": "sfd_comets:organic_fiber"
+      "item": "sfd_comets:bio_organic_fiber"
     },
     "title": "Fiber Output",
     "description": "Get organic fiber from your crushing loop.",
@@ -18,7 +18,7 @@
         "items": [
           {
             "items": [
-              "sfd_comets:organic_fiber"
+              "sfd_comets:bio_organic_fiber"
             ]
           }
         ]

@@ -2,7 +2,7 @@
   "parent": "skyfactorydark:stages/root_dust",
   "display": {
     "icon": {
-      "item": "sfd_comets:compost_pile"
+      "item": "sfd_comets:bio_compost_pile"
     },
     "title": "Compost Chain",
     "description": "Convert organic dust into compost.",
@@ -18,7 +18,7 @@
         "items": [
           {
             "items": [
-              "sfd_comets:compost_pile"
+              "sfd_comets:bio_compost_pile"
             ]
           }
         ]

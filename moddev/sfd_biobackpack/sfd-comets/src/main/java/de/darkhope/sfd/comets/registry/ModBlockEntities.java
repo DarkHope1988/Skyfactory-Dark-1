@@ -13,7 +13,7 @@ public class ModBlockEntities {
       DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES, SfdCometsMod.MOD_ID);
 
   public static final RegistryObject<BlockEntityType<CometPodestBlockEntity>> BIO_PODEST = BLOCK_ENTITY_TYPES.register(
-      "bio_podest",
+      "machine_bio_podest",
       () -> BlockEntityType.Builder.of(CometPodestBlockEntity::new, ModBlocks.BIO_PODEST.get()).build(null)
   );
 

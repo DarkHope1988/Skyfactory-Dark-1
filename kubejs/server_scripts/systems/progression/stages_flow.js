@@ -23,6 +23,7 @@ const grant = (global.SFDStageManager && global.SFDStageManager.grant) || global
 function updateStageLootTier(player) {
   if (!player || !player.server || !player.stages) return;
   let tier = 0;
+  if (player.stages.has(STAGES.STAGE_1_BEGINNING)) tier = 1;
   if (player.stages.has(STAGES.STAGE_2_STONE)) tier = 2;
   if (player.stages.has(STAGES.STAGE_3_HEAT)) tier = 3;
   if (player.stages.has(STAGES.STAGE_4_MACHINES)) tier = 4;

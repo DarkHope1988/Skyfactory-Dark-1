@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "sfd_comets:planet_microbe_culture",
+    "sfd_comets:planet_hydro_seed",
+    "sfd_comets:planet_condensed_water_cell",
+    "sfd_comets:planet_atmo_filament",
+    "sfd_comets:planet_oxygen_matrix",
+    "sfd_comets:planet_anchor",
+    "sfd_comets:planet_gateway_core",
+    "sfd_comets:planet_gateway_core_interdimensional",
+    "sfd_comets:planet_gateway_attunement_map"
+  ]
+}

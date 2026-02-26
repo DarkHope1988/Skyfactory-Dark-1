@@ -1,4 +1,4 @@
-﻿// Skyfactory Dark - Stage-0 Bio Progression Interactions
+// Skyfactory Dark - Stage-0 Bio Progression Interactions
 
 const SFD = {
   wormToWormyEarthChance: 0.28,
@@ -41,8 +41,9 @@ function sfdDamageTool(player, damage) {
 }
 
 function sfdIsBioPodest(blockId) {
-  return String(blockId || '') === 'sfd_comets:bio_podest';
+  return String(blockId || '') === 'sfd_comets:machine_bio_podest';
 }
+const SFD_USE_LEGACY_PODEST = !Platform.isLoaded('sfd_comets');
 
 function sfdPodestKey(level, block) {
   return `${String(level.dimension)}:${block.x},${block.y},${block.z}`;
@@ -68,7 +69,7 @@ BlockEvents.rightClicked(event => {
   const blockId = String(block.id);
 
   // Stage-0 Podest (Trapdoor): item "einlegen" wie Slot und direkt dort verarbeiten.
-  if (sfdIsBioPodest(blockId)) {
+  if (SFD_USE_LEGACY_PODEST && sfdIsBioPodest(blockId)) {
     const key = sfdPodestKey(level, block);
     const slots = global.sfdBioPodestSlots || {};
     const stored = slots[key];
@@ -91,11 +92,11 @@ BlockEvents.rightClicked(event => {
     // 1) Slot befuellen (wie Item-Frame), wenn leer.
     if (!stored) {
       let toStore = null;
-      if (itemId === 'sfd_comets:earth_block' || itemId === 'minecraft:dirt') toStore = 'sfd_comets:earth_block';
-      else if (itemId === 'sfd_comets:bark_block') toStore = 'sfd_comets:bark_block';
-      else if (itemId === 'sfd_comets:wormy_bark_block') toStore = 'sfd_comets:wormy_bark_block';
-      else if (itemId === 'sfd_comets:hollow_bark_block') toStore = 'sfd_comets:hollow_bark_block';
-      else if (itemId === 'sfd_comets:treated_hollow_bark_block') toStore = 'sfd_comets:treated_hollow_bark_block';
+      if (itemId === 'sfd_comets:soil_earth_block' || itemId === 'minecraft:dirt') toStore = 'sfd_comets:soil_earth_block';
+      else if (itemId === 'sfd_comets:bio_bark_block') toStore = 'sfd_comets:bio_bark_block';
+      else if (itemId === 'sfd_comets:bio_wormy_bark_block') toStore = 'sfd_comets:bio_wormy_bark_block';
+      else if (itemId === 'sfd_comets:bio_hollow_bark_block') toStore = 'sfd_comets:bio_hollow_bark_block';
+      else if (itemId === 'sfd_comets:bio_treated_hollow_bark_block') toStore = 'sfd_comets:bio_treated_hollow_bark_block';
       else if (itemId.endsWith('_log')) toStore = itemId;
 
       if (toStore) {
@@ -110,19 +111,19 @@ BlockEvents.rightClicked(event => {
     }
 
     // 2) Wurm auf Slot-Ziel.
-    if (itemId === 'sfd_comets:worm') {
-      if (stored === 'sfd_comets:earth_block') {
+    if (itemId === 'sfd_comets:bio_worm') {
+      if (stored === 'sfd_comets:soil_earth_block') {
         if (Math.random() < SFD.wormToWormyEarthChance) {
-          slots[key] = 'sfd_comets:wormy_earth_block';
+          slots[key] = 'sfd_comets:soil_wormy_earth_block';
           level.spawnParticles('minecraft:happy_villager', true, block.x + 0.5, block.y + 0.2, block.z + 0.5, 10, 0.2, 0.05, 0.2, 0.01);
         } else {
           level.spawnParticles('minecraft:smoke', true, block.x + 0.5, block.y + 0.2, block.z + 0.5, 6, 0.2, 0.05, 0.2, 0.01);
         }
         global.sfdBioPodestSlots = slots;
         sfdConsumeHandItem(player);
-      } else if (stored === 'sfd_comets:bark_block') {
+      } else if (stored === 'sfd_comets:bio_bark_block') {
         if (Math.random() < SFD.wormToWormyBarkChance) {
-          slots[key] = 'sfd_comets:wormy_bark_block';
+          slots[key] = 'sfd_comets:bio_wormy_bark_block';
           level.spawnParticles('minecraft:happy_villager', true, block.x + 0.5, block.y + 0.2, block.z + 0.5, 10, 0.2, 0.05, 0.2, 0.01);
         } else {
           level.spawnParticles('minecraft:smoke', true, block.x + 0.5, block.y + 0.2, block.z + 0.5, 6, 0.2, 0.05, 0.2, 0.01);
@@ -137,17 +138,17 @@ BlockEvents.rightClicked(event => {
     }
 
     // 3) Baumspaene auf Slot-Ziel.
-    if (itemId === 'sfd_comets:wood_shavings') {
+    if (itemId === 'sfd_comets:bio_wood_shavings') {
       // Finalschritt Earth-Loop: verbraucht den Block, gibt aber immer Getrockneten Wurm.
-      if (stored === 'sfd_comets:wormy_earth_block') {
+      if (stored === 'sfd_comets:soil_wormy_earth_block') {
         const amount = Math.random() < 0.5 ? 1 : 2;
-        sfdPopAbove(level, block, Item.of('sfd_comets:dried_worm', amount));
+        sfdPopAbove(level, block, Item.of('sfd_comets:bio_dried_worm', amount));
         level.spawnParticles('minecraft:ash', true, block.x + 0.5, block.y + 0.2, block.z + 0.5, 10, 0.2, 0.05, 0.2, 0.01);
         delete slots[key];
         global.sfdBioPodestSlots = slots;
         sfdConsumeHandItem(player);
-      } else if (stored === 'sfd_comets:hollow_bark_block') {
-        slots[key] = 'sfd_comets:treated_hollow_bark_block';
+      } else if (stored === 'sfd_comets:bio_hollow_bark_block') {
+        slots[key] = 'sfd_comets:bio_treated_hollow_bark_block';
         global.sfdBioPodestSlots = slots;
         sfdConsumeHandItem(player);
         level.spawnParticles('minecraft:happy_villager', true, block.x + 0.5, block.y + 0.2, block.z + 0.5, 8, 0.2, 0.05, 0.2, 0.01);
@@ -159,11 +160,11 @@ BlockEvents.rightClicked(event => {
     }
 
     // 4) Organic Rod auf Slot-Ziel.
-    if (itemId === 'sfd_comets:organic_rod') {
+    if (itemId === 'sfd_comets:tool_organic_rod') {
       if (stored && stored.endsWith('_log') && SFD.strippedLogMap[stored]) {
         const stripped = SFD.strippedLogMap[stored];
         sfdPopAbove(level, block, Item.of(stripped, 1));
-        sfdPopAbove(level, block, Item.of('sfd_comets:tree_bark', 1));
+        sfdPopAbove(level, block, Item.of('sfd_comets:bio_tree_bark', 1));
         delete slots[key];
         global.sfdBioPodestSlots = slots;
         sfdDamageTool(player, 1);
@@ -172,9 +173,9 @@ BlockEvents.rightClicked(event => {
         return;
       }
 
-      if (stored === 'sfd_comets:wormy_bark_block') {
-        slots[key] = 'sfd_comets:hollow_bark_block';
-        if (Math.random() < 0.20) sfdPopAbove(level, block, Item.of('sfd_comets:dried_worm', 1));
+      if (stored === 'sfd_comets:bio_wormy_bark_block') {
+        slots[key] = 'sfd_comets:bio_hollow_bark_block';
+        if (Math.random() < 0.20) sfdPopAbove(level, block, Item.of('sfd_comets:bio_dried_worm', 1));
         global.sfdBioPodestSlots = slots;
         sfdDamageTool(player, 1);
         level.spawnParticles('minecraft:happy_villager', true, block.x + 0.5, block.y + 0.2, block.z + 0.5, 8, 0.2, 0.05, 0.2, 0.01);
@@ -183,9 +184,9 @@ BlockEvents.rightClicked(event => {
       }
 
       // Harvest Schritt im Podest fuer Bark-Chain.
-      if (stored === 'sfd_comets:hollow_bark_block') {
+      if (stored === 'sfd_comets:bio_hollow_bark_block') {
         if (Math.random() < 0.66) sfdPopAbove(level, block, Item.of('minecraft:oak_planks', 1));
-        if (Math.random() < 0.70) sfdPopAbove(level, block, Item.of('sfd_comets:tree_bark', 1));
+        if (Math.random() < 0.70) sfdPopAbove(level, block, Item.of('sfd_comets:bio_tree_bark', 1));
         delete slots[key];
         global.sfdBioPodestSlots = slots;
         sfdDamageTool(player, 1);
@@ -194,9 +195,9 @@ BlockEvents.rightClicked(event => {
         return;
       }
 
-      if (stored === 'sfd_comets:treated_hollow_bark_block') {
+      if (stored === 'sfd_comets:bio_treated_hollow_bark_block') {
         sfdPopAbove(level, block, Item.of('minecraft:oak_planks', 1));
-        sfdPopAbove(level, block, Item.of('sfd_comets:tree_bark', 1));
+        sfdPopAbove(level, block, Item.of('sfd_comets:bio_tree_bark', 1));
         delete slots[key];
         global.sfdBioPodestSlots = slots;
         sfdDamageTool(player, 1);
@@ -225,9 +226,9 @@ BlockEvents.rightClicked(event => {
   }
 
   // Worm on dirt -> chance for wormy earth.
-  if (itemId === 'sfd_comets:worm' && blockId === 'sfd_comets:earth_block') {
+  if (itemId === 'sfd_comets:bio_worm' && blockId === 'sfd_comets:soil_earth_block') {
     if (Math.random() < SFD.wormToWormyEarthChance) {
-      block.set('sfd_comets:wormy_earth_block');
+      block.set('sfd_comets:soil_wormy_earth_block');
       level.spawnParticles('minecraft:happy_villager', true, block.x + 0.5, block.y + 1, block.z + 0.5, 10, 0.2, 0.2, 0.2, 0.01);
     } else {
       level.spawnParticles('minecraft:smoke', true, block.x + 0.5, block.y + 1, block.z + 0.5, 6, 0.2, 0.2, 0.2, 0.01);
@@ -238,9 +239,9 @@ BlockEvents.rightClicked(event => {
   }
 
   // Worm bait on earth -> accelerated worm generation.
-  if (itemId === 'sfd_comets:worm_bait' && blockId === 'sfd_comets:earth_block') {
+  if (itemId === 'sfd_comets:bio_worm_bait' && blockId === 'sfd_comets:soil_earth_block') {
     if (Math.random() < 0.60) {
-      block.popItem(Item.of('sfd_comets:worm', 1));
+      block.popItem(Item.of('sfd_comets:bio_worm', 1));
       level.spawnParticles('minecraft:happy_villager', true, block.x + 0.5, block.y + 1, block.z + 0.5, 8, 0.2, 0.2, 0.2, 0.01);
     } else {
       level.spawnParticles('minecraft:smoke', true, block.x + 0.5, block.y + 1, block.z + 0.5, 6, 0.2, 0.2, 0.2, 0.01);
@@ -251,9 +252,9 @@ BlockEvents.rightClicked(event => {
   }
 
   // Wood shavings on wormy earth -> guaranteed dried worms.
-  if (itemId === 'sfd_comets:wood_shavings' && blockId === 'sfd_comets:wormy_earth_block') {
+  if (itemId === 'sfd_comets:bio_wood_shavings' && blockId === 'sfd_comets:soil_wormy_earth_block') {
     const amount = Math.random() < 0.5 ? 1 : 2;
-    block.popItem(Item.of('sfd_comets:dried_worm', amount));
+    block.popItem(Item.of('sfd_comets:bio_dried_worm', amount));
     level.spawnParticles('minecraft:ash', true, block.x + 0.5, block.y + 1, block.z + 0.5, 10, 0.2, 0.2, 0.2, 0.01);
     block.set('minecraft:air');
     sfdConsumeHandItem(player);
@@ -262,9 +263,9 @@ BlockEvents.rightClicked(event => {
   }
 
   // Worm on bark block -> chance for wormy bark.
-  if (itemId === 'sfd_comets:worm' && blockId === 'sfd_comets:bark_block') {
+  if (itemId === 'sfd_comets:bio_worm' && blockId === 'sfd_comets:bio_bark_block') {
     if (Math.random() < SFD.wormToWormyBarkChance) {
-      block.set('sfd_comets:wormy_bark_block');
+      block.set('sfd_comets:bio_wormy_bark_block');
       level.spawnParticles('minecraft:happy_villager', true, block.x + 0.5, block.y + 1, block.z + 0.5, 10, 0.2, 0.2, 0.2, 0.01);
     } else {
       level.spawnParticles('minecraft:smoke', true, block.x + 0.5, block.y + 1, block.z + 0.5, 6, 0.2, 0.2, 0.2, 0.01);
@@ -275,11 +276,11 @@ BlockEvents.rightClicked(event => {
   }
 
   // Organic rod on logs -> strip + bark drop.
-  if (itemId === 'sfd_comets:organic_rod' && blockId.endsWith('_log')) {
+  if (itemId === 'sfd_comets:tool_organic_rod' && blockId.endsWith('_log')) {
     const stripped = SFD.strippedLogMap[blockId];
     if (stripped) {
       block.set(stripped);
-      block.popItem('sfd_comets:tree_bark');
+      block.popItem('sfd_comets:bio_tree_bark');
       sfdDamageTool(player, 1);
       event.cancel();
       return;
@@ -287,17 +288,17 @@ BlockEvents.rightClicked(event => {
   }
 
   // Organic rod on wormy bark -> remove worm, improved plank chance state.
-  if (itemId === 'sfd_comets:organic_rod' && blockId === 'sfd_comets:wormy_bark_block') {
-    block.set('sfd_comets:hollow_bark_block');
-    if (Math.random() < 0.20) block.popItem('sfd_comets:dried_worm');
+  if (itemId === 'sfd_comets:tool_organic_rod' && blockId === 'sfd_comets:bio_wormy_bark_block') {
+    block.set('sfd_comets:bio_hollow_bark_block');
+    if (Math.random() < 0.20) block.popItem('sfd_comets:bio_dried_worm');
     sfdDamageTool(player, 1);
     event.cancel();
     return;
   }
 
   // Wood shavings on hollow bark -> treated state (guaranteed plank).
-  if (itemId === 'sfd_comets:wood_shavings' && blockId === 'sfd_comets:hollow_bark_block') {
-    block.set('sfd_comets:treated_hollow_bark_block');
+  if (itemId === 'sfd_comets:bio_wood_shavings' && blockId === 'sfd_comets:bio_hollow_bark_block') {
+    block.set('sfd_comets:bio_treated_hollow_bark_block');
     sfdConsumeHandItem(player);
     event.cancel();
   }
@@ -306,6 +307,7 @@ BlockEvents.rightClicked(event => {
 BlockEvents.broken(event => {
   const { block, level } = event;
   const blockId = String(block.id);
+  if (!SFD_USE_LEGACY_PODEST) return;
   if (!sfdIsBioPodest(blockId)) return;
 
   const key = sfdPodestKey(level, block);
@@ -326,18 +328,18 @@ BlockEvents.placed(event => {
 
   const placedId = String(block.id);
   const restricted = {
-    'sfd_comets:earth_block': true,
-    'sfd_comets:wormy_earth_block': true,
-    'sfd_comets:bark_block': true,
-    'sfd_comets:wormy_bark_block': true,
-    'sfd_comets:hollow_bark_block': true,
-    'sfd_comets:treated_hollow_bark_block': true
+    'sfd_comets:soil_earth_block': true,
+    'sfd_comets:soil_wormy_earth_block': true,
+    'sfd_comets:bio_bark_block': true,
+    'sfd_comets:bio_wormy_bark_block': true,
+    'sfd_comets:bio_hollow_bark_block': true,
+    'sfd_comets:bio_treated_hollow_bark_block': true
   };
   if (!restricted[placedId]) return;
 
   const below = level.getBlock(block.x, block.y - 1, block.z);
   const belowId = String(below.id || '');
-  const allowedBase = belowId === 'sfd_comets:builder_earth_block' || belowId === 'sfd_comets:bio_podest';
+  const allowedBase = belowId === 'sfd_comets:soil_builder_block' || belowId === 'sfd_comets:machine_bio_podest';
   if (allowedBase) return;
 
   block.set('minecraft:air');
@@ -348,60 +350,61 @@ BlockEvents.placed(event => {
 LootJS.modifiers(event => {
   // Earth block -> clumps + stable worm chance (independent of hand state).
   event
-    .addBlockLootModifier('sfd_comets:earth_block')
-    .removeLoot('sfd_comets:earth_block')
-    .addLoot(Item.of('sfd_comets:earth_clump', 2));
+    .addBlockLootModifier('sfd_comets:soil_earth_block')
+    .removeLoot('sfd_comets:soil_earth_block')
+    .addLoot(Item.of('sfd_comets:soil_earth_clump', 2));
 
   event
-    .addBlockLootModifier('sfd_comets:earth_block')
-    .removeLoot('sfd_comets:earth_block')
+    .addBlockLootModifier('sfd_comets:soil_earth_block')
+    .removeLoot('sfd_comets:soil_earth_block')
     .randomChance(0.35)
-    .addLoot('sfd_comets:worm');
+    .addLoot('sfd_comets:bio_worm');
 
   // Wormy earth gives slightly better worm economy.
   event
-    .addBlockLootModifier('sfd_comets:wormy_earth_block')
-    .removeLoot('sfd_comets:wormy_earth_block')
-    .addLoot(Item.of('sfd_comets:earth_clump', 2));
+    .addBlockLootModifier('sfd_comets:soil_wormy_earth_block')
+    .removeLoot('sfd_comets:soil_wormy_earth_block')
+    .addLoot(Item.of('sfd_comets:soil_earth_clump', 2));
 
   event
-    .addBlockLootModifier('sfd_comets:wormy_earth_block')
-    .randomChance(0.30)
-    .addLoot('sfd_comets:worm');
+    .addBlockLootModifier('sfd_comets:soil_wormy_earth_block')
+    .matchMainHand('#skyfactorydark:mallets')
+    .randomChance(0.60)
+    .addLoot('sfd_comets:bio_worm');
 
   // Bark progression blocks into first planks.
   event
-    .addBlockLootModifier('sfd_comets:bark_block')
-    .removeLoot('sfd_comets:bark_block')
-    .addLoot('sfd_comets:tree_bark');
+    .addBlockLootModifier('sfd_comets:bio_bark_block')
+    .removeLoot('sfd_comets:bio_bark_block')
+    .addLoot('sfd_comets:bio_tree_bark');
 
   event
-    .addBlockLootModifier('sfd_comets:wormy_bark_block')
-    .removeLoot('sfd_comets:wormy_bark_block')
+    .addBlockLootModifier('sfd_comets:bio_wormy_bark_block')
+    .removeLoot('sfd_comets:bio_wormy_bark_block')
     .randomChance(0.33)
     .addLoot('minecraft:oak_planks');
 
   event
-    .addBlockLootModifier('sfd_comets:wormy_bark_block')
+    .addBlockLootModifier('sfd_comets:bio_wormy_bark_block')
     .randomChance(0.60)
-    .addLoot('sfd_comets:tree_bark');
+    .addLoot('sfd_comets:bio_tree_bark');
 
   event
-    .addBlockLootModifier('sfd_comets:hollow_bark_block')
-    .removeLoot('sfd_comets:hollow_bark_block')
+    .addBlockLootModifier('sfd_comets:bio_hollow_bark_block')
+    .removeLoot('sfd_comets:bio_hollow_bark_block')
     .randomChance(0.66)
     .addLoot('minecraft:oak_planks');
 
   event
-    .addBlockLootModifier('sfd_comets:hollow_bark_block')
+    .addBlockLootModifier('sfd_comets:bio_hollow_bark_block')
     .randomChance(0.70)
-    .addLoot('sfd_comets:tree_bark');
+    .addLoot('sfd_comets:bio_tree_bark');
 
   event
-    .addBlockLootModifier('sfd_comets:treated_hollow_bark_block')
-    .removeLoot('sfd_comets:treated_hollow_bark_block')
+    .addBlockLootModifier('sfd_comets:bio_treated_hollow_bark_block')
+    .removeLoot('sfd_comets:bio_treated_hollow_bark_block')
     .addLoot('minecraft:oak_planks')
-    .addLoot('sfd_comets:tree_bark');
+    .addLoot('sfd_comets:bio_tree_bark');
 });
 
 

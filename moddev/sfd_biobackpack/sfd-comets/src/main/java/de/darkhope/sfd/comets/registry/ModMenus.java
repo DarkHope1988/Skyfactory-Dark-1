@@ -15,12 +15,12 @@ public class ModMenus {
       DeferredRegister.create(ForgeRegistries.MENU_TYPES, SfdCometsMod.MOD_ID);
 
   public static final RegistryObject<MenuType<CometFieldPackMenu>> BIO_BACKPACK_MENU = MENUS.register(
-      "bio_backpack",
+      "comet_field_pack",
       () -> IForgeMenuType.create(CometFieldPackMenu::new)
   );
 
   public static final RegistryObject<MenuType<CometPodestMenu>> BIO_PODEST_MENU = MENUS.register(
-      "bio_podest",
+      "machine_bio_podest",
       () -> IForgeMenuType.create(CometPodestMenu::new)
   );
 

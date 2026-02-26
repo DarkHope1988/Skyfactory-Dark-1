@@ -24,6 +24,6 @@ PlayerEvents.loggedIn(event => {
 
   // Minimal start: sapling + growth paste + one builder earth block for safe standing space.
   player.give(Item.of('minecraft:oak_sapling', 1));
-  player.give(Item.of('sfd_comets:bio_growth_paste', 1));
-  player.give(Item.of('sfd_comets:builder_earth_block', 1));
+  player.give(Item.of('sfd_comets:bio_growth_paste_t1', 1));
+  player.give(Item.of('sfd_comets:soil_builder_block', 1));
 });

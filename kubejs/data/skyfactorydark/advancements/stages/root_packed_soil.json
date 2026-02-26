@@ -1,8 +1,8 @@
-﻿{
+{
   "parent": "skyfactorydark:stages/root_compost",
   "display": {
     "icon": {
-      "item": "sfd_comets:packed_soil"
+      "item": "sfd_comets:soil_packed_block"
     },
     "title": "Packed Soil",
     "description": "Create packed soil as your first investment block.",
@@ -18,7 +18,7 @@
         "items": [
           {
             "items": [
-              "sfd_comets:packed_soil"
+              "sfd_comets:soil_packed_block"
             ]
           }
         ]

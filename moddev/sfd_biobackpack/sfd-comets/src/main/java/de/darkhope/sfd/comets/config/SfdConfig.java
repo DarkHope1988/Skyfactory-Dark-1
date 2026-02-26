@@ -56,6 +56,26 @@ public final class SfdConfig {
   public static final ForgeConfigSpec.BooleanValue DEBUG_COMMANDS_ENABLED;
   public static final ForgeConfigSpec.IntValue DEBUG_COMMAND_PERMISSION_LEVEL;
 
+  public static final ForgeConfigSpec.IntValue BIO_PODEST_PROCESS_INTERVAL_TICKS;
+  public static final ForgeConfigSpec.IntValue BIO_PODEST_PROCESS_INTERVAL_STONE_BASE_TICKS;
+  public static final ForgeConfigSpec.IntValue BIO_PODEST_PROCESS_INTERVAL_HEAT_BASE_TICKS;
+  public static final ForgeConfigSpec.IntValue BIO_PODEST_PROCESS_INTERVAL_STONE_BASEBLOCK_TICKS;
+  public static final ForgeConfigSpec.DoubleValue BIO_PODEST_EARTH_WORM_CHANCE;
+  public static final ForgeConfigSpec.DoubleValue BIO_PODEST_EARTH_WORM_BAIT_CHANCE;
+  public static final ForgeConfigSpec.DoubleValue BIO_PODEST_WORMY_EARTH_MALLET_WORM_CHANCE;
+  public static final ForgeConfigSpec.BooleanValue BIO_PODEST_STAGE_GATES_ENABLED;
+  public static final ForgeConfigSpec.IntValue BIO_PODEST_GATE_EARTH_WORM_MIN_TIER;
+  public static final ForgeConfigSpec.IntValue BIO_PODEST_GATE_EARTH_WORM_BAIT_MIN_TIER;
+  public static final ForgeConfigSpec.IntValue BIO_PODEST_GATE_WORMY_EARTH_WOOD_MIN_TIER;
+  public static final ForgeConfigSpec.IntValue BIO_PODEST_GATE_WORMY_EARTH_MALLET_MIN_TIER;
+  public static final ForgeConfigSpec.IntValue BIO_PODEST_GATE_BARK_WORM_MIN_TIER;
+  public static final ForgeConfigSpec.IntValue BIO_PODEST_GATE_WORMY_BARK_ROD_MIN_TIER;
+  public static final ForgeConfigSpec.IntValue BIO_PODEST_GATE_HOLLOW_BARK_TREAT_MIN_TIER;
+  public static final ForgeConfigSpec.IntValue BIO_PODEST_GATE_TREATED_BARK_ROD_MIN_TIER;
+  public static final ForgeConfigSpec.BooleanValue BIO_PODEST_FAIL_OUTPUT_ENABLED;
+  public static final ForgeConfigSpec.DoubleValue BIO_PODEST_FAIL_OUTPUT_CHANCE;
+  public static final ForgeConfigSpec.IntValue BIO_PODEST_FAIL_OUTPUT_COUNT;
+
   static {
     ForgeConfigSpec.Builder b = new ForgeConfigSpec.Builder();
 
@@ -171,6 +191,66 @@ public final class SfdConfig {
     DEBUG_COMMAND_PERMISSION_LEVEL = b
         .comment("Required permission level for /sfdstate (2 = cheats/op commands in singleplayer).")
         .defineInRange("permission_level", 2, 0, 4);
+    b.pop();
+
+    b.push("machine_bio_podest");
+    BIO_PODEST_PROCESS_INTERVAL_TICKS = b
+        .comment("Default process interval for Bio Podest in ticks.")
+        .defineInRange("process_interval_ticks", 200, 1, 24000);
+    BIO_PODEST_PROCESS_INTERVAL_STONE_BASE_TICKS = b
+        .comment("Process interval when podest is placed on podest stone base.")
+        .defineInRange("process_interval_stone_base_ticks", 100, 1, 24000);
+    BIO_PODEST_PROCESS_INTERVAL_HEAT_BASE_TICKS = b
+        .comment("Process interval when podest is placed on furnace/blast furnace/smoker.")
+        .defineInRange("process_interval_heat_base_ticks", 120, 1, 24000);
+    BIO_PODEST_PROCESS_INTERVAL_STONE_BASEBLOCK_TICKS = b
+        .comment("Process interval when podest is placed on cobblestone/stone/stone bricks.")
+        .defineInRange("process_interval_stone_block_ticks", 160, 1, 24000);
+    BIO_PODEST_EARTH_WORM_CHANCE = b
+        .comment("Chance for Earth + Worm -> Wormy Earth in Bio Podest.")
+        .defineInRange("earth_worm_chance", 0.28D, 0.0D, 1.0D);
+    BIO_PODEST_EARTH_WORM_BAIT_CHANCE = b
+        .comment("Chance for Earth + Worm Bait -> Worm in Bio Podest.")
+        .defineInRange("earth_worm_bait_chance", 0.60D, 0.0D, 1.0D);
+    BIO_PODEST_WORMY_EARTH_MALLET_WORM_CHANCE = b
+        .comment("Chance for Wormy Earth + Crude Mallet -> Worm in Bio Podest.")
+        .defineInRange("wormy_earth_mallet_worm_chance", 0.60D, 0.0D, 1.0D);
+    BIO_PODEST_STAGE_GATES_ENABLED = b
+        .comment("Enable stage-tier gating for Bio Podest process rules.")
+        .define("stage_gates_enabled", true);
+    BIO_PODEST_GATE_EARTH_WORM_MIN_TIER = b
+        .comment("Min stage tier for Earth + Worm -> Wormy Earth.")
+        .defineInRange("gate_earth_worm_min_tier", 0, 0, 6);
+    BIO_PODEST_GATE_EARTH_WORM_BAIT_MIN_TIER = b
+        .comment("Min stage tier for Earth + Worm Bait -> Worm.")
+        .defineInRange("gate_earth_worm_bait_min_tier", 1, 0, 6);
+    BIO_PODEST_GATE_WORMY_EARTH_WOOD_MIN_TIER = b
+        .comment("Min stage tier for Wormy Earth + Wood Shavings -> Dried Worm.")
+        .defineInRange("gate_wormy_earth_wood_min_tier", 0, 0, 6);
+    BIO_PODEST_GATE_WORMY_EARTH_MALLET_MIN_TIER = b
+        .comment("Min stage tier for Wormy Earth + Crude Mallet -> Worm.")
+        .defineInRange("gate_wormy_earth_mallet_min_tier", 1, 0, 6);
+    BIO_PODEST_GATE_BARK_WORM_MIN_TIER = b
+        .comment("Min stage tier for Bark Block + Worm -> Wormy Bark Block.")
+        .defineInRange("gate_bark_worm_min_tier", 0, 0, 6);
+    BIO_PODEST_GATE_WORMY_BARK_ROD_MIN_TIER = b
+        .comment("Min stage tier for Wormy Bark Block + Organic Rod -> Hollow Bark Block.")
+        .defineInRange("gate_wormy_bark_rod_min_tier", 0, 0, 6);
+    BIO_PODEST_GATE_HOLLOW_BARK_TREAT_MIN_TIER = b
+        .comment("Min stage tier for Hollow Bark Block + Resin/Wood Shavings -> Treated Hollow Bark Block.")
+        .defineInRange("gate_hollow_bark_treat_min_tier", 0, 0, 6);
+    BIO_PODEST_GATE_TREATED_BARK_ROD_MIN_TIER = b
+        .comment("Min stage tier for Treated Hollow Bark Block + Organic Rod -> Oak Planks.")
+        .defineInRange("gate_treated_bark_rod_min_tier", 0, 0, 6);
+    BIO_PODEST_FAIL_OUTPUT_ENABLED = b
+        .comment("Enable consolation output on failed Bio Podest processes that define one.")
+        .define("fail_output_enabled", true);
+    BIO_PODEST_FAIL_OUTPUT_CHANCE = b
+        .comment("Chance to emit fail output (e.g. Earth Clump) when a process roll fails.")
+        .defineInRange("fail_output_chance", 0.35D, 0.0D, 1.0D);
+    BIO_PODEST_FAIL_OUTPUT_COUNT = b
+        .comment("Stack count for fail output.")
+        .defineInRange("fail_output_count", 1, 1, 16);
     b.pop();
 
     SPEC = b.build();

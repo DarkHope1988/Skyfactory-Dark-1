@@ -17,7 +17,7 @@
 			tasks: [{
 				count: 24L
 				id: "76BD038B186DCDB9"
-				item: { Count: 24, id: "sfd_comets:organic_dust" }
+				item: { Count: 24, id: "sfd_comets:bio_organic_dust" }
 				type: "item"
 			}]
 			title: "01 | Start: Organic Dust aufbauen"
@@ -35,7 +35,7 @@
 			tasks: [{
 				count: 8L
 				id: "4FE465A431A993C6"
-				item: { Count: 8, id: "sfd_comets:compost_pile" }
+				item: { Count: 8, id: "sfd_comets:bio_compost_pile" }
 				type: "item"
 			}]
 			title: "02 | Naechster Schritt: Compost Pile herstellen"
@@ -53,7 +53,7 @@
 			tasks: [{
 				count: 8L
 				id: "69EA64E316AB939E"
-				item: { Count: 8, id: "sfd_comets:compost_pulp" }
+				item: { Count: 8, id: "sfd_comets:bio_compost_pulp" }
 				type: "item"
 			}]
 			title: "03 | Naechster Schritt: Compost Pulp herstellen"
@@ -89,7 +89,7 @@
 			tasks: [{
 				count: 16L
 				id: "6CC89D24C13B5C88"
-				item: { Count: 16, id: "sfd_comets:packed_soil" }
+				item: { Count: 16, id: "sfd_comets:soil_packed_block" }
 				type: "item"
 			}]
 			title: "05 | Packed Soil produzieren"
@@ -108,7 +108,7 @@
 				id: "6CF7300B7175A292"
 				item: {
 					Count: 1
-					id: "sfd_comets:crude_mallet"
+					id: "sfd_comets:tool_crude_mallet"
 					tag: {
 						Damage: 0
 					}
@@ -166,7 +166,7 @@
 			tasks: [{
 				count: 12L
 				id: "42C883D023400004"
-				item: { Count: 12, id: "sfd_comets:bark_briquette" }
+				item: { Count: 12, id: "sfd_comets:bio_bark_briquette" }
 				type: "item"
 			}]
 			title: "09 | Fuel vorbereiten: Bark Briquette"
@@ -202,7 +202,7 @@
 				{
 					count: 12L
 					id: "25A1446D447678B9"
-					item: { Count: 12, id: "sfd_comets:organic_fiber" }
+					item: { Count: 12, id: "sfd_comets:bio_organic_fiber" }
 					type: "item"
 				}
 				{
@@ -228,13 +228,13 @@
 				{
 					count: 16L
 					id: "5E453806E95C4042"
-					item: { Count: 16, id: "sfd_comets:organic_dust" }
+					item: { Count: 16, id: "sfd_comets:bio_organic_dust" }
 					type: "item"
 				}
 				{
 					count: 6L
 					id: "2E5099E841E93181"
-					item: { Count: 6, id: "sfd_comets:resin_fragment" }
+					item: { Count: 6, id: "sfd_comets:bio_resin_fragment" }
 					type: "item"
 				}
 			]

@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "sfd_comets:food_sprout_mash",
+    "sfd_comets:food_survival_ration",
+    "sfd_comets:food_raw_forage",
+    "sfd_comets:food_dried_forage",
+    "sfd_comets:food_protein_cake"
+  ]
+}

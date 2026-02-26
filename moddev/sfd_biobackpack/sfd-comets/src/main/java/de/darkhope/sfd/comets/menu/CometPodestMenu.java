@@ -23,16 +23,20 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class CometPodestMenu extends AbstractContainerMenu {
-  private static final int SLOT_COUNT = 3;
-  private static final ResourceLocation EARTH_ID = SfdBlockIds.KUBEJS_EARTH_BLOCK;
-  private static final ResourceLocation WORMY_EARTH_ID = SfdBlockIds.KUBEJS_WORMY_EARTH_BLOCK;
-  private static final ResourceLocation BARK_BLOCK_ID = SfdBlockIds.KUBEJS_BARK_BLOCK;
-  private static final ResourceLocation WORMY_BARK_BLOCK_ID = SfdBlockIds.KUBEJS_WORMY_BARK_BLOCK;
-  private static final ResourceLocation HOLLOW_BARK_BLOCK_ID = SfdBlockIds.KUBEJS_HOLLOW_BARK_BLOCK;
-  private static final ResourceLocation TREATED_HOLLOW_BARK_BLOCK_ID = SfdBlockIds.KUBEJS_TREATED_HOLLOW_BARK_BLOCK;
+  private static final int SLOT_COUNT = CometPodestBlockEntity.SLOT_COUNT;
+  private static final int OUTPUT_START = CometPodestBlockEntity.SLOT_OUTPUT_START;
+  private static final int OUTPUT_COUNT = CometPodestBlockEntity.OUTPUT_SLOT_COUNT;
+  private static final ResourceLocation EARTH_ID = SfdBlockIds.EARTH_BLOCK;
+  private static final ResourceLocation WORMY_EARTH_ID = SfdBlockIds.WORMY_EARTH_BLOCK;
+  private static final ResourceLocation BARK_BLOCK_ID = SfdBlockIds.BARK_BLOCK;
+  private static final ResourceLocation WORMY_BARK_BLOCK_ID = SfdBlockIds.WORMY_BARK_BLOCK;
+  private static final ResourceLocation HOLLOW_BARK_BLOCK_ID = SfdBlockIds.HOLLOW_BARK_BLOCK;
+  private static final ResourceLocation TREATED_HOLLOW_BARK_BLOCK_ID = SfdBlockIds.TREATED_HOLLOW_BARK_BLOCK;
   private static final ResourceLocation WORM_ID = SfdItemIds.WORM;
+  private static final ResourceLocation WORM_BAIT_ID = SfdItemIds.WORM_BAIT;
   private static final ResourceLocation WOOD_SHAVINGS_ID = SfdItemIds.WOOD_SHAVINGS;
   private static final ResourceLocation ORGANIC_ROD_ID = SfdItemIds.ORGANIC_ROD;
+  private static final ResourceLocation CRUDE_MALLET_ID = SfdItemIds.CRUDE_MALLET;
   private static final ResourceLocation RESIN_FRAGMENT_ID = SfdItemIds.RESIN_FRAGMENT;
   private final Container container;
   private final ContainerLevelAccess access;
@@ -71,13 +75,20 @@ public class CometPodestMenu extends AbstractContainerMenu {
       }
     });
 
-    // Right output.
-    addSlot(new Slot(container, CometPodestBlockEntity.SLOT_OUTPUT, 134, 47) {
-      @Override
-      public boolean mayPlace(ItemStack stack) {
-        return false;
+    // Right output grid (3x3).
+    int outputSlot = OUTPUT_START;
+    for (int row = 0; row < CometPodestBlockEntity.OUTPUT_ROWS; row++) {
+      for (int col = 0; col < CometPodestBlockEntity.OUTPUT_COLUMNS; col++) {
+        int x = 116 + col * 18;
+        int y = 29 + row * 18;
+        addSlot(new Slot(container, outputSlot++, x, y) {
+          @Override
+          public boolean mayPlace(ItemStack stack) {
+            return false;
+          }
+        });
       }
-    });
+    }
 
     addPlayerInventory(playerInventory);
     addDataSlots(data);
@@ -94,12 +105,12 @@ public class CometPodestMenu extends AbstractContainerMenu {
   private void addPlayerInventory(Inventory inventory) {
     for (int row = 0; row < 3; row++) {
       for (int col = 0; col < 9; col++) {
-        addSlot(new Slot(inventory, col + row * 9 + 9, 8 + col * 18, 84 + row * 18));
+        addSlot(new Slot(inventory, col + row * 9 + 9, 8 + col * 18, 108 + row * 18));
       }
     }
 
     for (int hotbar = 0; hotbar < 9; hotbar++) {
-      addSlot(new Slot(inventory, hotbar, 8 + hotbar * 18, 142));
+      addSlot(new Slot(inventory, hotbar, 8 + hotbar * 18, 166));
     }
   }
 
@@ -130,7 +141,9 @@ public class CometPodestMenu extends AbstractContainerMenu {
           return ItemStack.EMPTY;
         }
       } else {
-        return ItemStack.EMPTY;
+        if (!moveItemStackTo(sourceStack, OUTPUT_START, OUTPUT_START + OUTPUT_COUNT, false)) {
+          return ItemStack.EMPTY;
+        }
       }
     }
 
@@ -165,8 +178,10 @@ public class CometPodestMenu extends AbstractContainerMenu {
 
   private static boolean isCatalystItem(ItemStack stack) {
     return isStackItem(stack, WORM_ID)
+        || isStackItem(stack, WORM_BAIT_ID)
         || isStackItem(stack, WOOD_SHAVINGS_ID)
         || isStackItem(stack, ORGANIC_ROD_ID)
+        || isStackItem(stack, CRUDE_MALLET_ID)
         || isStackItem(stack, RESIN_FRAGMENT_ID);
   }
 

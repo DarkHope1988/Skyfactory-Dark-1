@@ -11,9 +11,11 @@ public class CometPodestScreen extends AbstractContainerScreen<CometPodestMenu> 
   public CometPodestScreen(CometPodestMenu menu, Inventory playerInventory, Component title) {
     super(menu, playerInventory, title);
     this.imageWidth = 176;
-    this.imageHeight = 166;
+    this.imageHeight = 190;
     this.titleLabelX = 8;
     this.titleLabelY = 6;
+    this.inventoryLabelX = 8;
+    this.inventoryLabelY = 96;
   }
 
   @Override
@@ -27,12 +29,18 @@ public class CometPodestScreen extends AbstractContainerScreen<CometPodestMenu> 
     graphics.fill(x + 1, y + 1, x + imageWidth - 1, y + imageHeight - 1, 0xFFACA09A);
 
     // Top work area
-    graphics.fill(x + 8, y + 18, x + imageWidth - 8, y + 74, 0xFFA99D97);
+    graphics.fill(x + 8, y + 18, x + imageWidth - 8, y + 90, 0xFFA99D97);
 
-    // Input/output slots
+    // Input slots
     drawSlot(graphics, x + 27, y + 47);
     drawSlot(graphics, x + 76, y + 47);
-    drawSlot(graphics, x + 134, y + 47);
+
+    // Output grid (3x3)
+    for (int row = 0; row < 3; row++) {
+      for (int col = 0; col < 3; col++) {
+        drawSlot(graphics, x + 116 + col * 18, y + 29 + row * 18);
+      }
+    }
 
     // Plus and arrow separators
     graphics.fill(x + 52, y + 55, x + 65, y + 57, 0xFF6B615D);
@@ -45,11 +53,11 @@ public class CometPodestScreen extends AbstractContainerScreen<CometPodestMenu> 
     // Player inventory slot frames
     for (int row = 0; row < 3; row++) {
       for (int col = 0; col < 9; col++) {
-        drawSlot(graphics, x + 8 + col * 18, y + 84 + row * 18);
+        drawSlot(graphics, x + 8 + col * 18, y + 108 + row * 18);
       }
     }
     for (int hotbar = 0; hotbar < 9; hotbar++) {
-      drawSlot(graphics, x + 8 + hotbar * 18, y + 142);
+      drawSlot(graphics, x + 8 + hotbar * 18, y + 166);
     }
 
     // Progress bar

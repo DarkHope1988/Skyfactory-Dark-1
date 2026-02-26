@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "sfd_comets:soil_earth_clump",
+    "sfd_comets:soil_earth_block",
+    "sfd_comets:soil_wormy_earth_block",
+    "sfd_comets:soil_builder_block",
+    "sfd_comets:bio_compost_pile",
+    "sfd_comets:bio_compost_pulp",
+    "sfd_comets:soil_raw_chunk",
+    "sfd_comets:soil_packed_block"
+  ]
+}

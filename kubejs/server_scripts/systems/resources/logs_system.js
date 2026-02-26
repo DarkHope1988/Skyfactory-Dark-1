@@ -10,6 +10,6 @@ LootJS.modifiers(event => {
   // Core opener: logs become wood shavings instead of wood progression.
   event
     .addBlockLootModifier('#minecraft:logs')
-    .addLoot('sfd_comets:wood_shavings');
+    .addLoot('sfd_comets:bio_wood_shavings');
 });
 
