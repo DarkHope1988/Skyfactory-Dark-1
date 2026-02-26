@@ -214,12 +214,12 @@
 				xp: 10
 			}]
 			tasks: [{
-				count: 4L
+				count: 8L
 				id: "4B7FDC9D8804AA24"
-				item: { Count: 4, id: "minecraft:oak_planks" }
+				item: { Count: 8, id: "minecraft:oak_slab" }
 				type: "item"
 			}]
-			title: "10 | Zwischenziel: Erste Bretter"
+			title: "10 | Zwischenziel: Erste Stufen"
 			x: 19.0d
 			y: 0.0d
 		}

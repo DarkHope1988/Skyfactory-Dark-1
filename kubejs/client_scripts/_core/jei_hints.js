@@ -59,7 +59,7 @@ JEIEvents.information(event => {
     'Bark Block + Worm -> Wormy Bark',
     'Wormy Bark + Organic Rod -> Hollow Bark',
     'Hollow Bark + Wood Shavings -> Treated Hollow Bark',
-    'Treated Hollow Bark + Organic Rod -> Oak Planks'
+    'Treated Hollow Bark + Organic Rod -> Oak Slabs'
   ]);
 
   event.addItem('sfd_comets:soil_earth_block', [

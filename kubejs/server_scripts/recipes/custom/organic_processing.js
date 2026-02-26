@@ -194,19 +194,12 @@ ServerEvents.recipes(event => {
     'sfd_comets:bio_resin_fragment'
   ]).id('sfd_comets:stage0/sticks_from_resin');
 
-  // Alternative craft-focused wood path (reduces "only chop/replant" feeling).
-  event.shapeless('2x minecraft:oak_planks', [
+  // Alternative craft-focused wood path without unlocking full plank progression.
+  event.shapeless('4x minecraft:oak_slab', [
     'sfd_comets:bio_tree_bark',
     'sfd_comets:bio_tree_bark',
     'sfd_comets:bio_organic_fiber'
-  ]).id('sfd_comets:stage0/oak_planks_from_bark_fiber');
-
-  // Early building option in Stage 0.
-  event.shaped('6x minecraft:oak_slab', [
-    'PPP'
-  ], {
-    P: 'minecraft:oak_planks'
-  }).id('sfd_comets:stage0/oak_slab_early');
+  ]).id('sfd_comets:stage0/oak_slab_from_bark_fiber');
 
   // Optional resin path for treated wood conversion.
   event.shapeless('sfd_comets:bio_treated_hollow_bark_block', [
@@ -214,12 +207,12 @@ ServerEvents.recipes(event => {
     'sfd_comets:bio_resin_fragment'
   ]).id('sfd_comets:stage1/treated_hollow_bark_block');
 
-  // Workbench unlock: still 2x2 craftable, but gated behind first plank loop.
+  // Workbench unlock: uses slabs + organic rod (no early full planks/chest route).
   event.shaped('minecraft:crafting_table', [
-    'PO',
-    'PP'
+    'SO',
+    'SS'
   ], {
-    P: 'minecraft:oak_planks',
+    S: 'minecraft:oak_slab',
     O: 'sfd_comets:tool_organic_rod'
   }).id('sfd_comets:stage0/workbench_unlock');
 });

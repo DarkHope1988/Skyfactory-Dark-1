@@ -264,9 +264,9 @@ BlockEvents.rightClicked(event => {
         return;
       }
 
-      // Harvest Schritt im Podest fuer Bark-Chain.
+      // Harvest Schritt im Podest fuer Bark-Chain (slab-only early progression).
       if (stored === 'sfd_comets:bio_hollow_bark_block') {
-        if (Math.random() < 0.66) sfdPopAbove(level, block, Item.of('minecraft:oak_planks', 1));
+        if (Math.random() < 0.66) sfdPopAbove(level, block, Item.of('minecraft:oak_slab', 2));
         if (Math.random() < 0.70) sfdPopAbove(level, block, Item.of('sfd_comets:bio_tree_bark', 1));
         delete slots[key];
         global.sfdBioPodestSlots = slots;
@@ -277,7 +277,7 @@ BlockEvents.rightClicked(event => {
       }
 
       if (stored === 'sfd_comets:bio_treated_hollow_bark_block') {
-        sfdPopAbove(level, block, Item.of('minecraft:oak_planks', 1));
+        sfdPopAbove(level, block, Item.of('minecraft:oak_slab', 2));
         sfdPopAbove(level, block, Item.of('sfd_comets:bio_tree_bark', 1));
         delete slots[key];
         global.sfdBioPodestSlots = slots;
@@ -488,7 +488,7 @@ LootJS.modifiers(event => {
     .randomChance(0.60)
     .addLoot('sfd_comets:bio_worm');
 
-  // Bark progression blocks into first planks.
+  // Bark progression blocks into first slabs.
   event
     .addBlockLootModifier('sfd_comets:bio_bark_block')
     .removeLoot('sfd_comets:bio_bark_block')
@@ -498,7 +498,7 @@ LootJS.modifiers(event => {
     .addBlockLootModifier('sfd_comets:bio_wormy_bark_block')
     .removeLoot('sfd_comets:bio_wormy_bark_block')
     .randomChance(0.33)
-    .addLoot('minecraft:oak_planks');
+    .addLoot(Item.of('minecraft:oak_slab', 2));
 
   event
     .addBlockLootModifier('sfd_comets:bio_wormy_bark_block')
@@ -509,7 +509,7 @@ LootJS.modifiers(event => {
     .addBlockLootModifier('sfd_comets:bio_hollow_bark_block')
     .removeLoot('sfd_comets:bio_hollow_bark_block')
     .randomChance(0.66)
-    .addLoot('minecraft:oak_planks');
+    .addLoot(Item.of('minecraft:oak_slab', 2));
 
   event
     .addBlockLootModifier('sfd_comets:bio_hollow_bark_block')
@@ -519,7 +519,7 @@ LootJS.modifiers(event => {
   event
     .addBlockLootModifier('sfd_comets:bio_treated_hollow_bark_block')
     .removeLoot('sfd_comets:bio_treated_hollow_bark_block')
-    .addLoot('minecraft:oak_planks')
+    .addLoot(Item.of('minecraft:oak_slab', 2))
     .addLoot('sfd_comets:bio_tree_bark');
 });
 

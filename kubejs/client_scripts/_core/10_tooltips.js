@@ -69,7 +69,7 @@ ItemEvents.tooltip(event => {
   event.add('minecraft:crafting_table', [
     Text.gold('Stage-1 Trigger:'),
     Text.gray('Crafting Table craften'),
-    Text.darkGray('Baupfad: 3x Eichenbretter + 1x Organischer Stab')
+    Text.darkGray('Baupfad: 3x Eichenstufen + 1x Organischer Stab')
   ]);
 
   event.add('sfd_comets:stone_podest_base', [
